@@ -14,6 +14,7 @@ export default function Home() {
 		{
 			id: "dance-salsa-under-sky",
 			team: "天空下跳 salsa",
+			thumbnail: "/sky.png",
 			hosts: [
 				{
 					name: "蔣哥",
@@ -24,6 +25,7 @@ export default function Home() {
 		{
 			id: "taipei-bachata-vibes",
 			team: "TaipeiBachata Vibes",
+			thumbnail: "/tbv.jpg",
 			hosts: [
 				{
 					name: "Eric Chen",
@@ -38,6 +40,7 @@ export default function Home() {
 		{
 			id: "flow-taipei",
 			team: "Flow Taipei",
+			thumbnail: "/flow.png",
 			hosts: [
 				{
 					name: "Glenn",
@@ -60,6 +63,7 @@ export default function Home() {
 		{
 			id: "lasalsa-taipei",
 			team: "LaSalsa Taipei",
+			thumbnail: "/lasalsa.jpg",
 			hosts: [
 				{
 					name: "Larry",
@@ -76,6 +80,21 @@ export default function Home() {
 				{
 					name: "Maha",
 					image: "/maha.png",
+				},
+			],
+		},
+		{
+			id: "bailalo-dance-studio",
+			team: "Bailalo Dance Studio",
+			thumbnail: "/bailalo.jpeg",
+			hosts: [
+				{
+					name: "Maggie",
+					image: "/maggie.png",
+				},
+				{
+					name: "Yiwen",
+					image: "/yiwen.png",
 				},
 			],
 		},
@@ -145,7 +164,7 @@ export default function Home() {
 				<h3 class="text-center text-2xl font-bold mb-4">
 					{currentHost?.team}
 				</h3>
-				<div className="flex justify-center items-center gap-12">
+				<div className="flex justify-center items-center gap-12 mb-12">
 					{currentHost?.hosts.map((h) => (
 						<div
 							key={h.name}
@@ -162,6 +181,32 @@ export default function Home() {
 							<div className="text-xl">{h.name}</div>
 						</div>
 					))}
+				</div>
+				<h3 className="text-2xl font-bold mb-8 text-center">
+					查看其他主辦方
+				</h3>
+				<div className="flex justify-center items-center gap-12">
+					{hostData
+						.filter((h) => h.id !== currentHost?.id)
+						.map((h) => (
+							<div
+								key={h.team}
+								className="flex justify-center items-center flex-col gap-4"
+								onClick={() =>
+									(window.location.href = `http://${window.location.host}/?id=${h.id}`)
+								}
+							>
+								<Image
+									className="rounded-full w-[100px] h-[100px]"
+									src={h.thumbnail}
+									alt={h.team}
+									width={100}
+									height={100}
+									priority
+								/>
+								<div className="text-xl">{h.team}</div>
+							</div>
+						))}
 				</div>
 			</div>
 			<footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center mt-10">
