@@ -1,0 +1,89 @@
+[
+	{
+		"id": "bailalo-dance-studio",
+		"name": "Bailalo Dance Studio",
+		"thumbnail": "/bailalo.jpeg",
+		"hosts": [
+			{
+				"name": "Maggie",
+				"image": "/maggie.png"
+			},
+			{
+				"name": "Yiwen",
+				"image": "/yiwen.png"
+			}
+		]
+	},
+	{
+		"id": "dance-salsa-under-sky",
+		"name": "天空下跳 salsa",
+		"thumbnail": "/sky.png",
+		"hosts": [
+			{
+				"name": "蔣哥",
+				"image": "/cyc_chiang.png"
+			}
+		]
+	},
+	{
+		"id": "flow-taipei",
+		"name": "Flow Taipei",
+		"thumbnail": "/flow.png",
+		"hosts": [
+			{
+				"name": "Glenn",
+				"image": "/glenn.png"
+			},
+			{
+				"name": "Mandy",
+				"image": "/mandy.png"
+			},
+			{
+				"name": "Nana",
+				"image": "/nana.png"
+			},
+			{
+				"name": "Tyra",
+				"image": "/tyra.png"
+			}
+		]
+	},
+	{
+		"id": "lasalsa-taipei",
+		"name": "LaSalsa Taipei",
+		"thumbnail": "/lasalsa.jpg",
+		"hosts": [
+			{
+				"name": "Larry",
+				"image": "/larry.png"
+			},
+			{
+				"name": "Jessica",
+				"image": "/jessica.png"
+			},
+			{
+				"name": "Vivi",
+				"image": "/vivi.png"
+			},
+			{
+				"name": "Maha",
+				"image": "/maha.png"
+			}
+		]
+	},
+	{
+		"id": "taipei-bachata-vibes",
+		"name": "TaipeiBachata Vibes",
+		"thumbnail": "/tbv.jpg",
+		"hosts": [
+			{
+				"name": "Eric Chen",
+				"image": "/eric_chen.png"
+			},
+			{
+				"name": "吳天天",
+				"image": "/tian_tian.png"
+			}
+		]
+	}
+]
