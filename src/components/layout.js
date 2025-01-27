@@ -1,10 +1,14 @@
 import Footer from "./footer";
+import Navigator from "./navigator";
 
 export default function Layout({ children }) {
   return (
-    <main className="flex justify-start items-center flex-col min-h-screen px-8 py-8 container mx-auto">
-      <div className="w-full h-full">{children}</div>
+    <div className="flex justify-start items-center flex-col min-h-screen">
+      <Navigator />
+      <main className="w-full h-full flex-1 px-6 py-6 pt-24 container mx-auto">
+        {children}
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
