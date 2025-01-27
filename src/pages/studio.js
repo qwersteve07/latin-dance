@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs } from "@mantine/core";
-import studioJson from "../stuido.json";
+import studioJson from "../studio.json";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -53,9 +53,28 @@ export default function Studio() {
                 </div>
               ))}
             </div>
+            <div className="flex justify-center gap-4">
+              {Object.entries(item.link).map((i) => {
+                return <SocialLink key={i[1]} type={i[0]} link={i[1]} />;
+              })}
+            </div>
           </Tabs.Panel>
         );
       })}
     </Tabs>
+  );
+}
+
+function SocialLink({ type, link }) {
+  return (
+    <Image
+      src={`/icon-${type}.svg`}
+      width="20"
+      height="20"
+      alt={type}
+      className="cursor-pointer"
+      priority
+      onClick={() => window.open(link)}
+    />
   );
 }

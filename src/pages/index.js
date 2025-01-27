@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import studioJson from "../stuido.json";
+import studioJson from "../studio.json";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -51,7 +51,7 @@ export default function Home() {
         <p className="mb-4 text-center max-md:text-left">
           歡迎加入社交舞的世界！這是一個充滿樂趣和自我成長的環境，但初次參與可能會有些不安，或是疑惑的地方。以下是幾點你需要知道的建議，幫助你更快融入這個圈子：
         </p>
-        <ul className="list-disc mb-4">
+        <ul className="list-disc pl-4 mb-4">
           {groundRules.map((r) => (
             <li key={r.title} className="mb-2">
               <div className="text-lg font-bold">{r.title}</div>
@@ -77,19 +77,17 @@ export default function Home() {
             </h3>
             <div className="flex justify-center items-center gap-12 mb-12">
               {currentHost?.hosts.map((h) => (
-                <div
-                  key={h.name}
-                  className="flex justify-center items-center flex-col gap-4"
-                >
-                  <Image
-                    className="rounded-lg"
-                    src={h.image}
-                    alt={h.name}
-                    width={100}
-                    height={100}
-                    priority
-                  />
-                  <div className="text-xl">{h.name}</div>
+                <div key={h.name} className="text-center">
+                  <div className="flex justify-center items-center flex-col gap-4 rounded-lg relative w-[100px] h-[100px]">
+                    <Image
+                      className="rounded-lg object-contain"
+                      src={h.image}
+                      alt={h.name}
+                      fill
+                      priority
+                    />
+                  </div>
+                  <div className="text-xl mt-3">{h.name}</div>
                 </div>
               ))}
             </div>
@@ -104,15 +102,14 @@ export default function Home() {
             .map((h) => (
               <div
                 key={h.team}
-                className="flex justify-center items-center flex-col gap-4"
+                className="flex justify-center items-center flex-col gap-4 w-[100px] h-[100px] relative rounded-full border border-gray-700"
                 onClick={() => router.push(`/studio?id=${h.id}`)}
               >
                 <Image
-                  className="rounded-full w-[100px] h-[100px]"
+                  className="rounded-full object-contain"
                   src={h.thumbnail}
                   alt={h.team}
-                  width={100}
-                  height={100}
+                  fill
                   priority
                 />
                 <div className="text-xl">{h.team}</div>
