@@ -1,10 +1,10 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import listPlugin from "@fullcalendar/list";
 import dayjs from "dayjs";
 import eventsJson from "../events.json";
 import { getStaticEvents } from "@/utils/getStaticEvents";
-
-// const staticEvents =
+import { useMedia } from "react-use";
 
 export default function Calendar() {
   const flowMiniSocialList = getStaticEvents("flow mini social", 1);
@@ -22,20 +22,44 @@ export default function Calendar() {
     LasalsaSocial,
   ];
   const eventsData = eventsJson.concat(...staticEvents);
+  const isMobile = useMedia("(max-width: 768px)");
+
   return (
-    <div>
-      <FullCalendar
-        plugins={[dayGridPlugin]}
-        initialView="dayGridMonth"
-        defaultAllDay
-        events={eventsData.map((e) => ({
-          ...e,
-          start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
-          content: "hello",
-        }))}
-        eventContent={renderEventContent}
-      />
-    </div>
+    <>
+      {isMobile && <MobileCalendar data={eventsData} />}
+      {!isMobile && <DesktopCalendar data={eventsData} />}
+    </>
+  );
+}
+
+function MobileCalendar({ data }) {
+  return (
+    <FullCalendar
+      height="auto"
+      plugins={[listPlugin]}
+      initialView="listMonth"
+      defaultAllDay
+      events={data.map((e) => ({
+        ...e,
+        start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
+      }))}
+      eventContent={renderEventContent}
+    />
+  );
+}
+
+function DesktopCalendar({ data }) {
+  return (
+    <FullCalendar
+      plugins={[dayGridPlugin]}
+      initialView="dayGridMonth"
+      defaultAllDay
+      events={data.map((e) => ({
+        ...e,
+        start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
+      }))}
+      eventContent={renderEventContent}
+    />
   );
 }
 
