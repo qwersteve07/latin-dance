@@ -1,10 +1,9 @@
-"use client";
-
 import { useSearchParams } from "next/navigation";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import studioJson from "../studio.json";
+import hostJson from "../hosts.json";
+import HostImage from "@/components/hostImage";
+import MemberImage from "@/components/memberImage";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -38,17 +37,15 @@ export default function Home() {
 
   useEffect(() => {
     if (!id) return;
-    const result = studioJson.find((d) => d.id === id);
+    const result = hostJson.find((d) => d.id === id);
     setCurrentHost(() => result);
   }, [id]);
 
   return (
     <div className="flex justify-between items-center flex-col justify-items-center min-h-screen container mx-auto">
       <div>
-        <h1 className="text-3xl font-bold mb-6 text-center">
-          新手須知 & 舞會守則
-        </h1>
-        <p className="mb-4 text-center max-md:text-left">
+        <h1 className="text-3xl font-bold mb-5">新手須知 & 舞會守則</h1>
+        <p className="mb-4 ">
           歡迎加入社交舞的世界！這是一個充滿樂趣和自我成長的環境，但初次參與可能會有些不安，或是疑惑的地方。以下是幾點你需要知道的建議，幫助你更快融入這個圈子：
         </p>
         <ul className="list-disc pl-4 mb-4">
@@ -72,21 +69,13 @@ export default function Home() {
             <p className="mb-10 text-center max-md:text-left">
               以下為本活動的主辦方，以及相關成員，若在舞池中遇到問題，或是課程想了解，不用擔心直接詢問，所有主辦方都是非常友善的！
             </p>
-            <h3 class="text-center text-2xl font-bold mb-4">
+            <h3 className="text-center text-2xl font-bold mb-4">
               {currentHost?.name}
             </h3>
-            <div className="flex justify-center items-center gap-12 mb-12">
-              {currentHost?.hosts.map((h) => (
+            <div className="flex justify-center items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
+              {currentHost?.member.map((h) => (
                 <div key={h.name} className="text-center">
-                  <div className="flex justify-center items-center flex-col gap-4 rounded-lg relative w-[100px] h-[100px]">
-                    <Image
-                      className="rounded-lg object-contain"
-                      src={h.image}
-                      alt={h.name}
-                      fill
-                      priority
-                    />
-                  </div>
+                  <MemberImage src={h.image} alt={h.name} />
                   <div className="text-xl mt-3">{h.name}</div>
                 </div>
               ))}
@@ -97,21 +86,15 @@ export default function Home() {
           {currentHost ? "查看其他活動單位" : "查看活動單位"}
         </h3>
         <div className="flex justify-center items-center gap-12 flex-wrap">
-          {studioJson
+          {hostJson
             .filter((h) => h.id !== currentHost?.id)
             .map((h) => (
               <div
                 key={h.team}
-                className="flex justify-center items-center flex-col gap-4 w-[100px] h-[100px] relative rounded-full border border-gray-700"
-                onClick={() => router.push(`/studio?id=${h.id}`)}
+                className="flex justify-center items-center flex-col gap-4"
+                onClick={() => router.push(`/hosts?id=${h.id}`)}
               >
-                <Image
-                  className="rounded-full object-contain"
-                  src={h.thumbnail}
-                  alt={h.team}
-                  fill
-                  priority
-                />
+                <HostImage src={h.thumbnail} alt={h.team} />
                 <div className="text-xl">{h.team}</div>
               </div>
             ))}
