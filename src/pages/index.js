@@ -85,16 +85,16 @@ export default function Home() {
         <h3 className="text-2xl font-bold mb-8 text-center">
           {currentHost ? "查看其他活動單位" : "查看活動單位"}
         </h3>
-        <div className="flex justify-center items-center gap-12 flex-wrap">
+        <div className="flex justify-center items-center gap-x-6 gap-y-2 flex-wrap">
           {hostJson
             .filter((h) => h.id !== currentHost?.id)
             .map((h) => (
               <div
-                key={h.team}
+                key={h.name}
                 className="flex justify-center items-center flex-col gap-4"
                 onClick={() => router.push(`/hosts?id=${h.id}`)}
               >
-                <HostImage src={h.thumbnail} alt={h.team} />
+                <HostImage src={h.thumbnail} alt={h.name} />
                 <div className="text-xl">{h.team}</div>
               </div>
             ))}
