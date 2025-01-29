@@ -2,73 +2,112 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
 import dayjs from "dayjs";
-import eventsJson from "../events.json";
-import { getStaticEvents } from "@/utils/getStaticEvents";
 import { useMedia } from "react-use";
+import { useDisclosure } from "@mantine/hooks";
+import { Modal } from "@mantine/core";
+import { useState } from "react";
+import useSWR from "swr";
+import { fetcher } from "@/utils/fetcher";
 
 export default function Calendar() {
-  const flowMiniSocialList = getStaticEvents("flow mini social", 1);
-  const BrassMonkeyList = getStaticEvents("Brass Monkey", 2);
-  const BarcadeList = getStaticEvents("Barcade ", 4);
-  const FlowSocial = getStaticEvents("Flow Social Party ", 5);
-  const CopaSocial = getStaticEvents("Copa Social Party", 5);
-  const LasalsaSocial = getStaticEvents("Lasalsa Social Party", 6);
-  const staticEvents = [
-    flowMiniSocialList,
-    BrassMonkeyList,
-    BarcadeList,
-    FlowSocial,
-    CopaSocial,
-    LasalsaSocial,
-  ];
-  const eventsData = eventsJson.concat(...staticEvents);
+  const [opened, { open, close }] = useDisclosure(false);
+  const [selectEvent, setSelectEvent] = useState({});
+  const { data, error, isLoading } = useSWR("/latin-dance/events", fetcher);
+
   const isMobile = useMedia("(max-width: 768px)");
+
+  function render(eventInfo) {
+    const locateColor = () => {
+      switch (eventInfo.event.extendedProps.host) {
+        case "Flow Taipei":
+          return "bg-flow-bg text-flow-text";
+        case "Bailalo Dance Studio":
+          return "bg-bailalo-bg text-bailalo-text";
+        case "La Salsa Taipei":
+          return "bg-lasalsa-bg text-lasalsa-text";
+        case "Copa Taiwan":
+          return "bg-copa-bg text-copa-text";
+        case "Bachata Taiwan":
+          return "bg-barcade-bg text-barcade-text";
+        case "Brass Monkey":
+          return "bg-brass-monkey-bg text-brass-monkey-text";
+        default:
+          return "";
+      }
+    };
+    return (
+      <div
+        className={`cursor-pointer overflow-auto ${locateColor()}`}
+        onClick={() => {
+          setSelectEvent({
+            ...eventInfo.event.extendedProps,
+            title: eventInfo.event.title,
+          });
+          open();
+        }}
+      >
+        <b>{eventInfo.event.title}</b>
+      </div>
+    );
+  }
+
+  if (error) return <div>failed to load</div>;
+
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
 
   return (
     <>
-      {isMobile && <MobileCalendar data={eventsData} />}
-      {!isMobile && <DesktopCalendar data={eventsData} />}
+      <EventModal opened={opened} onClose={close} data={selectEvent} />
+      {isMobile && <MobileCalendar data={data.result} render={render} />}
+      {!isMobile && <DesktopCalendar data={data.result} render={render} />}
     </>
   );
 }
 
-function MobileCalendar({ data }) {
+function EventModal({ opened, onClose, data }) {
+  return (
+    <Modal
+      opened={opened}
+      onClose={onClose}
+      title={<b>{data.title}</b>}
+      centered
+    >
+      <div>主辦：{data.host}</div>
+      <div>地點：{data.locate}</div>
+      <div>費用：{data.fee}</div>
+      <div>比例：{data.rate}</div>
+    </Modal>
+  );
+}
+
+function MobileCalendar({ data, render }) {
   return (
     <FullCalendar
       height="auto"
       plugins={[listPlugin]}
       initialView="listMonth"
-      defaultAllDay
       events={data.map((e) => ({
         ...e,
         start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
       }))}
-      eventContent={renderEventContent}
+      eventContent={render}
     />
   );
 }
 
-function DesktopCalendar({ data }) {
+function DesktopCalendar({ data, render }) {
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
       initialView="dayGridMonth"
-      defaultAllDay
+      format={{}}
       events={data.map((e) => ({
         ...e,
         start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
       }))}
-      eventContent={renderEventContent}
+      eventContent={render}
     />
-  );
-}
-
-// a custom render function
-function renderEventContent(eventInfo) {
-  return (
-    <div onClick={() => console.log(eventInfo)}>
-      <b>{eventInfo.timeText}</b>
-      <i>{eventInfo.event.title}</i>
-    </div>
   );
 }
