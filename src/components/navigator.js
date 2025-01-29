@@ -13,7 +13,9 @@ export default function Navigator() {
   return (
     <nav className="bg-white fixed top-0 z-10  border-b border-b-gray-300 w-full">
       <div className="flex justify-between items-center h-16 container mx-auto px-6">
-        <div className="text-2xl">💃🕺</div>
+        <div className="text-2xl">
+          <Link href="/">💃🕺</Link>
+        </div>
         <div className="flex justify-between items-center">
           {routes.map((r) => {
             return router.pathname === r.id ? (
@@ -24,7 +26,7 @@ export default function Navigator() {
               <Link
                 href={r.id}
                 key={r.id}
-                className="mx-3 py-1 hover:text-blue-500"
+                className="mx-3 py-1 hover:text-blue-500 transition-color duration-200"
               >
                 {r.name}
               </Link>
