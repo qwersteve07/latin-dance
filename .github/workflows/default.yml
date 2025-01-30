@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: test
-        run: ls -al
+        run: npm install
 
       # - name: Set up SSH key
       #   run: |
