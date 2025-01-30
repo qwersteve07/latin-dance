@@ -87,6 +87,11 @@ function MobileCalendar({ data, render }) {
     <FullCalendar
       height="auto"
       plugins={[listPlugin]}
+      validRange={(nowDate) => {
+        return {
+          start: nowDate,
+        };
+      }}
       initialView="listMonth"
       events={data.map((e) => ({
         ...e,
@@ -101,8 +106,12 @@ function DesktopCalendar({ data, render }) {
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
+      validRange={(nowDate) => {
+        return {
+          start: nowDate,
+        };
+      }}
       initialView="dayGridMonth"
-      format={{}}
       events={data.map((e) => ({
         ...e,
         start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
