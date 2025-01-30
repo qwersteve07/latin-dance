@@ -21,6 +21,10 @@ jobs:
       - name: build files
         run: npm install && npm run build
 
+      - name: SSH into Server and Create Folder
+        run: |
+          ssh  ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} "mkdir -p /root/latin-dance/.next"
+
       - name: sync files
         run: rsync -avhzr .next/. ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:/root/latin-dance/.next
 
