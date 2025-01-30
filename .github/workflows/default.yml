@@ -11,22 +11,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: install files
-        run: npm install && npm run build && ls -al
+      - uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # - name: Set up SSH key
-      #   run: |
-      #     mkdir -p ~/.ssh
-      #     echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-      #     chmod 600 ~/.ssh/id_rsa
-      #     ssh-keyscan -H ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
+      - name: Set up SSH key
+        run: ssh-keyscan -H ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
 
-      # - name: Deploy to Droplet
-      #   run: |
-      #     ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} << 'EOF'
-      #       cd /latin-dance
-      #       git pull
-      #       pnpm install
-      #       npm run build  # Build project (if applicable)
-      #       pm2 restart your-app  # Restart app (if using PM2)
-      #     EOF
+      - name: build files
+        run: npm install && npm run build
+
+      - name: sync files
+        run: rsync -avhzr -e 'ssh ./next/ ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:/root/latin-dance/
+
+      - name: run service
+        run: ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} << pm2 restart 0
