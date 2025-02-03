@@ -20,7 +20,7 @@ export default function Calendar() {
     const locateColor = () => {
       switch (eventInfo.event.extendedProps.host) {
         case "Flow Taipei":
-          return "bg-flow-bg text-flow-text";
+          return "hover:bg-flow-bg hover:text-flow-text";
         case "Bailalo Dance Studio":
           return "bg-bailalo-bg text-bailalo-text";
         case "La Salsa Taipei":
@@ -37,7 +37,7 @@ export default function Calendar() {
     };
     return (
       <div
-        className={`cursor-pointer overflow-auto ${locateColor()}`}
+        className={`cursor-pointer md:truncate`}
         onClick={() => {
           setSelectEvent({
             ...eventInfo.event.extendedProps,
@@ -76,6 +76,7 @@ function EventModal({ opened, onClose, data }) {
     >
       <div>主辦：{data.host}</div>
       <div>地點：{data.locate}</div>
+      <div>時間：{data.startAt} - {data.endAt}</div>
       <div>費用：{data.fee}</div>
       <div>比例：{data.rate}</div>
     </Modal>
@@ -95,7 +96,7 @@ function MobileCalendar({ data, render }) {
       initialView="listMonth"
       events={data.map((e) => ({
         ...e,
-        start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
+        start: dayjs(e.start).format("YYYY-MM-DDTHH:mm:ss"),
       }))}
       eventContent={render}
     />
@@ -111,7 +112,7 @@ function DesktopCalendar({ data, render }) {
           start: nowDate,
         };
       }}
-      initialView="dayGridMonth"
+      initialView="dayGridMonth"    
       events={data.map((e) => ({
         ...e,
         start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
