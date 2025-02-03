@@ -5,16 +5,20 @@ import Layout from "@/components/layout";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <title>台北拉丁舞指南</title>
-      </Head>
-      <MantineProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </MantineProvider>
-    </>
-  );
+	return (
+		<>
+			<Head>
+				<title>台北拉丁舞指南</title>
+				<link
+					rel="icon"
+					href="/favicon.png"
+				/>
+			</Head>
+			<MantineProvider>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</MantineProvider>
+		</>
+	);
 }
