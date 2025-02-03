@@ -56,13 +56,34 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <p className="mb-12">
+        <p className="mb-8">
           違反上述規定，勸告未果且情節嚴重者，將
           「終止舞會權利，請求離場」，並公告於其他台北地區舞會主辦單位
           。若在舞池中遇到騷擾、不恰當的行為，
           <b>可直接向主辦方以及現場工作人員反應</b>
           ，也請關注身邊的友人，留心可疑人士及自身財物狀況。
         </p>
+		<h2 className="text-2xl font-bold mb-4">推薦閱讀</h2>
+		<ul className="list-disc pl-2 mb-12 text-blue-500 font-bold">
+			<li className="py-1">
+				<a
+					href="https://latiifahtsai.medium.com/跳bachata被吃豆腐-舞會中性騷擾的法律責任-所有雙人舞是用-acae7620bf26"
+					className="relative before-content-['] before:w-full before:h-3 before:absolute before:-bottom-1 before:bg-blue-100 before:z-[-1] before:scale-x-0 before:hover:scale-x-[1] before:origin-left before:transition-all before:duration-300"
+					target="_blank"
+				>
+					跳bachata被吃豆腐-舞會中性騷擾的法律責任
+				</a>
+			</li>
+			<li className="py-1">
+				<a
+					href="https://latiifahtsai.medium.com/sensual-bachata保持適當身體界限的11條基本原則-efe494d3adbd"
+					className="relative before-content-['] before:w-full before:h-3 before:absolute before:-bottom-1 before:bg-blue-100 before:z-[-1] before:scale-x-0 before:hover:scale-x-[1] before:origin-left before:transition-all before:duration-300"
+					target="_blank"
+				>
+					Sensual Bachata保持適當身體界限的11條基本原則
+				</a>
+			</li>
+		</ul>
         {currentHost && (
           <>
             <h2 className="text-3xl font-bold mb-6 text-center">主辦單位</h2>
