@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const routes = [
-  { id: "/", name: "舞會守則" },
+  { id: "/rules", name: "舞會守則" },
   { id: "/hosts", name: "活動單位" },
   { id: "/calendar", name: "活動指南" },
 ];
