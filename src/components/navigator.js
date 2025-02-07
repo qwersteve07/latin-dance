@@ -12,12 +12,12 @@ export default function Navigator() {
 
   return (
     <nav className="bg-white fixed top-0 z-10  border-b border-b-gray-300 w-full">
-      <div className="flex justify-between items-center h-16 container mx-auto px-6">
+      <div className="flex justify-between items-center h-16 container mx-auto px-6 max-w-6xl">
         <div className="text-2xl">
           <Link href="/">💃🕺</Link>
         </div>
         <div className="flex justify-between items-center">
-          {routes.map((r) => {
+          {routes.map(r => {
             return router.pathname === r.id ? (
               <div key={r.id} className="mx-3 py-1 font-bold text-blue-500">
                 {r.name}
