@@ -1,18 +1,33 @@
-import useSWR from 'swr';
-import { fetcher } from '@/utils/fetcher';
-import { useEffect, useState } from 'react';
-import dayjs from 'dayjs';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import { Button } from '@mantine/core';
-import { useRouter } from 'next/router';
+import useSWR from "swr";
+import { fetcher } from "@/utils/fetcher";
+import { useEffect, useState } from "react";
+import { Button, Modal } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import dayjs from "dayjs";
+import { InstagramEmbed } from "react-social-media-embed";
+import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
+import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
+import { useRouter } from "next/router";
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 
 export default function Home() {
+  const [opened, { open, close }] = useDisclosure(false);
+  const [selectEvent, setSelectEvent] = useState({});
   const [currentWeekData, setCurrentWeekData] = useState([]);
-  const { data, error, isLoading } = useSWR('/latin-dance/events', fetcher);
+  const { data, error, isLoading } = useSWR("/latin-dance/events", fetcher);
   const router = useRouter();
+
+  const vlogIGList = [
+    {
+      name: "NINJA VIDEOZZ TAIWAN",
+      url: "https://www.instagram.com/ninjavideozz.taiwan/",
+    },
+    {
+      name: "Social Dance Vlog",
+      url: "https://www.instagram.com/socialdancevlog/",
+    },
+  ];
 
   useEffect(() => {
     console.log(data);
@@ -21,13 +36,13 @@ export default function Home() {
     setCurrentWeekData(() => {
       const events = data.result.filter(d => {
         return (
-          dayjs(d.start).isSameOrBefore(dayjs().add(7, 'd')) &&
+          dayjs(d.start).isSameOrBefore(dayjs().add(7, "d")) &&
           dayjs(d.start).isSameOrAfter(dayjs())
         );
       });
 
       const groupEvents = Object.groupBy(events, ({ start }) => {
-        return dayjs(start).format('dddd');
+        return dayjs(start).format("dddd");
       });
 
       const sortEvents = Object.entries(groupEvents).sort((a, b) => {
@@ -42,40 +57,22 @@ export default function Home() {
     });
   }, [data]);
 
-  function render(eventInfo) {
-    const locateColor = () => {
-      switch (eventInfo.event.extendedProps.host) {
-        case 'Flow Taipei':
-          return 'hover:bg-flow-bg hover:text-flow-text';
-        case 'Bailalo Dance Studio':
-          return 'bg-bailalo-bg text-bailalo-text';
-        case 'La Salsa Taipei':
-          return 'bg-lasalsa-bg text-lasalsa-text';
-        case 'Copa Taiwan':
-          return 'bg-copa-bg text-copa-text';
-        case 'Bachata Taiwan':
-          return 'bg-barcade-bg text-barcade-text';
-        case 'Brass Monkey':
-          return 'bg-brass-monkey-bg text-brass-monkey-text';
-        default:
-          return '';
-      }
-    };
-
+  function EventModal({ opened, onClose, data }) {
     return (
-      <div
-        className={`cursor-pointer md:truncate`}
-        onClick={() => {
-          setSelectEvent({
-            ...eventInfo.event.extendedProps,
-            title: eventInfo.event.title,
-          });
-          open();
-        }}
+      <Modal
+        opened={opened}
+        onClose={onClose}
+        title={<b>{data.title}</b>}
+        centered
       >
-        <b>{eventInfo.event.title}</b>
-        <b>{eventInfo.event.title}</b>
-      </div>
+        <div>主辦：{data.host}</div>
+        <div>地點：{data.locate}</div>
+        <div>
+          時間：{data.startAt} - {data.endAt}
+        </div>
+        <div>費用：{data.fee}</div>
+        <div>比例：{data.rate}</div>
+      </Modal>
     );
   }
 
@@ -87,28 +84,76 @@ export default function Home() {
 
   return (
     <div>
-      <h1 className="text-center text-4xl font-bold mb-10">台北拉丁舞指南</h1>
-      <p className="text-center text-2xl font-bold mb-8">Up Coming Events</p>
-      <ul className="flex justify-center items-start">
-        {currentWeekData.map(([weekday, events]) => (
-          <li key={weekday} className="flex flex-col flex-[1]">
-            <div className="font-bold flex justify-between items-center flex-[1] border-b p-4 border-r">
-              <span>{weekday.substring(0, 3)}</span>
-              <span>{dayjs(events[0].start).format('MM/DD')}</span>
-            </div>
-            <div className="p-4 border-r h-full">
-              {events.map(e => {
-                return <div key={e.title}>{e.title}</div>;
-              })}
-            </div>
-          </li>
-        ))}
-      </ul>
-      <div className="text-center my-8">
-        <Button variant="outline" onClick={() => router.push('/calendar')}>
-          查看更多未來活動
-        </Button>
-      </div>
+      <EventModal opened={opened} onClose={close} data={selectEvent} />
+      <section>
+        <div className="mt-6 mb-20">
+          <h1 className="text-center text-5xl font-bold mb-6">
+            台北拉丁舞指南
+          </h1>
+          <p className="text-center text-xl">Let's dance!</p>
+        </div>
+        <h3 className="text-center text-2xl font-bold mb-12">
+          Up Coming Events
+        </h3>
+        <ul className="flex justify-center items-start gap-5 w-full">
+          {currentWeekData.map(([weekday, events]) => (
+            <li key={weekday} className="flex flex-col flex-[1]">
+              <div className="font-bold flex justify-between items-center mb-4 gap-4">
+                <span>{dayjs(events[0].start).format("MM/DD")}</span>
+                <span
+                  className={
+                    weekday === "Saturday" || weekday === "Sunday"
+                      ? "text-red-500"
+                      : "text-black"
+                  }
+                >
+                  {weekday.substring(0, 3)}
+                </span>
+              </div>
+              <div className="h-full">
+                {events.map(e => {
+                  return (
+                    <div
+                      key={e.title}
+                      className={`cursor-pointer p-2 rounded-xl border mb-2 hover:bg-gray-50`}
+                      onClick={() => {
+                        setSelectEvent({
+                          ...e,
+                          title: e.title,
+                        });
+                        open();
+                      }}
+                    >
+                      {e.title}
+                    </div>
+                  );
+                })}
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div className="text-center my-8">
+          <Button variant="outline" onClick={() => router.push("/calendar")}>
+            查看更多未來活動
+          </Button>
+        </div>
+      </section>
+      <hr className="w-20 mx-auto my-16" />
+      <section>
+        <h3 className="text-center text-2xl font-bold mb-8">精彩活動花絮</h3>
+        <div className="flex justify-center items-center gap-4">
+          {vlogIGList.map(item => {
+            return (
+              <div key={item.name}>
+                <div className="text-center mb-4 font-bold text-xl">
+                  {item.name}
+                </div>
+                <InstagramEmbed url={item.url} width={328} />
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }
