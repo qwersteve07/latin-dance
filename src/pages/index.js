@@ -86,18 +86,19 @@ export default function Home() {
     <div>
       <EventModal opened={opened} onClose={close} data={selectEvent} />
       <section>
-        <div className="mt-6 mb-20">
-          <h1 className="text-center text-5xl font-bold mb-6">
-            台北拉丁舞指南
+        <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-10">
+          <h1 className="text-center text-5xl font-bold mb-6 max-md:text-4xl max-md:mb-3">
+            <div class="mb-6">💃🕺</div>
+            <div>台北拉丁舞指南</div>
           </h1>
           <p className="text-center text-xl">Let's dance!</p>
         </div>
-        <h3 className="text-center text-2xl font-bold mb-12">
+        <h3 className="text-center text-2xl font-bold mb-12 max-md:mb-8">
           Up Coming Events
         </h3>
-        <ul className="flex justify-center items-start gap-5 w-full">
+        <ul className="flex justify-center items-start gap-5 w-full max-md:flex-col">
           {currentWeekData.map(([weekday, events]) => (
-            <li key={weekday} className="flex flex-col flex-[1]">
+            <li key={weekday} className="flex flex-col flex-[1] max-md:w-full">
               <div className="font-bold flex justify-between items-center mb-4 gap-4">
                 <span>{dayjs(events[0].start).format("MM/DD")}</span>
                 <span
@@ -141,7 +142,7 @@ export default function Home() {
       <hr className="w-20 mx-auto my-16" />
       <section>
         <h3 className="text-center text-2xl font-bold mb-8">精彩活動花絮</h3>
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex justify-center items-center gap-4 max-md:flex-col">
           {vlogIGList.map(item => {
             return (
               <div key={item.name}>

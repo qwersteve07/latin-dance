@@ -49,7 +49,7 @@ export default function Hosts() {
 
 function MobileStudios() {
   return (
-    <div className="max-md:-mx-6 h-[600px]">
+    <div className="max-md:-mx-6 ">
       <Swiper
         className="h-full"
         modules={[Navigation, Pagination]}
@@ -57,12 +57,12 @@ function MobileStudios() {
         navigation
         pagination
         onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSwiper={swiper => console.log(swiper)}
       >
-        {hostJson.map((item) => {
+        {hostJson.map(item => {
           return (
             <SwiperSlide key={item.id}>
-              <div className="rounded-lg shadow-xl px-4 py-8 flex justify-start items-center flex-col mx-6 h-[550px]">
+              <div className="rounded-lg px-4 py-8 flex justify-start items-center flex-col mx-6 ">
                 <HostContent item={item} />
               </div>
             </SwiperSlide>
@@ -82,7 +82,7 @@ function DesktopStudios({ activeTab, setActiveTab }) {
       className="flex-1"
     >
       <Tabs.List>
-        {hostJson.map((item) => {
+        {hostJson.map(item => {
           return (
             <Tabs.Tab value={item.id} key={item.id}>
               {item.name}
@@ -90,7 +90,7 @@ function DesktopStudios({ activeTab, setActiveTab }) {
           );
         })}
       </Tabs.List>
-      {hostJson.map((item) => {
+      {hostJson.map(item => {
         return (
           <Tabs.Panel
             value={item.id}
@@ -111,8 +111,16 @@ function HostContent({ item }) {
       <div className="flex justify-between items-center flex-col">
         <HostImage src={item.thumbnail} alt={item.name} />
         <div className="font-bold text-xl mt-4 mb-8">{item.name}</div>
+        <div class="mb-8 mx-10 max-md:mx-0">
+          {item.intro?.split("\n").map(x => (
+            <p key={x} class="mb-2">
+              {x}
+              <br />
+            </p>
+          ))}
+        </div>
         <div className="flex justify-center items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
-          {item.member.map((h) => (
+          {item.member.map(h => (
             <div
               key={h.name}
               className="flex justify-center items-center flex-col gap-2"
@@ -124,7 +132,7 @@ function HostContent({ item }) {
         </div>
       </div>
       <div className="flex justify-center gap-4">
-        {Object.entries(item.link).map((i) => {
+        {Object.entries(item.link).map(i => {
           return <SocialLink key={i[1]} type={i[0]} link={i[1]} />;
         })}
       </div>

@@ -37,20 +37,26 @@ export default function Rules() {
 
   const recommendList = [
     {
-      title: '跳bachata被吃豆腐-舞會中性騷擾的法律責任',
-      link: 'https://latiifahtsai.medium.com/跳bachata被吃豆腐-舞會中性騷擾的法律責任-所有雙人舞是用-acae7620bf26'
-    },{
-      title: 'Sensual Bachata保持適當身體界限的11條基本原則',
-      link: 'https://latiifahtsai.medium.com/sensual-bachata保持適當身體界限的11條基本原則-efe494d3adbd'
-    },{
-      title: '不要教不是你的學生的人',  
-      link: 'https://flowtaipei.com/%e7%a4%be%e4%ba%a4%e8%88%9e%e8%b9%88%e9%a0%98%e8%a2%96%e6%8f%90%e7%a4%ba1-%e4%b8%8d%e8%a6%81%e6%95%99%e4%b8%8d%e6%98%af%e4%bd%a0%e7%9a%84%e5%ad%b8%e7%94%9f%e7%9a%84%e4%ba%ba/'
-    }
-  ]
+      title: "舞會禮儀知多少？",
+      link: "https://www.instagram.com/p/DF8SdNGTvBq/?igsh=MTZkZzJkNmg0N3QyYg%3D%3D",
+    },
+    {
+      title: "跳bachata被吃豆腐-舞會中性騷擾的法律責任",
+      link: "https://latiifahtsai.medium.com/跳bachata被吃豆腐-舞會中性騷擾的法律責任-所有雙人舞是用-acae7620bf26",
+    },
+    {
+      title: "Sensual Bachata保持適當身體界限的11條基本原則",
+      link: "https://latiifahtsai.medium.com/sensual-bachata保持適當身體界限的11條基本原則-efe494d3adbd",
+    },
+    {
+      title: "不要教不是你的學生的人",
+      link: "https://flowtaipei.com/%e7%a4%be%e4%ba%a4%e8%88%9e%e8%b9%88%e9%a0%98%e8%a2%96%e6%8f%90%e7%a4%ba1-%e4%b8%8d%e8%a6%81%e6%95%99%e4%b8%8d%e6%98%af%e4%bd%a0%e7%9a%84%e5%ad%b8%e7%94%9f%e7%9a%84%e4%ba%ba/",
+    },
+  ];
 
   useEffect(() => {
     if (!id) return;
-    const result = hostJson.find((d) => d.id === id);
+    const result = hostJson.find(d => d.id === id);
     setCurrentHost(() => result);
   }, [id]);
 
@@ -62,7 +68,7 @@ export default function Rules() {
           歡迎加入社交舞的世界！這是一個充滿樂趣和自我成長的環境，但初次參與可能會有些不安，或是疑惑的地方。以下是幾點你需要知道的建議，幫助你更快融入這個圈子：
         </p>
         <ul className="list-disc pl-4 mb-4">
-          {groundRules.map((r) => (
+          {groundRules.map(r => (
             <li key={r.title} className="mb-2">
               <div className="text-lg font-bold">{r.title}</div>
               <div>{r.desc}</div>
@@ -76,22 +82,22 @@ export default function Rules() {
           <b>可直接向主辦方以及現場工作人員反應</b>
           ，也請關注身邊的友人，留心可疑人士及自身財物狀況。
         </p>
-		<h2 className="text-2xl font-bold mb-4">推薦閱讀</h2>
-		<ul className="list-disc pl-2 mb-12 text-blue-500 font-bold">
-    {recommendList.map(item=>{
-        return (
-          <li className="py-1" key={item.title}>
-            <a
-              href={item.link}
-              className="relative before-content-['] before:w-full before:h-3 before:absolute before:-bottom-1 before:bg-blue-100 before:z-[-1] before:scale-x-0 before:hover:scale-x-[1] before:origin-left before:transition-all before:duration-300"
-              target="_blank"
-            >
-              {item.title}
-            </a>
-			    </li>
-        )
-      })}
-		</ul>
+        <h2 className="text-2xl font-bold mb-4">推薦閱讀</h2>
+        <ul className="list-disc pl-4 mb-12 text-blue-500 font-bold">
+          {recommendList.map(item => {
+            return (
+              <li className="py-1" key={item.title}>
+                <a
+                  href={item.link}
+                  className="relative before-content-['] before:w-full before:h-3 before:absolute before:-bottom-1 before:bg-blue-100 before:z-[-1] before:scale-x-0 before:hover:scale-x-[1] before:origin-left before:transition-all before:duration-300"
+                  target="_blank"
+                >
+                  {item.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
         {currentHost && (
           <>
             <h2 className="text-3xl font-bold mb-6 text-center">主辦單位</h2>
@@ -102,7 +108,7 @@ export default function Rules() {
               {currentHost?.name}
             </h3>
             <div className="flex justify-center items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
-              {currentHost?.member.map((h) => (
+              {currentHost?.member.map(h => (
                 <div key={h.name} className="text-center">
                   <MemberImage src={h.image} alt={h.name} />
                   <div className="text-xl mt-3">{h.name}</div>
@@ -116,8 +122,8 @@ export default function Rules() {
         </h3>
         <div className="flex justify-center items-center gap-x-6 gap-y-2 flex-wrap">
           {hostJson
-            .filter((h) => h.id !== currentHost?.id)
-            .map((h) => (
+            .filter(h => h.id !== currentHost?.id)
+            .map(h => (
               <div
                 key={h.name}
                 className="flex justify-center items-center flex-col gap-4"
