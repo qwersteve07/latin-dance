@@ -28,7 +28,9 @@
     "intro": "Life is Simple\nDance and Keep it Real\n不只是生活，更要享受快樂",
     "link": {
       "facebook": "https://www.facebook.com/bachatataiwan/",
-      "instagram": "https://www.instagram.com/bachatataiwan/"
+      "instagram": "https://www.instagram.com/bachatataiwan/",
+      "website": "",
+      "location": ""
     },
     "member": [
       {
@@ -44,7 +46,9 @@
     "intro": "Copa Taiwan的宗旨是在台灣各地推廣音樂與舞蹈所表達的喜樂, 透過舞會,教學,網路廣播,表演等多元的方式, 讓更多人知道Salsa的精神!",
     "link": {
       "facebook": "https://www.facebook.com/CopaTaiwanSalsaSeries/",
-      "instagram": "https://www.instagram.com/copataiwan_salsaparty/"
+      "instagram": "https://www.instagram.com/copataiwan_salsaparty/",
+      "website": "",
+      "location": ""
     },
     "member": [
       {
@@ -92,6 +96,7 @@
     "link": {
       "facebook": "https://www.facebook.com/LaSalsaTaipei/",
       "instagram": "https://www.instagram.com/la_salsa_taipei/",
+      "website": "",
       "location": "https://maps.app.goo.gl/qunZybuZXmnshA367"
     },
     "member": [
@@ -117,9 +122,12 @@
     "id": "taipei-bachata-vibes",
     "name": "TaipeiBachata Vibes",
     "thumbnail": "/tbv.jpg",
+    "intro": "",
     "link": {
       "facebook": "https://www.facebook.com/LaSalsaTaipei/",
-      "instagram": "https://www.instagram.com/taipeibachata_vibes/"
+      "instagram": "https://www.instagram.com/taipeibachata_vibes/",
+      "website": "",
+      "location": ""
     },
     "member": [
       {
@@ -138,7 +146,10 @@
     "thumbnail": "/sky.png",
     "intro": "本社團的宗旨很簡單，就是希望多舉辦在戶外的Salsa party。\n讓舞者伴著陽光、星空、微風、沙灘、草地.................在大自然下.自在隨意的舞動。\n也歡迎要辦戶外Salsa活動的朋友一起藉由這社團.豐富臺灣的Salsa圈。",
     "link": {
-      "facebook": "https://www.facebook.com/groups/1787977234751823"
+      "facebook": "https://www.facebook.com/groups/1787977234751823",
+      "instagram": "",
+      "website": "",
+      "location": ""
     },
     "member": [
       {

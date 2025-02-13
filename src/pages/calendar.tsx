@@ -8,33 +8,17 @@ import { Modal } from "@mantine/core";
 import { useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
+import { Event } from "@/types/event";
 
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectEvent, setSelectEvent] = useState({});
+  const [selectEvent, setSelectEvent] = useState<Partial<Event>>({});
   const { data, error, isLoading } = useSWR("/latin-dance/events", fetcher);
 
   const isMobile = useMedia("(max-width: 768px)");
 
-  function render(eventInfo) {
-    const locateColor = () => {
-      switch (eventInfo.event.extendedProps.host) {
-        case "Flow Taipei":
-          return "hover:bg-flow-bg hover:text-flow-text";
-        case "Bailalo Dance Studio":
-          return "bg-bailalo-bg text-bailalo-text";
-        case "La Salsa Taipei":
-          return "bg-lasalsa-bg text-lasalsa-text";
-        case "Copa Taiwan":
-          return "bg-copa-bg text-copa-text";
-        case "Bachata Taiwan":
-          return "bg-barcade-bg text-barcade-text";
-        case "Brass Monkey":
-          return "bg-brass-monkey-bg text-brass-monkey-text";
-        default:
-          return "";
-      }
-    };
+  function render(eventInfo: any) {
+
     return (
       <div
         className={`cursor-pointer md:truncate`}
@@ -66,7 +50,7 @@ export default function Calendar() {
   );
 }
 
-function EventModal({ opened, onClose, data }) {
+function EventModal({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<Event> }) {
   return (
     <Modal
       opened={opened}
@@ -83,7 +67,7 @@ function EventModal({ opened, onClose, data }) {
   );
 }
 
-function MobileCalendar({ data, render }) {
+function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
   return (
     <FullCalendar
       height="auto"
@@ -103,7 +87,7 @@ function MobileCalendar({ data, render }) {
   );
 }
 
-function DesktopCalendar({ data, render }) {
+function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) {
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
@@ -112,7 +96,7 @@ function DesktopCalendar({ data, render }) {
           start: nowDate,
         };
       }}
-      initialView="dayGridMonth"    
+      initialView="dayGridMonth"
       events={data.map((e) => ({
         ...e,
         start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
