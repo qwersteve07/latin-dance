@@ -41,12 +41,12 @@ export default function Rules() {
       link: "https://www.instagram.com/p/DF8SdNGTvBq/?igsh=MTZkZzJkNmg0N3QyYg%3D%3D",
     },
     {
-      title: "跳bachata被吃豆腐-舞會中性騷擾的法律責任",
-      link: "https://latiifahtsai.medium.com/跳bachata被吃豆腐-舞會中性騷擾的法律責任-所有雙人舞是用-acae7620bf26",
+      title: "在社交舞活動中遇到可能的騷擾行為怎麼辦？",
+      link: "https://latiifahtsai.medium.com/%E5%9C%A8%E7%A4%BE%E4%BA%A4%E8%88%9E%E6%B4%BB%E5%8B%95%E4%B8%AD%E9%81%87%E5%88%B0%E5%8F%AF%E8%83%BD%E7%9A%84%E9%A8%B7%E6%93%BE%E8%A1%8C%E7%82%BA%E6%80%8E%E9%BA%BC%E8%BE%A6-108ed2798c47",
     },
     {
-      title: "Sensual Bachata保持適當身體界限的11條基本原則",
-      link: "https://latiifahtsai.medium.com/sensual-bachata保持適當身體界限的11條基本原則-efe494d3adbd",
+      title: "社交舞蹈近距離動作適當身體界線的11條基本原則",
+      link: "https://latiifahtsai.medium.com/%E7%A4%BE%E4%BA%A4%E8%88%9E%E8%B9%88%E8%BF%91%E8%B7%9D%E9%9B%A2%E5%8B%95%E4%BD%9C%E9%81%A9%E7%95%B6%E8%BA%AB%E9%AB%94%E7%95%8C%E7%B7%9A%E7%9A%8411%E6%A2%9D%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%89%87-11-basic-principles-for-maintaining-appropriate-physical-boundaries-in-39776d05d645",
     },
     {
       title: "不要教不是你的學生的人",
