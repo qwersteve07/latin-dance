@@ -4,10 +4,11 @@ import { useRouter } from "next/router";
 import hostJson from "../hosts.json";
 import HostImage from "@/components/hostImage";
 import MemberImage from "@/components/memberImage";
+import { Host } from "@/types/host";
 
 export default function Rules() {
   const searchParams = useSearchParams();
-  const [currentHost, setCurrentHost] = useState();
+  const [currentHost, setCurrentHost] = useState<null | Host>();
   const router = useRouter();
 
   const id = searchParams.get("id");
@@ -57,7 +58,9 @@ export default function Rules() {
   useEffect(() => {
     if (!id) return;
     const result = hostJson.find(d => d.id === id);
-    setCurrentHost(() => result);
+    if (result) {
+      setCurrentHost(() => result);
+    }
   }, [id]);
 
   return (
@@ -126,11 +129,10 @@ export default function Rules() {
             .map(h => (
               <div
                 key={h.name}
-                className="flex justify-center items-center flex-col gap-4"
+                className="flex justify-center items-center flex-col gap-4 cursor-pointer"
                 onClick={() => router.push(`/hosts?id=${h.id}`)}
               >
                 <HostImage src={h.thumbnail} alt={h.name} />
-                <div className="text-xl">{h.team}</div>
               </div>
             ))}
         </div>

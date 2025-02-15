@@ -1,7 +1,7 @@
 import Footer from './footer';
 import Navigator from './navigator';
 
-export default function Layout({ children }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex justify-start items-center flex-col min-h-screen">
       <Navigator />

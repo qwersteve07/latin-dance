@@ -11,10 +11,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import MemberImage from "@/components/memberImage";
 import HostImage from "@/components/hostImage";
+import { Host } from "@/types/host";
 
 export default function Hosts() {
   const [domLoaded, setDomLoaded] = useState(false);
-  const [activeTab, setActiveTab] = useState();
+  const [activeTab, setActiveTab] = useState<string | null>('');
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const isMobile = useMedia("(max-width: 768px)");
@@ -38,7 +39,7 @@ export default function Hosts() {
   return (
     <>
       {isMobile && (
-        <MobileStudios activeTab={activeTab} setActiveTab={setActiveTab} />
+        <MobileStudios />
       )}
       {!isMobile && (
         <DesktopStudios activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -73,7 +74,7 @@ function MobileStudios() {
   );
 }
 
-function DesktopStudios({ activeTab, setActiveTab }) {
+function DesktopStudios({ activeTab, setActiveTab }: { activeTab: string | null, setActiveTab: (value: string | null) => void }) {
   return (
     <Tabs
       value={activeTab}
@@ -105,15 +106,15 @@ function DesktopStudios({ activeTab, setActiveTab }) {
   );
 }
 
-function HostContent({ item }) {
+function HostContent({ item }: { item: Host }) {
   return (
     <div className="flex justify-between items-center flex-col h-full">
       <div className="flex justify-between items-center flex-col">
         <HostImage src={item.thumbnail} alt={item.name} />
         <div className="font-bold text-xl mt-4 mb-8">{item.name}</div>
-        <div class="mb-8 mx-10 max-md:mx-0">
+        <div className="mb-8 mx-10 max-md:mx-0">
           {item.intro?.split("\n").map(x => (
-            <p key={x} class="mb-2">
+            <p key={x} className="mb-2">
               {x}
               <br />
             </p>
@@ -132,20 +133,20 @@ function HostContent({ item }) {
         </div>
       </div>
       <div className="flex justify-center gap-4">
-        {Object.entries(item.link).map(i => {
-          return <SocialLink key={i[1]} type={i[0]} link={i[1]} />;
+        {Object.entries(item.link).filter(item => item[1] !== '').map(([key, value]) => {
+          return <SocialLink key={value} type={key} link={value} />;
         })}
       </div>
     </div>
   );
 }
 
-function SocialLink({ type, link }) {
+function SocialLink({ type, link }: { type: string, link: string }) {
   return (
     <Image
       src={`/icon-${type}.svg`}
-      width="20"
-      height="20"
+      width="25"
+      height="25"
       alt={type}
       className="cursor-pointer"
       priority

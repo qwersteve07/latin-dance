@@ -8,13 +8,15 @@ import { InstagramEmbed } from "react-social-media-embed";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { useRouter } from "next/router";
+import { Event } from "@/types/event";
+import { getLatestWeekEvents } from "@/utils/getEvents";
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectEvent, setSelectEvent] = useState({});
-  const [currentWeekData, setCurrentWeekData] = useState([]);
+  const [selectEvent, setSelectEvent] = useState<Partial<Event>>({});
+  const [latestWeekEvents, setLatestWeekEvents] = useState<[string, Event[]][]>([]);
   const { data, error, isLoading } = useSWR("/latin-dance/events", fetcher);
   const router = useRouter();
 
@@ -30,34 +32,14 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    console.log(data);
     if (!data) return;
 
-    setCurrentWeekData(() => {
-      const events = data.result.filter(d => {
-        return (
-          dayjs(d.start).isSameOrBefore(dayjs().add(7, "d")) &&
-          dayjs(d.start).isSameOrAfter(dayjs())
-        );
-      });
+    const result = getLatestWeekEvents(data.result)
+    setLatestWeekEvents(result)
 
-      const groupEvents = Object.groupBy(events, ({ start }) => {
-        return dayjs(start).format("dddd");
-      });
-
-      const sortEvents = Object.entries(groupEvents).sort((a, b) => {
-        if (dayjs(a[1][0].start).isBefore(b[1][0].start)) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-
-      return sortEvents;
-    });
   }, [data]);
 
-  function EventModal({ opened, onClose, data }) {
+  function EventModal({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<Event> }) {
     return (
       <Modal
         opened={opened}
@@ -78,9 +60,7 @@ export default function Home() {
 
   if (error) return <div>failed to load</div>;
 
-  if (isLoading) {
-    return <div>loading...</div>;
-  }
+  if (isLoading) return <div>loading...</div>;
 
   return (
     <div>
@@ -88,16 +68,16 @@ export default function Home() {
       <section>
         <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-10">
           <h1 className="text-center text-5xl font-bold mb-6 max-md:text-4xl max-md:mb-3">
-            <div class="mb-6">💃🕺</div>
+            <div className="mb-6">💃🕺</div>
             <div>台北拉丁舞指南</div>
           </h1>
-          <p className="text-center text-xl">Let's dance!</p>
+          <p className="text-center text-xl">Let&apos;s dance!</p>
         </div>
         <h3 className="text-center text-2xl font-bold mb-12 max-md:mb-8">
           Up Coming Events
         </h3>
         <ul className="flex justify-center items-start gap-5 w-full max-md:flex-col">
-          {currentWeekData.map(([weekday, events]) => (
+          {latestWeekEvents.map(([weekday, events]) => (
             <li key={weekday} className="flex flex-col flex-[1] max-md:w-full">
               <div className="font-bold flex justify-between items-center mb-4 gap-4">
                 <span>{dayjs(events[0].start).format("MM/DD")}</span>
