@@ -60,9 +60,7 @@ export default function Home() {
 
   if (error) return <div>failed to load</div>;
 
-  if (isLoading) {
-    return <div>loading...</div>;
-  }
+  if (isLoading) return <div>loading...</div>;
 
   return (
     <div>

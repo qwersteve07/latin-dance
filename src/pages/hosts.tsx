@@ -133,8 +133,8 @@ function HostContent({ item }: { item: Host }) {
         </div>
       </div>
       <div className="flex justify-center gap-4">
-        {Object.entries(item.link).map(i => {
-          return <SocialLink key={i[1]} type={i[0]} link={i[1]} />;
+        {Object.entries(item.link).filter(item => item[1] !== '').map(([key, value]) => {
+          return <SocialLink key={value} type={key} link={value} />;
         })}
       </div>
     </div>
@@ -145,8 +145,8 @@ function SocialLink({ type, link }: { type: string, link: string }) {
   return (
     <Image
       src={`/icon-${type}.svg`}
-      width="20"
-      height="20"
+      width="25"
+      height="25"
       alt={type}
       className="cursor-pointer"
       priority
