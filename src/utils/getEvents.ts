@@ -10,8 +10,6 @@ export function getLatestWeekEvents(events: Array<Event>) {
         );
     })
 
-    console.log(weekEvents)
-
     const eventsGroupByWeekday = Object.groupBy(weekEvents, ({ date }: { date: string }) => {
         return dayjs(date).format("dddd");
     }) as Record<string, Array<Event>>
