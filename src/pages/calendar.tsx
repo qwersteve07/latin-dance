@@ -9,6 +9,8 @@ import { useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import { Event } from "@/types/event";
+import { getHost } from "@/utils/getHost";
+import { getLocate } from "@/utils/getLocate";
 
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -58,9 +60,9 @@ function EventModal({ opened, onClose, data }: { opened: boolean, onClose: () =>
       title={<b>{data.title}</b>}
       centered
     >
-      <div>主辦：{data.host}</div>
-      <div>地點：{data.locate}</div>
-      <div>日期：{data.date}</div>
+      <div>主辦：{getHost(data.host || '')}</div>
+      <div>地點：{getLocate(data.locate || '')}</div>
+      <div>日期：{dayjs(data.eventDate).format('YYYY/MM/DD')}</div>
       <div>時間：{data.startAt} - {data.endAt}</div>
       <div>費用：{data.fee}</div>
       <div>比例：{data.rate}</div>
@@ -81,8 +83,8 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
       initialView="listMonth"
       events={data.map((e) => ({
         ...e,
-        start: dayjs(e.startAt).format("YYYY-MM-DDTHH:mm:ss"),
-        end: ''
+        start: dayjs(e.date).format(`YYYY-MM-DDT${e.startAt}`),
+        end: '',
       }))}
       eventContent={render}
     />
@@ -101,7 +103,8 @@ function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) 
       initialView="dayGridMonth"
       events={data.map((e) => ({
         ...e,
-        start: dayjs(e.startAt).format("YYYY-MM-DDThh:mm:ss"),
+        start: dayjs(e.date).format("YYYY-MM-DDT00:00"),
+        eventDate: e.date,
       }))}
       eventContent={render}
     />
