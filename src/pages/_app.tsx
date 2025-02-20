@@ -5,6 +5,7 @@ import Layout from "@/components/layout";
 import Head from "next/head";
 import type { AppProps } from 'next/app'
 import "@/styles/globals.css";
+import '@mantine/dates/styles.css';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
