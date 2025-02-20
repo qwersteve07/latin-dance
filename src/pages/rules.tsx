@@ -1,10 +1,10 @@
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import hostJson from "../hosts.json";
 import HostImage from "@/components/hostImage";
 import MemberImage from "@/components/memberImage";
 import { Host } from "@/types/host";
+import { hostList } from "@/const/host";
 
 export default function Rules() {
   const searchParams = useSearchParams();
@@ -57,7 +57,7 @@ export default function Rules() {
 
   useEffect(() => {
     if (!id) return;
-    const result = hostJson.find(d => d.id === id);
+    const result = hostList.find(d => d.id === id);
     if (result) {
       setCurrentHost(() => result);
     }
@@ -124,7 +124,7 @@ export default function Rules() {
           {currentHost ? "查看其他活動單位" : "查看活動單位"}
         </h3>
         <div className="flex justify-center items-center gap-x-6 gap-y-2 flex-wrap">
-          {hostJson
+          {hostList
             .filter(h => h.id !== currentHost?.id)
             .map(h => (
               <div

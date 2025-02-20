@@ -1,5 +1,4 @@
 import { Tabs } from "@mantine/core";
-import hostJson from "../hosts.json";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -12,6 +11,7 @@ import "swiper/css/pagination";
 import MemberImage from "@/components/memberImage";
 import HostImage from "@/components/hostImage";
 import { Host } from "@/types/host";
+import { hostList } from "@/const/host";
 
 export default function Hosts() {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -28,7 +28,7 @@ export default function Hosts() {
     if (id) {
       setActiveTab(id);
     } else {
-      setActiveTab(hostJson[0].id);
+      setActiveTab(hostList[0].id);
     }
   }, []);
 
@@ -60,7 +60,7 @@ function MobileStudios() {
         onSlideChange={() => console.log("slide change")}
         onSwiper={swiper => console.log(swiper)}
       >
-        {hostJson.map(item => {
+        {hostList.map(item => {
           return (
             <SwiperSlide key={item.id}>
               <div className="rounded-lg px-4 py-8 flex justify-start items-center flex-col mx-6 ">
@@ -83,7 +83,7 @@ function DesktopStudios({ activeTab, setActiveTab }: { activeTab: string | null,
       className="flex-1"
     >
       <Tabs.List>
-        {hostJson.map(item => {
+        {hostList.map(item => {
           return (
             <Tabs.Tab value={item.id} key={item.id}>
               {item.name}
@@ -91,7 +91,7 @@ function DesktopStudios({ activeTab, setActiveTab }: { activeTab: string | null,
           );
         })}
       </Tabs.List>
-      {hostJson.map(item => {
+      {hostList.map(item => {
         return (
           <Tabs.Panel
             value={item.id}
