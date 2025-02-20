@@ -13,3 +13,4 @@ export type HostMember = {
     name: string,
     image: string
 }
+
