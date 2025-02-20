@@ -60,6 +60,7 @@ function EventModal({ opened, onClose, data }: { opened: boolean, onClose: () =>
     >
       <div>主辦：{data.host}</div>
       <div>地點：{data.locate}</div>
+      <div>日期：{data.date}</div>
       <div>時間：{data.startAt} - {data.endAt}</div>
       <div>費用：{data.fee}</div>
       <div>比例：{data.rate}</div>
@@ -80,7 +81,8 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
       initialView="listMonth"
       events={data.map((e) => ({
         ...e,
-        start: dayjs(e.start).format("YYYY-MM-DDTHH:mm:ss"),
+        start: dayjs(e.startAt).format("YYYY-MM-DDTHH:mm:ss"),
+        end: ''
       }))}
       eventContent={render}
     />
@@ -99,7 +101,7 @@ function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) 
       initialView="dayGridMonth"
       events={data.map((e) => ({
         ...e,
-        start: dayjs(e.start).format("YYYY-MM-DDThh:mm:ss"),
+        start: dayjs(e.startAt).format("YYYY-MM-DDThh:mm:ss"),
       }))}
       eventContent={render}
     />
