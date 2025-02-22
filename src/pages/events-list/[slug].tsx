@@ -7,8 +7,9 @@ import { useForm } from '@mantine/form';
 import dayjs from "dayjs";
 import { useRouter } from "next/router"
 import { useEffect, useRef, useState, } from "react";
-// import { ReactComponent as IconClock } from '../../../public/icon-clock.svg'
+import iconClock from '../../../public/icon-clock.svg'
 import useSWR from "swr";
+import Image from "next/image";
 
 export default function EditEvents() {
     const [loading, setLoading] = useState(false)
@@ -75,6 +76,11 @@ export default function EditEvents() {
 
     const pickerControl = (
         <ActionIcon variant="subtle" color="gray" onClick={() => ref.current?.showPicker()}>
+            <Image
+                priority
+                src={iconClock}
+                alt="Follow us on Twitter"
+            />
             {/* <IconClock size={16} stroke={1.5} /> */}
         </ActionIcon>
     );

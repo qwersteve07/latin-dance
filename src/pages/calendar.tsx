@@ -4,11 +4,11 @@ import listPlugin from "@fullcalendar/list";
 import dayjs from "dayjs";
 import { useMedia } from "react-use";
 import { useDisclosure } from "@mantine/hooks";
-import { Modal } from "@mantine/core";
 import { useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import { Event } from "@/types/event";
+import EventModal from "@/components/eventModal";
 
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -50,24 +50,6 @@ export default function Calendar() {
   );
 }
 
-function EventModal({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<Event> }) {
-  return (
-    <Modal
-      opened={opened}
-      onClose={onClose}
-      title={<b>{data.title}</b>}
-      centered
-    >
-      <div>主辦：{data.host}</div>
-      <div>地點：{data.locate}</div>
-      <div>日期：{data.date}</div>
-      <div>時間：{data.startAt} - {data.endAt}</div>
-      <div>費用：{data.fee}</div>
-      <div>比例：{data.rate}</div>
-    </Modal>
-  );
-}
-
 function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
   return (
     <FullCalendar
@@ -81,8 +63,8 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
       initialView="listMonth"
       events={data.map((e) => ({
         ...e,
-        start: dayjs(e.startAt).format("YYYY-MM-DDTHH:mm:ss"),
-        end: ''
+        start: dayjs(e.date).format(`YYYY-MM-DDT${e.startAt}`),
+        end: '',
       }))}
       eventContent={render}
     />
@@ -101,7 +83,8 @@ function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) 
       initialView="dayGridMonth"
       events={data.map((e) => ({
         ...e,
-        start: dayjs(e.startAt).format("YYYY-MM-DDThh:mm:ss"),
+        start: dayjs(e.date).format("YYYY-MM-DDT00:00"),
+        eventDate: e.date,
       }))}
       eventContent={render}
     />

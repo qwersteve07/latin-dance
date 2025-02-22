@@ -11,7 +11,7 @@ export const locateList = [
     },
     {
         id: 'ba-basement',
-        name: 'BA basement',
+        name: 'BA Basement',
         url: 'https://maps.app.goo.gl/yiGy2EFKuoeH6QGX6'
     },
     {
