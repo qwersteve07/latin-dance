@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import { useEffect, useState } from "react";
-import { Button, Modal } from "@mantine/core";
+import { Button } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import dayjs from "dayjs";
 import { InstagramEmbed } from "react-social-media-embed";
@@ -10,6 +10,7 @@ import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { useRouter } from "next/router";
 import { Event } from "@/types/event";
 import { getLatestWeekEvents } from "@/utils/getEvents";
+import EventModal from "@/components/eventModal";
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 
@@ -22,7 +23,7 @@ export default function Home() {
 
   const vlogIGList = [
     {
-      name: "NINJA VIDEOZZ TAIWAN",
+      name: "Ninja Videozz Taiwan",
       url: "https://www.instagram.com/ninjavideozz.taiwan/",
     },
     {
@@ -39,25 +40,6 @@ export default function Home() {
 
   }, [data]);
 
-  function EventModal({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<Event> }) {
-    return (
-      <Modal
-        opened={opened}
-        onClose={onClose}
-        title={<b>{data.title}</b>}
-        centered
-      >
-        <div>主辦：{data.host}</div>
-        <div>地點：{data.locate}</div>
-        <div>
-          時間：{data.startAt} - {data.endAt}
-        </div>
-        <div>費用：{data.fee}</div>
-        <div>比例：{data.rate}</div>
-      </Modal>
-    );
-  }
-
   if (error) return <div>failed to load</div>;
 
   if (isLoading) return <div>loading...</div>;
@@ -66,12 +48,12 @@ export default function Home() {
     <div>
       <EventModal opened={opened} onClose={close} data={selectEvent} />
       <section>
-        <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-10">
-          <h1 className="text-center text-5xl font-bold mb-6 max-md:text-4xl max-md:mb-3">
-            <div className="mb-6">💃🕺</div>
-            <div>台北拉丁舞指南</div>
+        <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-12">
+          <h1 className="text-center text-5xl font-bold mb-2 max-md:text-3xl">
+            <div className="mb-4">💃🕺</div>
+            <div>Taipei Social Dance Guide</div>
           </h1>
-          <p className="text-center text-xl">Let&apos;s dance!</p>
+          <h2 className="text-center text-3xl font-bold max-md:text-2xl">台北社交舞指南</h2>
         </div>
         <h3 className="text-center text-2xl font-bold mb-12 max-md:mb-8">
           Up Coming Events
@@ -80,7 +62,7 @@ export default function Home() {
           {latestWeekEvents.map(([weekday, events]) => (
             <li key={weekday} className="flex flex-col flex-[1] max-md:w-full">
               <div className="font-bold flex justify-between items-center mb-4 gap-4">
-                <span>{dayjs(events[0].start).format("MM/DD")}</span>
+                <span>{dayjs(events[0].date).format("MM/DD")}</span>
                 <span
                   className={
                     weekday === "Saturday" || weekday === "Sunday"
@@ -121,7 +103,7 @@ export default function Home() {
       </section>
       <hr className="w-20 mx-auto my-16" />
       <section>
-        <h3 className="text-center text-2xl font-bold mb-8">精彩活動花絮</h3>
+        <h3 className="text-center text-2xl font-bold mb-8">Highlights</h3>
         <div className="flex justify-center items-center gap-4 max-md:flex-col">
           {vlogIGList.map(item => {
             return (

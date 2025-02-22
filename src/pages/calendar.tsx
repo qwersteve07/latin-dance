@@ -4,13 +4,11 @@ import listPlugin from "@fullcalendar/list";
 import dayjs from "dayjs";
 import { useMedia } from "react-use";
 import { useDisclosure } from "@mantine/hooks";
-import { Modal } from "@mantine/core";
 import { useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import { Event } from "@/types/event";
-import { getHost } from "@/utils/getHost";
-import { getLocate } from "@/utils/getLocate";
+import EventModal from "@/components/eventModal";
 
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -49,24 +47,6 @@ export default function Calendar() {
       {isMobile && <MobileCalendar data={data.result} render={render} />}
       {!isMobile && <DesktopCalendar data={data.result} render={render} />}
     </>
-  );
-}
-
-function EventModal({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<Event> }) {
-  return (
-    <Modal
-      opened={opened}
-      onClose={onClose}
-      title={<b>{data.title}</b>}
-      centered
-    >
-      <div>主辦：{getHost(data.host || '')}</div>
-      <div>地點：{getLocate(data.locate || '')}</div>
-      <div>日期：{dayjs(data.eventDate).format('YYYY/MM/DD')}</div>
-      <div>時間：{data.startAt} - {data.endAt}</div>
-      <div>費用：{data.fee}</div>
-      <div>比例：{data.rate}</div>
-    </Modal>
   );
 }
 
