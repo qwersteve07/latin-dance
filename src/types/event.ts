@@ -1,11 +1,14 @@
 export type Event = {
-    end: string,
-    endAt: string
-    fee: string
+    id: string,
+    date: string,
+    startAt: string
+    endAt: string,
+    title: string
     host: string
     locate: string
     rate: string
-    start: string
-    startAt: string
-    title: string
+    fee: string
+    content: string,
+    note: string
+
 }
