@@ -7,12 +7,12 @@ import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
-import { Event } from "@/types/event";
+import { Event, EventWithEventDate } from "@/types/event";
 import EventModal from "@/components/eventModal";
 
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectEvent, setSelectEvent] = useState<Partial<Event>>({});
+  const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
   const { data, error, isLoading } = useSWR("/latin-dance/events", fetcher);
 
   const isMobile = useMedia("(max-width: 768px)");

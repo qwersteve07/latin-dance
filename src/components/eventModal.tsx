@@ -1,4 +1,4 @@
-import { Event } from "@/types/event"
+import { EventWithEventDate } from "@/types/event"
 import { getHost } from "@/utils/getHost"
 import { getLocate, getLocateLink } from "@/utils/getLocate"
 import { Modal } from "@mantine/core"
@@ -6,7 +6,7 @@ import dayjs from "dayjs"
 import OuterLink from "./outerLink"
 import Image from "next/image"
 
-const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<Event> }) => {
+const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate> }) => {
     return (
         <Modal
             opened={opened}

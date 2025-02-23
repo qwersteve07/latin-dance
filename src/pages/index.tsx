@@ -8,7 +8,7 @@ import { InstagramEmbed } from "react-social-media-embed";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { useRouter } from "next/router";
-import { Event } from "@/types/event";
+import { Event, EventWithEventDate } from "@/types/event";
 import { getLatestWeekEvents } from "@/utils/getEvents";
 import EventModal from "@/components/eventModal";
 dayjs.extend(isSameOrBefore);
@@ -16,7 +16,7 @@ dayjs.extend(isSameOrAfter);
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectEvent, setSelectEvent] = useState<Partial<Event>>({});
+  const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
   const [latestWeekEvents, setLatestWeekEvents] = useState<[string, Event[]][]>([]);
   const { data, error, isLoading } = useSWR("/latin-dance/events", fetcher);
   const router = useRouter();

@@ -12,3 +12,7 @@ export type Event = {
     note: string
 
 }
+
+export type EventWithEventDate = Event & {
+    eventDate: string
+}
