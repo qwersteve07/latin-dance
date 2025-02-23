@@ -43,7 +43,7 @@ export default function EditEvents() {
         if (Object.keys(data).length === 0) return
 
         form.setValues({
-            date: dayjs(data.result.date).toDate(),
+            date: dayjs(data.result.date).toDate().toString(),
             title: data.result.title,
             host: data.result.host,
             locate: data.result.locate,
