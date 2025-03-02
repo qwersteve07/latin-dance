@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  build-files:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,12 +21,28 @@ jobs:
       - name: build files
         run: npm install && npm run build
 
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: .next/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: .next/
+
       - name: SSH into Server and Create Folder
         run: |
-          ssh  ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} "mkdir -p /root/latin-dance/.next"
+          ssh  ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} "mkdir -p /root/social-dance/.next"
 
       - name: sync files
-        run: rsync -avhzr .next/. ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:/root/latin-dance/.next
+        run: rsync -avhzr .next/. ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:/root/social-dance/.next
 
       - name: run service
         run: ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} "pm2 restart 0"
