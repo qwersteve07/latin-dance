@@ -18,7 +18,7 @@ export default function NewEvents() {
     const form = useForm({
         mode: 'uncontrolled',
         initialValues: {
-            date: new Date(),
+            date: dayjs().toDate() as any,
             title: '',
             host: {},
             locate: {},
@@ -58,7 +58,7 @@ export default function NewEvents() {
             <Image
                 priority
                 src={iconClock}
-                alt="Follow us on Twitter"
+                alt="clock"
             />
         </ActionIcon>
     );
@@ -68,9 +68,8 @@ export default function NewEvents() {
             <Image
                 priority
                 src={iconClock}
-                alt="Follow us on Twitter"
+                alt="clock"
             />
-            {/* <Iconlock size={16} stroke={1.5} /> */}
         </ActionIcon>
     );
 
