@@ -41,6 +41,10 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                 <div>{data.fee}</div>
                 <div className="font-semibold">Rate</div>
                 <div>{data.rate}</div>
+                <div className="font-semibold">Content</div>
+                <div>{data.content}</div>
+                <div className="font-semibold">Note</div>
+                <div>{data.note}</div>
             </div>
         </Modal >
     )
