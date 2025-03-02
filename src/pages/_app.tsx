@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
-				<title>台北拉丁舞指南</title>
+				<title>台北社交舞指南</title>
 				<link
 					rel="icon"
 					href="/favicon.png"
