@@ -11,7 +11,7 @@ import useSWR from "swr";
 
 export default function EventsList() {
     const router = useRouter()
-    const { data, error, isLoading } = useSWR("/latin-dance/events", fetcher);
+    const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
     const [removedId, setRemovedId] = useState('')
     const [opened, { open, close }] = useDisclosure(false);
 
@@ -52,9 +52,8 @@ export default function EventsList() {
     }
 
     async function onDeleteEvent() {
-
         try {
-            await fetcher(`/latin-dance/events/${removedId}`, {
+            await fetcher(`/social-dance/events/${removedId}`, {
                 method: 'delete',
             })
             close()
@@ -63,11 +62,15 @@ export default function EventsList() {
         }
     };
 
+    function onAddEvent() {
+        router.push('/events-list/new')
+    }
+
 
     return (
         <div>
-            <div>
-                {/* <Button onClick={}>新增活動</Button> */}
+            <div className="flex justify-end">
+                <Button onClick={onAddEvent}>新增活動</Button>
             </div>
             <Modal
                 opened={opened}

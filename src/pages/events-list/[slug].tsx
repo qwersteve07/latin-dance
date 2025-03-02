@@ -15,7 +15,7 @@ export default function EditEvents() {
     const [loading, setLoading] = useState(false)
     const ref = useRef<HTMLInputElement>(null);
     const router = useRouter()
-    const { data, error, isLoading } = useSWR(`/latin-dance/events/${router.query.slug}`, fetcher);
+    const { data, error, isLoading } = useSWR(`/social-dance/events/${router.query.slug}`, fetcher);
     const form = useForm({
         mode: 'uncontrolled',
         initialValues: {
@@ -43,7 +43,7 @@ export default function EditEvents() {
         if (Object.keys(data).length === 0) return
 
         form.setValues({
-            date: dayjs(data.result.date).toDate().toString(),
+            date: dayjs(data.result.date).toDate() as any,
             title: data.result.title,
             host: data.result.host,
             locate: data.result.locate,
@@ -62,7 +62,7 @@ export default function EditEvents() {
         values.date = dayjs(values.date).format('YYYY-MM-DDT00:00:00')
 
         try {
-            await fetcher(`/latin-dance/events/${router.query.slug}`, {
+            await fetcher(`/social-dance/events/${router.query.slug}`, {
                 method: 'PUT',
                 body: JSON.stringify(values)
             })
@@ -145,7 +145,7 @@ export default function EditEvents() {
                 key={form.key('note')}
                 {...form.getInputProps('note')}
             />
-            <Button type="submit" className="!w-20" loading={loading}>送出</Button>
+            <Button type="submit" className="!w-20" loading={loading}>更新</Button>
         </form>
     )
 }
