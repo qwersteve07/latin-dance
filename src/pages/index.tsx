@@ -18,7 +18,7 @@ export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
   const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
   const [latestWeekEvents, setLatestWeekEvents] = useState<[string, Event[]][]>([]);
-  const { data, error, isLoading } = useSWR("/latin-dance/events", fetcher);
+  const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
   const router = useRouter();
 
   const vlogIGList = [

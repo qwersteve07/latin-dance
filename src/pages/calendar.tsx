@@ -13,7 +13,7 @@ import EventModal from "@/components/eventModal";
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
   const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
-  const { data, error, isLoading } = useSWR("/latin-dance/events", fetcher);
+  const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
 
   const isMobile = useMedia("(max-width: 768px)");
 
