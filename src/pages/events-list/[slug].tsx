@@ -13,7 +13,8 @@ import Image from "next/image";
 
 export default function EditEvents() {
     const [loading, setLoading] = useState(false)
-    const ref = useRef<HTMLInputElement>(null);
+    const startAtRef = useRef<HTMLInputElement>(null);
+    const endAtRef = useRef<HTMLInputElement>(null);
     const router = useRouter()
     const { data, error, isLoading } = useSWR(`/social-dance/events/${router.query.slug}`, fetcher);
     const form = useForm({
@@ -74,14 +75,23 @@ export default function EditEvents() {
         }
     };
 
-    const pickerControl = (
-        <ActionIcon variant="subtle" color="gray" onClick={() => ref.current?.showPicker()}>
+    const startAtPickerControl = (
+        <ActionIcon variant="subtle" color="gray" onClick={() => startAtRef.current?.showPicker()}>
             <Image
                 priority
                 src={iconClock}
-                alt="Follow us on Twitter"
+                alt="clock"
             />
-            {/* <IconClock size={16} stroke={1.5} /> */}
+        </ActionIcon>
+    );
+
+    const endAtPickerControl = (
+        <ActionIcon variant="subtle" color="gray" onClick={() => endAtRef.current?.showPicker()}>
+            <Image
+                priority
+                src={iconClock}
+                alt="clock"
+            />
         </ActionIcon>
     );
 
@@ -122,13 +132,15 @@ export default function EditEvents() {
                 {...form.getInputProps('locate')}
             />
             <TimeInput label="開始時間"
-                ref={ref}
-                rightSection={pickerControl}
+                ref={startAtRef}
+                rightSection={startAtPickerControl}
                 key={form.key('startAt')}
                 {...form.getInputProps('startAt')}
             />
             <TimeInput label="結束時間"
+                ref={endAtRef}
                 key={form.key('endAt')}
+                rightSection={endAtPickerControl}
                 {...form.getInputProps('endAt')}
             />
             <TextInput label="比率"
