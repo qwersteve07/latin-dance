@@ -8,6 +8,7 @@ const routesList = [
   { id: "/hosts", enName: 'Organizer', cnName: "活動單位" },
   { id: "/calendar", enName: "Calendar", cnName: '活動日曆' },
   { id: "/food-map", enName: "Food Map", cnName: '宵夜地圖' },
+  { id: "/rental", enName: "Rental", cnName: '場地租借' },
 ];
 
 export default function Navigator() {
