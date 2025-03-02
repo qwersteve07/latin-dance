@@ -25,7 +25,7 @@ export const hostList = [
         "id": "bachata-taiwan",
         "name": "Bachata Taiwan",
         "thumbnail": "/bachata-taiwan.jpg",
-        "intro": "Life is Simple\nDance and Keep it Real\n不只是生活，更要享受快樂\n每週四晚上21:00-01:00 在 barcade 有 bachata night!",
+        "intro": "Life is Simple\nDance and Keep it Real\n不只是生活，更要享受快樂\n每週四晚上 21:00-01:00 在 barcade 有 bachata night!",
         "link": {
             "facebook": "https://www.facebook.com/bachatataiwan/",
             "instagram": "https://www.instagram.com/bachatataiwan/",
