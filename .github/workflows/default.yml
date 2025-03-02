@@ -22,7 +22,7 @@ jobs:
         run: npm install && npm run build
 
       - name: test
-        run: ls -al
+        run: pwd
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
