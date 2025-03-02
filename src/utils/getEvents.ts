@@ -6,7 +6,7 @@ export function getLatestWeekEvents(events: Array<Event>) {
     const weekEvents = events.filter((event: Event) => {
         return (
             dayjs(event.date).isSameOrBefore(dayjs().add(6, "d")) &&
-            dayjs(event.date).isSameOrAfter(dayjs().subtract(1, 'day'))
+            dayjs(event.date).isSameOrAfter(dayjs())
         );
     })
 
