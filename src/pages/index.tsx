@@ -97,7 +97,7 @@ export default function Home() {
         </ul>
         <div className="text-center my-8">
           <Button variant="outline" onClick={() => router.push("/calendar")}>
-            查看更多未來活動
+            Check More Events!
           </Button>
         </div>
       </section>
