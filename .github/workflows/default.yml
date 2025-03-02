@@ -21,6 +21,9 @@ jobs:
       - name: build files
         run: npm install && npm run build
 
+      - name: test
+        run: ls
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
