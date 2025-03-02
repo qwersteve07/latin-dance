@@ -129,7 +129,7 @@ export default function Rules() {
               <div
                 key={h.name}
                 className="flex justify-center items-center flex-col gap-4 cursor-pointer"
-                onClick={() => router.push(`/hosts?id=${h.id}`)}
+                onClick={() => router.push(`/organizer?id=${h.id}`)}
               >
                 <HostImage src={h.thumbnail} alt={h.name} />
               </div>

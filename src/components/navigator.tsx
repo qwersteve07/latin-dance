@@ -5,7 +5,7 @@ import { useDisclosure } from '@mantine/hooks';
 
 const routesList = [
   { id: "/rules", enName: 'Rules', cnName: "舞會守則" },
-  { id: "/hosts", enName: 'Organizer', cnName: "活動單位" },
+  { id: "/organizer", enName: 'Organizer', cnName: "活動單位" },
   { id: "/calendar", enName: "Calendar", cnName: '活動日曆' },
   { id: "/food-map", enName: "Food Map", cnName: '宵夜地圖' },
   { id: "/rental", enName: "Rental", cnName: '場地租借' },
