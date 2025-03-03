@@ -1,10 +1,9 @@
-import { Tabs } from "@mantine/core";
+import { Tabs, Modal } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useMedia } from "react-use";
-import { Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -12,10 +11,14 @@ import MemberImage from "@/components/memberImage";
 import HostImage from "@/components/hostImage";
 import { Host } from "@/types/host";
 import { hostList } from "@/const/host";
+import Title from "@/components/title";
 
 export default function Hosts() {
   const [domLoaded, setDomLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState<string | null>('');
+  const [opened, { open, close }] = useDisclosure(false);
+  const [selectHost, setSelectHost] = useState<Host>({} as any);
+
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const isMobile = useMedia("(max-width: 768px)");
@@ -38,8 +41,22 @@ export default function Hosts() {
 
   return (
     <>
+      <Title
+        enTitle='Hosts List'
+        chTitle="主辦單位"
+      />
+      <Modal
+        opened={opened}
+        onClose={close}
+        centered
+      >
+        <HostContent item={selectHost} />
+      </Modal>
       {isMobile && (
-        <MobileStudios />
+        <MobileStudios onClick={(host: Host) => {
+          setSelectHost(host)
+          open()
+        }} />
       )}
       {!isMobile && (
         <DesktopStudios activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -48,29 +65,24 @@ export default function Hosts() {
   );
 }
 
-function MobileStudios() {
+function MobileStudios({ onClick }: { onClick: (host: Host) => void }) {
   return (
-    <div className="max-md:-mx-6 ">
-      <Swiper
-        className="h-full"
-        modules={[Navigation, Pagination]}
-        slidesPerView={1}
-        navigation
-        pagination
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={swiper => console.log(swiper)}
-      >
+    <>
+
+      <div className="flex justify-start flex-wrap gap-y-8">
         {hostList.map(item => {
           return (
-            <SwiperSlide key={item.id}>
-              <div className="rounded-lg px-4 py-8 flex justify-start items-center flex-col mx-6 ">
-                <HostContent item={item} />
-              </div>
-            </SwiperSlide>
+            <div key={item.id} className="flex flex-col items-center flex-[50%] gap-2" onClick={() => {
+              onClick(item)
+            }}>
+              <HostImage src={item.thumbnail} alt={item.name} />
+              <div className="text-sm font-bold">{item.name}</div>
+            </div>
+
           );
         })}
-      </Swiper>
-    </div>
+      </div>
+    </>
   );
 }
 
@@ -108,11 +120,11 @@ function DesktopStudios({ activeTab, setActiveTab }: { activeTab: string | null,
 
 function HostContent({ item }: { item: Host }) {
   return (
-    <div className="flex justify-between items-center flex-col h-full">
-      <div className="flex justify-between items-center flex-col">
+    <div className="flex justify-between items-center flex-col h-full w-full">
+      <div className="flex justify-between items-center flex-col w-2/3 max-md:w-full">
         <HostImage src={item.thumbnail} alt={item.name} />
         <div className="font-bold text-xl mt-4 mb-8">{item.name}</div>
-        <div className="mb-4 mx-10 max-md:mx-0">
+        <div className="mb-4">
           {item.intro?.split("\n").map(x => (
             <p key={x} className="mb-2">
               {x}
@@ -134,7 +146,7 @@ function HostContent({ item }: { item: Host }) {
           ))}
         </div>
       </div>
-      <div className="flex justify-center gap-4">
+      <div className="flex justify-center gap-4 mb-4">
         {Object.entries(item.link).filter(item => item[1] !== '').map(([key, value]) => {
           return <SocialLink key={value} type={key} link={value} />;
         })}
