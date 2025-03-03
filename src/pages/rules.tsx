@@ -6,6 +6,7 @@ import MemberImage from "@/components/memberImage";
 import { Host } from "@/types/host";
 import { hostList } from "@/const/host";
 import OuterLink from "@/components/outerLink";
+import Title from "@/components/title";
 
 export default function Rules() {
   const searchParams = useSearchParams();
@@ -47,7 +48,11 @@ export default function Rules() {
       link: "https://latiifahtsai.medium.com/%E5%9C%A8%E7%A4%BE%E4%BA%A4%E8%88%9E%E6%B4%BB%E5%8B%95%E4%B8%AD%E9%81%87%E5%88%B0%E5%8F%AF%E8%83%BD%E7%9A%84%E9%A8%B7%E6%93%BE%E8%A1%8C%E7%82%BA%E6%80%8E%E9%BA%BC%E8%BE%A6-108ed2798c47",
     },
     {
-      title: "社交舞蹈近距離動作適當身體界線的11條基本原則",
+      title: "社交舞蹈近距離動作適當身體界線的11條基本原則（ig 圖文版）",
+      link: 'https://www.instagram.com/p/DGC66CKT6oK/?igsh=MTQzZHV0bG83b20wMQ=='
+    },
+    {
+      title: "社交舞蹈近距離動作適當身體界線的11條基本原則（文字版）",
       link: "https://latiifahtsai.medium.com/%E7%A4%BE%E4%BA%A4%E8%88%9E%E8%B9%88%E8%BF%91%E8%B7%9D%E9%9B%A2%E5%8B%95%E4%BD%9C%E9%81%A9%E7%95%B6%E8%BA%AB%E9%AB%94%E7%95%8C%E7%B7%9A%E7%9A%8411%E6%A2%9D%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%89%87-11-basic-principles-for-maintaining-appropriate-physical-boundaries-in-39776d05d645",
     },
     {
@@ -67,7 +72,10 @@ export default function Rules() {
   return (
     <div className="flex justify-between items-center flex-col justify-items-center min-h-screen container mx-auto">
       <div>
-        <h1 className="text-3xl font-bold mb-5">新手須知 & 舞會守則</h1>
+        <Title
+          enTitle='Tips and Rules for Dancers'
+          chTitle="新手須知 & 舞會守則"
+        />
         <p className="mb-4 ">
           歡迎加入社交舞的世界！這是一個充滿樂趣和自我成長的環境，但初次參與可能會有些不安，或是疑惑的地方。以下是幾點你需要知道的建議，幫助你更快融入這個圈子：
         </p>

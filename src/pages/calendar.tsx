@@ -9,6 +9,7 @@ import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import { Event, EventWithEventDate } from "@/types/event";
 import EventModal from "@/components/eventModal";
+import Title from "@/components/title";
 
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -43,6 +44,10 @@ export default function Calendar() {
 
   return (
     <>
+      <Title
+        enTitle='Events Calendar'
+        chTitle="活動日曆"
+      />
       <EventModal opened={opened} onClose={close} data={selectEvent} />
       {isMobile && <MobileCalendar data={data.result} render={render} />}
       {!isMobile && <DesktopCalendar data={data.result} render={render} />}
