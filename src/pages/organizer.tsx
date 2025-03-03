@@ -112,7 +112,7 @@ function HostContent({ item }: { item: Host }) {
       <div className="flex justify-between items-center flex-col">
         <HostImage src={item.thumbnail} alt={item.name} />
         <div className="font-bold text-xl mt-4 mb-8">{item.name}</div>
-        <div className="mb-8 mx-10 max-md:mx-0">
+        <div className="mb-4 mx-10 max-md:mx-0">
           {item.intro?.split("\n").map(x => (
             <p key={x} className="mb-2">
               {x}
@@ -120,6 +120,8 @@ function HostContent({ item }: { item: Host }) {
             </p>
           ))}
         </div>
+        <div className="border-t-2 border-b-2 my-2 py-2">{item.party}</div>
+        <div className="text-xl font-bold mt-8 mb-6">主辦方</div>
         <div className="flex justify-center items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
           {item.member.map(h => (
             <div
