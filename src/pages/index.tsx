@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { Event, EventWithEventDate } from "@/types/event";
 import { getLatestWeekEvents } from "@/utils/getEvents";
 import EventModal from "@/components/eventModal";
-import { danceTypeColor } from "@/utils/getDanceTypeColor";
+import { danceTypeColor } from "./calendar";
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 

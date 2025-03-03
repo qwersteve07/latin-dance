@@ -11,12 +11,22 @@ import { Event, EventWithEventDate } from "@/types/event";
 import EventModal from "@/components/eventModal";
 import Title from "@/components/title";
 import { danceTypes } from "@/const/dance-types";
-import { danceTypeColor } from "@/utils/getDanceTypeColor";
+
+export const danceTypeColor = (type: string) => {
+  switch (type) {
+    case 'salsa': return 'bg-red-400';
+    case 'bachata': return 'bg-yellow-300';
+    case 'zouk': return 'bg-blue-400';
+    case 'lambada': return 'bg-green-300';
+    case 'kizomba': return 'bg-purple-400'
+  }
+}
 
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
   const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
   const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
+
 
   const isMobile = useMedia("(max-width: 768px)");
 
