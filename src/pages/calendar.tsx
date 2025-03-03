@@ -10,6 +10,8 @@ import { fetcher } from "@/utils/fetcher";
 import { Event, EventWithEventDate } from "@/types/event";
 import EventModal from "@/components/eventModal";
 import Title from "@/components/title";
+import { danceTypes } from "@/const/dance-types";
+import { danceTypeColor } from "@/utils/getDanceTypeColor";
 
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -19,7 +21,6 @@ export default function Calendar() {
   const isMobile = useMedia("(max-width: 768px)");
 
   function render(eventInfo: any) {
-
     return (
       <div
         className={`cursor-pointer md:truncate`}
@@ -31,7 +32,14 @@ export default function Calendar() {
           open();
         }}
       >
-        <b>{eventInfo.event.title}</b>
+        <div className="flex gap-1 items-center">
+          <div className="ml-1 flex gap-0.5">
+            {eventInfo.event.extendedProps.type.map((t: string, i: string) => {
+              return <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={i} />
+            })}
+          </div>
+          <div className="font-semibold">{eventInfo.event.title}</div>
+        </div>
       </div>
     );
   }
@@ -49,6 +57,11 @@ export default function Calendar() {
         chTitle="活動日曆"
       />
       <EventModal opened={opened} onClose={close} data={selectEvent} />
+      <div className="flex gap-5 mb-6">
+        {danceTypes.map(t => {
+          return <div key={t} className="flex items-center gap-1"><div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} />{t}</div>
+        })}
+      </div>
       {isMobile && <MobileCalendar data={data.result} render={render} />}
       {!isMobile && <DesktopCalendar data={data.result} render={render} />}
     </>
@@ -82,7 +95,7 @@ function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) 
       plugins={[dayGridPlugin]}
       validRange={(nowDate) => {
         return {
-          start: dayjs(nowDate).subtract(1, 'd').toDate(),
+          start: dayjs(nowDate).toDate(),
         };
       }}
       initialView="dayGridMonth"

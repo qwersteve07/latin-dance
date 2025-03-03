@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { Event, EventWithEventDate } from "@/types/event";
 import { getLatestWeekEvents } from "@/utils/getEvents";
 import EventModal from "@/components/eventModal";
+import { danceTypeColor } from "@/utils/getDanceTypeColor";
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 
@@ -62,7 +63,7 @@ export default function Home() {
           {latestWeekEvents.map(([weekday, events]) => (
             <li key={weekday} className="flex flex-col flex-[1] max-md:w-full">
               <div className="font-bold flex justify-between items-center mb-4 gap-4">
-                <span>{dayjs(events[0].date).format("MM/DD")}</span>
+                <span >{dayjs(events[0].date).format("MM/DD")}</span>
                 <span
                   className={
                     weekday === "Saturday" || weekday === "Sunday"
@@ -75,6 +76,7 @@ export default function Home() {
               </div>
               <div className="h-full">
                 {events.map(e => {
+                  console.log(e)
                   return (
                     <div
                       key={e.title}
@@ -87,7 +89,12 @@ export default function Home() {
                         open();
                       }}
                     >
-                      {e.title}
+                      <div className="flex items-start gap-2 font-semibold">
+                        <div className="flex gap-1 mt-[6px]">
+                          {e.type.map(t => <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />)}
+                        </div>
+                        {e.title}
+                      </div>
                     </div>
                   );
                 })}

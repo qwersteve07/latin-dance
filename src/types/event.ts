@@ -10,7 +10,7 @@ export type Event = {
     fee: string
     content: string,
     note: string
-
+    type: string[],
 }
 
 export type EventWithEventDate = Event & {

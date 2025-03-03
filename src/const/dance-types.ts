@@ -1,0 +1,1 @@
+export const danceTypes = ['salsa', 'bachata', 'zouk', 'lambada', 'kizomba']
