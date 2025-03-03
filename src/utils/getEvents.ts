@@ -1,12 +1,15 @@
 import { Event } from "@/types/event";
 import dayjs from "dayjs";
+import isSameOrBefore from "dayjs/plugin/isSameOrAfter"
+import isSameOrAfter from "dayjs/plugin/isSameOrAfter"
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
 
 export function getLatestWeekEvents(events: Array<Event>) {
-
     const weekEvents = events.filter((event: Event) => {
         return (
-            dayjs(event.date).isSameOrBefore(dayjs().add(6, "d")) &&
-            dayjs(event.date).isSameOrAfter(dayjs())
+            dayjs(event.date).isSameOrBefore(dayjs().add(6, "d"),'day') &&
+            dayjs(event.date).isSameOrAfter(dayjs(),'day')
         );
     })
 
