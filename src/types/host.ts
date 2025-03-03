@@ -3,6 +3,7 @@ export type Host = {
     "name": string
     "thumbnail": string
     "intro": string
+    "party": string,
     "link": {
         [key: string]: string
     }

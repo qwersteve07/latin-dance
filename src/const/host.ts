@@ -10,6 +10,7 @@ export const hostList = [
             "website": "https://bailalotaipei.com/index.php/zh/522-2/",
             "location": "https://maps.app.goo.gl/TKVKPDHBY4GD4D9p6"
         },
+        "party": "週日不定期舉辦 Salsa/Bachata/Zouk 舞會",
         "member": [
             {
                 "name": "Maggie",
@@ -25,7 +26,8 @@ export const hostList = [
         "id": "bachata-taiwan",
         "name": "Bachata Taiwan",
         "thumbnail": "/bachata-taiwan.jpg",
-        "intro": "Life is Simple\nDance and Keep it Real\n不只是生活，更要享受快樂\n每週四晚上 21:00-01:00 在 barcade 有 bachata night!",
+        "intro": "Life is Simple\nDance and Keep it Real\n不只是生活，更要享受快樂",
+        "party": "每週四晚上 21:00-01:00 在 barcade 舉辦 bachata night",
         "link": {
             "facebook": "https://www.facebook.com/bachatataiwan/",
             "instagram": "https://www.instagram.com/bachatataiwan/",
@@ -44,6 +46,7 @@ export const hostList = [
         "name": "Copa Taiwan",
         "thumbnail": "/copa-taiwan.jpg",
         "intro": "Copa Taiwan的宗旨是在台灣各地推廣音樂與舞蹈所表達的喜樂, 透過舞會,教學,網路廣播,表演等多元的方式, 讓更多人知道Salsa的精神!",
+        "party": "每週五晚上在 BA Basement 舉辦 Salsa/Bachata Social",
         "link": {
             "facebook": "https://www.facebook.com/CopaTaiwanSalsaSeries/",
             "instagram": "https://www.instagram.com/copataiwan_salsaparty/",
@@ -59,13 +62,8 @@ export const hostList = [
                 "name": "Leo",
                 "image": "/leo.png"
             },
-            {
-                "name": "Latiifah",
-                "image": "/latiifah.jpg"
-            }
         ]
     },
-
     {
         "id": "flow-taipei",
         "name": "Flow Taipei",
@@ -77,6 +75,7 @@ export const hostList = [
             "website": "https://flowtaipei.com/",
             "location": "https://maps.app.goo.gl/1E6tLF4NUgXsiTVn8"
         },
+        "party": "每週五晚上在 Flow Taipei 舉辦 Salsa/Bachata Social",
         "member": [
             {
                 "name": "Glenn",
@@ -107,6 +106,7 @@ export const hostList = [
             "website": "",
             "location": "https://maps.app.goo.gl/qunZybuZXmnshA367"
         },
+        "party": "每週六晚上在 La Salsa Taipei 舉辦 Salsa/Bachata Social",
         "member": [
             {
                 "name": "Larry",
@@ -130,13 +130,14 @@ export const hostList = [
         "id": "taipei-bachata-vibes",
         "name": "TaipeiBachata Vibes",
         "thumbnail": "/tbv.jpg",
-        "intro": "",
+        "intro": "LatinVibes .Taipei Taiwan",
         "link": {
             "facebook": "https://www.facebook.com/LaSalsaTaipei/",
             "instagram": "https://www.instagram.com/taipeibachata_vibes/",
             "website": "",
             "location": ""
         },
+        "party": "",
         "member": [
             {
                 "name": "Eric Chen",
@@ -159,6 +160,7 @@ export const hostList = [
             "website": "",
             "location": ""
         },
+        "party": "每月第一個周日於圓山 Maji Square 舉辦 Salsa/Bachata/Kizomba Social",
         "member": [
             {
                 "name": "蔣哥",
