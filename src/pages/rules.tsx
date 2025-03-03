@@ -120,7 +120,7 @@ export default function Rules() {
           </div>
         )}
         <h3 className="text-2xl font-bold mb-8 text-center">
-          Check the Organizers
+          Check the Hosts
         </h3>
         <div className="flex justify-center items-center gap-x-6 gap-y-2 flex-wrap mb-10">
           {hostList
@@ -129,7 +129,7 @@ export default function Rules() {
               <div
                 key={h.name}
                 className="flex justify-center items-center flex-col gap-4 cursor-pointer"
-                onClick={() => router.push(`/organizer?id=${h.id}`)}
+                onClick={() => router.push(`/hosts?id=${h.id}`)}
               >
                 <HostImage src={h.thumbnail} alt={h.name} />
               </div>
