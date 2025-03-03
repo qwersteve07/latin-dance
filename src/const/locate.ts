@@ -53,5 +53,9 @@ export const locateList = [
         id: 'skyco-zhongxiao-yanji-7f',
         name: '忠孝延吉 Skyco 7F',
         url: 'https://maps.app.goo.gl/KH6AxUdgTbWyYig37'
+    }, {
+        id: 'corner-max',
+        name: 'CORNER MAX',
+        url: 'https://maps.app.goo.gl/knFcbmp67U26BVW49'
     }
 ]
