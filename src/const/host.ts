@@ -62,10 +62,6 @@ export const hostList = [
                 "name": "Leo",
                 "image": "/leo.png"
             },
-            {
-                "name": "Latiifah",
-                "image": "/latiifah.jpg"
-            }
         ]
     },
     {
