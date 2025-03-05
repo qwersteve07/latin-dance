@@ -127,6 +127,25 @@ export const hostList = [
         ]
     },
     {
+        "id": "meet-kiz-taiwan",
+        "name": "Meet Kiz Taiwan",
+        "thumbnail": "/meet-kiz-taiwan.jpg",
+        "intro": "Meet Kiz Taiwan 是台灣專注於推廣 Kizomba、Urban Kiz、Tarraxo 及 Konpa 的舞蹈團隊。我們透過固定課程、社交舞會，以及不定期邀請國際師資來台舉辦 工作坊，讓更多人能夠體驗並深入了解非洲音樂、非洲律動的魅力。",
+        "link": {
+            "facebook": "https://www.facebook.com/meetkiztw",
+            "instagram": "https://www.instagram.com/meetkiztw",
+            "website": "",
+            "location": ""
+        },
+        "party": "每月一次週六 Kizomba 舞會 21:00-00:00 於 Sunny Side",
+        "member": [
+            {
+                "name": "Zoe",
+                "image": "/zoe.jpg"
+            },
+        ]
+    },
+    {
         "id": "taipei-bachata-vibes",
         "name": "TaipeiBachata Vibes",
         "thumbnail": "/tbv.jpg",
