@@ -92,7 +92,7 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
       events={data.map((e) => ({
         ...e,
         start: dayjs(e.date).format(`YYYY-MM-DDT${e.startAt}`),
-        end: '',
+        eventDate: e.date,
       }))}
       eventContent={render}
     />
