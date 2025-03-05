@@ -57,7 +57,7 @@ export default function Home() {
           <h2 className="text-center text-3xl font-bold max-md:text-2xl">台北社交舞指南</h2>
         </div>
         <h3 className="text-center text-2xl font-bold mb-12 max-md:mb-8">
-          Up Coming Events
+          Upcoming Events
         </h3>
         <ul className="flex justify-center items-start gap-5 w-full max-md:flex-col">
           {latestWeekEvents.map(([weekday, events]) => (
