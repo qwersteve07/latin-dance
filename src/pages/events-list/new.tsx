@@ -1,7 +1,7 @@
 import { hostList } from "@/const/host";
 import { locateList } from "@/const/locate";
 import { fetcher } from "@/utils/fetcher";
-import { ActionIcon, Button, Select, Textarea, TextInput } from "@mantine/core";
+import { ActionIcon, Button, MultiSelect, Select, Textarea, TextInput } from "@mantine/core";
 import { DatePickerInput, TimeInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import dayjs from "dayjs";
@@ -9,6 +9,7 @@ import { useRouter } from "next/router"
 import { useRef, useState, } from "react";
 import iconClock from '../../../public/icon-clock.svg'
 import Image from "next/image";
+import { danceTypes } from "@/const/dance-types";
 
 export default function NewEvents() {
     const [loading, setLoading] = useState(false)
@@ -25,6 +26,7 @@ export default function NewEvents() {
             startAt: '',
             endAt: '',
             rate: '',
+            type: [],
             fee: '',
             content: '',
             note: ''
@@ -115,9 +117,17 @@ export default function NewEvents() {
             <TextInput label="比率"
                 key={form.key('rate')}
                 {...form.getInputProps('rate')} />
+            <MultiSelect
+                label="舞種"
+                placeholder="Pick types"
+                data={danceTypes}
+                key={form.key('type')}
+                {...form.getInputProps('type')}
+            />
             <TextInput label="費用"
                 key={form.key('fee')}
                 {...form.getInputProps('fee')} />
+            <br />
             <Textarea label="活動內容"
                 key={form.key('content')}
                 {...form.getInputProps('content')}
