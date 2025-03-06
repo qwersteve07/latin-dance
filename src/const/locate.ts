@@ -61,5 +61,9 @@ export const locateList = [
         id: 'sunny-side',
         name: 'Sunny Side',
         url: 'https://maps.app.goo.gl/NKPYBpGsKGz63noo7'
+    },{
+        id: 'big-apple',
+        name: 'Big Apple',
+        url: 'https://maps.app.goo.gl/e62ztNWFJtU5fNHY6'
     }
 ]
