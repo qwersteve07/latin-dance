@@ -39,7 +39,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
 
       - name: test
-        run: echo ${{secrets.SSH_PRIVATE_KEY}} && echo ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}
+        run: echo ${{secrets.SSH_PRIVATE_KEY}}
 
       - name: SSH into Server and Create Folder
         run: |
