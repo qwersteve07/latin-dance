@@ -35,29 +35,54 @@ export default function Rental() {
             link: 'https://service.gov.taipei/rental/VenueDetail/65805e424596'
         }
     ]
+
+    const shoeStores = [
+        {
+            name: '美佳莉舞鞋',
+            link: 'https://www.dpassion.net/'
+        }, {
+            name: '女王舞鞋',
+            link: 'https://www.facebook.com/queensdancingheels'
+        }, {
+            name: '安法舞鞋',
+            link: 'https://www.afadanceshoes.com/'
+        }, {
+            name: '寶琦華舞蹈生活用品館',
+            link: 'https://www.bourdance.com.tw/'
+        }
+    ]
     return (
         <main>
             <Title
-                enTitle='Rental'
-                chTitle="練習場地租借"
+                enTitle='Others'
+                chTitle="各項資訊"
             />
-            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-10">
+            <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">Rental 場地租借</h3>
+            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-10 mb-16">
                 <section>
-                    <h3 className="text-xl font-bold mb-5">Paid 付費場地</h3>
+                    <h4 className="text-xl font-bold mb-5">Paid 付費場地</h4>
                     <ul className="list-disc pl-4 flex flex-col gap-3">
-                        {paidSpace.map(space => {
-                            return <li key={space.name}><OuterLink href={space.link}>{space.name}</OuterLink></li>
+                        {paidSpace.map(item => {
+                            return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
                         })}
                     </ul>
                 </section>
                 <section>
-                    <h3 className="text-xl font-bold mb-5">Free 免費場地</h3>
+                    <h4 className="text-xl font-bold mb-5">Free 免費場地</h4>
                     <ul className="list-disc pl-4 flex flex-col gap-3">
-                        {freeSpace.map(space => {
-                            return <li key={space.name}><OuterLink href={space.link}>{space.name}</OuterLink></li>
+                        {freeSpace.map(item => {
+                            return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
                         })}
                     </ul>
                 </section>
+            </div>
+            <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">Shoes 舞鞋購買</h3>
+            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-10 mb-16">
+                <ul className="list-disc pl-4 flex flex-col gap-3">
+                    {shoeStores.map(item => {
+                        return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
+                    })}
+                </ul>
             </div>
         </main>
     )
