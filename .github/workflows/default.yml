@@ -5,31 +5,31 @@ on:
     branches:
       - main
 jobs:
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v3
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-  #     - name: build files
-  #       run: npm install && npm run build
+      - name: build files
+        run: npm install && npm run build
 
-  #     - name: Upload build artifact
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         include-hidden-files: true
-  #         name: build-output
-  #         path: ./.next/
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          include-hidden-files: true
+          name: build-output
+          path: ./.next/
 
   deploy:
     # needs: build
     runs-on: ubuntu-latest
     steps:
-      # - name: Download build artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: build-output
-      #     path: ./.next/
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: ./.next/
 
       - uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -37,9 +37,6 @@ jobs:
 
       - name: Set up SSH key
         run: ssh-keyscan -H ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
-
-      - name: test
-        run: echo "${{secrets.SSH_PRIVATE_KEY}}"
 
       - name: SSH into Server and Create Folder
         run: |
