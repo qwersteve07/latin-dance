@@ -1,4 +1,4 @@
-import { hostList } from "@/const/host";
+import { teamList } from "@/const/teams";
 import { locateList } from "@/const/locate";
 import { fetcher } from "@/utils/fetcher";
 import { ActionIcon, Button, Select, Textarea, TextInput, MultiSelect } from "@mantine/core";
@@ -53,7 +53,7 @@ export default function EditEvents() {
             startAt: data.result.startAt,
             endAt: data.result.endAt,
             rate: data.result.rate,
-            type: data.result.type,
+            type: data.result.types,
             fee: data.result.fee,
             content: data.result.content,
             note: data.result.note
@@ -124,7 +124,7 @@ export default function EditEvents() {
             <Select
                 withAsterisk
                 label="主辦單位"
-                data={hostList.map(item => ({ ...item, value: item.id, label: item.name }))}
+                data={teamList.map(item => ({ ...item, value: item.id, label: item.name }))}
                 key={form.key('host')}
                 {...form.getInputProps('host')}
             />

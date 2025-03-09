@@ -1,4 +1,4 @@
-import { hostList } from "@/const/host";
+import { teamList } from "@/const/teams";
 import { locateList } from "@/const/locate";
 import { fetcher } from "@/utils/fetcher";
 import { ActionIcon, Button, MultiSelect, Select, Textarea, TextInput } from "@mantine/core";
@@ -92,7 +92,7 @@ export default function NewEvents() {
             <Select
                 withAsterisk
                 label="主辦單位"
-                data={hostList.map(item => ({ ...item, value: item.id, label: item.name }))}
+                data={teamList.map(item => ({ ...item, value: item.id, label: item.name }))}
                 key={form.key('host')}
                 {...form.getInputProps('host')}
             />

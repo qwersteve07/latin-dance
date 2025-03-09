@@ -9,15 +9,16 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import MemberImage from "@/components/memberImage";
 import HostImage from "@/components/hostImage";
-import { Host } from "@/types/host";
-import { hostList } from "@/const/host";
+import { Team } from "@/types/team";
+import { teamList } from "@/const/teams";
 import Title from "@/components/title";
 
 export default function Hosts() {
   const [domLoaded, setDomLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState<string | null>('');
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectHost, setSelectHost] = useState<Host>({} as any);
+  const [selectHost, setSelectHost] = useState<Team>({} as any);
+  const activeTeamList = teamList.filter(t => !t.hide)
 
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -31,7 +32,7 @@ export default function Hosts() {
     if (id) {
       setActiveTab(id);
     } else {
-      setActiveTab(hostList[0].id);
+      setActiveTab(teamList[0].id);
     }
   }, []);
 
@@ -42,8 +43,8 @@ export default function Hosts() {
   return (
     <>
       <Title
-        enTitle='Hosts List'
-        chTitle="主辦單位"
+        enTitle='Teams List'
+        chTitle="團隊列表"
       />
       <Modal
         opened={opened}
@@ -53,24 +54,25 @@ export default function Hosts() {
         <HostContent item={selectHost} />
       </Modal>
       {isMobile && (
-        <MobileStudios onClick={(host: Host) => {
-          setSelectHost(host)
-          open()
-        }} />
+        <MobileStudios
+          teamList={activeTeamList}
+          onClick={(host: Team) => {
+            setSelectHost(host)
+            open()
+          }} />
       )}
       {!isMobile && (
-        <DesktopStudios activeTab={activeTab} setActiveTab={setActiveTab} />
+        <DesktopStudios teamList={activeTeamList} activeTab={activeTab} setActiveTab={setActiveTab} />
       )}
     </>
   );
 }
 
-function MobileStudios({ onClick }: { onClick: (host: Host) => void }) {
+function MobileStudios({ teamList, onClick }: { teamList: Array<Team>, onClick: (host: Team) => void }) {
   return (
     <>
-
       <div className="flex justify-start flex-wrap gap-y-8">
-        {hostList.map(item => {
+        {teamList.map(item => {
           return (
             <div key={item.id} className="flex flex-col items-center flex-[50%] gap-2" onClick={() => {
               onClick(item)
@@ -86,7 +88,7 @@ function MobileStudios({ onClick }: { onClick: (host: Host) => void }) {
   );
 }
 
-function DesktopStudios({ activeTab, setActiveTab }: { activeTab: string | null, setActiveTab: (value: string | null) => void }) {
+function DesktopStudios({ teamList, activeTab, setActiveTab }: { teamList: Array<Team>, activeTab: string | null, setActiveTab: (value: string | null) => void }) {
   return (
     <Tabs
       value={activeTab}
@@ -95,7 +97,7 @@ function DesktopStudios({ activeTab, setActiveTab }: { activeTab: string | null,
       className="flex-1"
     >
       <Tabs.List>
-        {hostList.map(item => {
+        {teamList.map(item => {
           return (
             <Tabs.Tab value={item.id} key={item.id}>
               {item.name}
@@ -103,7 +105,7 @@ function DesktopStudios({ activeTab, setActiveTab }: { activeTab: string | null,
           );
         })}
       </Tabs.List>
-      {hostList.map(item => {
+      {teamList.map(item => {
         return (
           <Tabs.Panel
             value={item.id}
@@ -118,7 +120,7 @@ function DesktopStudios({ activeTab, setActiveTab }: { activeTab: string | null,
   );
 }
 
-function HostContent({ item }: { item: Host }) {
+function HostContent({ item }: { item: Team }) {
   return (
     <div className="flex justify-between items-center flex-col h-full w-full">
       <div className="flex justify-between items-center flex-col w-2/3 max-md:w-full">
@@ -133,7 +135,7 @@ function HostContent({ item }: { item: Host }) {
           ))}
         </div>
         <div className="border-t-2 border-b-2 my-2 py-2">{item.party}</div>
-        <div className="text-xl font-bold mt-8 mb-6">主辦方</div>
+        <div className="text-xl font-bold mt-8 mb-6">團隊成員</div>
         <div className="flex justify-center items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
           {item.member.map(h => (
             <div
