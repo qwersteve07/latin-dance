@@ -91,7 +91,7 @@ export default function Home() {
                     >
                       <div className="flex items-start gap-2 font-semibold">
                         <div className="flex gap-1 mt-[6px]">
-                          {e.type.map(t => <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />)}
+                          {e.types.map(t => <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />)}
                         </div>
                         {e.title}
                       </div>

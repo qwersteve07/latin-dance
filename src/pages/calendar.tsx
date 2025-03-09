@@ -14,7 +14,8 @@ import { danceTypes } from "@/const/dance-types";
 
 export const danceTypeColor = (type: string) => {
   switch (type) {
-    case 'salsa': return 'bg-red-400';
+    case 'salsa on 1': return 'bg-red-800';
+    case 'salsa on 2': return 'bg-red-400';
     case 'bachata': return 'bg-yellow-300';
     case 'zouk': return 'bg-blue-400';
     case 'lambada': return 'bg-green-300';
@@ -44,7 +45,7 @@ export default function Calendar() {
       >
         <div className="flex gap-1 items-center">
           <div className="ml-1 flex gap-0.5">
-            {eventInfo.event.extendedProps.type.map((t: string, i: string) => {
+            {eventInfo.event.extendedProps.types.map((t: string, i: string) => {
               return <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={i} />
             })}
           </div>
@@ -69,6 +70,7 @@ export default function Calendar() {
       <EventModal opened={opened} onClose={close} data={selectEvent} />
       <div className="flex gap-5 mb-6">
         {danceTypes.map(t => {
+          console.log(t)
           return <div key={t} className="flex items-center gap-1"><div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} />{t}</div>
         })}
       </div>
