@@ -68,10 +68,9 @@ export default function Calendar() {
         chTitle="活動日曆"
       />
       <EventModal opened={opened} onClose={close} data={selectEvent} />
-      <div className="flex gap-5 mb-6">
+      <div className="flex flex-wrap gap-x-5 gap-y-2 mb-6">
         {danceTypes.map(t => {
-          console.log(t)
-          return <div key={t} className="flex items-center gap-1"><div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} />{t}</div>
+          return <div key={t} className="flex justify-start items-center gap-1"><div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} />{t}</div>
         })}
       </div>
       {isMobile && <MobileCalendar data={data.result} render={render} />}
