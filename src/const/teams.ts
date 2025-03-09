@@ -1,4 +1,4 @@
-export const hostList = [
+export const teamList = [
     {
         "id": "bailalo-dance-studio",
         "name": "Bailalo Dance Studio",
@@ -10,6 +10,7 @@ export const hostList = [
             "website": "https://bailalotaipei.com/index.php/zh/522-2/",
             "location": "https://maps.app.goo.gl/TKVKPDHBY4GD4D9p6"
         },
+        "classes": ["salsa", 'bachata', 'zouk', 'lambada', 'cha cha cha'],
         "party": "週日不定期舉辦 Salsa/Bachata/Zouk 舞會",
         "member": [
             {
@@ -27,6 +28,7 @@ export const hostList = [
         "name": "Bachata Taiwan",
         "thumbnail": "/bachata-taiwan.jpg",
         "intro": "Life is Simple\nDance and Keep it Real\n不只是生活，更要享受快樂",
+        "classes": [],
         "party": "每週四晚上 21:00-01:00 在 barcade 舉辦 bachata night",
         "link": {
             "facebook": "https://www.facebook.com/bachatataiwan/",
@@ -47,6 +49,7 @@ export const hostList = [
         "thumbnail": "/copa-taiwan.jpg",
         "intro": "Copa Taiwan的宗旨是在台灣各地推廣音樂與舞蹈所表達的喜樂, 透過舞會,教學,網路廣播,表演等多元的方式, 讓更多人知道Salsa的精神!",
         "party": "每週五晚上在 BA Basement 舉辦 Salsa/Bachata Social",
+        "classes": ['salsa', 'bachata'],
         "link": {
             "facebook": "https://www.facebook.com/CopaTaiwanSalsaSeries/",
             "instagram": "https://www.instagram.com/copataiwan_salsaparty/",
@@ -65,6 +68,30 @@ export const hostList = [
         ]
     },
     {
+        "id": "feM",
+        "name": "FeM",
+        "thumbnail": "/fem.jpg",
+        "intro": "Hi~ 👋，我們是Finn和Minnie 😁，我們熱愛Lambada/Zouk，想推廣讓更多的人加入跳 Lambada/Zouk，一起享受 Lambada/Zouk的美好🩵，期望讓台灣成為亞洲熱門 Lambada/Zouk大國🎉。\n每週二晚上在忠孝新生教Lambada/Zouk，歡迎大家加入一起玩🥳。",
+        "link": {
+            "facebook": "",
+            "instagram": "",
+            "website": "https://docs.google.com/forms/d/e/1FAIpQLSfdx5w_iz6S4ZXrARh2AZkN3vXX9dx8ETGzJWDY6qhqvaN2uQ/viewform",
+            "location": ""
+        },
+        "classes": ['zouk', 'lambada'],
+        "party": "",
+        "member": [
+            {
+                "name": "Finn",
+                "image": "/finn.jpg"
+            },
+            {
+                "name": "Minnie",
+                "image": "/minnie.jpg"
+            },
+        ]
+    },
+    {
         "id": "flow-taipei",
         "name": "Flow Taipei",
         "thumbnail": "/flow.png",
@@ -75,6 +102,7 @@ export const hostList = [
             "website": "https://flowtaipei.com/",
             "location": "https://maps.app.goo.gl/1E6tLF4NUgXsiTVn8"
         },
+        "classes": ['salsa', 'bachata', 'zouk', 'afro'],
         "party": "每週五晚上在 Flow Taipei 舉辦 Salsa/Bachata Social",
         "member": [
             {
@@ -106,6 +134,7 @@ export const hostList = [
             "website": "",
             "location": "https://maps.app.goo.gl/qunZybuZXmnshA367"
         },
+        "classes": ['salsa', 'bachata'],
         "party": "每週六晚上在 La Salsa Taipei 舉辦 Salsa/Bachata Social",
         "member": [
             {
@@ -137,6 +166,7 @@ export const hostList = [
             "website": "",
             "location": ""
         },
+        "classes": ['kizomba'],
         "party": "每月一次週六 Kizomba 舞會 21:00-00:00 於 Sunny Side",
         "member": [
             {
@@ -150,6 +180,7 @@ export const hostList = [
         "name": "TaipeiBachata Vibes",
         "thumbnail": "/tbv.jpg",
         "intro": "LatinVibes .Taipei Taiwan",
+        "classes": ['bachata'],
         "link": {
             "facebook": "https://www.facebook.com/LaSalsaTaipei/",
             "instagram": "https://www.instagram.com/taipeibachata_vibes/",
@@ -179,6 +210,7 @@ export const hostList = [
             "website": "",
             "location": ""
         },
+        "classes": [],
         "party": "每月第一個周日於圓山 Maji Square 舉辦 Salsa/Bachata/Kizomba Social",
         "member": [
             {
@@ -186,5 +218,39 @@ export const hostList = [
                 "image": "/cyc_chiang.png"
             }
         ]
+    },
+    {
+        "id": "barcade-taiwan",
+        "name": "Barcade Taiwan",
+        "hide": true,
+        "thumbnail": "",
+        "intro": "",
+        "link": {
+            "facebook": "",
+            "instagram": "",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": [],
+        "member": []
+    },
+    {
+        "id": "brass-monkey",
+        "name": "Brass Monkey",
+        "hide": true,
+        "thumbnail": "",
+        "intro": "",
+        "link": {
+            "facebook": "",
+            "instagram": "",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": [],
+        "member": []
     }
+
+
 ]
