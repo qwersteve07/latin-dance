@@ -8,16 +8,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import MemberImage from "@/components/memberImage";
-import HostImage from "@/components/hostImage";
+import TeamImage from "@/components/teamImage";
 import { Team } from "@/types/team";
 import { teamList } from "@/const/teams";
 import Title from "@/components/title";
 
-export default function Hosts() {
+export default function Teams() {
   const [domLoaded, setDomLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState<string | null>('');
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectHost, setSelectHost] = useState<Team>({} as any);
+  const [selectTeam, setSelectTeam] = useState<Team>({} as any);
   const activeTeamList = teamList.filter(t => !t.hide)
 
   const searchParams = useSearchParams();
@@ -51,13 +51,13 @@ export default function Hosts() {
         onClose={close}
         centered
       >
-        <HostContent item={selectHost} />
+        <TeamContent item={selectTeam} />
       </Modal>
       {isMobile && (
         <MobileStudios
           teamList={activeTeamList}
-          onClick={(host: Team) => {
-            setSelectHost(host)
+          onClick={(teeam: Team) => {
+            setSelectTeam(teeam)
             open()
           }} />
       )}
@@ -68,7 +68,7 @@ export default function Hosts() {
   );
 }
 
-function MobileStudios({ teamList, onClick }: { teamList: Array<Team>, onClick: (host: Team) => void }) {
+function MobileStudios({ teamList, onClick }: { teamList: Array<Team>, onClick: (team: Team) => void }) {
   return (
     <>
       <div className="flex justify-start flex-wrap gap-y-8">
@@ -77,7 +77,7 @@ function MobileStudios({ teamList, onClick }: { teamList: Array<Team>, onClick: 
             <div key={item.id} className="flex flex-col items-center flex-[50%] gap-2" onClick={() => {
               onClick(item)
             }}>
-              <HostImage src={item.thumbnail} alt={item.name} />
+              <TeamImage src={item.thumbnail} alt={item.name} />
               <div className="text-sm font-bold">{item.name}</div>
             </div>
 
@@ -112,7 +112,7 @@ function DesktopStudios({ teamList, activeTab, setActiveTab }: { teamList: Array
             key={item.id}
             className="p-4 flex flex-col justify-start items-center gap-5"
           >
-            <HostContent item={item} />
+            <TeamContent item={item} />
           </Tabs.Panel>
         );
       })}
@@ -120,12 +120,17 @@ function DesktopStudios({ teamList, activeTab, setActiveTab }: { teamList: Array
   );
 }
 
-function HostContent({ item }: { item: Team }) {
+function TeamContent({ item }: { item: Team }) {
   return (
     <div className="flex justify-between items-center flex-col h-full w-full">
-      <div className="flex justify-between items-center flex-col w-2/3 max-md:w-full">
-        <HostImage src={item.thumbnail} alt={item.name} />
-        <div className="font-bold text-xl mt-4 mb-8">{item.name}</div>
+      <div className="flex justify-between items-start flex-col w-2/3 max-md:w-full">
+        <TeamImage src={item.thumbnail} alt={item.name} />
+        <div className="font-bold text-2xl mt-4 mb-4">{item.name}</div>
+        <div className="flex justify-center gap-4 mb-10">
+          {Object.entries(item.link).filter(item => item[1] !== '').map(([key, value]) => {
+            return <SocialLink key={value} type={key} link={value} />;
+          })}
+        </div>
         <div className="mb-4">
           {item.intro?.split("\n").map(x => (
             <p key={x} className="mb-2">
@@ -134,7 +139,10 @@ function HostContent({ item }: { item: Team }) {
             </p>
           ))}
         </div>
-        <div className="border-t-2 border-b-2 my-2 py-2">{item.party}</div>
+        {item.classes.length !== 0 && <div className="">
+          課程包含：<span className="font-bold">{item.classes.join('、')}</span>
+        </div>}
+        {item.party && <div className="">舞會活動：{item.party}</div>}
         <div className="text-xl font-bold mt-8 mb-6">團隊成員</div>
         <div className="flex justify-center items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
           {item.member.map(h => (
@@ -148,12 +156,8 @@ function HostContent({ item }: { item: Team }) {
           ))}
         </div>
       </div>
-      <div className="flex justify-center gap-4 mb-4">
-        {Object.entries(item.link).filter(item => item[1] !== '').map(([key, value]) => {
-          return <SocialLink key={value} type={key} link={value} />;
-        })}
-      </div>
-    </div>
+
+    </div >
   );
 }
 

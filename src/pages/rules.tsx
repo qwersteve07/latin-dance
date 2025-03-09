@@ -1,7 +1,7 @@
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import HostImage from "@/components/hostImage";
+import HostImage from "@/components/teamImage";
 import MemberImage from "@/components/memberImage";
 import { Team } from "@/types/team";
 import { teamList } from "@/const/teams";
