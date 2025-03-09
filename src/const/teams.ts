@@ -103,7 +103,7 @@ export const teamList = [
             "location": "https://maps.app.goo.gl/1E6tLF4NUgXsiTVn8"
         },
         "classes": ['salsa', 'bachata', 'zouk', 'afro'],
-        "party": "每週五晚上在 Flow Taipei 舉辦 Salsa/Bachata Social",
+        "party": "每週五晚上在 Flow Taipei 舉辦 Salsa/Bachata/Zouk Social",
         "member": [
             {
                 "name": "Glenn",
