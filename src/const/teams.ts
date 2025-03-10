@@ -168,26 +168,26 @@ export const teamList = [
             }
         ]
     },
-    {
-        "id": "la-havanita-dance-academy",
-        "name": "La Havanita Dance Academy ",
-        "thumbnail": "/la-havanita.jpg",
-        "intro": "La Havanita是全台北唯一專門教授On 1 LA Style Salsa以及Cuban Style Salsa的舞蹈學校",
-        "link": {
-            "facebook": "https://www.facebook.com/LaHavanita",
-            "instagram": "https://www.instagram.com/lahavanita_da_/",
-            "website": "",
-            "location": "https://maps.app.goo.gl/vKxuBEmDkRpxSd5x6"
-        },
-        "classes": ['salsa', 'bachata'],
-        "party": "",
-        "member": [
-            {
-                "name": "Frank",
-                "image": "/frank.jpg"
-            },
-        ]
-    },
+    // {
+    //     "id": "la-havanita-dance-academy",
+    //     "name": "La Havanita Dance Academy ",
+    //     "thumbnail": "/la-havanita.jpg",
+    //     "intro": "La Havanita是全台北唯一專門教授On 1 LA Style Salsa以及Cuban Style Salsa的舞蹈學校",
+    //     "link": {
+    //         "facebook": "https://www.facebook.com/LaHavanita",
+    //         "instagram": "https://www.instagram.com/lahavanita_da_/",
+    //         "website": "",
+    //         "location": "https://maps.app.goo.gl/vKxuBEmDkRpxSd5x6"
+    //     },
+    //     "classes": ['salsa', 'bachata'],
+    //     "party": "",
+    //     "member": [
+    //         {
+    //             "name": "Frank",
+    //             "image": "/frank.jpg"
+    //         },
+    //     ]
+    // },
     {
         "id": "la-salsa-taipei",
         "name": "La Salsa Taipei",
