@@ -12,6 +12,7 @@ import { Event, EventWithEventDate } from "@/types/event";
 import { getLatestWeekEvents } from "@/utils/getEvents";
 import EventModal from "@/components/eventModal";
 import { danceTypeColor } from "./calendar";
+import Loading from "@/components/loading";
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 
@@ -43,7 +44,13 @@ export default function Home() {
 
   if (error) return <div>failed to load</div>;
 
-  if (isLoading) return <div>loading...</div>;
+  if (isLoading) {
+    return (
+      <div className="w-full h-[70dvh] flex justify-center items-center">
+        <Loading />
+      </div>
+    )
+  }
 
   return (
     <div>
@@ -89,7 +96,7 @@ export default function Home() {
                         open();
                       }}
                     >
-                      <div className="flex items-start gap-2 font-semibold">
+                      <div className="flex items-start gap-2 font-semibold" style={{ 'wordBreak': 'break-word' }}>
                         <div className="flex gap-1 mt-[6px]">
                           {e.types.map(t => <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />)}
                         </div>

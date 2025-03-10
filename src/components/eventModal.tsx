@@ -7,6 +7,7 @@ import OuterLink from "./outerLink"
 import Image from "next/image"
 
 const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate> }) => {
+    const hasLocate = Object.keys(data.locate || {}).length !== 0
     return (
         <Modal
             opened={opened}
@@ -20,18 +21,20 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                 <div>{getHost(data.host || '')}</div>
                 <div className="font-semibold">Locate</div>
                 <div>
-                    <OuterLink href={getLocateLink(data.locate || '')}>
-                        <div className="inline-flex justify-start items-center gap-1">
-                            {getLocate(data.locate || '')}
-                            <Image
-                                src="/icon-location.svg"
-                                width="15"
-                                height="15"
-                                alt="locate"
-                                priority
-                            />
-                        </div>
-                    </OuterLink>
+                    {hasLocate ?
+                        (<OuterLink href={getLocateLink(data.locate || '')}>
+                            <div className="inline-flex justify-start items-center gap-1">
+                                {getLocate(data.locate || '')}
+                                <Image
+                                    src="/icon-location.svg"
+                                    width="15"
+                                    height="15"
+                                    alt="locate"
+                                    priority
+                                />
+                            </div>
+                        </OuterLink>)
+                        : 'TBD'}
                 </div>
                 <div className="font-semibold">Date</div>
                 <div>{dayjs(data.eventDate || data.date).format('YYYY/MM/DD')}</div>
@@ -41,10 +44,20 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                 <div>{data.fee}</div>
                 <div className="font-semibold">Rate</div>
                 <div>{data.rate}</div>
-                <div className="font-semibold">Content</div>
-                <div>{data.content}</div>
-                <div className="font-semibold">Note</div>
-                <div>{data.note}</div>
+                {data.content &&
+                    (
+                        <>
+                            <div className="font-semibold">Content</div>
+                            <div>{data.content}</div>
+                        </>
+                    )}
+                {data.note &&
+                    (
+                        <>
+                            <div className="font-semibold">Note</div>
+                            <div>{data.note}</div>
+                        </>
+                    )}
             </div>
         </Modal >
     )
