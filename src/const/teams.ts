@@ -1,5 +1,29 @@
 export const teamList = [
     {
+        "id": "latinesa-studio",
+        "name": "Latinesa Studio",
+        "thumbnail": "/latinesa.jpg",
+        "intro": "台北最chill的Salsa教室",
+        "link": {
+            "facebook": "",
+            "instagram": "https://www.instagram.com/latinesastudio",
+            "website": "https://line.me/ti/g2/vhWfFCL6FpuVe_9wdpZsJfuScyolKcG5rSQg2A",
+            "location": "https://maps.app.goo.gl/NMNM3moJnSPKjyaFA"
+        },
+        "classes": ["salsa"],
+        "party": "",
+        "member": [
+            {
+                "name": "Cheli",
+                "image": "/cheli.png"
+            },
+            {
+                "name": "Noya",
+                "image": "/noya.png"
+            }
+        ]
+    },
+    {
         "id": "bailalo-dance-studio",
         "name": "Bailalo Dance Studio",
         "thumbnail": "/bailalo.jpeg",
@@ -145,6 +169,26 @@ export const teamList = [
         ]
     },
     {
+        "id": "la-havanita-dance-academy",
+        "name": "La Havanita Dance Academy ",
+        "thumbnail": "/la-havanita.jpg",
+        "intro": "La Havanita是全台北唯一專門教授On 1 LA Style Salsa以及Cuban Style Salsa的舞蹈學校",
+        "link": {
+            "facebook": "https://www.facebook.com/LaHavanita",
+            "instagram": "https://www.instagram.com/lahavanita_da_/",
+            "website": "",
+            "location": "https://maps.app.goo.gl/vKxuBEmDkRpxSd5x6"
+        },
+        "classes": ['salsa', 'bachata'],
+        "party": "",
+        "member": [
+            {
+                "name": "Frank",
+                "image": "/frank.jpg"
+            },
+        ]
+    },
+    {
         "id": "la-salsa-taipei",
         "name": "La Salsa Taipei",
         "thumbnail": "/lasalsa.jpg",
@@ -259,6 +303,22 @@ export const teamList = [
     {
         "id": "brass-monkey",
         "name": "Brass Monkey",
+        "hide": true,
+        "thumbnail": "",
+        "intro": "",
+        "link": {
+            "facebook": "",
+            "instagram": "",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": [],
+        "member": []
+    },
+    {
+        "id": "salud-salsa-party",
+        "name": "Salud Salsa Party",
         "hide": true,
         "thumbnail": "",
         "intro": "",
