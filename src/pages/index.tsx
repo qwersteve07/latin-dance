@@ -96,7 +96,7 @@ export default function Home() {
                         open();
                       }}
                     >
-                      <div className="flex items-start gap-2 font-semibold">
+                      <div className="flex items-start gap-2 font-semibold" style={{ 'wordBreak': 'break-word' }}>
                         <div className="flex gap-1 mt-[6px]">
                           {e.types.map(t => <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />)}
                         </div>
