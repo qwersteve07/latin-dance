@@ -68,6 +68,27 @@ export const teamList = [
         ]
     },
     {
+        "id": "el-colmado-social-taiwan",
+        "name": "El Colmado Sicial Taiwan",
+        "thumbnail": "/el-colmado.jpg",
+        "intro": "🇩🇴Traditional Bachata in Taiwan\n🇩🇴Back to the Roots",
+        "party": "",
+        "classes": ['bachata'],
+        "link": {
+            "facebook": "",
+            "instagram": "https://www.instagram.com/elcolmado.taiwan/",
+            "website": "",
+            "location": ""
+        },
+        "member": [
+            {
+                "name": "Tony",
+                "image": "/tony.png"
+            },
+            
+        ]
+    },
+    {
         "id": "feM",
         "name": "FeM",
         "thumbnail": "/fem.jpg",
