@@ -57,6 +57,11 @@ export const locateList = [
         id: 'corner-max',
         name: 'CORNER MAX',
         url: 'https://maps.app.goo.gl/knFcbmp67U26BVW49'
+    },
+    {
+        id: 'nuzone',
+        name: 'NUZONE',
+        url: 'https://maps.app.goo.gl/BqXb7NQxJUJtktfc9'
     }, {
         id: 'sunny-side',
         name: 'Sunny Side',
