@@ -182,7 +182,7 @@ export const teamList = [
         "intro": "LatinVibes .Taipei Taiwan",
         "classes": ['bachata'],
         "link": {
-            "facebook": "https://www.facebook.com/LaSalsaTaipei/",
+            "facebook": "",
             "instagram": "https://www.instagram.com/taipeibachata_vibes/",
             "website": "",
             "location": ""
