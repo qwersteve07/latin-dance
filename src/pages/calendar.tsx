@@ -4,7 +4,7 @@ import listPlugin from "@fullcalendar/list";
 import dayjs from "dayjs";
 import { useMedia } from "react-use";
 import { useDisclosure } from "@mantine/hooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
 import { Event, EventWithEventDate } from "@/types/event";
@@ -28,6 +28,23 @@ export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
   const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
   const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
+  const [currentData, setCurrentData] = useState<Array<Event>>([])
+  const [selectTypes, setSelectTypes] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (isLoading) return
+
+    if (selectTypes.length === 0) {
+      setCurrentData(data.result)
+      return
+    }
+
+    const result = data.result.filter((d: Event) => {
+      return d.types.some(x => selectTypes.includes(x))
+    })
+
+    setCurrentData(result)
+  }, [isLoading, selectTypes])
 
 
   const isMobile = useMedia("(max-width: 768px)");
@@ -73,13 +90,29 @@ export default function Calendar() {
         chTitle="活動日曆"
       />
       <EventModal opened={opened} onClose={close} data={selectEvent} />
-      <div className="flex flex-wrap gap-x-5 gap-y-2 mb-6">
+      <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6">
         {danceTypes.map(t => {
-          return <div key={t} className="flex justify-start items-center gap-1"><div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} />{t}</div>
+          return (
+            <div
+              key={t}
+              className={`cursor-pointer border-dashed border-gray-300 border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 hover:bg-gray-100 ${selectTypes.includes(t) ? 'bg-gray-100' : 'bg-transparent'}`}
+              onClick={() => {
+                if (selectTypes.find(types => types === t)) {
+                  const result = selectTypes.filter(types => types !== t)
+                  setSelectTypes(result)
+                } else {
+                  const result = selectTypes.concat([t])
+                  setSelectTypes(result)
+                }
+              }}
+            >
+              <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} />{t}
+            </div>)
         })}
       </div>
-      {isMobile && <MobileCalendar data={data.result} render={render} />}
-      {!isMobile && <DesktopCalendar data={data.result} render={render} />}
+      {selectTypes.length !== 0 && <div className="-mt-3 mb-8 font-bold">目前顯示：{selectTypes.join('、')}</div>}
+      {isMobile && <MobileCalendar data={currentData} render={render} />}
+      {!isMobile && <DesktopCalendar data={currentData} render={render} />}
     </>
   );
 }
