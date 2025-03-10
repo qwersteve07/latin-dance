@@ -12,16 +12,17 @@ export const teamList = [
         },
         "classes": ["salsa"],
         "party": "",
-        "member": [
-            {
-                "name": "Cheli",
-                "image": "/cheli.png"
-            },
-            {
-                "name": "Noya",
-                "image": "/noya.png"
-            }
-        ]
+        "member": []
+        // "member": [
+        //     {
+        //         "name": "Cheli",
+        //         "image": "/cheli.png"
+        //     },
+        //     {
+        //         "name": "Noya",
+        //         "image": "/noya.png"
+        //     }
+        // ]
     },
     {
         "id": "bailalo-dance-studio",
@@ -104,13 +105,14 @@ export const teamList = [
             "website": "",
             "location": ""
         },
-        "member": [
-            {
-                "name": "Tony",
-                "image": "/tony.png"
-            },
-            
-        ]
+        "member": []
+        // "member": [
+        //     {
+        //         "name": "Tony",
+        //         "image": "/tony.png"
+        //     },
+
+        // ]
     },
     {
         "id": "feM",

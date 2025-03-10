@@ -143,18 +143,21 @@ function TeamContent({ item }: { item: Team }) {
           課程包含：<span className="font-bold">{item.classes.join('、')}</span>
         </div>}
         {item.party && <div className="">舞會活動：{item.party}</div>}
-        <div className="text-xl font-bold mt-8 mb-6">團隊成員</div>
-        <div className="flex justify-center items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
-          {item.member.map(h => (
-            <div
-              key={h.name}
-              className="flex justify-center items-center flex-col gap-2"
-            >
-              <MemberImage src={h.image} alt={h.name} />
-              <div className="text-xl ">{h.name}</div>
-            </div>
-          ))}
-        </div>
+        {item.member.length !== 0 && (
+          <>
+            <div className="text-xl font-bold mt-8 mb-6">團隊成員</div>
+            <div className="flex justify-center items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
+              {item.member.map(h => (
+                <div
+                  key={h.name}
+                  className="flex justify-center items-center flex-col gap-2"
+                >
+                  <MemberImage src={h.image} alt={h.name} />
+                  <div className="text-xl ">{h.name}</div>
+                </div>
+              ))}
+            </div></>
+        )}
       </div>
 
     </div >
