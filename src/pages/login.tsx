@@ -29,9 +29,9 @@ export default function LoginPage() {
                 method: 'POST',
                 body: JSON.stringify(value)
             })
+            if (result.error) throw result
             cookieStore.setAuthToken(result.token);
             router.push('/events-list')
-
         } catch (e) {
             console.log(e)
         } finally {
