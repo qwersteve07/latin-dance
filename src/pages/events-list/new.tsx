@@ -26,7 +26,7 @@ export default function NewEvents() {
             startAt: '',
             endAt: '',
             rate: '',
-            type: [],
+            types: [],
             fee: '',
             content: '',
             note: ''
@@ -121,8 +121,8 @@ export default function NewEvents() {
                 label="舞種"
                 placeholder="Pick types"
                 data={danceTypes}
-                key={form.key('type')}
-                {...form.getInputProps('type')}
+                key={form.key('types')}
+                {...form.getInputProps('types')}
             />
             <TextInput label="費用"
                 key={form.key('fee')}

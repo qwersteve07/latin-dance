@@ -28,7 +28,7 @@ export default function EditEvents() {
             startAt: '',
             endAt: '',
             rate: '',
-            type: [],
+            types: [],
             fee: '',
             content: '',
             note: ''
@@ -53,7 +53,7 @@ export default function EditEvents() {
             startAt: data.result.startAt,
             endAt: data.result.endAt,
             rate: data.result.rate,
-            type: data.result.types,
+            types: data.result.types,
             fee: data.result.fee,
             content: data.result.content,
             note: data.result.note
@@ -153,8 +153,8 @@ export default function EditEvents() {
                 label="舞種"
                 placeholder="Pick types"
                 data={danceTypes}
-                key={form.key('type')}
-                {...form.getInputProps('type')}
+                key={form.key('types')}
+                {...form.getInputProps('types')}
             />
             <TextInput label="費用"
                 key={form.key('fee')}
