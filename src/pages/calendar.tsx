@@ -11,6 +11,7 @@ import { Event, EventWithEventDate } from "@/types/event";
 import EventModal from "@/components/eventModal";
 import Title from "@/components/title";
 import { danceTypes } from "@/const/dance-types";
+import Loading from "@/components/loading";
 
 export const danceTypeColor = (type: string) => {
   switch (type) {
@@ -43,8 +44,8 @@ export default function Calendar() {
           open();
         }}
       >
-        <div className="flex gap-1 items-center">
-          <div className="ml-1 flex gap-0.5">
+        <div className="flex gap-1 max-md:gap-1.5 items-center">
+          <div className="ml-1 flex gap-0.5 max-md:flex-col">
             {eventInfo.event.extendedProps.types.map((t: string, i: string) => {
               return <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={i} />
             })}
@@ -58,7 +59,11 @@ export default function Calendar() {
   if (error) return <div>failed to load</div>;
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return (
+      <div className="w-full h-[70dvh] flex justify-center items-center">
+        <Loading />
+      </div>
+    )
   }
 
   return (
