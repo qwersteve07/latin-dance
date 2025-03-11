@@ -33,6 +33,7 @@ export default function Calendar() {
 
   useEffect(() => {
     if (isLoading) return
+    if (!data?.result) return
 
     if (selectTypes.length === 0) {
       setCurrentData(data.result)
@@ -95,7 +96,7 @@ export default function Calendar() {
           return (
             <div
               key={t}
-              className={`cursor-pointer border-dashed border-gray-300 border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 hover:bg-gray-100 ${selectTypes.includes(t) ? 'bg-gray-100' : 'bg-transparent'}`}
+              className={`cursor-pointer border-dashed border-gray-300 border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 md:hover:bg-gray-100 ${selectTypes.includes(t) ? 'bg-gray-100' : 'bg-transparent'}`}
               onClick={() => {
                 if (selectTypes.find(types => types === t)) {
                   const result = selectTypes.filter(types => types !== t)
