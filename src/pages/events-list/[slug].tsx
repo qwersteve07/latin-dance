@@ -1,7 +1,7 @@
 import { organizerList } from "@/const/organizers";
 import { locateList } from "@/const/locate";
 import { fetcher } from "@/utils/fetcher";
-import { ActionIcon, Button, Select, Textarea, TextInput, MultiSelect } from "@mantine/core";
+import { ActionIcon, Button, Select, Textarea, TextInput, MultiSelect, Checkbox } from "@mantine/core";
 import { DatePickerInput, TimeInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import dayjs from "dayjs";
@@ -30,6 +30,7 @@ export default function EditEvents() {
             rate: '',
             types: [],
             fee: '',
+            canceled: '',
             content: '',
             note: ''
         },
@@ -55,6 +56,7 @@ export default function EditEvents() {
             rate: data.result.rate,
             types: data.result.types,
             fee: data.result.fee,
+            canceled: data.result.canceled,
             content: data.result.content,
             note: data.result.note
         });
@@ -159,7 +161,12 @@ export default function EditEvents() {
             <TextInput label="費用"
                 key={form.key('fee')}
                 {...form.getInputProps('fee')} />
-            <br />
+            <div className="flex justify-start items-center">
+                <Checkbox
+                    label="本次取消"
+                    key={form.key('canceled')}
+                    {...form.getInputProps('canceled', { type: 'checkbox' })} />
+            </div>
             <Textarea label="活動內容"
                 key={form.key('content')}
                 {...form.getInputProps('content')}
