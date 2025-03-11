@@ -267,6 +267,23 @@ export const teamList = [
         ]
     },
     {
+        "id": "zouk-it",
+        "name": "Zout It",
+        "thumbnail": "/zouk-it.jpg",
+        "intro": "Zouk IT [ Zouk in Taiwan ] 我們希望在台灣推廣Brazilian Zouk",
+        "classes": [],
+        "link": {
+            "facebook": "https://www.facebook.com/ZoukinTaiwan",
+            "instagram": "",
+            "website": "",
+            "location": ""
+        },
+        "party": "每個月一到兩次",
+        "member": [
+
+        ]
+    },
+    {
         "id": "dance-salsa-under-sky",
         "name": "天空下跳 salsa",
         "thumbnail": "/sky.png",
