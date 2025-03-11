@@ -83,7 +83,6 @@ export default function Home() {
               </div>
               <div className="h-full">
                 {events.map(e => {
-                  console.log(e)
                   return (
                     <div
                       key={e.title}
@@ -100,7 +99,9 @@ export default function Home() {
                         <div className="flex gap-1 mt-[6px]">
                           {e.types.map(t => <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />)}
                         </div>
-                        {e.title}
+                        <div className={`${e.canceled ? 'line-through' : ''}`}>
+                          {e.title}
+                        </div>
                       </div>
                     </div>
                   );
