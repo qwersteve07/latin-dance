@@ -76,7 +76,7 @@ export default function Rules() {
           enTitle='Tips and Rules for Dancers'
           chTitle="新手須知 & 舞會守則"
         />
-        <p className="-mt-4 mb-10 font-bold">Provide by Eric Chen</p>
+        <p className="-mt-4 mb-10 font-bold">Written by Eric Chen</p>
         <p className="mb-4 ">
           歡迎加入社交舞的世界！這是一個充滿樂趣和自我成長的環境，但初次參與可能會有些不安，或是疑惑的地方。以下是幾點你需要知道的建議，幫助你更快融入這個圈子：
         </p>
