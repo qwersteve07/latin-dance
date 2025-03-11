@@ -22,6 +22,10 @@ export default function Rental() {
         }, {
             name: '傳承排練場 ',
             link: 'https://www.facebook.com/TPDdance'
+        },
+        {
+            name: 'Latinesa Studio安達亞拉丁',
+            link: 'https://www.fit-book.com.tw/latinesa/'
         }
     ]
 

@@ -3,26 +3,29 @@ export const organizerList = [
         "id": "latinesa-studio",
         "name": "Latinesa Studio",
         "thumbnail": "/latinesa.jpg",
-        "intro": "台北最chill的Salsa教室",
+        "intro": "Latinesa Studio 由 Cheli 創立，融合她的舞蹈藝名與教室名稱，象徵對拉丁與台灣文化的熱愛。自 2024 年 3 月成立以來，專注推廣 Salsa 與拉丁文化。Latinesa 結合 Latina（拉丁女孩）與 Taiwanesa（台灣女孩），展現 Cheli 的文化認同與熱情。\nCheli 舞齡 24 年，自幼學習民俗舞、芭蕾、爵士、現代、寶萊塢與拉丁舞，在台灣升學體制下仍堅持藝術初心。近 10 年從商管轉向國際關係，並於歐洲、拉丁美洲深耕工作，最終回台創業，結合西班牙產品與藝術文化交流，致力於 Salsa 表演、教學與推廣。",
         "link": {
-            "facebook": "",
+            "facebook": "https://www.facebook.com/share/1A1Bvqvn7x/?mibextid=wwXIfr",
             "instagram": "https://www.instagram.com/latinesastudio",
-            "website": "https://line.me/ti/g2/vhWfFCL6FpuVe_9wdpZsJfuScyolKcG5rSQg2A",
-            "location": "https://maps.app.goo.gl/NMNM3moJnSPKjyaFA"
+            "website": "https://www.fit-book.com.tw/latinesa/",
+            "location": "https://maps.app.goo.gl/UgXTEfACJyHeeoWD8"
         },
         "classes": ["salsa"],
-        "party": "",
-        "member": []
-        // "member": [
-        //     {
-        //         "name": "Cheli",
-        //         "image": "/cheli.png"
-        //     },
-        //     {
-        //         "name": "Noya",
-        //         "image": "/noya.png"
-        //     }
-        // ]
+        "party": "不定期舉辦國外大師工作坊 / Salsa 舞會",
+        "member": [
+            {
+                "name": "Cheli",
+                "image": "/cheli.jpg"
+            },
+            {
+                "name": "Noya",
+                "image": "/noya.jpg"
+            },
+            {
+                "name": "Remi",
+                "image": "/remi.jpg"
+            }
+        ]
     },
     {
         "id": "bailalo-dance-studio",
@@ -40,11 +43,11 @@ export const organizerList = [
         "member": [
             {
                 "name": "Maggie",
-                "image": "/maggie.png"
+                "image": "/maggie.jpg"
             },
             {
                 "name": "Yiwen",
-                "image": "/yiwen.png"
+                "image": "/yiwen.jpg"
             }
         ]
     },
@@ -84,7 +87,7 @@ export const organizerList = [
         "member": [
             {
                 "name": "Calvin",
-                "image": "/calvin.png"
+                "image": "/calvin.jpg"
             },
             {
                 "name": "Leo",
@@ -154,19 +157,19 @@ export const organizerList = [
         "member": [
             {
                 "name": "Glenn",
-                "image": "/glenn.png"
+                "image": "/glenn.jpg"
             },
             {
                 "name": "Mandy",
-                "image": "/mandy.png"
+                "image": "/mandy.jpg"
             },
             {
                 "name": "Nana",
-                "image": "/nana.png"
+                "image": "/nana.jpg"
             },
             {
                 "name": "Tyra",
-                "image": "/tyra.png"
+                "image": "/tyra.jpg"
             }
         ]
     },
@@ -206,19 +209,19 @@ export const organizerList = [
         "member": [
             {
                 "name": "Larry",
-                "image": "/larry.png"
+                "image": "/larry.jpg"
             },
             {
                 "name": "Jessica",
-                "image": "/jessica.png"
+                "image": "/jessica.jpg"
             },
             {
                 "name": "Vivi",
-                "image": "/vivi.png"
+                "image": "/vivi.jpg"
             },
             {
                 "name": "Maha",
-                "image": "/maha.png"
+                "image": "/maha.jpg"
             }
         ]
     },
@@ -258,11 +261,11 @@ export const organizerList = [
         "member": [
             {
                 "name": "Eric Chen",
-                "image": "/eric_chen.png"
+                "image": "/eric_chen.jpg"
             },
             {
                 "name": "吳天天",
-                "image": "/tian_tian.png"
+                "image": "/tian.jpg"
             }
         ]
     },
