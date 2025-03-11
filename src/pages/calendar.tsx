@@ -91,7 +91,7 @@ export default function Calendar() {
         chTitle="活動日曆"
       />
       <EventModal opened={opened} onClose={close} data={selectEvent} />
-      <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6">
+      <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm">
         {danceTypes.map(t => {
           return (
             <div
