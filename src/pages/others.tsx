@@ -19,6 +19,9 @@ export default function Rental() {
         }, {
             name: '自由室',
             link: 'https://freestylestudiotw.com/freestyle/freestylestudio.html'
+        }, {
+            name: '傳承排練場 ',
+            link: 'https://www.facebook.com/TPDdance'
         }
     ]
 
