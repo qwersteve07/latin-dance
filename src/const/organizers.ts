@@ -1,4 +1,4 @@
-export const teamList = [
+export const organizerList = [
     {
         "id": "latinesa-studio",
         "name": "Latinesa Studio",
