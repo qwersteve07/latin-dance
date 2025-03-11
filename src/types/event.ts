@@ -9,6 +9,7 @@ export type Event = {
     rate: string
     fee: string
     content: string,
+    canceled: boolean,
     note: string
     types: string[],
 }

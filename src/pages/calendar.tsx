@@ -53,7 +53,7 @@ export default function Calendar() {
   function render(eventInfo: any) {
     return (
       <div
-        className={`cursor-pointer md:truncate`}
+        className={`cursor-pointer md:truncate relative`}
         onClick={() => {
           setSelectEvent({
             ...eventInfo.event.extendedProps,
@@ -62,6 +62,7 @@ export default function Calendar() {
           open();
         }}
       >
+        {eventInfo.event.extendedProps.canceled && <div className="absolute w-full h-0.5 bg-slate-500 top-1/2" />}
         <div className="flex gap-1 max-md:gap-1.5 items-center">
           <div className="ml-1 flex gap-0.5 max-md:flex-col">
             {eventInfo.event.extendedProps.types.map((t: string, i: string) => {

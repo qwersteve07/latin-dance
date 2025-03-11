@@ -12,9 +12,10 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
         <Modal
             opened={opened}
             onClose={onClose}
-            title={<b className="text-xl">{data.title}</b>}
+            title={<div className="flex justify-start items-center">
+                <b className="text-xl">{data.title}</b>
+                {data.canceled && <span className="text-red-500 font-bold ml-4">本週取消！Canceled！</span>}</div>}
             centered
-
         >
             <div className="grid grid-cols-[80px,1fr] gap-2">
                 <div className="font-semibold">Host</div>
