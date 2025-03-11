@@ -1,16 +1,16 @@
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import HostImage from "@/components/teamImage";
+import OrganizerImage from "@/components/organizerImage";
 import MemberImage from "@/components/memberImage";
-import { Team } from "@/types/team";
-import { teamList } from "@/const/teams";
+import { Organizer } from "@/types/organizer";
+import { organizerList } from "@/const/organizers";
 import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
 
 export default function Rules() {
   const searchParams = useSearchParams();
-  const [currentHost, setCurrentHost] = useState<null | Team>();
+  const [currentHost, setCurrentHost] = useState<null | Organizer>();
   const router = useRouter();
 
   const id = searchParams.get("id");
@@ -63,7 +63,7 @@ export default function Rules() {
 
   useEffect(() => {
     if (!id) return;
-    const result = teamList.find(d => d.id === id);
+    const result = organizerList.find(d => d.id === id);
     if (result) {
       setCurrentHost(() => result);
     }
@@ -111,7 +111,7 @@ export default function Rules() {
         </ul>
         {currentHost && (
           <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-6 text-center">Teams</h2>
+            <h2 className="text-3xl font-bold mb-6 text-center">Organizers</h2>
             <p className="mb-10 text-center max-md:text-left">
               以下為本活動的主辦方，以及相關成員，若在舞池中遇到問題，或是課程想了解，不用擔心直接詢問，所有主辦方都是非常友善的！
             </p>
@@ -129,19 +129,19 @@ export default function Rules() {
           </div>
         )}
         <h3 className="text-2xl font-bold mb-8 text-center">
-          Check the Teams
+          Check the Organizers
         </h3>
         <div className="flex justify-center items-center gap-x-6 gap-y-2 flex-wrap mb-10">
-          {teamList
+          {organizerList
             .filter(h => h.id !== currentHost?.id)
             .filter(h => !h.hide)
             .map(h => (
               <div
                 key={h.name}
                 className="flex justify-center items-center flex-col gap-4 cursor-pointer"
-                onClick={() => router.push(`/teams?id=${h.id}`)}
+                onClick={() => router.push(`/organizers?id=${h.id}`)}
               >
-                <HostImage src={h.thumbnail} alt={h.name} />
+                <OrganizerImage src={h.thumbnail} alt={h.name} />
               </div>
             ))}
         </div>

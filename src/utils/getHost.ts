@@ -1,6 +1,6 @@
-import { teamList } from "@/const/teams"
+import { organizerList } from "@/const/organizers"
 
 export const getHost = (host: string | null) => {
     if (!host) return ''
-    return teamList.find(h => h.id === host)?.name
+    return organizerList.find(h => h.id === host)?.name
 }

@@ -8,17 +8,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import MemberImage from "@/components/memberImage";
-import TeamImage from "@/components/teamImage";
-import { Team } from "@/types/team";
-import { teamList } from "@/const/teams";
+import { Organizer } from "@/types/organizer";
+import { organizerList } from "@/const/organizers";
 import Title from "@/components/title";
+import OrganizerImage from "@/components/organizerImage";
 
-export default function Teams() {
+export default function Organizers() {
   const [domLoaded, setDomLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState<string | null>('');
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectTeam, setSelectTeam] = useState<Team>({} as any);
-  const activeTeamList = teamList.filter(t => !t.hide)
+  const [selectOrganizer, setSelectOrganizer] = useState<Organizer>({} as any);
+  const activeOrganizerList = organizerList.filter(t => !t.hide)
 
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -32,7 +32,7 @@ export default function Teams() {
     if (id) {
       setActiveTab(id);
     } else {
-      setActiveTab(teamList[0].id);
+      setActiveTab(organizerList[0].id);
     }
   }, []);
 
@@ -43,7 +43,7 @@ export default function Teams() {
   return (
     <>
       <Title
-        enTitle='Teams List'
+        enTitle='Organizers List'
         chTitle="團隊列表"
       />
       <Modal
@@ -51,33 +51,33 @@ export default function Teams() {
         onClose={close}
         centered
       >
-        <TeamContent item={selectTeam} />
+        <OrganizerContent item={selectOrganizer} />
       </Modal>
       {isMobile && (
         <MobileStudios
-          teamList={activeTeamList}
-          onClick={(teeam: Team) => {
-            setSelectTeam(teeam)
+          organizerList={activeOrganizerList}
+          onClick={(organizer: Organizer) => {
+            setSelectOrganizer(organizer)
             open()
           }} />
       )}
       {!isMobile && (
-        <DesktopStudios teamList={activeTeamList} activeTab={activeTab} setActiveTab={setActiveTab} />
+        <DesktopStudios organizerList={activeOrganizerList} activeTab={activeTab} setActiveTab={setActiveTab} />
       )}
     </>
   );
 }
 
-function MobileStudios({ teamList, onClick }: { teamList: Array<Team>, onClick: (team: Team) => void }) {
+function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organizer>, onClick: (organizer: Organizer) => void }) {
   return (
     <>
       <div className="flex justify-start flex-wrap gap-y-8">
-        {teamList.map(item => {
+        {organizerList.map(item => {
           return (
             <div key={item.id} className="flex flex-col items-center flex-[50%] gap-2" onClick={() => {
               onClick(item)
             }}>
-              <TeamImage src={item.thumbnail} alt={item.name} />
+              <OrganizerImage src={item.thumbnail} alt={item.name} />
               <div className="text-sm font-bold text-center">{item.name}</div>
             </div>
 
@@ -88,7 +88,7 @@ function MobileStudios({ teamList, onClick }: { teamList: Array<Team>, onClick: 
   );
 }
 
-function DesktopStudios({ teamList, activeTab, setActiveTab }: { teamList: Array<Team>, activeTab: string | null, setActiveTab: (value: string | null) => void }) {
+function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerList: Array<Organizer>, activeTab: string | null, setActiveTab: (value: string | null) => void }) {
   return (
     <Tabs
       value={activeTab}
@@ -97,7 +97,7 @@ function DesktopStudios({ teamList, activeTab, setActiveTab }: { teamList: Array
       className="flex-1"
     >
       <Tabs.List>
-        {teamList.map(item => {
+        {organizerList.map(item => {
           return (
             <Tabs.Tab value={item.id} key={item.id}>
               {item.name}
@@ -105,14 +105,14 @@ function DesktopStudios({ teamList, activeTab, setActiveTab }: { teamList: Array
           );
         })}
       </Tabs.List>
-      {teamList.map(item => {
+      {organizerList.map(item => {
         return (
           <Tabs.Panel
             value={item.id}
             key={item.id}
             className="p-4 flex flex-col justify-start items-center gap-5"
           >
-            <TeamContent item={item} />
+            <OrganizerContent item={item} />
           </Tabs.Panel>
         );
       })}
@@ -120,11 +120,11 @@ function DesktopStudios({ teamList, activeTab, setActiveTab }: { teamList: Array
   );
 }
 
-function TeamContent({ item }: { item: Team }) {
+function OrganizerContent({ item }: { item: Organizer }) {
   return (
     <div className="flex justify-between items-center flex-col h-full w-full">
       <div className="flex justify-between items-start flex-col w-2/3 max-md:w-full">
-        <TeamImage src={item.thumbnail} alt={item.name} />
+        <OrganizerImage src={item.thumbnail} alt={item.name} />
         <div className="font-bold text-2xl mt-4 mb-4">{item.name}</div>
         <div className="flex justify-center gap-4 mb-10">
           {Object.entries(item.link).filter(item => item[1] !== '').map(([key, value]) => {

@@ -1,4 +1,4 @@
-export type Team = {
+export type Organizer = {
     "id": string
     "name": string
     "thumbnail": string
@@ -8,11 +8,11 @@ export type Team = {
     "link": {
         [key: string]: string
     }
-    "member": Array<TeamMember>
+    "member": Array<OrganizerMember>
     "hide"?: boolean
 }
 
-export type TeamMember = {
+export type OrganizerMember = {
     name: string,
     image: string
 }
