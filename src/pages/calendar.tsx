@@ -33,6 +33,7 @@ export default function Calendar() {
 
   useEffect(() => {
     if (isLoading) return
+    if (!data?.result) return
 
     if (selectTypes.length === 0) {
       setCurrentData(data.result)
@@ -90,12 +91,12 @@ export default function Calendar() {
         chTitle="活動日曆"
       />
       <EventModal opened={opened} onClose={close} data={selectEvent} />
-      <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6">
+      <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm">
         {danceTypes.map(t => {
           return (
             <div
               key={t}
-              className={`cursor-pointer border-dashed border-gray-300 border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 hover:bg-gray-100 ${selectTypes.includes(t) ? 'bg-gray-100' : 'bg-transparent'}`}
+              className={`cursor-pointer border-dashed border-gray-300 border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 md:hover:bg-gray-100 ${selectTypes.includes(t) ? 'bg-gray-100' : 'bg-transparent'}`}
               onClick={() => {
                 if (selectTypes.find(types => types === t)) {
                   const result = selectTypes.filter(types => types !== t)
