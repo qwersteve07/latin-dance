@@ -78,7 +78,7 @@ function MobileStudios({ teamList, onClick }: { teamList: Array<Team>, onClick: 
               onClick(item)
             }}>
               <TeamImage src={item.thumbnail} alt={item.name} />
-              <div className="text-sm font-bold">{item.name}</div>
+              <div className="text-sm font-bold text-center">{item.name}</div>
             </div>
 
           );
