@@ -353,7 +353,22 @@ export const organizerList = [
         "party": "",
         "classes": [],
         "member": []
+    },
+    {
+        "id": "cigar-vie",
+        "name": "Cigar Vie",
+        "hide": true,
+        "thumbnail": "",
+        "intro": "",
+        "link": {
+            "facebook": "",
+            "instagram": "",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": [],
+        "member": []
     }
-
 
 ]
