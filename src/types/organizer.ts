@@ -10,6 +10,7 @@ export type Organizer = {
     }
     "member": Array<OrganizerMember>
     "hide"?: boolean
+    "solo"?: boolean
 }
 
 export type OrganizerMember = {

@@ -1,32 +1,5 @@
 export const organizerList = [
-    {
-        "id": "latinesa-studio",
-        "name": "Latinesa Studio",
-        "thumbnail": "/latinesa.jpg",
-        "intro": "Latinesa Studio 由 Cheli 創立，融合她的舞蹈藝名與教室名稱，象徵對拉丁與台灣文化的熱愛。自 2024 年 3 月成立以來，專注推廣 Salsa 與拉丁文化。Latinesa 結合 Latina（拉丁女孩）與 Taiwanesa（台灣女孩），展現 Cheli 的文化認同與熱情。\nCheli 舞齡 24 年，自幼學習民俗舞、芭蕾、爵士、現代、寶萊塢與拉丁舞，在台灣升學體制下仍堅持藝術初心。近 10 年從商管轉向國際關係，並於歐洲、拉丁美洲深耕工作，最終回台創業，結合西班牙產品與藝術文化交流，致力於 Salsa 表演、教學與推廣。",
-        "link": {
-            "facebook": "https://www.facebook.com/share/1A1Bvqvn7x/?mibextid=wwXIfr",
-            "instagram": "https://www.instagram.com/latinesastudio",
-            "website": "https://www.fit-book.com.tw/latinesa/",
-            "location": "https://maps.app.goo.gl/UgXTEfACJyHeeoWD8"
-        },
-        "classes": ["salsa"],
-        "party": "不定期舉辦國外大師工作坊 / Salsa 舞會",
-        "member": [
-            {
-                "name": "Cheli",
-                "image": "/cheli.jpg"
-            },
-            {
-                "name": "Noya",
-                "image": "/noya.jpg"
-            },
-            {
-                "name": "Remi",
-                "image": "/remi.jpg"
-            }
-        ]
-    },
+  
     {
         "id": "bailalo-dance-studio",
         "name": "Bailalo Dance Studio",
@@ -194,6 +167,34 @@ export const organizerList = [
     //     ]
     // },
     {
+        "id": "latinesa-studio",
+        "name": "Latinesa Studio",
+        "thumbnail": "/latinesa.jpg",
+        "intro": "Latinesa Studio 由 Cheli 創立，融合她的舞蹈藝名與教室名稱，象徵對拉丁與台灣文化的熱愛。自 2024 年 3 月成立以來，專注推廣 Salsa 與拉丁文化。Latinesa 結合 Latina（拉丁女孩）與 Taiwanesa（台灣女孩），展現 Cheli 的文化認同與熱情。\nCheli 舞齡 24 年，自幼學習民俗舞、芭蕾、爵士、現代、寶萊塢與拉丁舞，在台灣升學體制下仍堅持藝術初心。近 10 年從商管轉向國際關係，並於歐洲、拉丁美洲深耕工作，最終回台創業，結合西班牙產品與藝術文化交流，致力於 Salsa 表演、教學與推廣。",
+        "link": {
+            "facebook": "https://www.facebook.com/share/1A1Bvqvn7x/?mibextid=wwXIfr",
+            "instagram": "https://www.instagram.com/latinesastudio",
+            "website": "https://www.fit-book.com.tw/latinesa/",
+            "location": "https://maps.app.goo.gl/UgXTEfACJyHeeoWD8"
+        },
+        "classes": ["salsa"],
+        "party": "不定期舉辦國外大師工作坊 / Salsa 舞會",
+        "member": [
+            {
+                "name": "Cheli",
+                "image": "/cheli.jpg"
+            },
+            {
+                "name": "Noya",
+                "image": "/noya.jpg"
+            },
+            {
+                "name": "Remi",
+                "image": "/remi.jpg"
+            }
+        ]
+    },
+    {
         "id": "la-salsa-taipei",
         "name": "La Salsa Taipei",
         "thumbnail": "/lasalsa.jpg",
@@ -224,6 +225,21 @@ export const organizerList = [
                 "image": "/maha.jpg"
             }
         ]
+    },
+    {
+        "id": "lia_spice_ladies",
+        "name": "Lia Spice Ladies",
+        "thumbnail": "/lia_spice_ladies.jpg",
+        "intro": "我們是「Lia Spice Ladies」！深耕新北地區的莉亞老師以擅長的拉丁舞融入各種元素聞名，從高跟鞋性感舞、爵士到中國風，還擁有多年編舞經驗，帶領舞團不斷探索舞蹈肢體的無限可能。",
+        "link": {
+            "facebook": "https://www.facebook.com/share/1BXdQo7Tgo/",
+            "instagram": "https://www.instagram.com/lia_spice_ladies",
+            "website": "",
+            "location": ""
+        },
+        "classes": ['拉丁舞','High Heels','爵士','中國風'],
+        "party": "",
+        "member": []
     },
     {
         "id": "meet-kiz-taiwan",
@@ -368,6 +384,39 @@ export const organizerList = [
         },
         "party": "",
         "classes": [],
+        "member": []
+    },
+    {
+        "id": "",
+        "name": "",
+        "hide": false,
+        "thumbnail": "",
+        "intro": "",
+        "link": {
+            "facebook": "",
+            "instagram": "",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": [],
+        "member": []
+    },
+    {
+        "id": "patty_lin",
+        "name": "Patty Lin",
+        "hide": false,
+        "solo": true,
+        "thumbnail": "/patty.png",
+        "intro": "追尋力與美的旅程中，我持續鍛鍊、磨練成長，淬鍊自我，邁向更美好的自己，成就無限可能！",
+        "link": {
+            "facebook": "",
+            "instagram": "https://www.instagram.com/patty_lin_tw",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": ['salsa','bachata','yogalates'],
         "member": []
     }
 
