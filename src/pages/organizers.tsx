@@ -98,6 +98,8 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
     >
       <Tabs.List>
         {organizerList.map(item => {
+          if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none" />
+
           return (
             <Tabs.Tab value={item.id} key={item.id}>
               {item.name}
@@ -106,6 +108,8 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
         })}
       </Tabs.List>
       {organizerList.map(item => {
+        if (item.id === '') return <Tabs.Panel value="block" key="block">block</Tabs.Panel>
+
         return (
           <Tabs.Panel
             value={item.id}
@@ -124,7 +128,7 @@ function OrganizerContent({ item }: { item: Organizer }) {
   return (
     <div className="flex justify-between items-center flex-col h-full w-full">
       <div className="flex justify-between items-start flex-col w-2/3 max-md:w-full">
-        <OrganizerImage src={item.thumbnail} alt={item.name} />
+        {item.solo ? <MemberImage src={item.thumbnail} alt={item.name} /> : <OrganizerImage src={item.thumbnail} alt={item.name} />}
         <div className="font-bold text-2xl mt-4 mb-4">{item.name}</div>
         <div className="flex justify-center gap-4 mb-10">
           {Object.entries(item.link).filter(item => item[1] !== '').map(([key, value]) => {
