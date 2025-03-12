@@ -26,6 +26,10 @@ export default function Rental() {
         {
             name: 'Latinesa Studio安達亞拉丁',
             link: 'https://www.fit-book.com.tw/latinesa/'
+        },
+        {
+            name: 'E1 Studio',
+            link: 'https://e1studio.booknow.com.tw/'
         }
     ]
 
