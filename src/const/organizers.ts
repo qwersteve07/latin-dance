@@ -269,6 +269,21 @@ export const organizerList = [
         ]
     },
     {
+        "id": "salsa-me",
+        "name": "騷莎迷 SalsaMe",
+        "thumbnail": "/salsame.jpg",
+        "intro": "一個下班後開心跳舞的地方\n🏠𝟮𝟬𝟭𝟴年成立於新北板橋,專精於𝗦𝗮𝗹𝘀𝗮,尤其是可以跟任何人跳的𝗦𝗼𝗰𝗶𝗮𝗹 𝗗𝗮𝗻𝗰𝗲.",
+        "link": {
+            "facebook": "https://www.facebook.com/salsametaiwan",
+            "instagram": "https://www.instagram.com/salsameplus/",
+            "website": "",
+            "location": ""
+        },
+        "classes": ['salsa', 'bachata'],
+        "party": "每個月最後一個星期六舉辦",
+        "member": []
+    },
+    {
         "id": "taipei-bachata-vibes",
         "name": "TaipeiBachata Vibes",
         "thumbnail": "/tbv.jpg",
