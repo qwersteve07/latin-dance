@@ -80,5 +80,10 @@ export const locateList = [
         id: 'cigar-vie',
         name: 'Cigar Vie',
         url: 'https://maps.app.goo.gl/YaRYStESDT1VRk4X7'
+    },
+    {
+        id: 'salsa-me',
+        name: '騷莎迷SalsaMe',
+        url: 'https://maps.app.goo.gl/UX6Y7cUaLNjLnm2Y7'
     }
 ]

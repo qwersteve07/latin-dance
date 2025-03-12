@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useMedia } from "react-use";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import MemberImage from "@/components/memberImage";
 import { Organizer } from "@/types/organizer";
 import { organizerList } from "@/const/organizers";
@@ -71,10 +68,12 @@ export default function Organizers() {
 function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organizer>, onClick: (organizer: Organizer) => void }) {
   return (
     <>
-      <div className="flex justify-start flex-wrap gap-y-8">
+      <div className="flex justify-start flex-wrap gap-y-8 gap-x-2">
         {organizerList.map(item => {
+          if (item.id === '') return <h3 key={item.id} className="text-xl font-bold mt-10 flex-[100%] pointer-events-none">獨立舞者</h3>
+
           return (
-            <div key={item.id} className="flex flex-col items-center flex-[50%] gap-2" onClick={() => {
+            <div key={item.id} className="flex flex-col items-center flex-[30%] gap-2" onClick={() => {
               onClick(item)
             }}>
               <OrganizerImage src={item.thumbnail} alt={item.name} />
@@ -98,7 +97,7 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
     >
       <Tabs.List>
         {organizerList.map(item => {
-          if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none" />
+          if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">獨立舞者</Tabs.Tab>
 
           return (
             <Tabs.Tab value={item.id} key={item.id}>
@@ -150,7 +149,7 @@ function OrganizerContent({ item }: { item: Organizer }) {
         {item.member.length !== 0 && (
           <>
             <div className="text-xl font-bold mt-8 mb-6">團隊成員</div>
-            <div className="flex justify-center items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
+            <div className="flex justify-starts items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
               {item.member.map(h => (
                 <div
                   key={h.name}

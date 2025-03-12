@@ -1,5 +1,5 @@
 export const organizerList = [
-  
+
     {
         "id": "bailalo-dance-studio",
         "name": "Bailalo Dance Studio",
@@ -223,6 +223,10 @@ export const organizerList = [
             {
                 "name": "Maha",
                 "image": "/maha.jpg"
+            },
+            {
+                "name": "Natasha",
+                "image": "/natasha.jpg"
             }
         ]
     },
@@ -237,9 +241,12 @@ export const organizerList = [
             "website": "",
             "location": ""
         },
-        "classes": ['拉丁舞','High Heels','爵士','中國風'],
+        "classes": ['拉丁舞', 'High Heels', '爵士', '中國風'],
         "party": "",
-        "member": []
+        "member": [{
+            "name": "Lia",
+            "image": "/lia.jpg"
+        }]
     },
     {
         "id": "meet-kiz-taiwan",
@@ -260,6 +267,21 @@ export const organizerList = [
                 "image": "/zoe.jpg"
             },
         ]
+    },
+    {
+        "id": "salsa-me",
+        "name": "騷莎迷 SalsaMe",
+        "thumbnail": "/salsame.jpg",
+        "intro": "一個下班後開心跳舞的地方\n🏠𝟮𝟬𝟭𝟴年成立於新北板橋,專精於𝗦𝗮𝗹𝘀𝗮,尤其是可以跟任何人跳的𝗦𝗼𝗰𝗶𝗮𝗹 𝗗𝗮𝗻𝗰𝗲.",
+        "link": {
+            "facebook": "https://www.facebook.com/salsametaiwan",
+            "instagram": "https://www.instagram.com/salsameplus/",
+            "website": "",
+            "location": ""
+        },
+        "classes": ['salsa', 'bachata'],
+        "party": "每個月最後一個星期六舉辦",
+        "member": []
     },
     {
         "id": "taipei-bachata-vibes",
@@ -416,7 +438,7 @@ export const organizerList = [
             "location": ""
         },
         "party": "",
-        "classes": ['salsa','bachata','yogalates'],
+        "classes": ['salsa', 'bachata', 'yogalates'],
         "member": []
     }
 
