@@ -1,5 +1,5 @@
 export const organizerList = [
-  
+
     {
         "id": "bailalo-dance-studio",
         "name": "Bailalo Dance Studio",
@@ -223,6 +223,10 @@ export const organizerList = [
             {
                 "name": "Maha",
                 "image": "/maha.jpg"
+            },
+            {
+                "name": "Natasha",
+                "image": "/natasha.jpg"
             }
         ]
     },
@@ -237,9 +241,12 @@ export const organizerList = [
             "website": "",
             "location": ""
         },
-        "classes": ['拉丁舞','High Heels','爵士','中國風'],
+        "classes": ['拉丁舞', 'High Heels', '爵士', '中國風'],
         "party": "",
-        "member": []
+        "member": [{
+            "name": "Lia",
+            "image": "/lia.jpg"
+        }]
     },
     {
         "id": "meet-kiz-taiwan",
@@ -416,7 +423,7 @@ export const organizerList = [
             "location": ""
         },
         "party": "",
-        "classes": ['salsa','bachata','yogalates'],
+        "classes": ['salsa', 'bachata', 'yogalates'],
         "member": []
     }
 
