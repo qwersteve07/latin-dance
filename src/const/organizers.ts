@@ -309,7 +309,7 @@ export const organizerList = [
     },
     {
         "id": "zouk-it",
-        "name": "Zout It",
+        "name": "Zouk It",
         "thumbnail": "/zouk-it.jpg",
         "intro": "Zouk IT [ Zouk in Taiwan ] 我們希望在台灣推廣Brazilian Zouk",
         "classes": [],
