@@ -70,7 +70,7 @@ export const organizerList = [
     },
     {
         "id": "el-colmado-social-taiwan",
-        "name": "El Colmado Sicial Taiwan",
+        "name": "El Colmado Social Taiwan",
         "thumbnail": "/el-colmado.jpg",
         "intro": "🇩🇴Traditional Bachata in Taiwan\n🇩🇴Back to the Roots",
         "party": "",
