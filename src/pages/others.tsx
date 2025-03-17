@@ -30,6 +30,9 @@ export default function Rental() {
         {
             name: 'E1 Studio',
             link: 'https://e1studio.booknow.com.tw/'
+        }, {
+            name: 'La Salsa',
+            link: 'https://www.facebook.com/LaSalsaTaipei'
         }
     ]
 
