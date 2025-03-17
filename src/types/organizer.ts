@@ -11,6 +11,12 @@ export type Organizer = {
     "member": Array<OrganizerMember>
     "hide"?: boolean
     "solo"?: boolean
+    "dance_group"?: {
+        "name": string,
+        "thumbnail": string,
+        "intro": string
+        "link": string
+    }
 }
 
 export type OrganizerMember = {
