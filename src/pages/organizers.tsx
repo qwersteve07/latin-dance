@@ -9,13 +9,15 @@ import { Organizer } from "@/types/organizer";
 import { organizerList } from "@/const/organizers";
 import Title from "@/components/title";
 import OrganizerImage from "@/components/organizerImage";
+import { useAppStore } from "@/store/appStore";
 
 export default function Organizers() {
   const [domLoaded, setDomLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState<string | null>('');
   const [opened, { open, close }] = useDisclosure(false);
   const [selectOrganizer, setSelectOrganizer] = useState<Organizer>({} as any);
-  const activeOrganizerList = organizerList.filter(t => !t.hide)
+  const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
+  const appStore = useAppStore()
 
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -24,6 +26,14 @@ export default function Organizers() {
   useEffect(() => {
     setDomLoaded(true);
   }, []);
+
+  useEffect(() => {
+    if (!appStore.currentCity) return
+    const filteredOrganizersList = organizerList.filter(t => !t.hide).filter(o => o.city === appStore.currentCity)
+    if (!Array.isArray(filteredOrganizersList)) return
+    setActiveOrganizerList(filteredOrganizersList)
+    setActiveTab(filteredOrganizersList[0].id);
+  }, [appStore.currentCity])
 
   useEffect(() => {
     if (id) {
@@ -93,33 +103,35 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
       value={activeTab}
       onChange={setActiveTab}
       orientation="vertical"
-      className="flex-1"
+
     >
-      <Tabs.List>
+      <Tabs.List >
         {organizerList.map(item => {
           if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">獨立舞者</Tabs.Tab>
 
           return (
-            <Tabs.Tab value={item.id} key={item.id}>
+            <Tabs.Tab value={item.id} key={item.id} className="w-[200px]">
               {item.name}
             </Tabs.Tab>
           );
         })}
-      </Tabs.List>
-      {organizerList.map(item => {
-        if (item.id === '') return <Tabs.Panel value="block" key="block">block</Tabs.Panel>
+      </Tabs.List >
+      {
+        organizerList.map(item => {
+          if (item.id === '') return <Tabs.Panel value="block" key="block">block</Tabs.Panel>
 
-        return (
-          <Tabs.Panel
-            value={item.id}
-            key={item.id}
-            className="p-4 flex flex-col justify-start items-center gap-5"
-          >
-            <OrganizerContent item={item} />
-          </Tabs.Panel>
-        );
-      })}
-    </Tabs>
+          return (
+            <Tabs.Panel
+              value={item.id}
+              key={item.id}
+              className="p-4 flex flex-col justify-start items-center gap-5"
+            >
+              <OrganizerContent item={item} />
+            </Tabs.Panel>
+          );
+        })
+      }
+    </Tabs >
   );
 }
 

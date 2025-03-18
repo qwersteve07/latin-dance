@@ -1,7 +1,9 @@
-import { Burger, Drawer } from "@mantine/core";
+import { Burger, Drawer, Select } from "@mantine/core";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDisclosure } from '@mantine/hooks';
+import { citiesList } from "@/const/cities";
+import { useAppStore } from "@/store/appStore";
 
 const routesList = [
   { id: "/rules", enName: 'Rules', cnName: "舞會守則" },
@@ -14,6 +16,7 @@ const routesList = [
 export default function Navigator() {
   const router = useRouter();
   const [opened, { open, close, toggle }] = useDisclosure(false);
+  const appStore = useAppStore()
 
   const Routes = () => {
     return routesList.map(r => {
@@ -61,6 +64,13 @@ export default function Navigator() {
           }} aria-label="Toggle navigation" />
           <div className="flex justify-between items-center max-md:hidden">
             <Routes />
+            <Select
+              className="w-24"
+              defaultValue="taipei"
+              value={appStore.currentCity}
+              onChange={value => appStore.setCurrentCity(value || '')}
+              data={citiesList.map(item => ({ ...item, value: item.id, label: item.name }))}
+            />
           </div>
         </div >
       </nav>
