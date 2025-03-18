@@ -9,10 +9,11 @@ import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { useRouter } from "next/router";
 import { Event, EventWithEventDate } from "@/types/event";
-import { getLatestWeekEvents } from "@/utils/getEvents";
+import { getEventsFilterByCity, getLatestWeekEvents } from "@/utils/getEvents";
 import EventModal from "@/components/eventModal";
 import { danceTypeColor } from "./calendar";
 import Loading from "@/components/loading";
+import { useAppStore } from "@/store/appStore";
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 
@@ -22,6 +23,7 @@ export default function Home() {
   const [latestWeekEvents, setLatestWeekEvents] = useState<[string, Event[]][]>([]);
   const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
   const router = useRouter();
+  const appStore = useAppStore()
 
   const vlogIGList = [
     {
@@ -37,10 +39,12 @@ export default function Home() {
   useEffect(() => {
     if (!data) return;
 
-    const result = getLatestWeekEvents(data.result)
+    const filteredData = getEventsFilterByCity(data.result, appStore.currentCity)
+
+    const result = getLatestWeekEvents(filteredData)
     setLatestWeekEvents(result)
 
-  }, [data]);
+  }, [data, appStore.currentCity]);
 
   if (error) return <div>failed to load</div>;
 
@@ -59,14 +63,17 @@ export default function Home() {
         <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-12">
           <h1 className="text-center text-5xl font-bold mb-2 max-md:text-3xl">
             <div className="mb-4">💃🕺</div>
-            <div>Taipei Social Dance Guide</div>
+            <div>Taiwan Social Dance Guide</div>
           </h1>
-          <h2 className="text-center text-3xl font-bold max-md:text-2xl">台北社交舞指南</h2>
+          <h2 className="text-center text-3xl font-bold max-md:text-2xl">台灣社交舞指南</h2>
         </div>
         <h3 className="text-center text-2xl font-bold mb-12 max-md:mb-8">
-          Events This Week
+          Events This Week in {appStore.currentCity.split('').map((t, i) => {
+            return i === 0 ? t.toUpperCase() : t
+          }).join('')}
         </h3>
-        <ul className="flex justify-center items-start gap-5 w-full max-md:flex-col">
+        {latestWeekEvents.length === 0 && <div className="text-lg text-center">No Social Dance this week... 🥲</div>}
+        {latestWeekEvents.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full max-md:flex-col">
           {latestWeekEvents.map(([weekday, events]) => (
             <li key={weekday} className="flex flex-col flex-[1] max-md:w-full">
               <div className="font-bold flex justify-between items-center mb-4 gap-4">
@@ -109,7 +116,7 @@ export default function Home() {
               </div>
             </li>
           ))}
-        </ul>
+        </ul>)}
         <div className="text-center my-8">
           <Button variant="outline" onClick={() => router.push("/calendar")}>
             Check More Events!

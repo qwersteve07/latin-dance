@@ -13,7 +13,7 @@ import Title from "@/components/title";
 import { danceTypes } from "@/const/dance-types";
 import Loading from "@/components/loading";
 import { useAppStore } from "@/store/appStore";
-import { locateList } from "@/const/locate";
+import { getEventsFilterByCity } from "@/utils/getEvents";
 
 export const danceTypeColor = (type: string) => {
   switch (type) {
@@ -50,19 +50,16 @@ export default function Calendar() {
   }, [isLoading, selectTypes, appStore.currentCity])
 
   function getFilteredCurrentData(types: string[], city: string) {
+
     if (types.length === 0) {
-      return data.result.filter((event: Event) => {
-        const eventLocate = locateList.find(x => x.id === event.locate)
-        return eventLocate?.city === city
-      })
+      return getEventsFilterByCity(data.result, city)
     }
 
-    return data.result.filter((event: Event) => {
+    const dataFilteredByTypes = data.result.filter((event: Event) => {
       return event.types.some(x => types.includes(x))
-    }).filter((event: Event) => {
-      const eventCity = locateList.find(x => x.id === event.locate)
-      return eventCity?.city === city
     })
+
+    return getEventsFilterByCity(dataFilteredByTypes, city)
   }
 
 
