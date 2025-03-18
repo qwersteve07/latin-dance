@@ -1,3 +1,4 @@
+import { locateList } from "@/const/locate";
 import { Event } from "@/types/event";
 import dayjs from "dayjs";
 import isSameOrBefore from "dayjs/plugin/isSameOrAfter"
@@ -8,8 +9,8 @@ dayjs.extend(isSameOrAfter);
 export function getLatestWeekEvents(events: Array<Event>) {
     const weekEvents = events.filter((event: Event) => {
         return (
-            dayjs(event.date).isSameOrBefore(dayjs().add(6, "d"),'day') &&
-            dayjs(event.date).isSameOrAfter(dayjs(),'day')
+            dayjs(event.date).isSameOrBefore(dayjs().add(6, "d"), 'day') &&
+            dayjs(event.date).isSameOrAfter(dayjs(), 'day')
         );
     })
 
@@ -26,4 +27,11 @@ export function getLatestWeekEvents(events: Array<Event>) {
     });
 
     return sortEvents;
+}
+
+export function getEventsFilterByCity(events: Array<Event>, city: string) {
+    return events.filter((event: Event) => {
+        const eventCity = locateList.find(x => x.id === event.locate)
+        return eventCity?.city === city
+    })
 }
