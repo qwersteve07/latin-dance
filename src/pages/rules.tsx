@@ -12,7 +12,7 @@ import { useAppStore } from "@/store/appStore";
 export default function Rules() {
   const searchParams = useSearchParams();
   const [currentHost, setCurrentHost] = useState<null | Organizer>();
-  const [activeOrganizerList, setActiveOrganizerList] = useState([])
+  const [activeOrganizerList, setActiveOrganizerList] = useState<Array<Organizer>>([])
   const router = useRouter();
   const appStore = useAppStore()
 
