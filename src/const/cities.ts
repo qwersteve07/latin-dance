@@ -1,10 +1,10 @@
 export const citiesList = [
     {
-        id: 'Taipei',
+        id: 'taipei',
         name: '台北',
     },
     {
-        id: 'Taichung',
+        id: 'taichung',
         name: '台中',
     },
 ]
