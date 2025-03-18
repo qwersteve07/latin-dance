@@ -7,11 +7,24 @@ import { Organizer } from "@/types/organizer";
 import { organizerList } from "@/const/organizers";
 import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
+import { useAppStore } from "@/store/appStore";
 
 export default function Rules() {
   const searchParams = useSearchParams();
   const [currentHost, setCurrentHost] = useState<null | Organizer>();
+  const [activeOrganizerList, setActiveOrganizerList] = useState([])
   const router = useRouter();
+  const appStore = useAppStore()
+
+  useEffect(() => {
+    if (!appStore.currentCity) return
+    const filteredOrganizersList = organizerList
+      .filter(o => !o.hide)
+      .filter(o => o.city === appStore.currentCity)
+      .filter(h => h.id !== '')
+      .filter(h => !h.solo)
+    setActiveOrganizerList(filteredOrganizersList)
+  }, [appStore.currentCity])
 
   const id = searchParams.get("id");
 
@@ -132,9 +145,7 @@ export default function Rules() {
           Check the Organizers
         </h3>
         <div className="flex justify-center items-center gap-x-6 gap-y-2 flex-wrap mb-10">
-          {organizerList
-            .filter(h => h.id !== currentHost?.id)
-            .filter(h => !h.hide)
+          {activeOrganizerList
             .map(h => (
               <div
                 key={h.name}
