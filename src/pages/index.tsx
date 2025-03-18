@@ -59,9 +59,9 @@ export default function Home() {
         <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-12">
           <h1 className="text-center text-5xl font-bold mb-2 max-md:text-3xl">
             <div className="mb-4">💃🕺</div>
-            <div>Taipei Social Dance Guide</div>
+            <div>Taiwan Social Dance Guide</div>
           </h1>
-          <h2 className="text-center text-3xl font-bold max-md:text-2xl">台北社交舞指南</h2>
+          <h2 className="text-center text-3xl font-bold max-md:text-2xl">台灣社交舞指南</h2>
         </div>
         <h3 className="text-center text-2xl font-bold mb-12 max-md:mb-8">
           Events This Week

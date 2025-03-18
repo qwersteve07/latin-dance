@@ -90,11 +90,11 @@ export default function Rules() {
           ))}
         </ul>
         <p className="mb-4">
-          Violations of the above rules, if not corrected after a warning and deemed severe, will result in the termination of dance party privileges, a request to <b>leave the venue, and notification to other dance party organizers in the Taipei area</b>. If you encounter harassment or inappropriate behavior on the dance floor, <b>please report it directly to the organizers or on-site staff</b>. Additionally, please pay attention to your friends, watch out for suspicious individuals, and take care of your personal belongings.
+          Violations of the above rules, if not corrected after a warning and deemed severe, will result in the termination of dance party privileges, a request to <b>leave the venue, and notification to other dance party organizers in Taiwan</b>. If you encounter harassment or inappropriate behavior on the dance floor, <b>please report it directly to the organizers or on-site staff</b>. Additionally, please pay attention to your friends, watch out for suspicious individuals, and take care of your personal belongings.
         </p>
         <p className="mb-8">
           違反上述規定，勸告未果且情節嚴重者，將
-          「終止舞會權利，請求離場」，並公告於其他台北地區舞會主辦單位
+          「終止舞會權利，請求離場」，並公告於其他地區舞會主辦單位
           。若在舞池中遇到騷擾、不恰當的行為，
           <b>可直接向主辦方以及現場工作人員反應</b>
           ，也請關注身邊的友人，留心可疑人士及自身財物狀況。
