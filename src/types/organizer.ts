@@ -11,7 +11,7 @@ export type Organizer = {
     "member": Array<OrganizerMember>
     "hide"?: boolean
     "solo"?: boolean,
-    "baseAt": string,
+    "city": string,
 }
 
 export type OrganizerMember = {
