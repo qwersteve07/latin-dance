@@ -85,5 +85,10 @@ export const locateList = [
         id: 'salsa-me',
         name: '騷莎迷SalsaMe',
         url: 'https://maps.app.goo.gl/UX6Y7cUaLNjLnm2Y7'
+    },
+    {
+        id: 'w-social',
+        name: '利百代辦公大樓 8F',
+        url: 'https://maps.app.goo.gl/yTBoo9VV6MK8wZWA9'
     }
 ]
