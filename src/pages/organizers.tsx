@@ -1,4 +1,4 @@
-import { Tabs, Modal } from "@mantine/core";
+import { Tabs, Modal, Select } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -9,13 +9,15 @@ import { Organizer } from "@/types/organizer";
 import { organizerList } from "@/const/organizers";
 import Title from "@/components/title";
 import OrganizerImage from "@/components/organizerImage";
+import { citiesList } from "@/const/cities";
 
 export default function Organizers() {
   const [domLoaded, setDomLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState<string | null>('');
   const [opened, { open, close }] = useDisclosure(false);
   const [selectOrganizer, setSelectOrganizer] = useState<Organizer>({} as any);
-  const activeOrganizerList = organizerList.filter(t => !t.hide)
+  const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
+  const [city, setCity] = useState('Taipei')
 
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -24,6 +26,13 @@ export default function Organizers() {
   useEffect(() => {
     setDomLoaded(true);
   }, []);
+
+  useEffect(() => {
+    if (!city) return
+    const filteredOrganizersList = organizerList.filter(t => !t.hide).filter(o => o.baseAt === city)
+    setActiveOrganizerList(filteredOrganizersList)
+    setActiveTab(filteredOrganizersList[0].id);
+  }, [city])
 
   useEffect(() => {
     if (id) {
@@ -50,6 +59,13 @@ export default function Organizers() {
       >
         <OrganizerContent item={selectOrganizer} />
       </Modal>
+      <Select
+        className="w-[200px] mb-4 max-md:mb-8 max-md:w-full"
+        defaultValue="taipei"
+        value={city}
+        onChange={value => setCity(value || '')}
+        data={citiesList.map(item => ({ ...item, value: item.id, label: item.name }))}
+      />
       {isMobile && (
         <MobileStudios
           organizerList={activeOrganizerList}
@@ -93,33 +109,35 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
       value={activeTab}
       onChange={setActiveTab}
       orientation="vertical"
-      className="flex-1"
+
     >
-      <Tabs.List>
+      <Tabs.List >
         {organizerList.map(item => {
           if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">獨立舞者</Tabs.Tab>
 
           return (
-            <Tabs.Tab value={item.id} key={item.id}>
+            <Tabs.Tab value={item.id} key={item.id} className="w-[200px]">
               {item.name}
             </Tabs.Tab>
           );
         })}
-      </Tabs.List>
-      {organizerList.map(item => {
-        if (item.id === '') return <Tabs.Panel value="block" key="block">block</Tabs.Panel>
+      </Tabs.List >
+      {
+        organizerList.map(item => {
+          if (item.id === '') return <Tabs.Panel value="block" key="block">block</Tabs.Panel>
 
-        return (
-          <Tabs.Panel
-            value={item.id}
-            key={item.id}
-            className="p-4 flex flex-col justify-start items-center gap-5"
-          >
-            <OrganizerContent item={item} />
-          </Tabs.Panel>
-        );
-      })}
-    </Tabs>
+          return (
+            <Tabs.Panel
+              value={item.id}
+              key={item.id}
+              className="p-4 flex flex-col justify-start items-center gap-5"
+            >
+              <OrganizerContent item={item} />
+            </Tabs.Panel>
+          );
+        })
+      }
+    </Tabs >
   );
 }
 
