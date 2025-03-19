@@ -235,7 +235,7 @@ export const organizerList = [
             },
             {
                 "name": "Natasha",
-                "image": "/natasha.jpg"
+                "image": "/natasha.png"
             }
         ]
     },
