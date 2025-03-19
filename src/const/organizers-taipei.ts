@@ -1,4 +1,4 @@
-export const organizerList = [
+export const organizerTaipeiList = [
 
     {
         "id": "bailalo-dance-studio",
@@ -289,7 +289,7 @@ export const organizerList = [
             "facebook": "https://www.facebook.com/salsametaiwan",
             "instagram": "https://www.instagram.com/salsameplus/",
             "website": "",
-            "location": ""
+            "location": "https://maps.app.goo.gl/Ydhup9Wj3YGgtMpT8"
         },
         "classes": ['salsa', 'bachata'],
         "party": "每個月最後一個星期六舉辦",
@@ -428,26 +428,6 @@ export const organizerList = [
         "member": []
     },
     {
-        "id": "w_social",
-        "name": "W Social",
-        "hide": false,
-        "city": "taichung",
-        "thumbnail": "/w-social.jpg",
-        "intro": "台中有口皆碑的拉丁社交舞會\n不定期舉辦 workshop",
-        "link": {
-            "facebook": "https://www.facebook.com/profile.php?id=61569455554980",
-            "instagram": "https://www.instagram.com/wsocial.taichung",
-            "website": "",
-            "location": ""
-        },
-        "party": "每個月舉辦一次 Salsa / Bachata / Zouk 舞會",
-        "classes": ['bachata'],
-        "member": [{
-            name: '老王 Vicky',
-            image: '/vicky.png'
-        }]
-    },
-    {
         "id": "",
         "name": "",
         "hide": false,
@@ -484,7 +464,7 @@ export const organizerList = [
         "dance_group": {
             "name": "Group Esencia Taipei",
             "thumbnail": "/group-esencia.jpg",
-            "intro": "Grupo Esencia是由知名的西班牙Bachata男神Marco Espejo以及女神Sara Panero所創立的Bachata舞團，其特色是充滿活力與創意的表演風格，最近幾年迅速紅遍世界各地，成為了最廣為人知的舞團品牌之一。\n目前Grupo Esencia已在許多國家&城市成立舞團分部，在亞洲也已成立了多個分團，例如首爾、釜山、東京、大阪、上海以及台北等地。\n在台灣則是由Eric老師代理，招募了幾位Bachata同好，組成了Grupo Esencia Taipei。舞團成員不乏在國內已享負盛名的師資與高手，幾乎都是常常在舞池中大家爭相邀舞的對象。舞團成軍五年以來，已經完成發表10首作品，每一支舞碼都令人耳目一新，並在圈中獲得熱烈的迴響。目前舞團正在籌備新的舞碼，近期又將開始新一波的招募與訓練。\n備註：Grupo Esencia Taipei舞團正在招募新成員，如果你/妳喜歡Bachata，也想要挑戰表演舞碼，歡迎與Eric老師聯繫，把握站上表演舞台的機會！",   
+            "intro": "Grupo Esencia是由知名的西班牙Bachata男神Marco Espejo以及女神Sara Panero所創立的Bachata舞團，其特色是充滿活力與創意的表演風格，最近幾年迅速紅遍世界各地，成為了最廣為人知的舞團品牌之一。\n目前Grupo Esencia已在許多國家&城市成立舞團分部，在亞洲也已成立了多個分團，例如首爾、釜山、東京、大阪、上海以及台北等地。\n在台灣則是由Eric老師代理，招募了幾位Bachata同好，組成了Grupo Esencia Taipei。舞團成員不乏在國內已享負盛名的師資與高手，幾乎都是常常在舞池中大家爭相邀舞的對象。舞團成軍五年以來，已經完成發表10首作品，每一支舞碼都令人耳目一新，並在圈中獲得熱烈的迴響。目前舞團正在籌備新的舞碼，近期又將開始新一波的招募與訓練。\n備註：Grupo Esencia Taipei舞團正在招募新成員，如果你/妳喜歡Bachata，也想要挑戰表演舞碼，歡迎與Eric老師聯繫，把握站上表演舞台的機會！",
             "link": 'https://www.instagram.com/grupoesencia_taipei/'
         }
     },
@@ -505,7 +485,7 @@ export const organizerList = [
         "party": "",
         "classes": ['bachata'],
         "member": []
-    }, 
+    },
     {
         "id": "patty_lin",
         "name": "Patty Lin",
@@ -523,11 +503,12 @@ export const organizerList = [
         "party": "",
         "classes": ['salsa', 'bachata', 'yogalates'],
         "member": []
-    }, 
+    },
     {
         "id": "dj_cola",
         "name": "DJ Cola",
         "hide": false,
+        "solo": true,
         "city": "taipei",
         "thumbnail": "/cola.png",
         "intro": "Jorge Chocano（DJ Cola），ICRT 電台 Latino Taiwan主持人，亞洲知名拉丁DJ，也是各大夜店多次邀請舉辦拉丁派對，主要以拉丁音樂為主，融合放克、Afro。曾經參與馬來西亞、韓國、曼谷、上海、廣州等地的莎莎音樂節、長灘舞蹈節等等國際音樂節。\nDJ Cola在台多年致力推廣西班牙語及拉丁美洲文化，定期舉辦騷莎舞跟西班牙語的教學，希望透過這些活動，能讓台灣人輕易的接觸拉丁文化並且愛上拉丁文化。",
@@ -540,5 +521,5 @@ export const organizerList = [
         "party": "不定期在各大酒吧舉辦 social",
         "classes": [],
         "member": []
-    }, 
+    },
 ]

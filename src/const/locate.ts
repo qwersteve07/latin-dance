@@ -121,5 +121,17 @@ export const locateList = [
         name: '利百代辦公大樓 8F',
         city: "taichung",
         url: 'https://maps.app.goo.gl/yTBoo9VV6MK8wZWA9'
+    },
+    {
+        id: 'tta-art-space',
+        name: 'TTA ART SPACE',
+        city: "taichung",
+        url: 'https://maps.app.goo.gl/yiktq44tX6qCrM3t9'
+    },
+    {
+        id: 'moxy-taichung',
+        name: '台中豐邑Moxy酒店 ',
+        city: "taichung",
+        url: 'https://maps.app.goo.gl/ReuJzzB9yqyvwZxAA'
     }
 ]
