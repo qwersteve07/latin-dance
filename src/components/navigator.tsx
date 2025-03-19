@@ -58,10 +58,19 @@ export default function Navigator() {
           <div className="text-2xl">
             <Link href="/">💃🕺</Link>
           </div>
-          <Burger className="hidden max-md:block" opened={opened} onClick={() => {
-            toggle()
-            open()
-          }} aria-label="Toggle navigation" />
+          <div className="hidden max-md:flex justify-end items-center gap-2">
+            <Select
+              className="w-24"
+              defaultValue="taipei"
+              value={appStore.currentCity}
+              onChange={value => appStore.setCurrentCity(value || '')}
+              data={citiesList.map(item => ({ ...item, value: item.id, label: item.name }))}
+            />
+            <Burger className="hidden max-md:block" opened={opened} onClick={() => {
+              toggle()
+              open()
+            }} aria-label="Toggle navigation" />
+          </div>
           <div className="flex justify-between items-center max-md:hidden">
             <Routes />
             <Select
