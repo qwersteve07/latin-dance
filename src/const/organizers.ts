@@ -442,7 +442,10 @@ export const organizerList = [
         },
         "party": "每個月舉辦一次 Salsa / Bachata / Zouk 舞會",
         "classes": ['bachata'],
-        "member": []
+        "member": [{
+            name: '老王 Vicky',
+            image: '/vicky.png'
+        }]
     },
     {
         "id": "",
