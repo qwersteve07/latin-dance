@@ -524,4 +524,21 @@ export const organizerList = [
         "classes": ['salsa', 'bachata', 'yogalates'],
         "member": []
     }, 
+    {
+        "id": "dj_cola",
+        "name": "DJ Cola",
+        "hide": false,
+        "city": "taipei",
+        "thumbnail": "/cola.png",
+        "intro": "Jorge Chocano（DJ Cola），ICRT 電台 Latino Taiwan主持人，亞洲知名拉丁DJ，也是各大夜店多次邀請舉辦拉丁派對，主要以拉丁音樂為主，融合放克、Afro。曾經參與馬來西亞、韓國、曼谷、上海、廣州等地的莎莎音樂節、長灘舞蹈節等等國際音樂節。\nDJ Cola在台多年致力推廣西班牙語及拉丁美洲文化，定期舉辦騷莎舞跟西班牙語的教學，希望透過這些活動，能讓台灣人輕易的接觸拉丁文化並且愛上拉丁文化。",
+        "link": {
+            "facebook": "https://www.facebook.com/jorgedjcola",
+            "instagram": "https://www.instagram.com/djcola_icrt/",
+            "website": "",
+            "location": ""
+        },
+        "party": "不定期在各大酒吧舉辦 social",
+        "classes": [],
+        "member": []
+    }, 
 ]

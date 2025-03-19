@@ -71,6 +71,18 @@ export const locateList = [
         url: 'https://maps.app.goo.gl/knFcbmp67U26BVW49'
     },
     {
+        id: 'babylon-taipei',
+        name: "Babylon Taipei",
+        city: 'taipei',
+        url: 'https://maps.app.goo.gl/9mLH13KVjAcGWR6SA'
+    },
+    {
+        id: 'lets-go-123-taipei',
+        name: "LET’S GO 123 - Taipei",
+        city: 'taipei',
+        url: 'https://maps.app.goo.gl/1bZJn52ij3J6yaKi7'
+    },
+    {
         id: 'nuzone',
         name: 'NUZONE',
         city: "taipei",

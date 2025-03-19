@@ -33,6 +33,9 @@ export default function Rental() {
         }, {
             name: 'La Salsa',
             link: 'https://www.facebook.com/LaSalsaTaipei'
+        }, {
+            name: 'Sunny Side',
+            link: 'https://www.facebook.com/profile.php?id=100092845381100#'
         }
     ]
 
