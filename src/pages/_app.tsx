@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<link rel="icon" href="/favicon.png" />
 				<meta property="og:url" content="http://social-dance.tw" />
 				<meta property="og:type" content="website" />
-				<meta property="og:title" content="台北社交舞指南" />
+				<meta property="og:title" content="台灣社交舞指南" />
 				<meta property="og:description" content="（還不是）最完善的社交舞資訊平台" />
 				<meta property="og:image" content="/og.png" />
 			</Head>
