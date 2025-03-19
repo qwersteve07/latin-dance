@@ -495,7 +495,7 @@ export const organizerList = [
         "solo": true,
         "city": "taipei",
         "thumbnail": "/jenny.png",
-        "intro": "追尋力與美的旅程中，我持續鍛鍊、磨練成長，淬鍊自我，邁向更美好的自己，成就無限可能！",
+        "intro": "Salsa/Bachata/Zouk dancer\nBachata Instructor\nLatin music DJ\nfrom Taiwan🇹🇼",
         "link": {
             "facebook": "https://www.facebook.com/jenny.chang.5015",
             "instagram": "tps://www.instagram.com/jennyfhc_tw",
