@@ -3,6 +3,7 @@ export const organizerList = [
     {
         "id": "bailalo-dance-studio",
         "name": "Bailalo Dance Studio",
+        "city": "taipei",
         "thumbnail": "/bailalo.jpeg",
         "intro": "人類是群體動物, 我們喜歡和人接觸, 相互關懷. 舞蹈是一種語言, 是一種生活的呈現, 透過舞蹈可以認識新朋友. 現在幾乎世界上每個國家都有Salsa, Bachata 和Zouk的舞會.\n認識自己的身體, 雖然我們一輩子都在我們的身體裡面, 大部份的人可能一輩子都沒有機會學西如何使用自己的身體. 跳舞可以開發肢體的協調性, 調整姿勢, 增強自信心, 並了解肢體語言的重要.\n跳舞既好玩又健康. 聽音樂可以刺激我們的大腦, 活化我們的腦神經. 而跳舞更能夠讓我們的大腦和身體保持年輕, 思緒靈活, 反應靈敏.",
         "link": {
@@ -27,6 +28,7 @@ export const organizerList = [
     {
         "id": "bachata-taiwan",
         "name": "Bachata Taiwan",
+        "city": "taipei",
         "thumbnail": "/bachata-taiwan.jpg",
         "intro": "Life is Simple\nDance and Keep it Real\n不只是生活，更要享受快樂",
         "classes": [],
@@ -47,6 +49,7 @@ export const organizerList = [
     {
         "id": "copa-taiwan",
         "name": "Copa Taiwan",
+        "city": "taipei",
         "thumbnail": "/copa-taiwan.jpg",
         "intro": "Copa Taiwan的宗旨是在台灣各地推廣音樂與舞蹈所表達的喜樂, 透過舞會,教學,網路廣播,表演等多元的方式, 讓更多人知道Salsa的精神!",
         "party": "每週五晚上在 BA Basement 舉辦 Salsa/Bachata Social",
@@ -71,6 +74,7 @@ export const organizerList = [
     {
         "id": "el-colmado-social-taiwan",
         "name": "El Colmado Social Taiwan",
+        "city": "taipei",
         "thumbnail": "/el-colmado.jpg",
         "intro": "🇩🇴Traditional Bachata in Taiwan\n🇩🇴Back to the Roots",
         "party": "",
@@ -93,6 +97,7 @@ export const organizerList = [
     {
         "id": "feM",
         "name": "FeM",
+        "city": "taipei",
         "thumbnail": "/fem.jpg",
         "intro": "Hi~ 👋，我們是Finn和Minnie 😁，我們熱愛Lambada/Zouk，想推廣讓更多的人加入跳 Lambada/Zouk，一起享受 Lambada/Zouk的美好🩵，期望讓台灣成為亞洲熱門 Lambada/Zouk大國🎉。\n每週二晚上在忠孝新生教Lambada/Zouk，歡迎大家加入一起玩🥳。",
         "link": {
@@ -117,6 +122,7 @@ export const organizerList = [
     {
         "id": "flow-taipei",
         "name": "Flow Taipei",
+        "city": "taipei",
         "thumbnail": "/flow.png",
         "intro": "Flow是由一群熱愛生活熱愛舞蹈，想要為有同樣熱忱的舞者提供更好的學舞、練舞環境，並和更多人分享跳舞的熱情與樂趣而成立的舞蹈空間。\n對我們而言，跳舞不僅只是為生活帶來樂趣，更是與他人交流溝通，互相激發創造力，互相激勵的一個途徑。\n我們在這裡用舞蹈表達自己，也因為跳舞和其他人建立更深厚的連結，大家不再只是為了生活，為了工作匆匆忙忙路過的陌生人。\n在這裡，我們歡迎每個熱愛舞蹈的人，都站上這個舞台，和我們分享你們的故事。",
         "link": {
@@ -149,6 +155,7 @@ export const organizerList = [
     // {
     //     "id": "la-havanita-dance-academy",
     //     "name": "La Havanita Dance Academy ",
+    // "city": "taipei",
     //     "thumbnail": "/la-havanita.jpg",
     //     "intro": "La Havanita是全台北唯一專門教授On 1 LA Style Salsa以及Cuban Style Salsa的舞蹈學校",
     //     "link": {
@@ -169,6 +176,7 @@ export const organizerList = [
     {
         "id": "latinesa-studio",
         "name": "Latinesa Studio",
+        "city": "taipei",
         "thumbnail": "/latinesa.jpg",
         "intro": "Latinesa Studio 由 Cheli 創立，融合她的舞蹈藝名與教室名稱，象徵對拉丁與台灣文化的熱愛。自 2024 年 3 月成立以來，專注推廣 Salsa 與拉丁文化。Latinesa 結合 Latina（拉丁女孩）與 Taiwanesa（台灣女孩），展現 Cheli 的文化認同與熱情。\nCheli 舞齡 24 年，自幼學習民俗舞、芭蕾、爵士、現代、寶萊塢與拉丁舞，在台灣升學體制下仍堅持藝術初心。近 10 年從商管轉向國際關係，並於歐洲、拉丁美洲深耕工作，最終回台創業，結合西班牙產品與藝術文化交流，致力於 Salsa 表演、教學與推廣。",
         "link": {
@@ -197,6 +205,7 @@ export const organizerList = [
     {
         "id": "la-salsa-taipei",
         "name": "La Salsa Taipei",
+        "city": "taipei",
         "thumbnail": "/lasalsa.jpg",
         "intro": "台北樂騷莎 La Salsa Taipei\n教學SALSA舞及BACHATA舞\n台北最具規模的社交舞蹈學院",
         "link": {
@@ -233,6 +242,7 @@ export const organizerList = [
     {
         "id": "lia_spice_ladies",
         "name": "Lia Spice Ladies",
+        "city": "taipei",
         "thumbnail": "/lia_spice_ladies.jpg",
         "intro": "我們是「Lia Spice Ladies」！深耕新北地區的莉亞老師以擅長的拉丁舞融入各種元素聞名，從高跟鞋性感舞、爵士到中國風，還擁有多年編舞經驗，帶領舞團不斷探索舞蹈肢體的無限可能。",
         "link": {
@@ -251,6 +261,7 @@ export const organizerList = [
     {
         "id": "meet-kiz-taiwan",
         "name": "Meet Kiz Taiwan",
+        "city": "taipei",
         "thumbnail": "/meet-kiz-taiwan.jpg",
         "intro": "Meet Kiz Taiwan 是台灣專注於推廣 Kizomba、Urban Kiz、Tarraxo 及 Konpa 的舞蹈團隊。我們透過固定課程、社交舞會，以及不定期邀請國際師資來台舉辦 工作坊，讓更多人能夠體驗並深入了解非洲音樂、非洲律動的魅力。",
         "link": {
@@ -271,6 +282,7 @@ export const organizerList = [
     {
         "id": "salsa-me",
         "name": "騷莎迷 SalsaMe",
+        "city": "taipei",
         "thumbnail": "/salsame.jpg",
         "intro": "一個下班後開心跳舞的地方\n🏠𝟮𝟬𝟭𝟴年成立於新北板橋,專精於𝗦𝗮𝗹𝘀𝗮,尤其是可以跟任何人跳的𝗦𝗼𝗰𝗶𝗮𝗹 𝗗𝗮𝗻𝗰𝗲.",
         "link": {
@@ -286,6 +298,7 @@ export const organizerList = [
     {
         "id": "taipei-bachata-vibes",
         "name": "TaipeiBachata Vibes",
+        "city": "taipei",
         "thumbnail": "/tbv.jpg",
         "intro": "LatinVibes .Taipei Taiwan",
         "classes": ['bachata'],
@@ -310,6 +323,7 @@ export const organizerList = [
     {
         "id": "zouk-it",
         "name": "Zouk It",
+        "city": "taipei",
         "thumbnail": "/zouk-it.jpg",
         "intro": "Zouk IT [ Zouk in Taiwan ] 我們希望在台灣推廣Brazilian Zouk",
         "classes": [],
@@ -327,6 +341,7 @@ export const organizerList = [
     {
         "id": "dance-salsa-under-sky",
         "name": "天空下跳 salsa",
+        "city": "taipei",
         "thumbnail": "/sky.png",
         "intro": "本社團的宗旨很簡單，就是希望多舉辦在戶外的Salsa party。\n讓舞者伴著陽光、星空、微風、沙灘、草地.................在大自然下.自在隨意的舞動。\n也歡迎要辦戶外Salsa活動的朋友一起藉由這社團.豐富臺灣的Salsa圈。",
         "link": {
@@ -348,6 +363,7 @@ export const organizerList = [
         "id": "barcade-taiwan",
         "name": "Barcade Taiwan",
         "hide": true,
+        "city": "taipei",
         "thumbnail": "",
         "intro": "",
         "link": {
@@ -364,6 +380,7 @@ export const organizerList = [
         "id": "brass-monkey",
         "name": "Brass Monkey",
         "hide": true,
+        "city": "taipei",
         "thumbnail": "",
         "intro": "",
         "link": {
@@ -380,6 +397,7 @@ export const organizerList = [
         "id": "salud-salsa-party",
         "name": "Salud Salsa Party",
         "hide": true,
+        "city": "taipei",
         "thumbnail": "",
         "intro": "",
         "link": {
@@ -396,6 +414,7 @@ export const organizerList = [
         "id": "cigar-vie",
         "name": "Cigar Vie",
         "hide": true,
+        "city": "taipei",
         "thumbnail": "",
         "intro": "",
         "link": {
@@ -409,9 +428,27 @@ export const organizerList = [
         "member": []
     },
     {
+        "id": "w_social",
+        "name": "W Social",
+        "hide": false,
+        "city": "taichung",
+        "thumbnail": "/w-social.jpg",
+        "intro": "台中有口皆碑的拉丁社交舞會\n不定期舉辦 workshop",
+        "link": {
+            "facebook": "https://www.facebook.com/profile.php?id=61569455554980",
+            "instagram": "https://www.instagram.com/wsocial.taichung",
+            "website": "",
+            "location": ""
+        },
+        "party": "每個月舉辦一次 Salsa / Bachata / Zouk 舞會",
+        "classes": ['bachata'],
+        "member": []
+    },
+    {
         "id": "",
         "name": "",
         "hide": false,
+        "city": "taipei",
         "thumbnail": "",
         "intro": "",
         "link": {
@@ -429,6 +466,7 @@ export const organizerList = [
         "name": "Eric Wang",
         "hide": false,
         "solo": true,
+        "city": "taipei",
         "thumbnail": "/eric-wang.png",
         "intro": "台灣騷莎圈最資深的教師之一，自 2008 年起投身舞蹈教學，對騷莎舞懷抱深厚熱情。曾參與創辦並經營台北最大的騷莎舞蹈教室 Taipei Salsa Motion，多年來培育無數優秀舞者，影響力遍及台灣騷莎圈。\nP.S. 如今圈內資深舞者（>10 年）中，絕大多數都曾是 Eric 老師的學生，足見其深厚的教學經驗與傳承精神。\nEric 老師熱愛社交舞，深信舞蹈不僅是一種技巧，更是一種交流與享受。他希望透過教學，培養更多優秀的舞者，讓更多人愛上騷莎舞，並共同提升舞池的整體水平，讓每一次的舞會都充滿熱情、活力與愉悅的氛圍。",
         "link": {
@@ -452,6 +490,7 @@ export const organizerList = [
         "name": "Jenny",
         "hide": false,
         "solo": true,
+        "city": "taipei",
         "thumbnail": "/jenny.png",
         "intro": "追尋力與美的旅程中，我持續鍛鍊、磨練成長，淬鍊自我，邁向更美好的自己，成就無限可能！",
         "link": {
@@ -469,6 +508,7 @@ export const organizerList = [
         "name": "Patty Lin",
         "hide": false,
         "solo": true,
+        "city": "taipei",
         "thumbnail": "/patty.png",
         "intro": "追尋力與美的旅程中，我持續鍛鍊、磨練成長，淬鍊自我，邁向更美好的自己，成就無限可能！",
         "link": {
@@ -481,5 +521,4 @@ export const organizerList = [
         "classes": ['salsa', 'bachata', 'yogalates'],
         "member": []
     }, 
-
 ]

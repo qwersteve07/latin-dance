@@ -12,6 +12,8 @@ import EventModal from "@/components/eventModal";
 import Title from "@/components/title";
 import { danceTypes } from "@/const/dance-types";
 import Loading from "@/components/loading";
+import { useAppStore } from "@/store/appStore";
+import { getEventsFilterByCity } from "@/utils/getEvents";
 
 export const danceTypeColor = (type: string) => {
   switch (type) {
@@ -30,22 +32,36 @@ export default function Calendar() {
   const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
   const [currentData, setCurrentData] = useState<Array<Event>>([])
   const [selectTypes, setSelectTypes] = useState<string[]>([]);
+  const appStore = useAppStore()
 
   useEffect(() => {
     if (isLoading) return
     if (!data?.result) return
+    if (!appStore.currentCity) return
 
+    let result;
     if (selectTypes.length === 0) {
-      setCurrentData(data.result)
-      return
+      result = getFilteredCurrentData([], appStore.currentCity)
+    } else {
+      result = getFilteredCurrentData(selectTypes, appStore.currentCity)
     }
 
-    const result = data.result.filter((d: Event) => {
-      return d.types.some(x => selectTypes.includes(x))
+    setCurrentData(result)
+  }, [isLoading, selectTypes, appStore.currentCity])
+
+  function getFilteredCurrentData(types: string[], city: string) {
+
+    if (types.length === 0) {
+      return getEventsFilterByCity(data.result, city)
+    }
+
+    const dataFilteredByTypes = data.result.filter((event: Event) => {
+      return event.types.some(x => types.includes(x))
     })
 
-    setCurrentData(result)
-  }, [isLoading, selectTypes])
+    return getEventsFilterByCity(dataFilteredByTypes, city)
+  }
+
 
 
   const isMobile = useMedia("(max-width: 768px)");

@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
-				<title>台北社交舞指南</title>
+				<title>台灣社交舞指南</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,shrink-to-fit=no,minimum-scale=1,maximum-scale=1,viewport-fit=cover" />
 				<meta name="description" content="（還不是）最完善的社交舞資訊平台" />
@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<link rel="icon" href="/favicon.png" />
 				<meta property="og:url" content="http://social-dance.tw" />
 				<meta property="og:type" content="website" />
-				<meta property="og:title" content="台北社交舞指南" />
+				<meta property="og:title" content="台灣社交舞指南" />
 				<meta property="og:description" content="（還不是）最完善的社交舞資訊平台" />
 				<meta property="og:image" content="/og.png" />
 			</Head>
