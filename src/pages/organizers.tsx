@@ -173,7 +173,29 @@ function OrganizerContent({ item }: { item: Organizer }) {
               ))}
             </div></>
         )}
-      </div>
+        {item.dance_group && (
+          <div className="flex justify-start items-start mt-14 gap-6 max-md:flex-col">
+            <div className="relative w-40 min-w-40 rounded-lg overflow-hidden">
+              <img src={item.dance_group.thumbnail} alt={item.dance_group.name} className="object-contain" />
+            </div>
+            <div>
+              <div className="font-bold text-2xl mb-4">{item.dance_group.name}</div>
+              <div className="mb-4">
+                <SocialLink type='instagram' link={item.dance_group.link} />
+              </div>
+              <div className="mb-4">
+                {item.dance_group.intro?.split("\n").map(x => (
+                  <p key={x} className="mb-2">
+                    {x}
+                    <br />
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        )
+        }
+      </div >
 
     </div >
   );

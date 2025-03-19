@@ -73,7 +73,7 @@ export const organizerList = [
     },
     {
         "id": "el-colmado-social-taiwan",
-        "name": "El Colmado Sicial Taiwan",
+        "name": "El Colmado Social Taiwan",
         "city": "taipei",
         "thumbnail": "/el-colmado.jpg",
         "intro": "🇩🇴Traditional Bachata in Taiwan\n🇩🇴Back to the Roots",
@@ -442,7 +442,10 @@ export const organizerList = [
         },
         "party": "每個月舉辦一次 Salsa / Bachata / Zouk 舞會",
         "classes": ['bachata'],
-        "member": []
+        "member": [{
+            name: '老王 Vicky',
+            image: '/vicky.png'
+        }]
     },
     {
         "id": "",
@@ -462,6 +465,48 @@ export const organizerList = [
         "member": []
     },
     {
+        "id": "eric_wang",
+        "name": "Eric Wang",
+        "hide": false,
+        "solo": true,
+        "city": "taipei",
+        "thumbnail": "/eric-wang.png",
+        "intro": "台灣騷莎圈最資深的教師之一，自 2008 年起投身舞蹈教學，對騷莎舞懷抱深厚熱情。曾參與創辦並經營台北最大的騷莎舞蹈教室 Taipei Salsa Motion，多年來培育無數優秀舞者，影響力遍及台灣騷莎圈。\nP.S. 如今圈內資深舞者（>10 年）中，絕大多數都曾是 Eric 老師的學生，足見其深厚的教學經驗與傳承精神。\nEric 老師熱愛社交舞，深信舞蹈不僅是一種技巧，更是一種交流與享受。他希望透過教學，培養更多優秀的舞者，讓更多人愛上騷莎舞，並共同提升舞池的整體水平，讓每一次的舞會都充滿熱情、活力與愉悅的氛圍。",
+        "link": {
+            "facebook": "",
+            "instagram": "https://www.instagram.com/salsaericwang/",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": ['salsa', 'bachata'],
+        "member": [],
+        "dance_group": {
+            "name": "Group Esencia Taipei",
+            "thumbnail": "/group-esencia.jpg",
+            "intro": "Grupo Esencia是由知名的西班牙Bachata男神Marco Espejo以及女神Sara Panero所創立的Bachata舞團，其特色是充滿活力與創意的表演風格，最近幾年迅速紅遍世界各地，成為了最廣為人知的舞團品牌之一。\n目前Grupo Esencia已在許多國家&城市成立舞團分部，在亞洲也已成立了多個分團，例如首爾、釜山、東京、大阪、上海以及台北等地。\n在台灣則是由Eric老師代理，招募了幾位Bachata同好，組成了Grupo Esencia Taipei。舞團成員不乏在國內已享負盛名的師資與高手，幾乎都是常常在舞池中大家爭相邀舞的對象。舞團成軍五年以來，已經完成發表10首作品，每一支舞碼都令人耳目一新，並在圈中獲得熱烈的迴響。目前舞團正在籌備新的舞碼，近期又將開始新一波的招募與訓練。\n備註：Grupo Esencia Taipei舞團正在招募新成員，如果你/妳喜歡Bachata，也想要挑戰表演舞碼，歡迎與Eric老師聯繫，把握站上表演舞台的機會！",   
+            "link": 'https://www.instagram.com/grupoesencia_taipei/'
+        }
+    },
+    {
+        "id": "jenny",
+        "name": "Jenny",
+        "hide": false,
+        "solo": true,
+        "city": "taipei",
+        "thumbnail": "/jenny.png",
+        "intro": "追尋力與美的旅程中，我持續鍛鍊、磨練成長，淬鍊自我，邁向更美好的自己，成就無限可能！",
+        "link": {
+            "facebook": "https://www.facebook.com/jenny.chang.5015",
+            "instagram": "tps://www.instagram.com/jennyfhc_tw",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": ['bachata'],
+        "member": []
+    }, 
+    {
         "id": "patty_lin",
         "name": "Patty Lin",
         "hide": false,
@@ -478,7 +523,5 @@ export const organizerList = [
         "party": "",
         "classes": ['salsa', 'bachata', 'yogalates'],
         "member": []
-    },
-
-
+    }, 
 ]
