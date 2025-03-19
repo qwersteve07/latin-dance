@@ -4,10 +4,9 @@ import { useRouter } from "next/router";
 import OrganizerImage from "@/components/organizerImage";
 import MemberImage from "@/components/memberImage";
 import { Organizer } from "@/types/organizer";
-import { organizerList } from "@/const/organizers";
 import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
-import { useAppStore } from "@/store/appStore";
+import { organizerList, useAppStore } from "@/store/appStore";
 
 export default function Rules() {
   const searchParams = useSearchParams();

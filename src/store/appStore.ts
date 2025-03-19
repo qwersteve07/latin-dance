@@ -1,7 +1,14 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
+import { organizerTaipeiList } from "@/const/organizers-taipei";
+import { organizerTaichungList } from "@/const/organizers-taichung";
+import { Organizer } from '@/types/organizer';
 
-interface AppStore {
+export const organizerList: Array<Organizer> = [...organizerTaipeiList, ...organizerTaichungList]
+
+export
+
+    interface AppStore {
     currentCity: string
     setCurrentCity: (city: string) => void
 }

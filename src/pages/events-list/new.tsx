@@ -1,4 +1,4 @@
-import { organizerList } from "@/const/organizers";
+import { organizerList } from "@/store/appStore";
 import { locateList } from "@/const/locate";
 import { fetcher } from "@/utils/fetcher";
 import { ActionIcon, Button, Checkbox, MultiSelect, Select, Textarea, TextInput } from "@mantine/core";

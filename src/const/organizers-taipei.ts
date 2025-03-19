@@ -1,4 +1,4 @@
-export const organizerList = [
+export const organizerTaipeiList = [
 
     {
         "id": "bailalo-dance-studio",
@@ -289,7 +289,7 @@ export const organizerList = [
             "facebook": "https://www.facebook.com/salsametaiwan",
             "instagram": "https://www.instagram.com/salsameplus/",
             "website": "",
-            "location": ""
+            "location": "https://maps.app.goo.gl/Ydhup9Wj3YGgtMpT8"
         },
         "classes": ['salsa', 'bachata'],
         "party": "每個月最後一個星期六舉辦",
@@ -426,26 +426,6 @@ export const organizerList = [
         "party": "",
         "classes": [],
         "member": []
-    },
-    {
-        "id": "w_social",
-        "name": "W Social",
-        "hide": false,
-        "city": "taichung",
-        "thumbnail": "/w-social.jpg",
-        "intro": "台中有口皆碑的拉丁社交舞會\n不定期舉辦 workshop",
-        "link": {
-            "facebook": "https://www.facebook.com/profile.php?id=61569455554980",
-            "instagram": "https://www.instagram.com/wsocial.taichung",
-            "website": "",
-            "location": ""
-        },
-        "party": "每個月舉辦一次 Salsa / Bachata / Zouk 舞會",
-        "classes": ['bachata'],
-        "member": [{
-            name: '老王 Vicky',
-            image: '/vicky.png'
-        }]
     },
     {
         "id": "",

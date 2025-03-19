@@ -6,10 +6,9 @@ import { useSearchParams } from "next/navigation";
 import { useMedia } from "react-use";
 import MemberImage from "@/components/memberImage";
 import { Organizer } from "@/types/organizer";
-import { organizerList } from "@/const/organizers";
 import Title from "@/components/title";
 import OrganizerImage from "@/components/organizerImage";
-import { useAppStore } from "@/store/appStore";
+import { organizerList, useAppStore } from "@/store/appStore";
 
 export default function Organizers() {
   const [domLoaded, setDomLoaded] = useState(false);
