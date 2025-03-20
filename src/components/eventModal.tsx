@@ -4,8 +4,8 @@ import { getLocate, getLocateLink } from "@/utils/getLocate"
 import { Modal } from "@mantine/core"
 import dayjs from "dayjs"
 import OuterLink from "./outerLink"
-import Image from "next/image"
 import { danceTypeColor } from "@/pages/calendar"
+import IconLocate from '../../public/icon-location.svg'
 
 const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate> }) => {
     const hasLocate = Object.keys(data.locate || {}).length !== 0
@@ -30,19 +30,13 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
             <div className="grid grid-cols-[80px,1fr] gap-2">
                 <div className="font-semibold">Host</div>
                 <div>{getHost(data.host || '')}</div>
-                <div className="font-semibold">Locate</div>
+                <div className="font-bold">Locate</div>
                 <div>
                     {hasLocate ?
                         (<OuterLink href={getLocateLink(data.locate || '')}>
-                            <div className="inline-flex justify-start items-center gap-1">
+                            <div className="group inline-flex justify-start items-center gap-1">
                                 {getLocate(data.locate || '')}
-                                <Image
-                                    src="/icon-location.svg"
-                                    width="15"
-                                    height="15"
-                                    alt="locate"
-                                    priority
-                                />
+                                <IconLocate className="transition-stroke duration-200 group-hover:stroke-red-500 w-5" />
                             </div>
                         </OuterLink>)
                         : 'TBD'}

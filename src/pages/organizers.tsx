@@ -1,7 +1,6 @@
 import { Tabs, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useMedia } from "react-use";
 import MemberImage from "@/components/memberImage";
@@ -9,6 +8,10 @@ import { Organizer } from "@/types/organizer";
 import Title from "@/components/title";
 import OrganizerImage from "@/components/organizerImage";
 import { organizerList, useAppStore } from "@/store/appStore";
+import IconFacebook from '../../public/icon-facebook.svg'
+import IconInstagram from '../../public/icon-instagram.svg'
+import IconWebsite from '../../public/icon-website.svg'
+import IconLocate from '../../public/icon-location.svg'
 
 export default function Organizers() {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -201,15 +204,19 @@ function OrganizerContent({ item }: { item: Organizer }) {
 }
 
 function SocialLink({ type, link }: { type: string, link: string }) {
-  return (
-    <Image
-      src={`/icon-${type}.svg`}
-      width="25"
-      height="25"
-      alt={type}
-      className="cursor-pointer"
-      priority
-      onClick={() => window.open(link)}
-    />
-  );
+
+  const Icon = (props: any) => {
+    switch (type) {
+      case 'facebook': return <IconFacebook {...props} />
+      case 'instagram': return <IconInstagram {...props} />
+      case 'website': return <IconWebsite {...props} />
+      case 'locate': return <IconLocate {...props} />
+      default: return <></>
+    }
+  }
+
+  return <Icon className="w-6 hover:stroke-red-500 cursor-pointer" onClick={() => window.open(link)} />
+
+
+
 }
