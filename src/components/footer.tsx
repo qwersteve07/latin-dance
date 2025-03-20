@@ -1,9 +1,11 @@
 import Image from "next/image";
+import packageJson from '../../package.json'
 
 export default function Footer() {
   return (
     <footer className="flex justify-center items-center gap-2 py-3 w-full bg-gray-100 text-gray-700 text-sm">
-      © 2025 by Steve Lee .
+      <span>v{packageJson.version}</span>
+      <span>© 2025 by Steve Lee</span>
       <span className="flex justify-center items-center gap-2">
         <Image
           src="/icon-line.svg"

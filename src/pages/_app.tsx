@@ -1,12 +1,18 @@
 import "@/styles/globals.css";
 import "@mantine/core/styles.css";
-import { MantineProvider } from "@mantine/core";
+import { createTheme, MantineProvider } from "@mantine/core";
 import Layout from "@/components/layout";
 import Head from "next/head";
 import type { AppProps } from 'next/app'
 import "@/styles/globals.css";
 import '@mantine/dates/styles.css';
 import '@/polyfill/object-groupBy'
+
+const theme = createTheme({
+	primaryColor: 'red',
+
+	/** Your theme override here */
+});
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
@@ -26,7 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta property="og:description" content="（還不是）最完善的社交舞資訊平台" />
 				<meta property="og:image" content="/og.png" />
 			</Head>
-			<MantineProvider>
+			<MantineProvider theme={theme}>
 				<Layout>
 					<Component {...pageProps} />
 				</Layout>

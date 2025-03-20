@@ -22,7 +22,7 @@ export default function Navigator() {
     return routesList.map(r => {
       return router.pathname === r.id ?
         (
-          <div key={r.id} className="relative overflow-hidden h-7 group font-bold text-blue-500 pointer-events-none">
+          <div key={r.id} className="relative overflow-hidden h-7 group font-bold text-red-500 pointer-events-none">
             <div className="mx-3 group-hover:translate-y-[-50%] transition-color duration-200">
               <div className="flex justify-start items-center h-7">{r.enName}</div>
               <div className="flex justify-start items-center h-7">{r.cnName}</div>

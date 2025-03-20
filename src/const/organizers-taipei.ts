@@ -478,7 +478,7 @@ export const organizerTaipeiList = [
         "intro": "Salsa/Bachata/Zouk dancer\nBachata Instructor\nLatin music DJ\nfrom Taiwan🇹🇼",
         "link": {
             "facebook": "https://www.facebook.com/jenny.chang.5015",
-            "instagram": "tps://www.instagram.com/jennyfhc_tw",
+            "instagram": "https://www.instagram.com/jennyfhc_tw",
             "website": "",
             "location": ""
         },
