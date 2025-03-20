@@ -164,7 +164,7 @@ function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) 
       plugins={[dayGridPlugin]}
       validRange={(nowDate) => {
         return {
-          start: dayjs(nowDate).toDate(),
+          start: dayjs(nowDate).toISOString(),
         };
       }}
       initialView="dayGridMonth"
