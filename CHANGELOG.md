@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.4.0](https://github.com/qwersteve07/latin-dance/compare/v1.3.0...v1.4.0) (2025-03-20)
+
+
+### ✨ Features
+
+* add w-social image ([fcd2e62](https://github.com/qwersteve07/latin-dance/commit/fcd2e62043e1d6b62d3448291e0cf24f6dd8973b))
+* delete w-social image ([c072a7d](https://github.com/qwersteve07/latin-dance/commit/c072a7ddf16751e671bcde6916c8c252bc1b9928))
+* impl useDay() ([b4ca234](https://github.com/qwersteve07/latin-dance/commit/b4ca234fc8cea6fcfd09a2394f6feb0e344173d0))
+* refractor index and calendar ([7bfc6aa](https://github.com/qwersteve07/latin-dance/commit/7bfc6aa5d6ebff7aba6bb3275ba9d4c8fb2a1619))
+
+
+### 🐛 Bug Fixes
+
+* calendar will block today's event after 6 o'clock ([ae258c1](https://github.com/qwersteve07/latin-dance/commit/ae258c1b046eb228bbd1b7b55b41ae5ba6e1323f))
+
 ## 1.3.0 (2025-03-20)
 
 
