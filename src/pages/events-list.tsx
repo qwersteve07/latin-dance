@@ -1,10 +1,10 @@
 import { Event } from "@/types/event";
+import { useDay } from "@/use/use-day";
 import { fetcher } from "@/utils/fetcher";
 import { getHost } from "@/utils/getHost";
 import { getLocate } from "@/utils/getLocate";
 import { Button, Group, Modal, Table } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import dayjs from "dayjs";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import useSWR from "swr";
@@ -14,7 +14,7 @@ export default function EventsList() {
     const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
     const [removedId, setRemovedId] = useState('')
     const [opened, { open, close }] = useDisclosure(false);
-
+    const dayjs = useDay()
 
     if (error) return <div>failed to load</div>;
 

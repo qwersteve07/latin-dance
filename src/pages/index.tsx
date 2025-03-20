@@ -3,10 +3,7 @@ import { fetcher } from "@/utils/fetcher";
 import { useEffect, useState } from "react";
 import { Button } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import dayjs from "dayjs";
 import { InstagramEmbed } from "react-social-media-embed";
-import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
-import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 import { useRouter } from "next/router";
 import { Event, EventWithEventDate } from "@/types/event";
 import { getEventsFilterByCity, getLatestWeekEvents } from "@/utils/getEvents";
@@ -14,8 +11,7 @@ import EventModal from "@/components/eventModal";
 import { danceTypeColor } from "./calendar";
 import Loading from "@/components/loading";
 import { useAppStore } from "@/store/appStore";
-dayjs.extend(isSameOrBefore);
-dayjs.extend(isSameOrAfter);
+import { useDay } from "@/use/use-day";
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -24,6 +20,7 @@ export default function Home() {
   const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
   const router = useRouter();
   const appStore = useAppStore()
+  const dayjs = useDay()
 
   const vlogIGList = [
     {

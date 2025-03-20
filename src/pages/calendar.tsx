@@ -1,7 +1,6 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
-import dayjs from "dayjs";
 import { useMedia } from "react-use";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
@@ -14,6 +13,7 @@ import { danceTypes } from "@/const/dance-types";
 import Loading from "@/components/loading";
 import { useAppStore } from "@/store/appStore";
 import { getEventsFilterByCity } from "@/utils/getEvents";
+import { useDay } from "@/use/use-day";
 
 export const danceTypeColor = (type: string) => {
   switch (type) {
@@ -136,6 +136,7 @@ export default function Calendar() {
 }
 
 function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
+  const dayjs = useDay()
   return (
     <FullCalendar
       height="auto"
@@ -157,6 +158,7 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
 }
 
 function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) {
+  const dayjs = useDay()
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
