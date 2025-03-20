@@ -2,9 +2,10 @@ import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { organizerTaipeiList } from "@/const/organizers-taipei";
 import { organizerTaichungList } from "@/const/organizers-taichung";
+import { organizerKaohsiungList } from "@/const/organizers-kaohsiung"
 import { Organizer } from '@/types/organizer';
 
-export const organizerList: Array<Organizer> = [...organizerTaipeiList, ...organizerTaichungList]
+export const organizerList: Array<Organizer> = [...organizerTaipeiList, ...organizerTaichungList, ...organizerKaohsiungList]
 
 export
 
