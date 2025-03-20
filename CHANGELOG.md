@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.0](https://github.com/qwersteve07/latin-dance/compare/v1.1.0...v1.2.0) (2025-03-20)
+
+
+### ✨ Features
+
+* add version ([b499ff0](https://github.com/qwersteve07/latin-dance/commit/b499ff0bf13ba1d131eba95d1c698f51ab71f531))
+* adjust locate ([172b36d](https://github.com/qwersteve07/latin-dance/commit/172b36d5242e8ef7238e50b28137d56f8097e2e7))
+* impl icon hover effect ([dffc804](https://github.com/qwersteve07/latin-dance/commit/dffc8047cd11ed564219c9e91883c05a4ca46997))
+* impl svgr ([75c9944](https://github.com/qwersteve07/latin-dance/commit/75c9944282d3552b9a10ac829122ffeb27e93759))
+* seperate organizer ([b452a6e](https://github.com/qwersteve07/latin-dance/commit/b452a6ec81c2377457e711b20a16ebec38fd1dc8))
+* seperate organizer ([47f8c93](https://github.com/qwersteve07/latin-dance/commit/47f8c93149d045e08d2b69e087c45d6252bdf0e0))
+* set svg to match the size we want ([1e6efbd](https://github.com/qwersteve07/latin-dance/commit/1e6efbd67e05794e8e15947d10826448954be578))
+* update locations ([0d880c0](https://github.com/qwersteve07/latin-dance/commit/0d880c02b6693f6d2adf2440afccd1f664d6706b))
+* update theme color to red ([dfc5459](https://github.com/qwersteve07/latin-dance/commit/dfc5459370bc83133144df9d3038a4bb3e2a2243))
+
+
+### 🐛 Bug Fixes
+
+* adjust cola data ([45105aa](https://github.com/qwersteve07/latin-dance/commit/45105aa3ef0e3faa4fcb49310d3a6f26b67248d2))
+
 ## 1.1.0 (2025-03-20)
 
 
