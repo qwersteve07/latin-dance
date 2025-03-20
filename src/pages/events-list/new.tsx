@@ -7,7 +7,6 @@ import { useForm } from '@mantine/form';
 import dayjs from "dayjs";
 import { useRouter } from "next/router"
 import { useRef, useState, } from "react";
-import iconClock from '../../../public/icon-clock.svg'
 import Image from "next/image";
 import { danceTypes } from "@/const/dance-types";
 
@@ -60,7 +59,7 @@ export default function NewEvents() {
         <ActionIcon variant="subtle" color="gray" onClick={() => startAtRef.current?.showPicker()}>
             <Image
                 priority
-                src={iconClock}
+                src='/icon-clock.svg'
                 alt="clock"
             />
         </ActionIcon>
@@ -70,7 +69,7 @@ export default function NewEvents() {
         <ActionIcon variant="subtle" color="gray" onClick={() => endAtRef.current?.showPicker()}>
             <Image
                 priority
-                src={iconClock}
+                src='/icon-clock.svg'
                 alt="clock"
             />
         </ActionIcon>
