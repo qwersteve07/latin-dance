@@ -33,6 +33,7 @@ export default function Calendar() {
   const [currentData, setCurrentData] = useState<Array<Event>>([])
   const [selectTypes, setSelectTypes] = useState<string[]>([]);
   const appStore = useAppStore()
+  const dayjs = useDay()
 
   useEffect(() => {
     if (isLoading) return
@@ -62,14 +63,13 @@ export default function Calendar() {
     return getEventsFilterByCity(dataFilteredByTypes, city)
   }
 
-
-
   const isMobile = useMedia("(max-width: 768px)");
 
   function render(eventInfo: any) {
+
     return (
       <div
-        className={`cursor-pointer md:truncate relative`}
+        className={`cursor-pointer md:truncate relative ${dayjs(eventInfo.event.extendedProps.eventDate).isBefore(dayjs(), 'day') ? 'opacity-20' : ''}`}
         onClick={() => {
           setSelectEvent({
             ...eventInfo.event.extendedProps,
@@ -143,7 +143,7 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
       plugins={[listPlugin]}
       validRange={(nowDate) => {
         return {
-          start: nowDate,
+          start: dayjs(nowDate).toISOString(),
         };
       }}
       initialView="listMonth"
@@ -162,11 +162,6 @@ function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) 
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
-      validRange={(nowDate) => {
-        return {
-          start: dayjs(nowDate).toISOString(),
-        };
-      }}
       initialView="dayGridMonth"
       events={data.map((e) => ({
         ...e,
