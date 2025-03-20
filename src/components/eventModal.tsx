@@ -2,12 +2,13 @@ import { EventWithEventDate } from "@/types/event"
 import { getHost } from "@/utils/getHost"
 import { getLocate, getLocateLink } from "@/utils/getLocate"
 import { Modal } from "@mantine/core"
-import dayjs from "dayjs"
 import OuterLink from "./outerLink"
 import { danceTypeColor } from "@/pages/calendar"
 import IconLocate from '../../public/icon-location.svg'
+import { useDay } from "@/use/use-day"
 
 const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate> }) => {
+    const dayjs = useDay()
     const hasLocate = Object.keys(data.locate || {}).length !== 0
     return (
         <Modal

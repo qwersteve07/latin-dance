@@ -4,19 +4,22 @@ import { fetcher } from "@/utils/fetcher";
 import { ActionIcon, Button, Select, Textarea, TextInput, MultiSelect, Checkbox } from "@mantine/core";
 import { DatePickerInput, TimeInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
-import dayjs from "dayjs";
 import { useRouter } from "next/router"
 import { useEffect, useRef, useState, } from "react";
 import useSWR from "swr";
 import Image from "next/image";
 import { danceTypes } from "@/const/dance-types";
+import { useDay } from "@/use/use-day";
 
 export default function EditEvents() {
+
     const [loading, setLoading] = useState(false)
     const startAtRef = useRef<HTMLInputElement>(null);
     const endAtRef = useRef<HTMLInputElement>(null);
     const router = useRouter()
     const { data, error, isLoading } = useSWR(`/social-dance/events/${router.query.slug}`, fetcher);
+    const dayjs = useDay()
+
     const form = useForm({
         mode: 'uncontrolled',
         initialValues: {
@@ -85,6 +88,8 @@ export default function EditEvents() {
                 priority
                 src='/icon-clock.svg'
                 alt="clock"
+                width="16"
+                height="16"
             />
         </ActionIcon>
     );
@@ -95,6 +100,8 @@ export default function EditEvents() {
                 priority
                 src='/icon-clock.svg'
                 alt="clock"
+                width="16"
+                height="16"
             />
         </ActionIcon>
     );

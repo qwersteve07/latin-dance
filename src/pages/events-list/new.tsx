@@ -4,17 +4,19 @@ import { fetcher } from "@/utils/fetcher";
 import { ActionIcon, Button, Checkbox, MultiSelect, Select, Textarea, TextInput } from "@mantine/core";
 import { DatePickerInput, TimeInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
-import dayjs from "dayjs";
 import { useRouter } from "next/router"
 import { useRef, useState, } from "react";
 import Image from "next/image";
 import { danceTypes } from "@/const/dance-types";
+import { useDay } from "@/use/use-day";
 
 export default function NewEvents() {
     const [loading, setLoading] = useState(false)
     const startAtRef = useRef<HTMLInputElement>(null);
     const endAtRef = useRef<HTMLInputElement>(null);
     const router = useRouter()
+    const dayjs = useDay()
+
     const form = useForm({
         mode: 'uncontrolled',
         initialValues: {

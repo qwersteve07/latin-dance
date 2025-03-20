@@ -1,7 +1,6 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
-import dayjs from "dayjs";
 import { useMedia } from "react-use";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
@@ -14,6 +13,7 @@ import { danceTypes } from "@/const/dance-types";
 import Loading from "@/components/loading";
 import { useAppStore } from "@/store/appStore";
 import { getEventsFilterByCity } from "@/utils/getEvents";
+import { useDay } from "@/use/use-day";
 
 export const danceTypeColor = (type: string) => {
   switch (type) {
@@ -33,6 +33,7 @@ export default function Calendar() {
   const [currentData, setCurrentData] = useState<Array<Event>>([])
   const [selectTypes, setSelectTypes] = useState<string[]>([]);
   const appStore = useAppStore()
+  const dayjs = useDay()
 
   useEffect(() => {
     if (isLoading) return
@@ -62,14 +63,13 @@ export default function Calendar() {
     return getEventsFilterByCity(dataFilteredByTypes, city)
   }
 
-
-
   const isMobile = useMedia("(max-width: 768px)");
 
   function render(eventInfo: any) {
+
     return (
       <div
-        className={`cursor-pointer md:truncate relative`}
+        className={`cursor-pointer md:truncate relative ${dayjs(eventInfo.event.extendedProps.eventDate).isBefore(dayjs(), 'day') ? 'opacity-20' : ''}`}
         onClick={() => {
           setSelectEvent({
             ...eventInfo.event.extendedProps,
@@ -136,13 +136,14 @@ export default function Calendar() {
 }
 
 function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
+  const dayjs = useDay()
   return (
     <FullCalendar
       height="auto"
       plugins={[listPlugin]}
       validRange={(nowDate) => {
         return {
-          start: nowDate,
+          start: dayjs(nowDate).toISOString(),
         };
       }}
       initialView="listMonth"
@@ -157,14 +158,10 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
 }
 
 function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) {
+  const dayjs = useDay()
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
-      validRange={(nowDate) => {
-        return {
-          start: dayjs(nowDate).toDate(),
-        };
-      }}
       initialView="dayGridMonth"
       events={data.map((e) => ({
         ...e,
