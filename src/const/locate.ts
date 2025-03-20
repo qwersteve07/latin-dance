@@ -130,8 +130,14 @@ export const locateList = [
     },
     {
         id: 'moxy-taichung',
-        name: '台中豐邑Moxy酒店 ',
+        name: '台中豐邑Moxy酒店',
         city: "taichung",
         url: 'https://maps.app.goo.gl/ReuJzzB9yqyvwZxAA'
+    },
+    {
+        id: 'dol-dance-studio',
+        name: 'DOL舞蹈排練場',
+        city: "taichung",
+        url: 'https://maps.app.goo.gl/13ckbCCJCwdQyREJ7'
     }
 ]
