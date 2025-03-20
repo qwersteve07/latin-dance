@@ -75,7 +75,7 @@ export default function Home() {
         {latestWeekEvents.length === 0 && <div className="text-lg text-center">No Social Dance this week... 🥲</div>}
         {latestWeekEvents.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full max-md:flex-col">
           {latestWeekEvents.map(([weekday, events]) => (
-            <li key={weekday} className="flex flex-col flex-[1] max-md:w-full">
+            <li key={weekday} className="flex flex-col flex-[1] max-md:w-full max-w-[200px]">
               <div className={`
               font-bold mb-2 gap-2 p-2 rounded-xl bg-gray-100
               flex justify-start items-center ${weekday === "Saturday" || weekday === "Sunday"

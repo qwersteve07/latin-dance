@@ -17,6 +17,23 @@ export const organizerTaichungList = [
         "member": []
     },
     {
+        "id": "group-amores-danza",
+        "name": "Group Amores Danza",
+        "hide": false,
+        "city": "taichung",
+        "thumbnail": "/amores-danza.jpg",
+        "intro": "Amores Danza舞團是由小渝及天佑老師創辦的拉丁舞團。\n在與舞團成員Yvonne 、Pin、Michael 、Daniel 的共同合作下，在台灣Salsa起源的台中，深耕於INTO Playground，承襲前人成果將Salsa、Bachata、Zouk持續發揚光大。\n迄今，無論是以師資團或夥同學生，已多次發表salsa及bachata 舞碼，\n在台北及台中的拉丁活動中演出。",
+        "link": {
+            "facebook": "",
+            "instagram": "https://www.instagram.com/amores_danza",
+            "website": "",
+            "location": ""
+        },
+        "party": "不定期舉辦舞會",
+        "classes": ['salsa', 'bachata', 'zouk', 'kizomba'],
+        "member": []
+    },
+    {
         "id": "tta_art_space",
         "name": "TTA ART SPACE",
         "hide": false,

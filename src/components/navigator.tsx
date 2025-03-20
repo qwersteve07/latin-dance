@@ -60,11 +60,11 @@ export default function Navigator() {
           </div>
           <div className="hidden max-md:flex justify-end items-center gap-2">
             <Select
-              className="w-24"
+              className="w-[150px]"
               defaultValue="taipei"
               value={appStore.currentCity}
               onChange={value => appStore.setCurrentCity(value || '')}
-              data={citiesList.map(item => ({ ...item, value: item.id, label: item.name }))}
+              data={citiesList.map(item => ({ ...item, value: item.id, label: `${item.id} ${item.name}` }))}
             />
             <Burger className="hidden max-md:block" opened={opened} onClick={() => {
               toggle()
@@ -74,11 +74,11 @@ export default function Navigator() {
           <div className="flex justify-between items-center max-md:hidden">
             <Routes />
             <Select
-              className="w-24"
+              className="w-[150px]"
               defaultValue="taipei"
               value={appStore.currentCity}
               onChange={value => appStore.setCurrentCity(value || '')}
-              data={citiesList.map(item => ({ ...item, value: item.id, label: item.name }))}
+              data={citiesList.map(item => ({ ...item, value: item.id, label: `${item.id} ${item.name}` }))}
             />
           </div>
         </div >

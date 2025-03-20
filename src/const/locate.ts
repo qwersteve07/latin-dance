@@ -139,5 +139,10 @@ export const locateList = [
         name: 'DOL舞蹈排練場',
         city: "taichung",
         url: 'https://maps.app.goo.gl/13ckbCCJCwdQyREJ7'
+    }, {
+        id: 'jayHsuAlinaTsai-latin-standard-dance-studio',
+        name: '許哲睿蔡宛蓁國標舞蹈教室',
+        city: "kaohsiung",
+        url: 'https://maps.app.goo.gl/sy3S3sScENBDRCGU9'
     }
 ]

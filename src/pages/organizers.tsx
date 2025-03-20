@@ -210,7 +210,7 @@ function SocialLink({ type, link }: { type: string, link: string }) {
       case 'facebook': return <IconFacebook {...props} />
       case 'instagram': return <IconInstagram {...props} />
       case 'website': return <IconWebsite {...props} />
-      case 'locate': return <IconLocate {...props} />
+      case 'location': return <IconLocate {...props} />
       default: return <></>
     }
   }
