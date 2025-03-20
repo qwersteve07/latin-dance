@@ -7,4 +7,8 @@ export const citiesList = [
         id: 'taichung',
         name: '台中',
     },
+    {
+        id: 'kaohsiung',
+        name: '高雄',
+    },
 ]
