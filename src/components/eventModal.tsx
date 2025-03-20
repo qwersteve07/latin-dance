@@ -5,6 +5,7 @@ import { Modal } from "@mantine/core"
 import dayjs from "dayjs"
 import OuterLink from "./outerLink"
 import Image from "next/image"
+import { danceTypeColor } from "@/pages/calendar"
 
 const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate> }) => {
     const hasLocate = Object.keys(data.locate || {}).length !== 0
@@ -17,6 +18,15 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                 {data.canceled && <span className="text-red-500 font-bold ml-4">本週取消！Canceled！</span>}</div>}
             centered
         >
+            <div className="flex flex-wrap gap-2 mb-3">
+                {data.types?.map(t => {
+                    return (
+                        <div className="flex justify-start items-center gap-2 border border-gray-200 rounded-full h-8 px-3" key={t}>
+                            <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />
+                            {t}
+                        </div>)
+                })}
+            </div>
             <div className="grid grid-cols-[80px,1fr] gap-2">
                 <div className="font-semibold">Host</div>
                 <div>{getHost(data.host || '')}</div>
