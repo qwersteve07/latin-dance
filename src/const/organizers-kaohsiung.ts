@@ -1,5 +1,22 @@
 export const organizerKaohsiungList = [
     {
+        "id": "salsa6",
+        "name": "高雄 Salsa6",
+        "hide": false,
+        "city": "kaohsiung",
+        "thumbnail": "/salsa6.png",
+        "intro": "高雄Salsa6 主要推廣Salsa、Bachata社交舞蹈。不定期舉辦舞會，增進彼此的互動與交流、也邀請國內外老師舉辦workshop學習更多元的觀念、跳舞技巧。\n一起來享受浪漫與熱情的拉丁舞蹈吧！",
+        "link": {
+            "facebook": "https://www.facebook.com/profile.php?id=61558856470450",
+            "instagram": "https://www.instagram.com/Kaohsiung__salsa6",
+            "website": "",
+            "location": ""
+        },
+        "party": "不定期舉辦舞會",
+        "classes": ['salsa', 'bachata'],
+        "member": []
+    },
+    {
         "id": "salsaton",
         "name": "Salsaton 高雄騷莎動",
         "hide": false,
