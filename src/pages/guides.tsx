@@ -8,7 +8,7 @@ import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
 import { organizerList, useAppStore } from "@/store/appStore";
 
-export default function Rules() {
+export default function Guides() {
   const searchParams = useSearchParams();
   const [currentHost, setCurrentHost] = useState<null | Organizer>();
   const [activeOrganizerList, setActiveOrganizerList] = useState<Array<Organizer>>([])
@@ -85,8 +85,8 @@ export default function Rules() {
     <div className="flex justify-between items-center flex-col justify-items-center min-h-screen container mx-auto">
       <div>
         <Title
-          enTitle='Tips and Rules for Dancers'
-          chTitle="新手須知 & 舞會守則"
+          enTitle='Social Guides for Dancers'
+          chTitle="新手須知 & 舞會指引"
         />
         <p className="-mt-4 mb-10 font-bold">Written by Eric Chen</p>
         <p className="mb-4 ">
