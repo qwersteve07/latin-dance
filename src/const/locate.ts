@@ -144,5 +144,10 @@ export const locateList = [
         name: '許哲睿蔡宛蓁國標舞蹈教室',
         city: "kaohsiung",
         url: 'https://maps.app.goo.gl/sy3S3sScENBDRCGU9'
+    },{
+        id: 'caesar-art',
+        name: '凱撒藝術廣場 6 F',
+        city: "kaohsiung",
+        url: 'https://maps.app.goo.gl/AD2mKpkpUnzDNCa76'
     }
 ]
