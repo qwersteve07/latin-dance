@@ -6,9 +6,9 @@ import { citiesList } from "@/const/cities";
 import { useAppStore } from "@/store/appStore";
 
 const routesList = [
-  { id: "/rules", enName: 'Rules', cnName: "舞會守則" },
-  { id: "/organizers", enName: 'Organizers', cnName: "團隊列表" },
   { id: "/calendar", enName: "Calendar", cnName: '活動日曆' },
+  { id: "/organizers", enName: 'Organizers', cnName: "團隊列表" },
+  { id: "/guides", enName: 'Guides', cnName: "舞會指引" },
   { id: "/food-map", enName: "Food Map", cnName: '宵夜地圖' },
   { id: "/others", enName: "Others", cnName: '其他資訊' },
 ];

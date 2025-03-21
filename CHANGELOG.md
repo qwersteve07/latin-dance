@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.5.0](https://github.com/qwersteve07/latin-dance/compare/v1.2.1...v1.5.0) (2025-03-21)
+
+
+### ✨ Features
+
+* add amores-danza organizer ([b31e23a](https://github.com/qwersteve07/latin-dance/commit/b31e23acd046086b352eb37686fe4b793d2452b9))
+* add dol locate ([dd8da4c](https://github.com/qwersteve07/latin-dance/commit/dd8da4cc5bc6469769cf57579e81f8d2bd144e2b))
+* add kaohsiung ([3b8da09](https://github.com/qwersteve07/latin-dance/commit/3b8da095927c67393418e28ebc4964d9bf96ab93))
+* add kaohsiung location ([b4d404d](https://github.com/qwersteve07/latin-dance/commit/b4d404dc1511900f0658bac46a9e43a5ed6a20c8))
+* add kaohsiung organizers ([e6076ac](https://github.com/qwersteve07/latin-dance/commit/e6076acb80a2f839dc951ba0894c01257cfc76c4))
+* add new location ([c18bc99](https://github.com/qwersteve07/latin-dance/commit/c18bc99e4fb02d69552795a867aaf55da3f5b231))
+* add Salsa6 ([baf4279](https://github.com/qwersteve07/latin-dance/commit/baf4279db18a47e7334e0421d9de9ad14578ba1d))
+* add salsaton ([922a7fe](https://github.com/qwersteve07/latin-dance/commit/922a7fe3daa0b48275b693238f0e371a8dc63907))
+* add w-social image ([fcd2e62](https://github.com/qwersteve07/latin-dance/commit/fcd2e62043e1d6b62d3448291e0cf24f6dd8973b))
+* adjust events max-width ([685d05d](https://github.com/qwersteve07/latin-dance/commit/685d05d77bcbef4f37da3ca3f37536d23fd37c10))
+* change rules to guides ([7c99509](https://github.com/qwersteve07/latin-dance/commit/7c9950972ec0f66d02e0ba69483efb5f8fc5f017))
+* delete w-social image ([c072a7d](https://github.com/qwersteve07/latin-dance/commit/c072a7ddf16751e671bcde6916c8c252bc1b9928))
+* impl useDay() ([b4ca234](https://github.com/qwersteve07/latin-dance/commit/b4ca234fc8cea6fcfd09a2394f6feb0e344173d0))
+* refractor index and calendar ([7bfc6aa](https://github.com/qwersteve07/latin-dance/commit/7bfc6aa5d6ebff7aba6bb3275ba9d4c8fb2a1619))
+* update lock file ([419eb19](https://github.com/qwersteve07/latin-dance/commit/419eb1924034321eec9a4990b1e70299c0a8df9d))
+* update navigator city selector ([6135052](https://github.com/qwersteve07/latin-dance/commit/6135052cf54f6e08cf471d7b06d7f61f9b643a03))
+* update photographers ([638ba18](https://github.com/qwersteve07/latin-dance/commit/638ba189a03f66e8b657f78246093ff6722a77f3))
+* update w-social photo ([9c342a0](https://github.com/qwersteve07/latin-dance/commit/9c342a0c4784f09ada5f904dfd9f59b6d5d611a5))
+
+
+### 🐛 Bug Fixes
+
+* calendar will block today's event after 6 o'clock ([ae258c1](https://github.com/qwersteve07/latin-dance/commit/ae258c1b046eb228bbd1b7b55b41ae5ba6e1323f))
+* map icon ([c365780](https://github.com/qwersteve07/latin-dance/commit/c365780d01e01f3b8bee7111231b8b563f56c015))
+
+
+### 🔧 chore
+
+* **release:** 1.3.0 ([2406ae9](https://github.com/qwersteve07/latin-dance/commit/2406ae9813d9d3c132f00b04e89c6d327bf4b357))
+* **release:** 1.4.0 ([0c3617e](https://github.com/qwersteve07/latin-dance/commit/0c3617e89e79420b8366c529949f577af4a290be))
+
 ## [1.4.0](https://github.com/qwersteve07/latin-dance/compare/v1.3.0...v1.4.0) (2025-03-20)
 
 
