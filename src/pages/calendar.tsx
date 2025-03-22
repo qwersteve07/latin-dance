@@ -141,9 +141,9 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
     <FullCalendar
       height="auto"
       plugins={[listPlugin]}
-      validRange={(nowDate) => {
+      validRange={() => {
         return {
-          start: dayjs(nowDate).toISOString(),
+          start: dayjs().startOf('day').format('YYYY-MM-DDT00:00:00'),
         };
       }}
       initialView="listMonth"
