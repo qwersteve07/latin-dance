@@ -1,6 +1,5 @@
 import Footer from './footer';
 import Navigator from './navigator';
-import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,7 +8,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="w-full h-full flex-1 px-6 py-6 pt-24 container mx-auto max-w-6xl">
         {children}
       </main>
-      <GoogleAnalytics gaId='G-S3GNBK5XWJ' />
       <Footer />
     </div>
   );
