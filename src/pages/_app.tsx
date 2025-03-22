@@ -10,8 +10,6 @@ import '@/polyfill/object-groupBy'
 
 const theme = createTheme({
 	primaryColor: 'red',
-
-	/** Your theme override here */
 });
 
 export default function App({ Component, pageProps }: AppProps) {
