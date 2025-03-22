@@ -26,6 +26,7 @@ export default function Footer() {
           onClick={() => window.open('https://www.instagram.com/qwersteve07')}
         />
       </span>
+      <a className="rounded-full bg-gray-700 text-white px-2 py-1 font-bold" href="https://portaly.cc/qwersteve07/support" target="_blank">DONATE ME</a>
     </footer>
   );
 }

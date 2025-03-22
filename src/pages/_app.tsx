@@ -3,6 +3,7 @@ import "@mantine/core/styles.css";
 import { createTheme, MantineProvider } from "@mantine/core";
 import Layout from "@/components/layout";
 import Head from "next/head";
+import Script from 'next/script';
 import type { AppProps } from 'next/app'
 import "@/styles/globals.css";
 import '@mantine/dates/styles.css';
@@ -30,6 +31,14 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta property="og:description" content="（還不是）最完善的社交舞資訊平台" />
 				<meta property="og:image" content="/og.png" />
 			</Head>
+			<Script id="google-analytics" strategy="afterInteractive">
+				{`
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', 'G-S3GNBK5XWJ');
+		        `}
+			</Script>
 			<MantineProvider theme={theme}>
 				<Layout>
 					<Component {...pageProps} />

@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.6.0](https://github.com/qwersteve07/latin-dance/compare/v1.4.0...v1.6.0) (2025-03-22)
+
+
+### ✨ Features
+
+* add GA ([5f5269c](https://github.com/qwersteve07/latin-dance/commit/5f5269cc2b577af367d35cbb56c21dfc144d5766))
+* add kaohsiung location ([b4d404d](https://github.com/qwersteve07/latin-dance/commit/b4d404dc1511900f0658bac46a9e43a5ed6a20c8))
+* add Salsa6 ([baf4279](https://github.com/qwersteve07/latin-dance/commit/baf4279db18a47e7334e0421d9de9ad14578ba1d))
+* change rules to guides ([7c99509](https://github.com/qwersteve07/latin-dance/commit/7c9950972ec0f66d02e0ba69483efb5f8fc5f017))
+* impl donate button ([ae9fd3f](https://github.com/qwersteve07/latin-dance/commit/ae9fd3f77b7311e1c5e499d2606b6b7f71178613))
+* update photographers ([638ba18](https://github.com/qwersteve07/latin-dance/commit/638ba189a03f66e8b657f78246093ff6722a77f3))
+
+
+### 🐛 Bug Fixes
+
+* mobile calendar start date ([5b1618e](https://github.com/qwersteve07/latin-dance/commit/5b1618e0cfa1f6be7759f28739a6c61a2522e46d))
+* use next/script to impl GA ([82c714b](https://github.com/qwersteve07/latin-dance/commit/82c714b4a4b4d976eb1ffe9abb5bb22dd13e99f7))
+
+
+### 🔧 chore
+
+* **release:** 1.5.0 ([a37c619](https://github.com/qwersteve07/latin-dance/commit/a37c619d5786809e81903bc9ef9c9ab03017eba8))
+
 ## [1.5.0](https://github.com/qwersteve07/latin-dance/compare/v1.2.1...v1.5.0) (2025-03-21)
 
 
