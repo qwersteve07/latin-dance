@@ -30,6 +30,14 @@ export default function Home() {
       name: "Social Dance Vlog",
       url: "https://www.instagram.com/socialdancevlog/",
     },
+    {
+      name: "Tyra",
+      url: "https://www.instagram.com/tyrarara0830",
+    },
+    {
+      name: "Jim",
+      url: "https://www.instagram.com/jimframe",
+    },
   ];
 
   useEffect(() => {
@@ -74,13 +82,10 @@ export default function Home() {
       <hr className="w-20 mx-auto my-16" />
       <section>
         <h3 className="text-center text-2xl font-bold mb-8">Highlights</h3>
-        <div className="flex justify-center items-center gap-4 max-md:flex-col">
+        <div className="flex justify-center items-center gap-4 flex-wrap w-[80%] max-xl:w-[90%] mx-auto max-md:w-full max-md:flex-col">
           {vlogIGList.map(item => {
             return (
               <div key={item.name}>
-                <div className="text-center mb-4 font-bold text-xl">
-                  {item.name}
-                </div>
                 <InstagramEmbed url={item.url} width={328} />
               </div>
             );
