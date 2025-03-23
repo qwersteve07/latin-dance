@@ -1,32 +1,14 @@
-import Image from "next/image";
 import packageJson from '../../package.json'
+import Link from "next/link";
+import ContactIcons from './contact';
 
 export default function Footer() {
   return (
-    <footer className="flex justify-center items-center gap-2 py-3 w-full bg-gray-100 text-gray-700 text-sm">
-      <span>v{packageJson.version}</span>
-      <span>© 2025 by Steve Lee</span>
-      <span className="flex justify-center items-center gap-2">
-        <Image
-          src="/icon-line.svg"
-          width="20"
-          height="20"
-          alt="line"
-          className="cursor-pointer"
-          priority
-          onClick={() => window.open('https://line.me/ti/p/yiXOAql0ru')}
-        />
-        <Image
-          src="/icon-instagram.svg"
-          width="20"
-          height="20"
-          alt="instagram"
-          className="cursor-pointer"
-          priority
-          onClick={() => window.open('https://www.instagram.com/qwersteve07')}
-        />
-      </span>
-      <a className="rounded-full bg-gray-700 text-white px-2 py-1 font-bold" href="https://portaly.cc/qwersteve07/support" target="_blank">DONATE ME</a>
+    <footer className="flex justify-center items-center gap-2 pt-3 pb-[calc(env(safe-area-inset-bottom)+12px)] w-full bg-gray-100 text-gray-700 text-sm">
+      <span>V{packageJson.version}</span>
+      <span>© 2025 by Steve Lee.</span>
+      <ContactIcons />
+      <Link href='/about' className='font-bold underline'>About</Link>
     </footer>
   );
 }

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.7.0](https://github.com/qwersteve07/latin-dance/compare/v1.6.0...v1.7.0) (2025-03-23)
+
+
+### ✨ Features
+
+* impl contact page ([3e50809](https://github.com/qwersteve07/latin-dance/commit/3e50809a9798c7370c14ce9a37b0b3a5fe2f5581))
+
 ## [1.6.0](https://github.com/qwersteve07/latin-dance/compare/v1.4.0...v1.6.0) (2025-03-22)
 
 
