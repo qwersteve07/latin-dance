@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.9.0](https://github.com/qwersteve07/latin-dance/compare/v1.8.0...v1.9.0) (2025-03-24)
+
+
+### ✨ Features
+
+* add custom SEO ([b69122f](https://github.com/qwersteve07/latin-dance/commit/b69122f7ce663bb5feb9836e110d93268af8d576))
+
 ## [1.8.0](https://github.com/qwersteve07/latin-dance/compare/v1.5.0...v1.8.0) (2025-03-24)
 
 

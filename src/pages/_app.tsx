@@ -2,12 +2,12 @@ import "@/styles/globals.css";
 import "@mantine/core/styles.css";
 import { createTheme, MantineProvider } from "@mantine/core";
 import Layout from "@/components/layout";
-import Head from "next/head";
 import Script from 'next/script';
 import type { AppProps } from 'next/app'
 import "@/styles/globals.css";
 import '@mantine/dates/styles.css';
 import '@/polyfill/object-groupBy'
+import { DefaultSeo } from "next-seo";
 
 const theme = createTheme({
 	primaryColor: 'red',
@@ -16,21 +16,7 @@ const theme = createTheme({
 export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<Head>
-				<title>台灣社交舞指南</title>
-				<meta charSet="utf-8" />
-				<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,shrink-to-fit=no,minimum-scale=1,maximum-scale=1,viewport-fit=cover" />
-				<meta name="description" content="（還不是）最完善的社交舞資訊平台" />
-				<meta name="keywords" content="social-dance latin-social" />
-				<link rel="author" href="Steve Lee" />
-				<link rel="canonical" href="http://social-dance.tw" />
-				<link rel="icon" href="/favicon.png" />
-				<meta property="og:url" content="http://social-dance.tw" />
-				<meta property="og:type" content="website" />
-				<meta property="og:title" content="台灣社交舞指南" />
-				<meta property="og:description" content="（還不是）最完善的社交舞資訊平台" />
-				<meta property="og:image" content="/og.png" />
-			</Head>
+
 			<Script id="google-analytics" strategy="afterInteractive">
 				{`
 					window.dataLayer = window.dataLayer || [];
@@ -39,6 +25,37 @@ export default function App({ Component, pageProps }: AppProps) {
 					gtag('config', 'G-S3GNBK5XWJ');
 		        `}
 			</Script>
+			<DefaultSeo
+				defaultTitle='Taiwan Social Dance Guide | 台灣社交舞指南'
+				titleTemplate='Taiwan Social Dance Guide | %s'
+				description="致力於提供最完善的拉丁社交舞資訊平台"
+				canonical="http://social-dance.tw"
+				additionalMetaTags={
+					[
+						{
+							'name': 'viewport',
+							'content': 'user-scalable=no,width=device-width,initial-scale=1,shrink-to-fit=no,minimum-scale=1,maximum-scale=1,viewport-fit=cover'
+						}
+					]
+				}
+				additionalLinkTags={[
+					{
+						rel: 'icon',
+						href: '/favicon.png',
+					},
+				]}
+				openGraph={{
+					type: 'website',
+					url: 'http://social-dance.tw',
+					siteName: 'Taiwan Social Dance Guide | 台灣社交舞指南',
+					description: '致力於提供最完善的社交舞資訊平台',
+					images: [
+						{
+							url: '/og.png', width: 800, height: 600, type: 'images/png'
+						}
+					]
+				}}
+			/>
 			<MantineProvider theme={theme}>
 				<Layout>
 					<Component {...pageProps} />

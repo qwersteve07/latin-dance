@@ -4,6 +4,7 @@ import { useForm } from '@mantine/form';
 import { fetcher } from '@/utils/fetcher';
 import { useState } from 'react';
 import cookieStore from '@/store/cookie';
+import { NextSeo } from 'next-seo';
 
 export default function LoginPage() {
     const router = useRouter()
@@ -41,20 +42,23 @@ export default function LoginPage() {
     }
 
     return (
-        <form onSubmit={form.onSubmit(handleSubmit)}>
-            <TextInput
-                label="帳戶"
-                placeholder="input username..."
-                key={form.key('username')}
-                {...form.getInputProps('username')}
-            />
-            <PasswordInput
-                label="密碼"
-                placeholder="Input password.."
-                key={form.key('password')}
-                {...form.getInputProps('password')}
-            />
-            <Button type="submit" className='mt-4' loading={loading}>登入</Button>
-        </form>
+        <>
+            <NextSeo noindex={true} />
+            <form onSubmit={form.onSubmit(handleSubmit)}>
+                <TextInput
+                    label="帳戶"
+                    placeholder="input username..."
+                    key={form.key('username')}
+                    {...form.getInputProps('username')}
+                />
+                <PasswordInput
+                    label="密碼"
+                    placeholder="Input password.."
+                    key={form.key('password')}
+                    {...form.getInputProps('password')}
+                />
+                <Button type="submit" className='mt-4' loading={loading}>登入</Button>
+            </form>
+        </>
     )
 }

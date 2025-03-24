@@ -5,6 +5,7 @@ import { getHost } from "@/utils/getHost";
 import { getLocate } from "@/utils/getLocate";
 import { Button, Group, Modal, Table } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import useSWR from "swr";
@@ -68,7 +69,8 @@ export default function EventsList() {
 
 
     return (
-        <div>
+        <>
+            <NextSeo noindex={true} />
             <div className="flex justify-end">
                 <Button onClick={onAddEvent}>新增活動</Button>
             </div>
@@ -101,6 +103,6 @@ export default function EventsList() {
                 </Table.Thead>
                 <Table.Tbody>{rows}</Table.Tbody>
             </Table>
-        </div>
+        </>
     )
 }

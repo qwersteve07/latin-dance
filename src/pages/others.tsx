@@ -1,5 +1,7 @@
 import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
+import { NextSeo } from 'next-seo';
+
 
 export default function Rental() {
 
@@ -69,38 +71,50 @@ export default function Rental() {
         }
     ]
     return (
-        <main>
-            <Title
-                enTitle='Others'
-                chTitle="各項資訊"
+        <>
+            <NextSeo
+                title="Others 各項資訊"
+                description="提供關於場地租借、舞蹈器材等的資訊"
+                openGraph={{
+                    type: 'website',
+                    url: 'http://social-dance.tw/others',
+                    siteName: 'Taiwan Social Dance Guide | Others 各項資訊',
+                    description: '提供關於場地租借、舞蹈器材等的資訊',
+                }}
             />
-            <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">Rental 場地租借</h3>
-            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-10 mb-16">
-                <section>
-                    <h4 className="text-xl font-bold mb-5">Paid 付費場地</h4>
+            <main>
+                <Title
+                    enTitle='Others'
+                    chTitle="各項資訊"
+                />
+                <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">Rental 場地租借</h3>
+                <div className="grid grid-cols-2 max-md:grid-cols-1 gap-10 mb-16">
+                    <section>
+                        <h4 className="text-xl font-bold mb-5">Paid 付費場地</h4>
+                        <ul className="list-disc pl-4 flex flex-col gap-3">
+                            {paidSpace.map(item => {
+                                return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
+                            })}
+                        </ul>
+                    </section>
+                    <section>
+                        <h4 className="text-xl font-bold mb-5">Free 免費場地</h4>
+                        <ul className="list-disc pl-4 flex flex-col gap-3">
+                            {freeSpace.map(item => {
+                                return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
+                            })}
+                        </ul>
+                    </section>
+                </div>
+                <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">Shoes 舞鞋購買</h3>
+                <div className="grid grid-cols-2 max-md:grid-cols-1 gap-10 mb-16">
                     <ul className="list-disc pl-4 flex flex-col gap-3">
-                        {paidSpace.map(item => {
+                        {shoeStores.map(item => {
                             return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
                         })}
                     </ul>
-                </section>
-                <section>
-                    <h4 className="text-xl font-bold mb-5">Free 免費場地</h4>
-                    <ul className="list-disc pl-4 flex flex-col gap-3">
-                        {freeSpace.map(item => {
-                            return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
-                        })}
-                    </ul>
-                </section>
-            </div>
-            <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">Shoes 舞鞋購買</h3>
-            <div className="grid grid-cols-2 max-md:grid-cols-1 gap-10 mb-16">
-                <ul className="list-disc pl-4 flex flex-col gap-3">
-                    {shoeStores.map(item => {
-                        return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
-                    })}
-                </ul>
-            </div>
-        </main>
+                </div>
+            </main>
+        </>
     )
 }
