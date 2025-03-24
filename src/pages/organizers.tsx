@@ -12,6 +12,7 @@ import IconFacebook from '../../public/icon-facebook.svg'
 import IconInstagram from '../../public/icon-instagram.svg'
 import IconWebsite from '../../public/icon-website.svg'
 import IconLocate from '../../public/icon-location.svg'
+import { NextSeo } from "next-seo";
 
 export default function Organizers() {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -51,6 +52,16 @@ export default function Organizers() {
 
   return (
     <>
+      <NextSeo
+        title="Organizers List 團隊列表"
+        description="各地區的教室、活動舉辦方、以及獨立舞者"
+        openGraph={{
+          type: 'website',
+          url: 'http://social-dance.tw/organizers',
+          siteName: 'Taiwan Social Dance Guide | Organizers List 團隊列表',
+          description: '各地區的教室、活動舉辦方、以及獨立舞者',
+        }}
+      />
       <Title
         enTitle='Organizers List'
         chTitle="團隊列表"

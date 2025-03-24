@@ -1,9 +1,20 @@
 import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
+import { NextSeo } from "next-seo";
 
 export default function About() {
     return (
         <div className="leading-8">
+            <NextSeo
+                title="About 關於此網站"
+                description="關於此網站的緣起和介紹"
+                openGraph={{
+                    type: 'website',
+                    url: 'http://social-dance.tw/about',
+                    siteName: 'Taiwan Social Dance Guide | About 關於此網站',
+                    description: '關於此網站的緣起和介紹',
+                }}
+            />
             <Title
                 enTitle='About'
                 chTitle="關於此網站"
