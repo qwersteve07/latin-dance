@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.9.1](https://github.com/qwersteve07/latin-dance/compare/v1.9.0...v1.9.1) (2025-03-24)
+
+
+### 🐛 Bug Fixes
+
+* forget to revert comment code... ([c01ed2d](https://github.com/qwersteve07/latin-dance/commit/c01ed2d89a10dcb515a33d13adbc7ce2d8d47183))
+
 ## [1.9.0](https://github.com/qwersteve07/latin-dance/compare/v1.8.0...v1.9.0) (2025-03-24)
 
 
