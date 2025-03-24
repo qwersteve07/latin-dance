@@ -1,34 +1,38 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-		<!--	created with www.mysitemapgenerator.com	-->
-		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-	<loc>http://social-dance.tw/</loc>
-	<lastmod>2025-03-02T12:31:44+01:00</lastmod>
-	<priority>0.4</priority>
+  <loc>https://social-dance.tw/</loc>
+  <lastmod>2025-03-24T05:13:31+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-	<loc>http://social-dance.tw/rules</loc>
-	<lastmod>2025-03-02T12:31:44+01:00</lastmod>
-	<priority>0.2</priority>
+  <loc>https://social-dance.tw/calendar</loc>
+  <lastmod>2025-03-24T05:13:31+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://social-dance.tw/hosts</loc>
-	<lastmod>2025-03-02T12:31:44+01:00</lastmod>
-	<priority>0.2</priority>
+  <loc>https://social-dance.tw/organizers</loc>
+  <lastmod>2025-03-24T05:13:31+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://social-dance.tw/calendar</loc>
-	<lastmod>2025-03-02T12:31:44+01:00</lastmod>
-	<priority>0.2</priority>
+  <loc>https://social-dance.tw/guides</loc>
+  <lastmod>2025-03-24T05:13:31+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://social-dance.tw/food-map</loc>
-	<lastmod>2025-03-02T12:31:44+01:00</lastmod>
-	<priority>0.2</priority>
+  <loc>https://social-dance.tw/food-map</loc>
+  <lastmod>2025-03-24T05:13:31+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://social-dance.tw/rental</loc>
-	<lastmod>2025-03-02T12:31:44+01:00</lastmod>
-	<priority>0.2</priority>
+  <loc>https://social-dance.tw/others</loc>
+  <lastmod>2025-03-24T05:13:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://social-dance.tw/about</loc>
+  <lastmod>2025-03-24T05:13:31+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 </urlset>
