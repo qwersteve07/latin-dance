@@ -36,20 +36,20 @@ export default function Calendar() {
   const appStore = useAppStore()
   const dayjs = useDay()
 
-  // useEffect(() => {
-  //   if (isLoading) return
-  //   if (!data?.result) return
-  //   if (!appStore.currentCity) return
+  useEffect(() => {
+    if (isLoading) return
+    if (!data?.result) return
+    if (!appStore.currentCity) return
 
-  //   let result;
-  //   if (selectTypes.length === 0) {
-  //     result = getFilteredCurrentData([], appStore.currentCity)
-  //   } else {
-  //     result = getFilteredCurrentData(selectTypes, appStore.currentCity)
-  //   }
+    let result;
+    if (selectTypes.length === 0) {
+      result = getFilteredCurrentData([], appStore.currentCity)
+    } else {
+      result = getFilteredCurrentData(selectTypes, appStore.currentCity)
+    }
 
-  //   setCurrentData(result)
-  // }, [isLoading, selectTypes, appStore.currentCity])
+    setCurrentData(result)
+  }, [isLoading, selectTypes, appStore.currentCity])
 
   function getFilteredCurrentData(types: string[], city: string) {
 
