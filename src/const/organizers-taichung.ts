@@ -34,7 +34,7 @@ export const organizerTaichungList = [
         "member": []
     },
     {
-        "id": "tta_art_space",
+        "id": "tta-art-space",
         "name": "TTA ART SPACE",
         "hide": false,
         "city": "taichung",
@@ -51,7 +51,7 @@ export const organizerTaichungList = [
         "member": []
     },
     {
-        "id": "w_social",
+        "id": "w-social",
         "name": "W Social",
         "hide": false,
         "city": "taichung",
