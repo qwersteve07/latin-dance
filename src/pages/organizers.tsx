@@ -1,7 +1,6 @@
 import { Tabs, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { useMedia } from "react-use";
 import MemberImage from "@/components/memberImage";
 import { Organizer } from "@/types/organizer";
@@ -22,8 +21,6 @@ export default function Organizers() {
   const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
   const appStore = useAppStore()
 
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id");
   const isMobile = useMedia("(max-width: 768px)");
 
   useEffect(() => {
@@ -37,14 +34,6 @@ export default function Organizers() {
     setActiveOrganizerList(filteredOrganizersList)
     setActiveTab(filteredOrganizersList[0].id);
   }, [appStore.currentCity])
-
-  useEffect(() => {
-    if (id) {
-      setActiveTab(id);
-    } else {
-      setActiveTab(organizerList[0].id);
-    }
-  }, []);
 
   if (!domLoaded) {
     return <></>;

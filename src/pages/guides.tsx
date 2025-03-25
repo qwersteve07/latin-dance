@@ -1,33 +1,11 @@
-import { useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import OrganizerImage from "@/components/organizerImage";
-import MemberImage from "@/components/memberImage";
-import { Organizer } from "@/types/organizer";
 import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
-import { organizerList, useAppStore } from "@/store/appStore";
 import { NextSeo } from "next-seo";
 import { Button } from "@mantine/core";
 
 export default function Guides() {
-  const searchParams = useSearchParams();
-  const [currentHost, setCurrentHost] = useState<null | Organizer>();
-  const [activeOrganizerList, setActiveOrganizerList] = useState<Array<Organizer>>([])
   const router = useRouter();
-  const appStore = useAppStore()
-
-  useEffect(() => {
-    if (!appStore.currentCity) return
-    const filteredOrganizersList = organizerList
-      .filter(o => !o.hide)
-      .filter(o => o.city === appStore.currentCity)
-      .filter(h => h.id !== '')
-      .filter(h => !h.solo)
-    setActiveOrganizerList(filteredOrganizersList)
-  }, [appStore.currentCity])
-
-  const id = searchParams.get("id");
 
   const groundRules = [
     {
@@ -75,13 +53,6 @@ export default function Guides() {
     },
   ];
 
-  useEffect(() => {
-    if (!id) return;
-    const result = organizerList.find(d => d.id === id);
-    if (result) {
-      setCurrentHost(() => result);
-    }
-  }, [id]);
 
   return (
     <>
@@ -117,7 +88,7 @@ export default function Guides() {
           <p className="mb-4">
             Violations of the above rules, if not corrected after a warning and deemed severe, will result in the termination of dance party privileges, a request to <b>leave the venue, and notification to other dance party organizers in Taiwan</b>. If you encounter harassment or inappropriate behavior on the dance floor, <b>please report it directly to the organizers or on-site staff</b>. Additionally, please pay attention to your friends, watch out for suspicious individuals, and take care of your personal belongings.
           </p>
-          <p className="mb-8">
+          <p className="mb-12">
             違反上述規定，勸告未果且情節嚴重者，將
             「終止舞會權利，請求離場」，並公告於其他地區舞會主辦單位
             。若在舞池中遇到騷擾、不恰當的行為，
@@ -125,7 +96,7 @@ export default function Guides() {
             ，也請關注身邊的友人，留心可疑人士及自身財物狀況。
           </p>
           <h2 className="text-2xl font-bold mb-4">Recommend List</h2>
-          <ul className="list-disc pl-4 mb-12">
+          <ul className="list-disc pl-4 mb-12 max-md:mb-8">
             {recommendList.map(item => {
               return (
                 <li className="py-1" key={item.title}>
@@ -134,25 +105,6 @@ export default function Guides() {
               );
             })}
           </ul>
-          {currentHost && (
-            <div className="mb-20">
-              <h2 className="text-3xl font-bold mb-6 text-center">Organizers</h2>
-              <p className="mb-10 text-center max-md:text-left">
-                以下為本活動的主辦方，以及相關成員，若在舞池中遇到問題，或是課程想了解，不用擔心直接詢問，所有主辦方都是非常友善的！
-              </p>
-              <h3 className="text-center text-2xl font-bold mb-4">
-                {currentHost?.name}
-              </h3>
-              <div className="flex justify-center items-center gap-x-12 gap-y-4 flex-wrap">
-                {currentHost?.member.map(h => (
-                  <div key={h.name} className="text-center">
-                    <MemberImage src={h.image} alt={h.name} />
-                    <div className="text-xl mt-3">{h.name}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
           <Button variant="outline" onClick={() => router.push("/organizers")}>
             Check all Organizers
           </Button>
