@@ -22,7 +22,7 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
             <div className="flex flex-wrap gap-2 mb-3">
                 {data.types?.map(t => {
                     return (
-                        <div className="flex justify-start items-center gap-2 border border-gray-200 rounded-full h-8 px-3" key={t}>
+                        <div className="flex justify-start items-center gap-2 border border-border-main rounded-full h-8 px-3" key={t}>
                             <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />
                             {t}
                         </div>)

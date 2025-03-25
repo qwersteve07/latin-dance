@@ -90,7 +90,7 @@ export default function Home() {
         <Content />
 
       </section>
-      <hr className="w-20 mx-auto my-16" />
+      <hr className="w-20 mx-auto my-16 border-t-border-main" />
       <section>
         <h3 className="text-center text-2xl font-bold mb-8">Highlights</h3>
         <div className="flex justify-center items-center gap-4 flex-wrap w-[80%] max-xl:w-[90%] mx-auto max-md:w-full max-md:flex-col">
@@ -182,7 +182,7 @@ const EventsGroupDay = ({ weekday, day }: { weekday: string, day: string }) => {
 
   return (
     <div className={`
-      font-bold mb-2 gap-2 p-2 rounded-xl text-black bg-gray-100
+      font-bold mb-2 gap-2 p-2 rounded-xl text-text-main bg-background-sub
       flex justify-start items-center relative`}>
       <span>{weekday.substring(0, 3)}</span>
       <span>{dayjs(day).format("MM/DD")}</span>
@@ -195,7 +195,7 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
   const dayjs = useDay()
   return (
     <div
-      className={`cursor-pointer p-2 rounded-xl border mb-2 hover:bg-gray-50
+      className={`cursor-pointer p-2 rounded-xl border border-border-main mb-2 hover:bg-background-third transition
        ${dayjs(event.date).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
       `}
       onClick={() => {
