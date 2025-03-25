@@ -79,7 +79,7 @@ export default function Calendar() {
           open();
         }}
       >
-        {eventInfo.event.extendedProps.canceled && <div className="absolute w-full h-0.5 bg-slate-500 top-1/2" />}
+        {eventInfo.event.extendedProps.canceled && <div className="absolute w-full h-0.5 bg-text-main top-1/2" />}
         <div className="flex gap-1 max-md:gap-1.5 items-center">
           <div className="ml-1 flex gap-0.5 max-md:flex-col">
             {eventInfo.event.extendedProps.types.map((t: string, i: string) => {
@@ -91,8 +91,6 @@ export default function Calendar() {
       </div>
     );
   }
-
-
 
   const Content = () => {
     if (error) return <div>讀取活動失敗，可能發生一些問題😭請等我修復...</div>;
@@ -113,7 +111,7 @@ export default function Calendar() {
             return (
               <div
                 key={t}
-                className={`cursor-pointer border-dashed border-gray-300 border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 md:hover:bg-gray-100 ${selectTypes.includes(t) ? 'bg-gray-100' : 'bg-transparent'}`}
+                className={`cursor-pointer border-dashed border-border-main border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 md:hover:bg-background-sub ${selectTypes.includes(t) ? 'bg-background-sub border-border-sub' : 'bg-transparent'}`}
                 onClick={() => {
                   if (selectTypes.find(types => types === t)) {
                     const result = selectTypes.filter(types => types !== t)
@@ -151,8 +149,7 @@ export default function Calendar() {
         enTitle='Events Calendar'
         chTitle="活動日曆"
       />
-      <Content />
-
+      {Content()}
     </>
   );
 }

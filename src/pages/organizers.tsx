@@ -116,14 +116,13 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
       value={activeTab}
       onChange={setActiveTab}
       orientation="vertical"
-
     >
       <Tabs.List >
         {organizerList.map(item => {
           if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">獨立舞者</Tabs.Tab>
 
           return (
-            <Tabs.Tab value={item.id} key={item.id} className="w-[200px]">
+            <Tabs.Tab value={item.id} key={item.id} className="w-[200px] hover:bg-background-sub">
               {item.name}
             </Tabs.Tab>
           );

@@ -53,7 +53,7 @@ export default function Navigator() {
           <Routes />
         </div>
       </Drawer>
-      <nav className="bg-white fixed top-0 z-10  border-b border-b-gray-300 w-full">
+      <nav className="fixed top-0 z-10  border-b border-b-border-main w-full backdrop-blur-xl">
         <div className="flex justify-between items-center h-16 container mx-auto px-6 max-w-6xl">
           <div className="text-2xl">
             <Link href="/">💃🕺</Link>

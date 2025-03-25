@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import "@mantine/core/styles.css";
-import { createTheme, MantineProvider } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import Layout from "@/components/layout";
 import Script from 'next/script';
 import type { AppProps } from 'next/app'
@@ -8,10 +8,6 @@ import "@/styles/globals.css";
 import '@mantine/dates/styles.css';
 import '@/polyfill/object-groupBy'
 import { DefaultSeo } from "next-seo";
-
-const theme = createTheme({
-	primaryColor: 'red',
-});
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
@@ -56,7 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					]
 				}}
 			/>
-			<MantineProvider theme={theme}>
+			<MantineProvider theme={{ primaryColor: 'red' }}>
 				<Layout>
 					<Component {...pageProps} />
 				</Layout>

@@ -10,6 +10,7 @@ import Image from "next/image";
 import { danceTypes } from "@/const/dance-types";
 import { useDay } from "@/use/use-day";
 import { NextSeo } from "next-seo";
+import { eventsTemplate } from "@/const/events-template";
 
 export default function NewEvents() {
     const [loading, setLoading] = useState(false)
@@ -63,6 +64,8 @@ export default function NewEvents() {
             <Image
                 priority
                 src='/icon-clock.svg'
+                width="16"
+                height="16"
                 alt="clock"
             />
         </ActionIcon>
@@ -73,6 +76,8 @@ export default function NewEvents() {
             <Image
                 priority
                 src='/icon-clock.svg'
+                width="16"
+                height="16"
                 alt="clock"
             />
         </ActionIcon>
@@ -81,6 +86,14 @@ export default function NewEvents() {
     return (
         <>
             <NextSeo noindex={true} />
+            <div className="mb-4 font-bold text-xl">選擇模板</div>
+            <div className="flex justify-start items-center flex-wrap gap-2 mb-6">
+                {Object.entries(eventsTemplate).map(([templateId, data]: [string, any]) => {
+                    return <div key={templateId} className="cursor-pointer  transition hover:bg-gray-50  hover:border-red-500 rounded-full px-3 py-1 border" onClick={() => {
+                        form.setValues(data)
+                    }}>{data.title}</div>
+                })}
+            </div>
             <form className="grid grid-cols-2 gap-4" onSubmit={form.onSubmit(handleSubmit)} >
                 <DatePickerInput
                     label="日期"

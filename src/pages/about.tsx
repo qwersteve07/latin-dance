@@ -27,7 +27,7 @@ export default function About() {
             <h3 className="mt-8 font-bold text-xl">Special Thanks</h3>
             <p>
                 Amy、Ariel、Arthur、Brianna、Calvin、Charlene、Eric Chen、Fiona、Glenn、
-                Jenny、Josephine、JW、Kiki、Latiifah、Leticia、Mandy、Mics、Natasha、Patty
+                Jane、Jenny、Josephine、JW、Kiki、Latiifah、Leticia、Mandy、Mics、Natasha、Patty
                 RayGo、Rosalie、Sam、Susan、Trison、Yuyu、Vicky Chichi、Vicky老王、
                 丁丁、天天、拉拉、閃亮亮
             </p>

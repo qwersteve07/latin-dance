@@ -67,9 +67,13 @@ export default function Home() {
       <>
         <MobileEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
         <DesktopEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
-        <div className="text-center my-8">
-          <Button variant="outline" onClick={() => router.push("/calendar")}>
+        <div className="flex justify-center items-center max-md:flex-col my-8 gap-4 max-md:gap-1">
+          <Button className="!w-[200px]" onClick={() => router.push("/calendar")}>
             Check More Events!
+          </Button>
+          <div className="hidden max-md:block">or</div>
+          <Button className="!w-[200px]" variant="outline" onClick={() => router.push("/guides")}>
+            Check Social Guides!
           </Button>
         </div>
       </>
@@ -88,9 +92,8 @@ export default function Home() {
           <h2 className="text-center text-3xl font-bold max-md:text-2xl">台灣社交舞指南</h2>
         </div>
         <Content />
-
       </section>
-      <hr className="w-20 mx-auto my-16" />
+      <hr className="w-20 mx-auto my-16 border-t-border-main" />
       <section>
         <h3 className="text-center text-2xl font-bold mb-8">Highlights</h3>
         <div className="flex justify-center items-center gap-4 flex-wrap w-[80%] max-xl:w-[90%] mx-auto max-md:w-full max-md:flex-col">
@@ -182,7 +185,7 @@ const EventsGroupDay = ({ weekday, day }: { weekday: string, day: string }) => {
 
   return (
     <div className={`
-      font-bold mb-2 gap-2 p-2 rounded-xl text-black bg-gray-100
+      font-bold mb-2 gap-2 p-2 rounded-xl text-text-main bg-background-sub
       flex justify-start items-center relative`}>
       <span>{weekday.substring(0, 3)}</span>
       <span>{dayjs(day).format("MM/DD")}</span>
@@ -195,7 +198,7 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
   const dayjs = useDay()
   return (
     <div
-      className={`cursor-pointer p-2 rounded-xl border mb-2 hover:bg-gray-50
+      className={`cursor-pointer p-2 rounded-xl border border-border-main mb-2 hover:bg-background-third transition
        ${dayjs(event.date).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
       `}
       onClick={() => {

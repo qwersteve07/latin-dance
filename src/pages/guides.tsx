@@ -8,6 +8,7 @@ import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
 import { organizerList, useAppStore } from "@/store/appStore";
 import { NextSeo } from "next-seo";
+import { Button } from "@mantine/core";
 
 export default function Guides() {
   const searchParams = useSearchParams();
@@ -152,21 +153,9 @@ export default function Guides() {
               </div>
             </div>
           )}
-          <h3 className="text-2xl font-bold mb-8 text-center">
-            Check the Organizers
-          </h3>
-          <div className="flex justify-center items-center gap-4 flex-wrap mb-10">
-            {activeOrganizerList
-              .map(h => (
-                <div
-                  key={h.name}
-                  className="flex justify-center items-center flex-col gap-4 cursor-pointer transition-transform duration-300 hover:scale-[1.15] rounded-full"
-                  onClick={() => router.push(`/organizers?id=${h.id}`)}
-                >
-                  <OrganizerImage src={h.thumbnail} alt={h.name} />
-                </div>
-              ))}
-          </div>
+          <Button variant="outline" onClick={() => router.push("/organizers")}>
+            Check all Organizers
+          </Button>
         </div>
       </div>
     </>
