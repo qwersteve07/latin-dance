@@ -67,9 +67,13 @@ export default function Home() {
       <>
         <MobileEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
         <DesktopEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
-        <div className="text-center my-8">
-          <Button variant="outline" onClick={() => router.push("/calendar")}>
+        <div className="flex justify-center items-center max-md:flex-col my-8 gap-4 max-md:gap-1">
+          <Button className="!w-[200px]" onClick={() => router.push("/calendar")}>
             Check More Events!
+          </Button>
+          <div className="hidden max-md:block">or</div>
+          <Button className="!w-[200px]" variant="outline" onClick={() => router.push("/guides")}>
+            Check Social Guides!
           </Button>
         </div>
       </>
@@ -88,7 +92,6 @@ export default function Home() {
           <h2 className="text-center text-3xl font-bold max-md:text-2xl">台灣社交舞指南</h2>
         </div>
         <Content />
-
       </section>
       <hr className="w-20 mx-auto my-16 border-t-border-main" />
       <section>
