@@ -9,6 +9,7 @@ import { useRef, useState, } from "react";
 import Image from "next/image";
 import { danceTypes } from "@/const/dance-types";
 import { useDay } from "@/use/use-day";
+import { NextSeo } from "next-seo";
 
 export default function NewEvents() {
     const [loading, setLoading] = useState(false)
@@ -78,73 +79,76 @@ export default function NewEvents() {
     );
 
     return (
-        <form className="grid grid-cols-2 gap-4" onSubmit={form.onSubmit(handleSubmit)} >
-            <DatePickerInput
-                label="日期"
-                valueFormat="YYYY/MM/DD"
-                key={form.key('date')}
-                {...form.getInputProps('date')}
-            />
-            <TextInput
-                withAsterisk
-                label="活動名稱"
-                key={form.key('title')}
-                {...form.getInputProps('title')}
-            />
-            <Select
-                withAsterisk
-                label="主辦單位"
-                data={organizerList.map(item => ({ ...item, value: item.id, label: item.name }))}
-                key={form.key('host')}
-                {...form.getInputProps('host')}
-            />
-            <Select
-                label="活動地點"
-                data={locateList.map(item => ({ ...item, value: item.id, label: item.name }))}
-                key={form.key('locate')}
-                {...form.getInputProps('locate')}
-            />
-            <TimeInput label="開始時間"
-                ref={startAtRef}
-                rightSection={startAtPickerControl}
-                key={form.key('startAt')}
-                {...form.getInputProps('startAt')}
-            />
-            <TimeInput label="結束時間"
-                ref={endAtRef}
-                key={form.key('endAt')}
-                rightSection={endAtPickerControl}
-                {...form.getInputProps('endAt')}
-            />
-            <TextInput label="比率"
-                key={form.key('rate')}
-                {...form.getInputProps('rate')} />
-            <MultiSelect
-                label="舞種"
-                placeholder="Pick types"
-                data={danceTypes}
-                key={form.key('types')}
-                {...form.getInputProps('types')}
-            />
-            <TextInput label="費用"
-                key={form.key('fee')}
-                {...form.getInputProps('fee')} />
-            <div className="flex justify-start items-center">
-                <Checkbox
-                    label="本次取消"
-                    key={form.key('canceled')}
-                    {...form.getInputProps('canceled', { type: 'checkbox' })} />
-            </div>
-            <Textarea label="活動內容"
-                key={form.key('content')}
-                {...form.getInputProps('content')}
-            />
-            <Textarea label="備註"
-                key={form.key('note')}
-                {...form.getInputProps('note')}
-            />
-            <Button type="submit" className="!w-20" loading={loading}>新增</Button>
-        </form>
+        <>
+            <NextSeo noindex={true} />
+            <form className="grid grid-cols-2 gap-4" onSubmit={form.onSubmit(handleSubmit)} >
+                <DatePickerInput
+                    label="日期"
+                    valueFormat="YYYY/MM/DD"
+                    key={form.key('date')}
+                    {...form.getInputProps('date')}
+                />
+                <TextInput
+                    withAsterisk
+                    label="活動名稱"
+                    key={form.key('title')}
+                    {...form.getInputProps('title')}
+                />
+                <Select
+                    withAsterisk
+                    label="主辦單位"
+                    data={organizerList.map(item => ({ ...item, value: item.id, label: item.name }))}
+                    key={form.key('host')}
+                    {...form.getInputProps('host')}
+                />
+                <Select
+                    label="活動地點"
+                    data={locateList.map(item => ({ ...item, value: item.id, label: item.name }))}
+                    key={form.key('locate')}
+                    {...form.getInputProps('locate')}
+                />
+                <TimeInput label="開始時間"
+                    ref={startAtRef}
+                    rightSection={startAtPickerControl}
+                    key={form.key('startAt')}
+                    {...form.getInputProps('startAt')}
+                />
+                <TimeInput label="結束時間"
+                    ref={endAtRef}
+                    key={form.key('endAt')}
+                    rightSection={endAtPickerControl}
+                    {...form.getInputProps('endAt')}
+                />
+                <TextInput label="比率"
+                    key={form.key('rate')}
+                    {...form.getInputProps('rate')} />
+                <MultiSelect
+                    label="舞種"
+                    placeholder="Pick types"
+                    data={danceTypes}
+                    key={form.key('types')}
+                    {...form.getInputProps('types')}
+                />
+                <TextInput label="費用"
+                    key={form.key('fee')}
+                    {...form.getInputProps('fee')} />
+                <div className="flex justify-start items-center">
+                    <Checkbox
+                        label="本次取消"
+                        key={form.key('canceled')}
+                        {...form.getInputProps('canceled', { type: 'checkbox' })} />
+                </div>
+                <Textarea label="活動內容"
+                    key={form.key('content')}
+                    {...form.getInputProps('content')}
+                />
+                <Textarea label="備註"
+                    key={form.key('note')}
+                    {...form.getInputProps('note')}
+                />
+                <Button type="submit" className="!w-20" loading={loading}>新增</Button>
+            </form>
+        </>
     )
 }
 

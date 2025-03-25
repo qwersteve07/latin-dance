@@ -50,13 +50,29 @@ export default function Home() {
 
   }, [data, appStore.currentCity]);
 
-  if (error) return <div>failed to load</div>;
 
-  if (isLoading) {
+
+  const Content = () => {
+    if (error) return <div className="text-center">讀取活動失敗，可能發生一些問題😭請等我修復...</div>;
+
+    if (isLoading) {
+      return (
+        <div className="w-full h-[70dvh] flex justify-center items-center">
+          <Loading />
+        </div>
+      )
+    }
+
     return (
-      <div className="w-full h-[70dvh] flex justify-center items-center">
-        <Loading />
-      </div>
+      <>
+        <MobileEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
+        <DesktopEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
+        <div className="text-center my-8">
+          <Button variant="outline" onClick={() => router.push("/calendar")}>
+            Check More Events!
+          </Button>
+        </div>
+      </>
     )
   }
 
@@ -71,13 +87,8 @@ export default function Home() {
           </h1>
           <h2 className="text-center text-3xl font-bold max-md:text-2xl">台灣社交舞指南</h2>
         </div>
-        <MobileEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
-        <DesktopEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
-        <div className="text-center my-8">
-          <Button variant="outline" onClick={() => router.push("/calendar")}>
-            Check More Events!
-          </Button>
-        </div>
+        <Content />
+
       </section>
       <hr className="w-20 mx-auto my-16" />
       <section>

@@ -7,6 +7,7 @@ import { Organizer } from "@/types/organizer";
 import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
 import { organizerList, useAppStore } from "@/store/appStore";
+import { NextSeo } from "next-seo";
 
 export default function Guides() {
   const searchParams = useSearchParams();
@@ -82,80 +83,92 @@ export default function Guides() {
   }, [id]);
 
   return (
-    <div className="flex justify-between items-center flex-col justify-items-center min-h-screen container mx-auto">
-      <div>
-        <Title
-          enTitle='Social Guides for Dancers'
-          chTitle="新手須知 & 舞會指引"
-        />
-        <p className="-mt-4 mb-10 font-bold">Written by Eric Chen</p>
-        <p className="mb-4 ">
-          歡迎加入社交舞的世界！這是一個充滿樂趣和自我成長的環境，但初次參與可能會有些不安，或是疑惑的地方。以下是幾點你需要知道的建議，幫助你更快融入這個圈子：
-        </p>
-        <ul className="list-disc pl-4 mb-4">
-          {groundRules.map(r => (
-            <li key={r.title} className="mb-7">
-              <div className="text-lg font-bold">{r.title}</div>
-              <div>{r.enDesc}</div>
-              <div>{r.cnDesc}</div>
-            </li>
-          ))}
-        </ul>
-        <p className="mb-4">
-          Violations of the above rules, if not corrected after a warning and deemed severe, will result in the termination of dance party privileges, a request to <b>leave the venue, and notification to other dance party organizers in Taiwan</b>. If you encounter harassment or inappropriate behavior on the dance floor, <b>please report it directly to the organizers or on-site staff</b>. Additionally, please pay attention to your friends, watch out for suspicious individuals, and take care of your personal belongings.
-        </p>
-        <p className="mb-8">
-          違反上述規定，勸告未果且情節嚴重者，將
-          「終止舞會權利，請求離場」，並公告於其他地區舞會主辦單位
-          。若在舞池中遇到騷擾、不恰當的行為，
-          <b>可直接向主辦方以及現場工作人員反應</b>
-          ，也請關注身邊的友人，留心可疑人士及自身財物狀況。
-        </p>
-        <h2 className="text-2xl font-bold mb-4">Recommend List</h2>
-        <ul className="list-disc pl-4 mb-12">
-          {recommendList.map(item => {
-            return (
-              <li className="py-1" key={item.title}>
-                <OuterLink href={item.link}>{item.title}</OuterLink>
+    <>
+      <NextSeo
+        title="Social Guides for Dancers 新手須知 & 舞會指引"
+        description="參與社交舞圈必須了解的文化和相關禮儀"
+        openGraph={{
+          type: 'website',
+          url: 'http://social-dance.tw/guides',
+          siteName: 'Taiwan Social Dance Guide | Social Guides for Dancers 新手須知 & 舞會指引',
+          description: '參與社交舞圈必須了解的文化和相關禮儀',
+        }}
+      />
+      <div className="flex justify-between items-center flex-col justify-items-center min-h-screen container mx-auto">
+        <div>
+          <Title
+            enTitle='Social Guides for Dancers'
+            chTitle="新手須知 & 舞會指引"
+          />
+          <p className="-mt-4 mb-10 font-bold">Written by Eric Chen</p>
+          <p className="mb-4 ">
+            歡迎加入社交舞的世界！這是一個充滿樂趣和自我成長的環境，但初次參與可能會有些不安，或是疑惑的地方。以下是幾點你需要知道的建議，幫助你更快融入這個圈子：
+          </p>
+          <ul className="list-disc pl-4 mb-4">
+            {groundRules.map(r => (
+              <li key={r.title} className="mb-7">
+                <div className="text-lg font-bold">{r.title}</div>
+                <div>{r.enDesc}</div>
+                <div>{r.cnDesc}</div>
               </li>
-            );
-          })}
-        </ul>
-        {currentHost && (
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-6 text-center">Organizers</h2>
-            <p className="mb-10 text-center max-md:text-left">
-              以下為本活動的主辦方，以及相關成員，若在舞池中遇到問題，或是課程想了解，不用擔心直接詢問，所有主辦方都是非常友善的！
-            </p>
-            <h3 className="text-center text-2xl font-bold mb-4">
-              {currentHost?.name}
-            </h3>
-            <div className="flex justify-center items-center gap-x-12 gap-y-4 flex-wrap">
-              {currentHost?.member.map(h => (
-                <div key={h.name} className="text-center">
-                  <MemberImage src={h.image} alt={h.name} />
-                  <div className="text-xl mt-3">{h.name}</div>
+            ))}
+          </ul>
+          <p className="mb-4">
+            Violations of the above rules, if not corrected after a warning and deemed severe, will result in the termination of dance party privileges, a request to <b>leave the venue, and notification to other dance party organizers in Taiwan</b>. If you encounter harassment or inappropriate behavior on the dance floor, <b>please report it directly to the organizers or on-site staff</b>. Additionally, please pay attention to your friends, watch out for suspicious individuals, and take care of your personal belongings.
+          </p>
+          <p className="mb-8">
+            違反上述規定，勸告未果且情節嚴重者，將
+            「終止舞會權利，請求離場」，並公告於其他地區舞會主辦單位
+            。若在舞池中遇到騷擾、不恰當的行為，
+            <b>可直接向主辦方以及現場工作人員反應</b>
+            ，也請關注身邊的友人，留心可疑人士及自身財物狀況。
+          </p>
+          <h2 className="text-2xl font-bold mb-4">Recommend List</h2>
+          <ul className="list-disc pl-4 mb-12">
+            {recommendList.map(item => {
+              return (
+                <li className="py-1" key={item.title}>
+                  <OuterLink href={item.link}>{item.title}</OuterLink>
+                </li>
+              );
+            })}
+          </ul>
+          {currentHost && (
+            <div className="mb-20">
+              <h2 className="text-3xl font-bold mb-6 text-center">Organizers</h2>
+              <p className="mb-10 text-center max-md:text-left">
+                以下為本活動的主辦方，以及相關成員，若在舞池中遇到問題，或是課程想了解，不用擔心直接詢問，所有主辦方都是非常友善的！
+              </p>
+              <h3 className="text-center text-2xl font-bold mb-4">
+                {currentHost?.name}
+              </h3>
+              <div className="flex justify-center items-center gap-x-12 gap-y-4 flex-wrap">
+                {currentHost?.member.map(h => (
+                  <div key={h.name} className="text-center">
+                    <MemberImage src={h.image} alt={h.name} />
+                    <div className="text-xl mt-3">{h.name}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          <h3 className="text-2xl font-bold mb-8 text-center">
+            Check the Organizers
+          </h3>
+          <div className="flex justify-center items-center gap-4 flex-wrap mb-10">
+            {activeOrganizerList
+              .map(h => (
+                <div
+                  key={h.name}
+                  className="flex justify-center items-center flex-col gap-4 cursor-pointer transition-transform duration-300 hover:scale-[1.15] rounded-full"
+                  onClick={() => router.push(`/organizers?id=${h.id}`)}
+                >
+                  <OrganizerImage src={h.thumbnail} alt={h.name} />
                 </div>
               ))}
-            </div>
           </div>
-        )}
-        <h3 className="text-2xl font-bold mb-8 text-center">
-          Check the Organizers
-        </h3>
-        <div className="flex justify-center items-center gap-4 flex-wrap mb-10">
-          {activeOrganizerList
-            .map(h => (
-              <div
-                key={h.name}
-                className="flex justify-center items-center flex-col gap-4 cursor-pointer transition-transform duration-300 hover:scale-[1.15] rounded-full"
-                onClick={() => router.push(`/organizers?id=${h.id}`)}
-              >
-                <OrganizerImage src={h.thumbnail} alt={h.name} />
-              </div>
-            ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }
