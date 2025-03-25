@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.10.0](https://github.com/qwersteve07/latin-dance/compare/v1.9.1...v1.10.0) (2025-03-25)
+
+
+### ✨ Features
+
+* update package-lock.json to use npm ci ([58eb959](https://github.com/qwersteve07/latin-dance/commit/58eb95972da286718ea5b442958955a3fd59f8e3))
+* use npm ci instead of install ([e423418](https://github.com/qwersteve07/latin-dance/commit/e423418ee066bc18d546f717db2f7fd584265428))
+
 ## [1.9.1](https://github.com/qwersteve07/latin-dance/compare/v1.9.0...v1.9.1) (2025-03-24)
 
 
