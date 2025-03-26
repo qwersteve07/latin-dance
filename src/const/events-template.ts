@@ -131,13 +131,33 @@ export const eventsTemplate = {
     },
     "brass-monkey-latin-night": {
         "title": "Brass Monkey Latin Night",
-        "host": "brass-monkey",
+        "host": "dj-cola",
         "locate": "brass-monkey",
         "rate": "Salsa / Bachata",
         "types": ["salsa on 1", "salsa on 2", "bachata"],
         "startAt": "21:00",
         "endAt": "01:00",
         "fee": "250 TWD (含一杯飲料)"
+    },
+    "latinos-fiesta": {
+        "title": "Latinos Fiesta",
+        "host": "dj-cola",
+        "locate": "babylon-taipei",
+        "rate": "Salsa / Bachata",
+        "types": ["salsa on 1", "salsa on 2", "bachata"],
+        "startAt": "22:00",
+        "endAt": "02:00",
+        "fee": "依現場為主"
+    },
+    "latina-ladies-night": {
+        "title": "Latina Ladies Night",
+        "host": "dj-cola",
+        "locate": "lets-go-123-taipei",
+        "rate": "100% Bachata",
+        "types": ["bachata"],
+        "startAt": "21:00",
+        "endAt": "00:00",
+        "fee": "free"
     },
     "barcade-bachata-night": {
         "title": "Barcade Bachata Night",
