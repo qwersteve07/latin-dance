@@ -1,0 +1,23 @@
+{
+  "title": "Taiwan Social Dance Guide",
+  "load_data_failed": "data fetching failed😭...Plead wait for the fixing",
+  "check_events": "Check More Events",
+  "check_guides": "Check Social Guides",
+  "check_organizers": "Check Organizers",
+  "highlights": "Highlights",
+  "events_this_week": "Events This Week in",
+  "events_today": "Today's Events in",
+  "guides": {
+    "title": "Social Guides for Dancers",
+    "item1_title": "Dance Floor Etiquette",
+    "item1_content": "Maintain personal hygiene and fresh breath to ensure a quality dancing experience (we recommend using perfume, deodorant, carrying a towel, and changing clothes regularly).",
+    "item2_title": "No Improper Leading",
+    "item2_content": "Avoid leading in a way that could cause injury to your dance partner.",
+    "item3_title": "Respect Personal Privacy",
+    "item3_content": "Maintain good spatial awareness and avoid excessive pushing or inappropriate touching of sensitive areas (such as the face, chest, or hips).",
+    "item4_title": "Focus on Enjoyment",
+    "item4_content": "The purpose of attending the event is to enjoy dancing. Any form of \"teaching\" on the dance floor is strictly prohibited.",
+    "warning": "Violations of the above rules, if not corrected after a warning and deemed severe, will result in the termination of dance party privileges, a request to leave the venue, and notification to other dance party organizers in Taiwan. If you encounter harassment or inappropriate behavior on the dance floor, please report it directly to the organizers or on-site staff. Additionally, please pay attention to your friends, watch out for suspicious individuals, and take care of your personal belongings.",
+    "read": "Recommend List"
+  }
+}
