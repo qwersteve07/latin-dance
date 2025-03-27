@@ -61,8 +61,8 @@ export default function Guides() {
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/guides',
-          siteName: 'Taiwan Social Dance Guide | Social Guides for Dancers 新手須知 & 舞會指引',
-          description: '參與社交舞圈必須了解的文化和相關禮儀',
+          siteName: `Taiwan Social Dance Guide | ${t('guides.title')}`,
+          description: t('guides.description'),
         }}
       />
       <div className="flex justify-between items-center flex-col justify-items-center min-h-screen container mx-auto">

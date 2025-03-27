@@ -15,6 +15,8 @@ import { useAppStore } from "@/store/appStore";
 import { getEventsFilterByCity } from "@/utils/getEvents";
 import { useDay } from "@/use/use-day";
 import { NextSeo } from "next-seo";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export const danceTypeColor = (type: string) => {
   switch (type) {
@@ -35,6 +37,7 @@ export default function Calendar() {
   const [selectTypes, setSelectTypes] = useState<string[]>([]);
   const appStore = useAppStore()
   const dayjs = useDay()
+  const { t } = useTranslation('common')
 
   useEffect(() => {
     if (isLoading) return
@@ -93,7 +96,7 @@ export default function Calendar() {
   }
 
   const Content = () => {
-    if (error) return <div>讀取活動失敗，可能發生一些問題😭請等我修復...</div>;
+    if (error) return <div>{t('load_data_failed')}</div>;
 
     if (isLoading) {
       return (
@@ -136,19 +139,16 @@ export default function Calendar() {
   return (
     <>
       <NextSeo
-        title="Events Calendar 活動日曆"
-        description="囊括所有不同類型的社交舞活動資訊"
+        title={t('calendar.title')}
+        description={t('calendar.description')}
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/calendar',
-          siteName: 'Taiwan Social Dance Guide | Events Calendar 活動日曆',
-          description: '囊括所有不同類型的社交舞活動資訊',
+          siteName: `Taiwan Social Dance Guide | ${t('calendar.title')}`,
+          description: t('calendar.description'),
         }}
       />
-      <Title
-        enTitle='Events Calendar'
-        chTitle="活動日曆"
-      />
+      <Title>{t('calendar.title')}</Title>
       {Content()}
     </>
   );
@@ -190,4 +190,14 @@ function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) 
       eventContent={render}
     />
   );
+}
+
+export async function getServerSideProps({ locale }: { locale: any }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common',
+      ])),
+    },
+  }
 }

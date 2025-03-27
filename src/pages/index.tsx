@@ -122,7 +122,7 @@ const MobileEvents = ({ events, setSelectEvent, open }: { events: [string, Event
   })
   return (
     <div className="hidden max-md:block">
-      <Title>{t('events_today')}<City /></Title>
+      <Title>{t('events_today')} in<City /></Title>
       {filteredEvents.length === 0 && <NoEvents>No Social Dance today... 🥲</NoEvents>}
       {filteredEvents.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full flex-col">
         {filteredEvents.map(([weekday, events]) => {
@@ -147,7 +147,7 @@ const DesktopEvents = ({ events, setSelectEvent, open }: { events: [string, Even
 
   return (
     <div className="max-md:hidden">
-      <Title>{t('events_this_week')}<City /></Title>
+      <Title>{t('events_this_week')} in<City /></Title>
       {events.length === 0 && <NoEvents>No Social Dance this week... 🥲</NoEvents>}
       {events.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full">
         {events.map(([weekday, events]) => {
