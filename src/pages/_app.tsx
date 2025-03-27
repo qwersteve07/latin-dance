@@ -8,8 +8,9 @@ import "@/styles/globals.css";
 import '@mantine/dates/styles.css';
 import '@/polyfill/object-groupBy'
 import { DefaultSeo } from "next-seo";
+import { appWithTranslation } from 'next-i18next'
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 
@@ -60,3 +61,5 @@ export default function App({ Component, pageProps }: AppProps) {
 		</>
 	);
 }
+
+export default appWithTranslation(App)
