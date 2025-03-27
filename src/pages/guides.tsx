@@ -67,11 +67,9 @@ export default function Guides() {
       />
       <div className="flex justify-between items-center flex-col justify-items-center min-h-screen container mx-auto">
         <div>
-          <Title>{t('guides.title')}</Title>
+          <Title>{t('guides.page_title')}</Title>
           <p className="-mt-4 mb-10 font-bold">Written by Eric Chen</p>
-          <p className="mb-4 ">
-            {t('guides.description')}
-          </p>
+          <p className="mb-4 ">{t('guides.description')}:</p>
           <ul className="list-disc pl-4 mb-4">
             {groundRules.map(r => (
               <li key={r.title} className="mb-7">

@@ -54,7 +54,7 @@ export default function Organizers() {
           description: t('organizers.description'),
         }}
       />
-      <Title>{t('organizers.title')}</Title>
+      <Title>{t('organizers.page_title')}</Title>
       <Modal
         opened={opened}
         onClose={close}

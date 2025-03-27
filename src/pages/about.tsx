@@ -19,14 +19,14 @@ export default function About() {
                     description: t('about.description'),
                 }}
             />
-            <Title>{t('about.title')}</Title>
+            <Title>{t('about.page_title')}</Title>
             {t('about.content').split('\n').map(text => {
                 return <React.Fragment key="text"><p>{text}</p></React.Fragment>
             })}
             <Button className="mt-4" variant="outline" onClick={() => window.open('https://portaly.cc/qwersteve07/support')}>
                 {t('about.donate')}
             </Button>
-            <h3 className="mt-10 mb-4 font-bold text-xl">Special Thanks</h3>
+            <h3 className="mt-14 mb-4 font-bold text-xl">Special Thanks</h3>
             <p>
                 Amy、Ariel、Arthur、Brianna、Calvin、Charlene、Eric Chen、Fiona、Glenn、
                 Jane、Jenny、Josephine、JW、Kiki、Latiifah、Leticia、Mandy、Mics、Natasha、Patty

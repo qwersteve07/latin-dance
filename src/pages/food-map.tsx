@@ -17,7 +17,7 @@ export default function FoodMap() {
                     description: t('food.map.description'),
                 }}
             />
-            <Title>{t('food_map.title')}</Title>
+            <Title>{t('food_map.page_title')}</Title>
             <p>{t('food_map.content')}</p>
             <div className="w-full h-[600px] mt-4">
                 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1o4Z6W9OdDjXTamrkv85Sj8CGqYPFJqk&ehbc=2E312F&noprof=1" width="100%" height="100%" />

@@ -8,8 +8,9 @@
   "events_this_week": "Events This Week",
   "events_today": "Today's Events",
   "guides": {
-    "title": "Social Guides for Dancers",
-    "description": "the culture your need to know before attend socials",
+    "title": "Guides",
+    "page_title": "Social Guides for Dancers",
+    "description": "The culture your need to know before attend socials",
     "intro": "",
     "item1_title": "Dance Floor Etiquette",
     "item1_content": "Maintain personal hygiene and fresh breath to ensure a quality dancing experience (we recommend using perfume, deodorant, carrying a towel, and changing clothes regularly).",
@@ -24,16 +25,19 @@
   },
   "organizers": {
     "title": "Organizers",
-    "description": "studios, social hosts, and individuals dancer",
+    "page_title": "Organizers",
+    "description": "Studios, social hosts, and individuals dancer",
     "individual": "individual"
   },
   "food_map": {
     "title": "Food Map",
-    "description": "The place you could have something to eat after social",
+    "page_title": "Food Map after socials",
+    "description": "The place you could have something to eat after socials",
     "content": "If you know something good to eat after social, please let me know :)"
   },
   "others": {
     "title": "Others",
+    "page_title": "Other Informations for Dancers",
     "description": "Infomations of practicing spaces and shoes",
     "rental": {
       "title": "Rental",
@@ -46,12 +50,15 @@
   },
   "about": {
     "title": "About",
+    "page_title": "About this site",
     "description": "About the start of this website",
     "content": "Hi, I’m Steve, /a newbie who just joined the dance scene in September 2023🐔.\nBack in January 2025, I was chatting with Eric Chen about if there's a  better way for newcomers to learn about the social dance scene — the culture, common issues, and how to handle them (since social dancing naturally comes with its own set of challenges 🙂). That’s when the idea for this website started.\nAs I was working on it, I realized that finding event info has always been a pain...so why not include that too? And before I knew it, the site turned into what it is now.\nI hope this guide helps the Latin social dance community in Taiwan grow. If you have any feedback, feel free to let me know, I really appreciate it! And if you’d like to support me, you can also donate me to help cover the hosting costs 🥹. Thanks in advance!",
     "donate": "Donate Me"
   },
   "calendar": {
-    "title": "Events Calendar",
-    "description": "Includes all kinds of social events informations"
+    "title": "Calendar",
+    "page_title": "Events Calendar",
+    "description": "Includes all kinds of social events informations",
+    "filtered": "Filtered with"
   }
 }

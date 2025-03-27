@@ -129,7 +129,7 @@ export default function Calendar() {
               </div>)
           })}
         </div>
-        {selectTypes.length !== 0 && <div className="-mt-3 mb-8 font-bold">目前顯示：{selectTypes.join('、')}</div>}
+        {selectTypes.length !== 0 && <div className="-mt-3 mb-8 font-bold">{t('calendar.filtered')}：{selectTypes.join('、')}</div>}
         {isMobile && <MobileCalendar data={currentData} render={render} />}
         {!isMobile && <DesktopCalendar data={currentData} render={render} />}
       </>
@@ -148,7 +148,7 @@ export default function Calendar() {
           description: t('calendar.description'),
         }}
       />
-      <Title>{t('calendar.title')}</Title>
+      <Title>{t('calendar.page_title')}</Title>
       {Content()}
     </>
   );
