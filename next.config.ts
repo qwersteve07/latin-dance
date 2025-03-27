@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { i18n } from './next-i18next.config';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -39,6 +40,7 @@ const nextConfig: NextConfig = {
 
     return config
   },
+  i18n
 };
 
 export default nextConfig;

@@ -3,30 +3,29 @@ import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
 import { NextSeo } from "next-seo";
 import { Button } from "@mantine/core";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export default function Guides() {
   const router = useRouter();
+  const { t } = useTranslation('common')
 
   const groundRules = [
     {
-      title: "Dance Floor Etiquette 維持舞池基本禮儀",
-      enDesc: 'Maintain personal hygiene and fresh breath to ensure a quality dancing experience (we recommend using perfume, deodorant, carrying a towel, and changing clothes regularly).',
-      cnDesc: "保持身體清潔、口腔衛生，維持跳舞的品質（建議使用香水、體香劑、毛巾、並定時更換衣物）",
+      title: t('guides.item1_title'),
+      content: t('guides.item1_content'),
     },
     {
-      title: "No Improper Leading 勿用不適當的領舞",
-      enDesc: "Avoid leading in a way that could cause injury to your dance partner.",
-      cnDesc: "禁止以不當方式帶舞，造成舞伴受傷。",
+      title: t('guides.item2_title'),
+      content: t('guides.item2_content'),
     },
     {
-      title: "Respect Personal Privacy 維持舒適的跳舞體驗",
-      enDesc: "Maintain good spatial awareness and avoid excessive pushing or inappropriate touching of sensitive areas (such as the face, chest, or hips).",
-      cnDesc: "保持良好的舞蹈空間，避免有過度推擠，碰觸敏感部位（臉、胸、臀）等等..不當行為。",
+      title: t('guides.item3_title'),
+      content: t('guides.item3_content'),
     },
     {
-      title: "Focus on Enjoyment 專注於享受",
-      enDesc: `The purpose of attending the event is to enjoy dancing. Any form of "teaching" on the dance floor is strictly prohibited.`,
-      cnDesc: "參與舞會以開心跳舞為目的，禁止在舞池進行任何形式的「教學」行為。",
+      title: t('guides.item4_title'),
+      content: t('guides.item4_content'),
     },
   ];
 
@@ -57,45 +56,32 @@ export default function Guides() {
   return (
     <>
       <NextSeo
-        title="Social Guides for Dancers 新手須知 & 舞會指引"
-        description="參與社交舞圈必須了解的文化和相關禮儀"
+        title={t('guides.title')}
+        description={t('guides.description')}
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/guides',
-          siteName: 'Taiwan Social Dance Guide | Social Guides for Dancers 新手須知 & 舞會指引',
-          description: '參與社交舞圈必須了解的文化和相關禮儀',
+          siteName: `Taiwan Social Dance Guide | ${t('guides.title')}`,
+          description: t('guides.description'),
         }}
       />
       <div className="flex justify-between items-center flex-col justify-items-center min-h-screen container mx-auto">
         <div>
-          <Title
-            enTitle='Social Guides for Dancers'
-            chTitle="新手須知 & 舞會指引"
-          />
+          <Title>{t('guides.page_title')}</Title>
           <p className="-mt-4 mb-10 font-bold">Written by Eric Chen</p>
-          <p className="mb-4 ">
-            歡迎加入社交舞的世界！這是一個充滿樂趣和自我成長的環境，但初次參與可能會有些不安，或是疑惑的地方。以下是幾點你需要知道的建議，幫助你更快融入這個圈子：
-          </p>
+          <p className="mb-4 ">{t('guides.description')}:</p>
           <ul className="list-disc pl-4 mb-4">
             {groundRules.map(r => (
               <li key={r.title} className="mb-7">
                 <div className="text-lg font-bold">{r.title}</div>
-                <div>{r.enDesc}</div>
-                <div>{r.cnDesc}</div>
+                <div>{r.content}</div>
               </li>
             ))}
           </ul>
-          <p className="mb-4">
-            Violations of the above rules, if not corrected after a warning and deemed severe, will result in the termination of dance party privileges, a request to <b>leave the venue, and notification to other dance party organizers in Taiwan</b>. If you encounter harassment or inappropriate behavior on the dance floor, <b>please report it directly to the organizers or on-site staff</b>. Additionally, please pay attention to your friends, watch out for suspicious individuals, and take care of your personal belongings.
-          </p>
           <p className="mb-12">
-            違反上述規定，勸告未果且情節嚴重者，將
-            「終止舞會權利，請求離場」，並公告於其他地區舞會主辦單位
-            。若在舞池中遇到騷擾、不恰當的行為，
-            <b>可直接向主辦方以及現場工作人員反應</b>
-            ，也請關注身邊的友人，留心可疑人士及自身財物狀況。
+            {t('guides.warning')}
           </p>
-          <h2 className="text-2xl font-bold mb-4">Recommend List</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('guides.read')}</h2>
           <ul className="list-disc pl-4 mb-12 max-md:mb-8">
             {recommendList.map(item => {
               return (
@@ -106,10 +92,20 @@ export default function Guides() {
             })}
           </ul>
           <Button variant="outline" onClick={() => router.push("/organizers")}>
-            Check all Organizers
+            {t('check_organizers')}
           </Button>
         </div>
       </div>
     </>
   );
+}
+
+export async function getServerSideProps({ locale }: { locale: any }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common',
+      ])),
+    },
+  }
 }
