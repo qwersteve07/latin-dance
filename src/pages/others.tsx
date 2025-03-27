@@ -38,6 +38,12 @@ export default function Rental() {
         }, {
             name: 'Sunny Side',
             link: 'https://www.facebook.com/profile.php?id=100092845381100#'
+        }, {
+            name: 'Thousand Dance Studio',
+            link: 'https://www.facebook.com/ThousandDanceStudio/'
+        }, {
+            name: '拼舞室',
+            link: 'https://www.facebook.com/p/%E6%8B%BC%E8%88%9E%E5%AE%A4-PIN-Dance-Studio-100083991949406'
         }
     ]
 
@@ -52,6 +58,12 @@ export default function Rental() {
         }, {
             name: '東區地下街 | 10號出口廊道',
             link: 'https://service.gov.taipei/rental/VenueDetail/65805e424596'
+        }, {
+            name: '松山地下街 | 跳舞區',
+            link: 'https://service.gov.taipei/rental/VenueDetail/e0f783c64e35'
+        }, {
+            name: "K區地下街 | 東森廣場",
+            link: 'https://service.gov.taipei/rental/VenueDetail/70b6b4819a89'
         }
     ]
 
