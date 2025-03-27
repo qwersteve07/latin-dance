@@ -37,5 +37,5 @@ export function middleware(request: NextRequest) {
 const authenticationRoutes = ['/events-list', '/events-list/new', '/events-list/:slug'];
 
 export const config = {
-  matcher: [...authenticationRoutes, '/:path*'], // Protect these routes
+  matcher: ['/events-list', '/events-list/new', '/events-list/:slug', '/:path*'], // Protect these routes
 };
