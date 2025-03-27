@@ -240,7 +240,7 @@ export const organizerTaipeiList = [
         ]
     },
     {
-        "id": "lia_spice_ladies",
+        "id": "lia-spice-ladies",
         "name": "Lia Spice Ladies",
         "city": "taipei",
         "thumbnail": "/lia_spice_ladies.jpg",
@@ -445,7 +445,7 @@ export const organizerTaipeiList = [
         "member": []
     },
     {
-        "id": "eric_wang",
+        "id": "eric-wang",
         "name": "Eric Wang",
         "hide": false,
         "solo": true,
@@ -487,7 +487,7 @@ export const organizerTaipeiList = [
         "member": []
     },
     {
-        "id": "patty_lin",
+        "id": "patty-lin",
         "name": "Patty Lin",
         "hide": false,
         "solo": true,
@@ -505,7 +505,7 @@ export const organizerTaipeiList = [
         "member": []
     },
     {
-        "id": "dj_cola",
+        "id": "dj-cola",
         "name": "DJ Cola",
         "hide": false,
         "solo": true,

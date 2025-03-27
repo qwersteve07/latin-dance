@@ -3,21 +3,58 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-main: #ffffff;
+  --background-sub: theme('colors.stone.100');
+  --background-third: theme('colors.gray.50');
+  --text-main: theme('colors.stone.900');
+  --text-sub: theme('colors.stone.700');
+  --border-main: theme('colors.gray.200');
+  --border-sub: theme('colors.gray.400');
+  --text-hover: theme('colors.red.300');
+  --button-hover: theme('colors.red.500');
+  --button-hover: theme('colors.red.500');
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    --background-main: theme('colors.stone.900');
+    --background-sub: theme('colors.stone.700') ;
+    --background-third: theme('colors.stone.700');
+    --text-main: theme(colors.gray.300);
+    --text-sub: theme('colors.stone.200');
+    --border-main: theme('colors.stone.600');
+    --border-sub: theme('colors.stone.400');
+    --text-hover: theme('colors.red.900');
+    --button-hover: theme('colors.red.500');
+}
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'PingFang TC', Helvetica, sans-serif;
+}
+
+.fc-theme-standard .fc-scrollgrid,
+.fc-theme-standard td, .fc-theme-standard th {
+  border-color: var(--border-main)
+}
+
+/* .fc .fc-daygrid-day.fc-day-today{
+  background: theme('colors.red.50');
+} */
+.fc .fc-button-primary{
+  background: var(--background-sub);
+  border: var(--background-sub);
+  color: var(--text-main);
+}
+
+.fc .fc-button-primary:hover,.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active{
+  background: var(--button-hover)
+}
+
+.fc .fc-button-primary:disabled{
+  background: var(--background-third);
+  border: var(--background-third);
+  color: var(--text-main);
 }
 
 .fc-toolbar-title{
@@ -26,4 +63,49 @@ body {
 
 .fc-list-event-graphic {
   display: none;
+}
+
+.fc-theme-standard .fc-list{
+  border: 1px solid var(--background-sub);
+}
+
+.fc-theme-standard .fc-list-day-cushion{
+  background: var(--background-sub);
+}
+
+.fc .fc-list-empty{
+  background: var(--background-sub);
+}
+
+.mantine-Modal-overlay{
+  backdrop-filter: blur(3px) !important;
+}
+
+.mantine-Modal-header,.mantine-Modal-content{
+  background: var(--background-main) !important;
+  color: var(--text-main)
+}
+
+.mantine-Select-input,.mantine-Select-dropdown{
+  background: var(--background-main) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-main) !important;
+}
+
+.mantine-Select-input:hover{
+  color: var(--button-hover) !important;
+  border: 1px solid var(--button-hover) !important;
+}
+
+.mantine-Select-option:hover{
+  background: var(--background-sub) !important;
+}
+
+.mantine-Burger-burger,.mantine-Burger-burger:before,.mantine-Burger-burger:after{
+  background: var(--text-sub) !important;
+}
+
+.mantine-Drawer-header,.mantine-Drawer-content{
+  background: var(--background-main) !important;
+  color: var(--text-main)
 }

@@ -1,24 +1,15 @@
-import Image from "next/image"
+import IconLine from '../../public/icon-line.svg'
+import IconInstagram from '../../public/icon-instagram.svg'
 
 const ContactIcons = () => {
     return (
         <span className="inline-flex justify-start items-center gap-2">
-            <Image
-                src="/icon-line.svg"
-                width="20"
-                height="20"
-                alt="line"
-                className="cursor-pointer"
-                priority
+            <IconLine
+                className="w-5 fill-text-main hover:fill-red-500 cursor-pointer"
                 onClick={() => window.open('https://line.me/ti/p/yiXOAql0ru')}
             />
-            <Image
-                src="/icon-instagram.svg"
-                width="20"
-                height="20"
-                alt="instagram"
-                className="cursor-pointer"
-                priority
+            <IconInstagram
+                className="w-5 stroke-text-main  hover:stroke-red-500 cursor-pointer"
                 onClick={() => window.open('https://www.instagram.com/qwersteve07')}
             />
         </span>

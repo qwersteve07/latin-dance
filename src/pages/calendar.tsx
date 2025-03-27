@@ -15,6 +15,8 @@ import { useAppStore } from "@/store/appStore";
 import { getEventsFilterByCity } from "@/utils/getEvents";
 import { useDay } from "@/use/use-day";
 import { NextSeo } from "next-seo";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export const danceTypeColor = (type: string) => {
   switch (type) {
@@ -35,6 +37,7 @@ export default function Calendar() {
   const [selectTypes, setSelectTypes] = useState<string[]>([]);
   const appStore = useAppStore()
   const dayjs = useDay()
+  const { t } = useTranslation('common')
 
   useEffect(() => {
     if (isLoading) return
@@ -79,7 +82,7 @@ export default function Calendar() {
           open();
         }}
       >
-        {eventInfo.event.extendedProps.canceled && <div className="absolute w-full h-0.5 bg-slate-500 top-1/2" />}
+        {eventInfo.event.extendedProps.canceled && <div className="absolute w-full h-0.5 bg-text-main top-1/2" />}
         <div className="flex gap-1 max-md:gap-1.5 items-center">
           <div className="ml-1 flex gap-0.5 max-md:flex-col">
             {eventInfo.event.extendedProps.types.map((t: string, i: string) => {
@@ -92,10 +95,8 @@ export default function Calendar() {
     );
   }
 
-
-
   const Content = () => {
-    if (error) return <div>讀取活動失敗，可能發生一些問題😭請等我修復...</div>;
+    if (error) return <div>{t('load_data_failed')}</div>;
 
     if (isLoading) {
       return (
@@ -113,7 +114,7 @@ export default function Calendar() {
             return (
               <div
                 key={t}
-                className={`cursor-pointer border-dashed border-gray-300 border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 md:hover:bg-gray-100 ${selectTypes.includes(t) ? 'bg-gray-100' : 'bg-transparent'}`}
+                className={`cursor-pointer border-dashed border-border-main border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 md:hover:bg-background-sub ${selectTypes.includes(t) ? 'bg-background-sub border-border-sub' : 'bg-transparent'}`}
                 onClick={() => {
                   if (selectTypes.find(types => types === t)) {
                     const result = selectTypes.filter(types => types !== t)
@@ -128,7 +129,7 @@ export default function Calendar() {
               </div>)
           })}
         </div>
-        {selectTypes.length !== 0 && <div className="-mt-3 mb-8 font-bold">目前顯示：{selectTypes.join('、')}</div>}
+        {selectTypes.length !== 0 && <div className="-mt-3 mb-8 font-bold">{t('calendar.filtered')}：{selectTypes.join('、')}</div>}
         {isMobile && <MobileCalendar data={currentData} render={render} />}
         {!isMobile && <DesktopCalendar data={currentData} render={render} />}
       </>
@@ -138,21 +139,17 @@ export default function Calendar() {
   return (
     <>
       <NextSeo
-        title="Events Calendar 活動日曆"
-        description="囊括所有不同類型的社交舞活動資訊"
+        title={t('calendar.title')}
+        description={t('calendar.description')}
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/calendar',
-          siteName: 'Taiwan Social Dance Guide | Events Calendar 活動日曆',
-          description: '囊括所有不同類型的社交舞活動資訊',
+          siteName: `Taiwan Social Dance Guide | ${t('calendar.title')}`,
+          description: t('calendar.description'),
         }}
       />
-      <Title
-        enTitle='Events Calendar'
-        chTitle="活動日曆"
-      />
-      <Content />
-
+      <Title>{t('calendar.page_title')}</Title>
+      {Content()}
     </>
   );
 }
@@ -193,4 +190,14 @@ function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) 
       eventContent={render}
     />
   );
+}
+
+export async function getServerSideProps({ locale }: { locale: any }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common',
+      ])),
+    },
+  }
 }

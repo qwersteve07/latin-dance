@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.11.0](https://github.com/qwersteve07/latin-dance/compare/v1.7.0...v1.11.0) (2025-03-25)
+
+
+### ✨ Features
+
+* add CTA button ([171cab9](https://github.com/qwersteve07/latin-dance/commit/171cab9e6e40961642308d6d608434e976291068))
+* add custom SEO ([b69122f](https://github.com/qwersteve07/latin-dance/commit/b69122f7ce663bb5feb9836e110d93268af8d576))
+* add dark mode ([d6bc688](https://github.com/qwersteve07/latin-dance/commit/d6bc688196856eb89bf43c571f303a71dd4274c1))
+* add templates for more convenient events ([7fdecec](https://github.com/qwersteve07/latin-dance/commit/7fdecec7da6a59bf742dd39916f866d455bccc42))
+* update lock yaml ([07de478](https://github.com/qwersteve07/latin-dance/commit/07de4780e922a55b380b6bfd37305e7c4bf3eabb))
+* update package-lock.json to use npm ci ([58eb959](https://github.com/qwersteve07/latin-dance/commit/58eb95972da286718ea5b442958955a3fd59f8e3))
+* update sitemap ([0ec7193](https://github.com/qwersteve07/latin-dance/commit/0ec719304418ff1211ae6bc5933a95f1cd633f84))
+* use npm ci instead of install ([e423418](https://github.com/qwersteve07/latin-dance/commit/e423418ee066bc18d546f717db2f7fd584265428))
+
+
+### 🐛 Bug Fixes
+
+* forget to revert comment code... ([c01ed2d](https://github.com/qwersteve07/latin-dance/commit/c01ed2d89a10dcb515a33d13adbc7ce2d8d47183))
+
+
+### 🔧 chore
+
+* **release:** 1.10.0 ([37e16b4](https://github.com/qwersteve07/latin-dance/commit/37e16b4e1f6c3d6fc03259119f2faae0694a846d))
+* **release:** 1.8.0 ([bc911ba](https://github.com/qwersteve07/latin-dance/commit/bc911ba595ed28aa6149f0eb13f3722aeb61844e))
+* **release:** 1.9.0 ([3753936](https://github.com/qwersteve07/latin-dance/commit/3753936baf6ccad51cd7c6976ba35a99b6e5aa6c))
+* **release:** 1.9.1 ([eaf52d2](https://github.com/qwersteve07/latin-dance/commit/eaf52d249f90d485fc2ff02bdee116f4b56e621c))
+* typo ([6fc690f](https://github.com/qwersteve07/latin-dance/commit/6fc690f4d83f49279e565722e621517d19bf6555))
+
+## [1.10.0](https://github.com/qwersteve07/latin-dance/compare/v1.9.1...v1.10.0) (2025-03-25)
+
+
+### ✨ Features
+
+* update package-lock.json to use npm ci ([58eb959](https://github.com/qwersteve07/latin-dance/commit/58eb95972da286718ea5b442958955a3fd59f8e3))
+* use npm ci instead of install ([e423418](https://github.com/qwersteve07/latin-dance/commit/e423418ee066bc18d546f717db2f7fd584265428))
+
 ## [1.9.1](https://github.com/qwersteve07/latin-dance/compare/v1.9.0...v1.9.1) (2025-03-24)
 
 

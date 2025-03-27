@@ -9,22 +9,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        "flow-bg": "#007690",
-        "flow-text": "#ffffff",
-        "copa-bg": "#8EC344",
-        "copa-text": "#9C234F",
-        "barcade-bg": "#FD02A4",
-        "barcade-text": "#ffffff",
-        "bailalo-bg": "#FBCF6B",
-        "bailalo-text": "#B03835",
-        "lasalsa-bg": "#E4027D",
-        "lasalsa-text": "#ffffff",
-        "brass-monkey-bg": "#EDCB39",
-        "brass-monkey-text": "#000000",
+        'background-main': "var(--background-main)",
+        'background-sub': "var(--background-sub)",
+        'background-third': "var(--background-third)",
+        'text-main': "var(--text-main)",
+        'text-sub': "var(--text-sub)",
+        'border-main': "var(--border-main)",
+        'border-sub': "var(--border-sub)",
+        'text-hover': "var(--text-hover)"
       },
     },
   },
+  darkMode: "media",
   plugins: [],
 } satisfies Config;

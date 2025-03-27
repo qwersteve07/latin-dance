@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import "@mantine/core/styles.css";
-import { createTheme, MantineProvider } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import Layout from "@/components/layout";
 import Script from 'next/script';
 import type { AppProps } from 'next/app'
@@ -8,12 +8,10 @@ import "@/styles/globals.css";
 import '@mantine/dates/styles.css';
 import '@/polyfill/object-groupBy'
 import { DefaultSeo } from "next-seo";
+import { appWithTranslation } from 'next-i18next'
+import { CookiesProvider } from 'react-cookie';
 
-const theme = createTheme({
-	primaryColor: 'red',
-});
-
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 
@@ -56,11 +54,15 @@ export default function App({ Component, pageProps }: AppProps) {
 					]
 				}}
 			/>
-			<MantineProvider theme={theme}>
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
+			<MantineProvider theme={{ primaryColor: 'red' }}>
+				<CookiesProvider>
+					<Layout>
+						<Component {...pageProps} />
+					</Layout>
+				</CookiesProvider>
 			</MantineProvider>
 		</>
 	);
 }
+
+export default appWithTranslation(App)
