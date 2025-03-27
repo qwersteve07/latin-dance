@@ -12,6 +12,8 @@ import { danceTypeColor } from "./calendar";
 import Loading from "@/components/loading";
 import { useAppStore } from "@/store/appStore";
 import { useDay } from "@/use/use-day";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -20,6 +22,7 @@ export default function Home() {
   const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
   const router = useRouter();
   const appStore = useAppStore()
+  const { t } = useTranslation('common')
 
   const vlogIGList = [
     {
@@ -53,7 +56,7 @@ export default function Home() {
 
 
   const Content = () => {
-    if (error) return <div className="text-center">讀取活動失敗，可能發生一些問題😭請等我修復...</div>;
+    if (error) return <div className="text-center">{t('load_data_failed')}</div>;
 
     if (isLoading) {
       return (
@@ -69,11 +72,11 @@ export default function Home() {
         <DesktopEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
         <div className="flex justify-center items-center max-md:flex-col my-8 gap-4 max-md:gap-1">
           <Button className="!w-[200px]" onClick={() => router.push("/calendar")}>
-            Check More Events!
+            {t('check_events')}
           </Button>
           <div className="hidden max-md:block">or</div>
           <Button className="!w-[200px]" variant="outline" onClick={() => router.push("/guides")}>
-            Check Social Guides!
+            {t('check_guides')}
           </Button>
         </div>
       </>
@@ -87,15 +90,14 @@ export default function Home() {
         <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-12">
           <h1 className="text-center text-5xl font-bold mb-2 max-md:text-3xl">
             <div className="mb-4">💃🕺</div>
-            <div>Taiwan Social Dance Guide</div>
+            <div>{t('title')}</div>
           </h1>
-          <h2 className="text-center text-3xl font-bold max-md:text-2xl">台灣社交舞指南</h2>
         </div>
         <Content />
       </section>
       <hr className="w-20 mx-auto my-16 border-t-border-main" />
       <section>
-        <h3 className="text-center text-2xl font-bold mb-8">Highlights</h3>
+        <h3 className="text-center text-2xl font-bold mb-8">{t('highlights')}</h3>
         <div className="flex justify-center items-center gap-4 flex-wrap w-[80%] max-xl:w-[90%] mx-auto max-md:w-full max-md:flex-col">
           {vlogIGList.map(item => {
             return (
@@ -112,13 +114,15 @@ export default function Home() {
 
 const MobileEvents = ({ events, setSelectEvent, open }: { events: [string, Event[]][], setSelectEvent: (p: any) => void, open: () => void }) => {
   const dayjs = useDay()
+  const { t } = useTranslation('common')
+
 
   const filteredEvents = events.filter(([weekday]) => {
     return weekday === dayjs().format('dddd')
   })
   return (
     <div className="hidden max-md:block">
-      <Title>Today&lsquo;s Events in <City /></Title>
+      <Title>{t('events_today')}<City /></Title>
       {filteredEvents.length === 0 && <NoEvents>No Social Dance today... 🥲</NoEvents>}
       {filteredEvents.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full flex-col">
         {filteredEvents.map(([weekday, events]) => {
@@ -139,9 +143,11 @@ const MobileEvents = ({ events, setSelectEvent, open }: { events: [string, Event
 }
 
 const DesktopEvents = ({ events, setSelectEvent, open }: { events: [string, Event[]][], setSelectEvent: (p: any) => void, open: () => void }) => {
+  const { t } = useTranslation('common')
+
   return (
     <div className="max-md:hidden">
-      <Title>Events This Week in <City /></Title>
+      <Title>{t('events_this_week')}<City /></Title>
       {events.length === 0 && <NoEvents>No Social Dance this week... 🥲</NoEvents>}
       {events.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full">
         {events.map(([weekday, events]) => {
@@ -219,4 +225,14 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
       </div>
     </div>
   )
+}
+
+export async function getServerSideProps({ locale }: { locale: any }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common',
+      ])),
+    },
+  }
 }
