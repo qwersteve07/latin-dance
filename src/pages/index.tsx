@@ -14,6 +14,8 @@ import { useAppStore } from "@/store/appStore";
 import { useDay } from "@/use/use-day";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useCookies } from "react-cookie";
+import { citiesList } from "@/const/cities";
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -179,10 +181,14 @@ const NoEvents = ({ children }: { children: ReactNode }) => {
 
 const City = () => {
   const appStore = useAppStore()
+  const [cookies] = useCookies(['NEXT_LOCALE']);
+  const currentLocale = !cookies['NEXT_LOCALE'] || cookies.NEXT_LOCALE === 'tw' ? 'tw' : 'en'
+
   return (
-    <span className="border-b-4 border-red-500 px-1">{appStore.currentCity.split('').map((t, i) => {
-      return i === 0 ? t.toUpperCase() : t
-    }).join('')}</span>
+    <span className="border-b-4 border-red-500 px-1">{currentLocale === 'tw' ? citiesList.find((city: any) => city.id === appStore.currentCity)?.name || '' :
+      appStore.currentCity.split('').map((t, i) => {
+        return i === 0 ? t.toUpperCase() : t
+      }).join('')}</span>
   )
 }
 

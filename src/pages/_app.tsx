@@ -9,6 +9,7 @@ import '@mantine/dates/styles.css';
 import '@/polyfill/object-groupBy'
 import { DefaultSeo } from "next-seo";
 import { appWithTranslation } from 'next-i18next'
+import { CookiesProvider } from 'react-cookie';
 
 function App({ Component, pageProps }: AppProps) {
 	return (
@@ -54,9 +55,11 @@ function App({ Component, pageProps }: AppProps) {
 				}}
 			/>
 			<MantineProvider theme={{ primaryColor: 'red' }}>
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
+				<CookiesProvider>
+					<Layout>
+						<Component {...pageProps} />
+					</Layout>
+				</CookiesProvider>
 			</MantineProvider>
 		</>
 	);
