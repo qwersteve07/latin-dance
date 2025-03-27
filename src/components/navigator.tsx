@@ -7,6 +7,7 @@ import { useAppStore } from "@/store/appStore";
 import { useCookies } from "react-cookie";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
+import { useEffect } from "react";
 
 export default function Navigator() {
   const { t } = useTranslation('common')
@@ -24,7 +25,11 @@ export default function Navigator() {
   const [opened, { open, close, toggle }] = useDisclosure(false);
   const appStore = useAppStore()
   const [cookies, setCookie] = useCookies(['NEXT_LOCALE']);
-  const [currentLocale, setCurrentLocale] = useState(!cookies['NEXT_LOCALE'] || cookies.NEXT_LOCALE === 'tw' ? 'en' : 'tw')
+  const [currentLocale, setCurrentLocale] = useState('tw')
+
+  useEffect(() => {
+    setCurrentLocale(!cookies['NEXT_LOCALE'] || cookies.NEXT_LOCALE === 'tw' ? 'tw' : 'en')
+  }, [])
 
   const Routes = () => {
     return routesList.map(r => {
@@ -49,6 +54,33 @@ export default function Navigator() {
     })
   }
 
+  const SelectCity = () => {
+    return (
+      <Select
+        className="w-32 hover:border-red-500"
+        defaultValue="taipei"
+        value={appStore.currentCity}
+        onChange={value => appStore.setCurrentCity(value || '')}
+        data={citiesList.map(item => ({
+          ...item, value: item.id, label: currentLocale === 'tw' ? item.name : item.id
+        }))}
+      />
+    )
+  }
+
+  const SelectLocale = () => {
+    return (
+      <div
+        className="font-bold cursor-pointer border-border-main border flex justify-center items-center h-9 w-12 rounded-sm box-border  hover:text-red-500 hover:border-red-500 transition"
+        onClick={() => {
+          const newLocalValue = currentLocale === 'tw' ? 'en' : 'tw'
+          setCurrentLocale(newLocalValue)
+          setCookie('NEXT_LOCALE', newLocalValue)
+          router.push({ pathname, query }, asPath, { locale: newLocalValue })
+        }}>{currentLocale.toUpperCase()}</div>
+    )
+  }
+
   return (
     <>
       <Drawer offset={8} radius="md" size="xs" position="right" opened={opened} onClose={close}>
@@ -62,13 +94,8 @@ export default function Navigator() {
             <Link href="/">💃🕺</Link>
           </div>
           <div className="hidden max-md:flex justify-end items-center gap-2">
-            <Select
-              className="w-[150px]"
-              defaultValue="taipei"
-              value={appStore.currentCity}
-              onChange={value => appStore.setCurrentCity(value || '')}
-              data={citiesList.map(item => ({ ...item, value: item.id, label: `${item.id} ${item.name}` }))}
-            />
+            <SelectCity />
+            <SelectLocale />
             <Burger className="hidden max-md:block" opened={opened} onClick={() => {
               toggle()
               open()
@@ -76,23 +103,8 @@ export default function Navigator() {
           </div>
           <div className="flex justify-between items-center max-md:hidden gap-3">
             <Routes />
-            <Select
-              className="w-32 hover:border-red-500"
-              defaultValue="taipei"
-              value={appStore.currentCity}
-              onChange={value => appStore.setCurrentCity(value || '')}
-              data={citiesList.map(item => ({
-                ...item, value: item.id, label: currentLocale === 'tw' ? item.name : item.id
-              }))}
-            />
-            <div
-              className="cursor-pointer border-border-main border flex justify-center items-center h-9 w-12 rounded-sm box-border  hover:text-red-500 hover:border-red-500 transition"
-              onClick={() => {
-                const newLocalValue = currentLocale === 'tw' ? 'en' : 'tw'
-                setCurrentLocale(newLocalValue)
-                setCookie('NEXT_LOCALE', newLocalValue)
-                router.push({ pathname, query }, asPath, { locale: newLocalValue })
-              }}>{currentLocale.toUpperCase()}</div>
+            <SelectCity />
+            <SelectLocale />
           </div>
         </div >
       </nav>
