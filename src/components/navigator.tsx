@@ -75,7 +75,7 @@ export default function Navigator() {
         onClick={() => {
           const newLocalValue = currentLocale === 'tw' ? 'en' : 'tw'
           setCurrentLocale(newLocalValue)
-          setCookie('NEXT_LOCALE', newLocalValue)
+          setCookie('NEXT_LOCALE', newLocalValue, { path: '/' })
           router.push({ pathname, query }, asPath, { locale: newLocalValue })
         }}>{currentLocale.toUpperCase()}</div>
     )

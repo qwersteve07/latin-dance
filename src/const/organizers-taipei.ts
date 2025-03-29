@@ -77,7 +77,7 @@ export const organizerTaipeiList = [
         "city": "taipei",
         "thumbnail": "/el-colmado.jpg",
         "intro": "🇩🇴Traditional Bachata in Taiwan\n🇩🇴Back to the Roots",
-        "party": "",
+        "party": "不定期舉辦 El Colmado Social 及大師課",
         "classes": ['bachata'],
         "link": {
             "facebook": "",
