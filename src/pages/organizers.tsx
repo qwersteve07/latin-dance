@@ -12,6 +12,8 @@ import IconInstagram from '../../public/icon-instagram.svg'
 import IconWebsite from '../../public/icon-website.svg'
 import IconLocate from '../../public/icon-location.svg'
 import { NextSeo } from "next-seo";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export default function Organizers() {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -20,6 +22,7 @@ export default function Organizers() {
   const [selectOrganizer, setSelectOrganizer] = useState<Organizer>({} as any);
   const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
   const appStore = useAppStore()
+  const { t } = useTranslation('common')
 
   const isMobile = useMedia("(max-width: 768px)");
 
@@ -42,19 +45,16 @@ export default function Organizers() {
   return (
     <>
       <NextSeo
-        title="Organizers List 團隊列表"
-        description="各地區的教室、活動舉辦方、以及獨立舞者"
+        title={t('organizers.title')}
+        description={t('organizers.description')}
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/organizers',
-          siteName: 'Taiwan Social Dance Guide | Organizers List 團隊列表',
-          description: '各地區的教室、活動舉辦方、以及獨立舞者',
+          siteName: `Taiwan Social Dance Guide | ${t('organizers.title')}`,
+          description: t('organizers.description'),
         }}
       />
-      <Title
-        enTitle='Organizers List'
-        chTitle="團隊列表"
-      />
+      <Title>{t('organizers.page_title')}</Title>
       <Modal
         opened={opened}
         onClose={close}
@@ -78,11 +78,13 @@ export default function Organizers() {
 }
 
 function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organizer>, onClick: (organizer: Organizer) => void }) {
+  const { t } = useTranslation('common')
+
   return (
     <>
       <div className="flex justify-start flex-wrap gap-y-8 gap-x-2">
         {organizerList.map(item => {
-          if (item.id === '') return <h3 key={item.id} className="text-xl font-bold mt-10 flex-[100%] pointer-events-none">獨立舞者</h3>
+          if (item.id === '') return <h3 key={item.id} className="text-xl font-bold mt-10 flex-[100%] pointer-events-none">{t('organizers.individual')}</h3>
 
           return (
             <div key={item.id} className="flex flex-col items-center flex-[30%] gap-2" onClick={() => {
@@ -100,6 +102,8 @@ function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organi
 }
 
 function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerList: Array<Organizer>, activeTab: string | null, setActiveTab: (value: string | null) => void }) {
+  const { t } = useTranslation('common')
+
   return (
     <Tabs
       value={activeTab}
@@ -108,7 +112,7 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
     >
       <Tabs.List >
         {organizerList.map(item => {
-          if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">獨立舞者</Tabs.Tab>
+          if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">{t('organizers.individual')}</Tabs.Tab>
 
           return (
             <Tabs.Tab value={item.id} key={item.id} className="w-[200px] hover:bg-background-sub">
@@ -215,7 +219,14 @@ function SocialLink({ type, link }: { type: string, link: string }) {
   }
 
   return <Icon className="w-6 hover:stroke-red-500 cursor-pointer" onClick={() => window.open(link)} />
+}
 
-
-
+export async function getServerSideProps({ locale }: { locale: any }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common',
+      ])),
+    },
+  }
 }

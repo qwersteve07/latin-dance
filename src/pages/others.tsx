@@ -1,9 +1,11 @@
 import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from 'next-seo';
 
-
 export default function Rental() {
+    const { t } = useTranslation('common')
 
     const paidSpace = [
         {
@@ -85,24 +87,21 @@ export default function Rental() {
     return (
         <>
             <NextSeo
-                title="Others 各項資訊"
-                description="提供關於場地租借、舞蹈器材等的資訊"
+                title={t('others.title')}
+                description={t('others.description')}
                 openGraph={{
                     type: 'website',
                     url: 'http://social-dance.tw/others',
-                    siteName: 'Taiwan Social Dance Guide | Others 各項資訊',
-                    description: '提供關於場地租借、舞蹈器材等的資訊',
+                    siteName: `Taiwan Social Dance Guide | ${t('others.title')}`,
+                    description: t('others.description'),
                 }}
             />
             <main>
-                <Title
-                    enTitle='Others'
-                    chTitle="各項資訊"
-                />
-                <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">Rental 場地租借</h3>
+                <Title>{t('others.page_title')}</Title>
+                <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">{t('others.rental.title')}</h3>
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-10 mb-16">
                     <section>
-                        <h4 className="text-xl font-bold mb-5">Paid 付費場地</h4>
+                        <h4 className="text-xl font-bold mb-5">{t('others.rental.paid')}</h4>
                         <ul className="list-disc pl-4 flex flex-col gap-3">
                             {paidSpace.map(item => {
                                 return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
@@ -110,7 +109,7 @@ export default function Rental() {
                         </ul>
                     </section>
                     <section>
-                        <h4 className="text-xl font-bold mb-5">Free 免費場地</h4>
+                        <h4 className="text-xl font-bold mb-5">{t('others.rental.free')}</h4>
                         <ul className="list-disc pl-4 flex flex-col gap-3">
                             {freeSpace.map(item => {
                                 return <li key={item.name}><OuterLink href={item.link}>{item.name}</OuterLink></li>
@@ -118,7 +117,7 @@ export default function Rental() {
                         </ul>
                     </section>
                 </div>
-                <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">Shoes 舞鞋購買</h3>
+                <h3 className="text-2xl font-bold mb-5 border-b border-gray-300 pb-4">{t('others.shoes.title')}</h3>
                 <div className="grid grid-cols-2 max-md:grid-cols-1 gap-10 mb-16">
                     <ul className="list-disc pl-4 flex flex-col gap-3">
                         {shoeStores.map(item => {
@@ -129,4 +128,14 @@ export default function Rental() {
             </main>
         </>
     )
+}
+
+export async function getServerSideProps({ locale }: { locale: any }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, [
+                'common',
+            ])),
+        },
+    }
 }
