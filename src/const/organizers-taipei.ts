@@ -445,6 +445,25 @@ export const organizerTaipeiList = [
         "member": []
     },
     {
+        "id": "aaa-jane",
+        "name": "AAA.Jane",
+        "hide": false,
+        "solo": true,
+        "city": "taipei",
+        "thumbnail": "/jane.png",
+        "intro": "2024雙人社交舞J&J台灣賽事 第一名\n2017街舞中國賽事 第一名\nIPTFA 國際健身教練 證照\n上海戲劇學院-舞蹈表達演出者\n Hiphop/Jazz 街舞8年\nRumba/Bachata 雙人舞3年\n「在舞蹈的世界情感與感動大於一切。」\n我對舞蹈的愛十幾年來如初戀，從8年街舞爵士競賽、戲劇科系再到國標拉丁、現代舞系，現在來到拉丁社交舞，我覺得舞蹈的世界沒有分家，每一種其實都是情感的表達方式，在技術之上賦予舞蹈生命力的是情緒、是感動、是感受、是分享故事。\n所以Jane不只教學舞步，更想帶著大家一起察覺與體驗、感受音樂、探索身體的可能性、觸動內心、釋放自我表達、讓舞蹈成為靈魂的語言。只要用心扎實的累積基礎和理解肢體的情感表達，我會帶著你一起雕刻、創造出自由且飽含張力的舞蹈。雙人舞也不只是兩個人的舞步交織，更是用心的交流。透過彼此的引導與回應，感受當下的連結與流動，學習信任與傾聽，讓每一次相遇都成為一場細膩而深刻的對話。願你在舞池中找到屬於自己的光，讓我們一起，在音樂與舞動中，找到生活的出口、生命的熱愛💖",
+        "link": {
+            "facebook": "",
+            "instagram": "https://www.instagram.com/aaaj.ane",
+            "website": "bio.site/Dancingmuse",
+            "location": ""
+        },
+        "party": "Bachata DJ\nRose & Wine Bachata Party",
+        "classes": ['雙人拉丁社交舞Bachata Fusion', '單人舞Jazz Fusion'],
+        "member": [],
+
+    },
+    {
         "id": "eric-wang",
         "name": "Eric Wang",
         "hide": false,
