@@ -139,20 +139,41 @@ export const locateList = [
         name: 'DOL舞蹈排練場',
         city: "taichung",
         url: 'https://maps.app.goo.gl/13ckbCCJCwdQyREJ7'
-    }, {
+    },
+    {
+        id: 'b16-tainan',
+        name: '臺南文化創意產業園區',
+        city: "tainan",
+        url: 'https://maps.app.goo.gl/yZCr4wAYrxdm3Pjb8'
+    },
+    {
         id: 'jayHsuAlinaTsai-latin-standard-dance-studio',
         name: '許哲睿蔡宛蓁國標舞蹈教室',
         city: "kaohsiung",
         url: 'https://maps.app.goo.gl/sy3S3sScENBDRCGU9'
-    },{
+    },
+    {
         id: 'caesar-art',
         name: '凱撒藝術廣場 6 F',
         city: "kaohsiung",
         url: 'https://maps.app.goo.gl/AD2mKpkpUnzDNCa76'
-    },{
+    },
+    {
         id: 'social-hub',
         name: 'Social Hub',
         city: "kaohsiung",
         url: "https://maps.app.goo.gl/Yut7ULQfNVWgEwdU7"
+    },
+    {
+        id: 'chito',
+        name: '小嶼事',
+        city: 'pingtung',
+        url: 'https://maps.app.goo.gl/v5om3AHhPnBVwfnbA'
+    },
+    {
+        id: 'yello-house',
+        name: 'Yellow House',
+        city: 'pingtung',
+        url: 'https://maps.app.goo.gl/2uyCa68vHdGvjdWNA'
     }
 ]
