@@ -1,5 +1,6 @@
 {
   "title": "Taiwan Social Dance Guide",
+  "description": "Dedicated of providing the social dance information",
   "load_data_failed": "data fetching failed😭...Plead wait for the fixing",
   "check_events": "Check More Events",
   "check_guides": "Check Social Guides",

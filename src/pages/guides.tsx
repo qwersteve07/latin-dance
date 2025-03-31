@@ -56,12 +56,12 @@ export default function Guides() {
   return (
     <>
       <NextSeo
-        title={t('guides.title')}
+        title={`${t('title')} | ${t('guides.title')}`}
         description={t('guides.description')}
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/guides',
-          siteName: `Taiwan Social Dance Guide | ${t('guides.title')}`,
+          siteName: `${t('title')} | ${t('guides.title')}`,
           description: t('guides.description'),
         }}
       />

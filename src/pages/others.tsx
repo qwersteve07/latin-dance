@@ -87,12 +87,12 @@ export default function Rental() {
     return (
         <>
             <NextSeo
-                title={t('others.title')}
+                title={`${t('title')} | ${t('others.title')}`}
                 description={t('others.description')}
                 openGraph={{
                     type: 'website',
                     url: 'http://social-dance.tw/others',
-                    siteName: `Taiwan Social Dance Guide | ${t('others.title')}`,
+                    siteName: `${t('title')} | ${t('others.title')}`,
                     description: t('others.description'),
                 }}
             />

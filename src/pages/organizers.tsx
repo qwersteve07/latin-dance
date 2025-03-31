@@ -52,12 +52,12 @@ export default function Organizers() {
   return (
     <>
       <NextSeo
-        title={t('organizers.title')}
+        title={`${t('title')} | ${t('organizers.title')}`}
         description={t('organizers.description')}
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/organizers',
-          siteName: `Taiwan Social Dance Guide | ${t('organizers.title')}`,
+          siteName: `${t('title')} | ${t('organizers.title')}`,
           description: t('organizers.description'),
         }}
       />
