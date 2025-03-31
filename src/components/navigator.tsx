@@ -57,7 +57,7 @@ export default function Navigator() {
   const SelectCity = () => {
     return (
       <Select
-        className="w-32 hover:border-red-500"
+        className="w-36 hover:border-red-500"
         defaultValue="taipei"
         value={appStore.currentCity}
         onChange={value => appStore.setCurrentCity(value || '')}

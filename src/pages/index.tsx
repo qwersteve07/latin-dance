@@ -184,11 +184,20 @@ const City = () => {
   const [cookies] = useCookies(['NEXT_LOCALE']);
   const currentLocale = !cookies['NEXT_LOCALE'] || cookies.NEXT_LOCALE === 'tw' ? 'tw' : 'en'
 
+  const ChineseName = () => {
+    if (appStore.currentCity === 'south-taiwan') return '台南/高雄'
+    return citiesList.find((city: any) => city.id === appStore.currentCity)?.name || ''
+  }
+
+  const EnglishName = () => {
+    if (appStore.currentCity === 'south-taiwan') return 'Tainan/Kaohsiung'
+    return appStore.currentCity.split('').map((t, i) => {
+      return i === 0 ? t.toUpperCase() : t
+    }).join('')
+  }
+
   return (
-    <span className="border-b-4 border-red-500 px-1">{currentLocale === 'tw' ? citiesList.find((city: any) => city.id === appStore.currentCity)?.name || '' :
-      appStore.currentCity.split('').map((t, i) => {
-        return i === 0 ? t.toUpperCase() : t
-      }).join('')}</span>
+    <span className="border-b-4 border-red-500 px-1">{currentLocale === 'tw' ? <ChineseName /> : <EnglishName />}</span>
   )
 }
 
