@@ -149,5 +149,10 @@ export const locateList = [
         name: '凱撒藝術廣場 6 F',
         city: "kaohsiung",
         url: 'https://maps.app.goo.gl/AD2mKpkpUnzDNCa76'
+    },{
+        id: 'social-hub',
+        name: 'Social Hub',
+        city: "kaohsiung",
+        url: "https://maps.app.goo.gl/Yut7ULQfNVWgEwdU7"
     }
 ]
