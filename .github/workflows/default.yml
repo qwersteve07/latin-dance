@@ -35,9 +35,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
       - name: Set up SSH key
         run: ssh-keyscan -H ${{ secrets.DROPLET_IP }} >> ~/.ssh/known_hosts
 
@@ -48,8 +45,11 @@ jobs:
       - name: sync build files
         run: rsync -avhzr .next/. ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:/root/social-dance/.next
 
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: sync public folders files
-        run: rsync -avhzr public/. ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:/root/social-dance/public
+        run: rsync -avhzr ./public/. ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:/root/social-dance/public
 
       - name: run service
         run: ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} "pm2 restart 0"
