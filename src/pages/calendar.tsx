@@ -139,12 +139,12 @@ export default function Calendar() {
   return (
     <>
       <NextSeo
-        title={t('calendar.title')}
+        title={`${t('title')} | ${t('calendar.title')}`}
         description={t('calendar.description')}
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/calendar',
-          siteName: `Taiwan Social Dance Guide | ${t('calendar.title')}`,
+          siteName: `${t('title')} | ${t('calendar.title')}`,
           description: t('calendar.description'),
         }}
       />

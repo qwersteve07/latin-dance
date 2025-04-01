@@ -14,6 +14,7 @@ import IconLocate from '../../public/icon-location.svg'
 import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { southTaiwanCities } from "@/const/cities";
 
 export default function Organizers() {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -32,7 +33,13 @@ export default function Organizers() {
 
   useEffect(() => {
     if (!appStore.currentCity) return
-    const filteredOrganizersList = organizerList.filter(t => !t.hide).filter(o => o.city === appStore.currentCity)
+    const filteredOrganizersList = organizerList.filter(t => !t.hide).filter(o => {
+      if (appStore.currentCity === 'south-taiwan') {
+        return southTaiwanCities.includes(o.city)
+      } else {
+        return o.city === appStore.currentCity
+      }
+    })
     if (!Array.isArray(filteredOrganizersList)) return
     setActiveOrganizerList(filteredOrganizersList)
     setActiveTab(filteredOrganizersList[0].id);
@@ -45,12 +52,12 @@ export default function Organizers() {
   return (
     <>
       <NextSeo
-        title={t('organizers.title')}
+        title={`${t('title')} | ${t('organizers.title')}`}
         description={t('organizers.description')}
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/organizers',
-          siteName: `Taiwan Social Dance Guide | ${t('organizers.title')}`,
+          siteName: `${t('title')} | ${t('organizers.title')}`,
           description: t('organizers.description'),
         }}
       />

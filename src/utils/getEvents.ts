@@ -1,3 +1,4 @@
+import { southTaiwanCities } from "@/const/cities";
 import { locateList } from "@/const/locate";
 import { Event } from "@/types/event";
 import dayjs from "dayjs";
@@ -55,6 +56,10 @@ export function getCurrentWeekEvents(events: Array<Event>) {
 export function getEventsFilterByCity(events: Array<Event>, city: string) {
     return events.filter((event: Event) => {
         const eventCity = locateList.find(x => x.id === event.locate)
-        return eventCity?.city === city
+        if(city === 'south-taiwan'){
+            return southTaiwanCities.includes(eventCity?.city || '')
+        }else{
+            return eventCity?.city === city
+        }
     })
 }

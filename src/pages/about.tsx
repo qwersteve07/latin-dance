@@ -10,12 +10,12 @@ export default function About() {
     return (
         <div className="leading-8">
             <NextSeo
-                title={t('about.title')}
+                title={`${t('title')} | ${t('about.title')}`}
                 description={t('about.description')}
                 openGraph={{
                     type: 'website',
                     url: 'http://social-dance.tw/about',
-                    siteName: `Taiwan Social Dance Guide | ${t('about.title')}`,
+                    siteName: `${t('title')} | ${t('about.title')}`,
                     description: t('about.description'),
                 }}
             />

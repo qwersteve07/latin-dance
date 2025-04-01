@@ -8,7 +8,9 @@ export const citiesList = [
         name: '台中',
     },
     {
-        id: 'kaohsiung',
-        name: '高雄',
-    },
+        id: 'south-taiwan', // includes kaohsiung / tainan / pingtung
+        name: '南台灣'
+    }
 ]
+
+export const southTaiwanCities = ['kaohsiung', 'tainan' , 'pingtung']

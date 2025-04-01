@@ -8,13 +8,13 @@ export default function FoodMap() {
     return (
         <>
             <NextSeo
-                title={t('food_map.title')}
+                title={`${t('title')} | ${t('food_map.title')}`}
                 description={t('food_map.description')}
                 openGraph={{
                     type: 'website',
                     url: 'http://social-dance.tw/food-map',
-                    siteName: `Taiwan Social Dance Guide | ${t('food_map.title')}`,
-                    description: t('food.map.description'),
+                    siteName: `${t('title')} | ${t('food_map.title')}`,
+                    description: t('food_map.description'),
                 }}
             />
             <Title>{t('food_map.page_title')}</Title>

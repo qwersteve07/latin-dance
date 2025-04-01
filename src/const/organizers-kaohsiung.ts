@@ -36,4 +36,21 @@ export const organizerKaohsiungList = [
             image: '/ryan.png'
         }]
     },
+    {
+        "id": "hustlehustlekh",
+        "name": "Hustlehustle Kaohsiung",
+        "hide": false,
+        "city": "kaohsiung",
+        "thumbnail": "/hustlehustlekh.jpg",
+        "intro": "主要在高雄推廣使用disco音樂的Hustle與來自巴西的Zouk。\n目前設有常態課，也會不定期舉辦舞會、與邀請國內外老師來開課！",
+        "link": {
+            "facebook": "https://www.facebook.com/profile.php?id=100063792773011",
+            "instagram": "https://www.instagram.com/hustlehustlekhs",
+            "website": "",
+            "location": ""
+        },
+        "party": "不定期舉辦舞會",
+        "classes": ['hustle', 'zouk'],
+        "member": []
+    },
 ]
