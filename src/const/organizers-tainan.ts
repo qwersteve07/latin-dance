@@ -4,7 +4,7 @@ export const organizerTainanList = [
         "name": "Latin Party in Tainan",
         "hide": false,
         "city": "tainan",
-        "thumbnail": "/tainanlatin.jpg",
+        "thumbnail": "/organizers/tainanlatin.jpg",
         "intro": "",
         "link": {
             "facebook": "",
