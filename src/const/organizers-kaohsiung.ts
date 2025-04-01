@@ -17,6 +17,23 @@ export const organizerKaohsiungList = [
         "member": []
     },
     {
+        "id": "salsa_pier",
+        "name": "Salsa Pier",
+        "hide": false,
+        "city": "kaohsiung",
+        "thumbnail": "/salsa-pier.jpg",
+        "intro": "Salsa Studio@Kaohsiung",
+        "link": {
+            "facebook": "https://www.facebook.com/SalsaPier",
+            "instagram": "https://www.instagram.com/salsapier.kaohsiung/",
+            "website": "",
+            "location": ""
+        },
+        "party": "不定期舉辦舞會",
+        "classes": ['salsa', 'bachata'],
+        "member": []
+    },
+    {
         "id": "salsaton",
         "name": "Salsaton 高雄騷莎動",
         "hide": false,
@@ -35,5 +52,22 @@ export const organizerKaohsiungList = [
             name: 'Ryan',
             image: '/ryan.png'
         }]
+    },
+    {
+        "id": "hustlehustlekh",
+        "name": "Hustlehustle Kaohsiung",
+        "hide": false,
+        "city": "kaohsiung",
+        "thumbnail": "/hustlehustlekh.jpg",
+        "intro": "主要在高雄推廣使用disco音樂的Hustle與來自巴西的Zouk。\n目前設有常態課，也會不定期舉辦舞會、與邀請國內外老師來開課！",
+        "link": {
+            "facebook": "https://www.facebook.com/profile.php?id=100063792773011",
+            "instagram": "https://www.instagram.com/hustlehustlekhs",
+            "website": "",
+            "location": ""
+        },
+        "party": "不定期舉辦舞會",
+        "classes": ['hustle', 'zouk'],
+        "member": []
     },
 ]

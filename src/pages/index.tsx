@@ -16,6 +16,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useCookies } from "react-cookie";
 import { citiesList } from "@/const/cities";
+import { NextSeo } from "next-seo";
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -72,6 +73,16 @@ export default function Home() {
       <>
         <MobileEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
         <DesktopEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
+        <NextSeo
+          title={t('title')}
+          description={t('description')}
+          openGraph={{
+            type: 'website',
+            url: 'http://social-dance.tw',
+            siteName: t('title'),
+            description: t('description'),
+          }}
+        />
         <div className="flex justify-center items-center max-md:flex-col my-8 gap-4 max-md:gap-1">
           <Button className="!w-[200px]" onClick={() => router.push("/calendar")}>
             {t('check_events')}
@@ -184,11 +195,20 @@ const City = () => {
   const [cookies] = useCookies(['NEXT_LOCALE']);
   const currentLocale = !cookies['NEXT_LOCALE'] || cookies.NEXT_LOCALE === 'tw' ? 'tw' : 'en'
 
+  const ChineseName = () => {
+    if (appStore.currentCity === 'south-taiwan') return '台南/高雄'
+    return citiesList.find((city: any) => city.id === appStore.currentCity)?.name || ''
+  }
+
+  const EnglishName = () => {
+    if (appStore.currentCity === 'south-taiwan') return 'Tainan/Kaohsiung'
+    return appStore.currentCity.split('').map((t, i) => {
+      return i === 0 ? t.toUpperCase() : t
+    }).join('')
+  }
+
   return (
-    <span className="border-b-4 border-red-500 px-1">{currentLocale === 'tw' ? citiesList.find((city: any) => city.id === appStore.currentCity)?.name || '' :
-      appStore.currentCity.split('').map((t, i) => {
-        return i === 0 ? t.toUpperCase() : t
-      }).join('')}</span>
+    <span className="border-b-4 border-red-500 px-1">{currentLocale === 'tw' ? <ChineseName /> : <EnglishName />}</span>
   )
 }
 

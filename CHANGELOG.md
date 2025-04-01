@@ -2,6 +2,101 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.15.0](https://github.com/qwersteve07/latin-dance/compare/v1.14.0...v1.15.0) (2025-04-01)
+
+
+### ✨ Features
+
+* add more organizers ([70ed84a](https://github.com/qwersteve07/latin-dance/commit/70ed84a54d00148d59d5c4598bbd1a4cc870b708))
+* add salsa passion ([5faef96](https://github.com/qwersteve07/latin-dance/commit/5faef963ae6ddb13c012cba67384983e0fc40f7a))
+
+
+### 🐛 Bug Fixes
+
+* aaa jane link ([33265f8](https://github.com/qwersteve07/latin-dance/commit/33265f847698d4a0b453092c1e6128ac01071ae8))
+
+## [1.14.0](https://github.com/qwersteve07/latin-dance/compare/v1.10.0...v1.14.0) (2025-04-01)
+
+
+### ✨ Features
+
+* add CTA button ([171cab9](https://github.com/qwersteve07/latin-dance/commit/171cab9e6e40961642308d6d608434e976291068))
+* add dark mode ([d6bc688](https://github.com/qwersteve07/latin-dance/commit/d6bc688196856eb89bf43c571f303a71dd4274c1))
+* add hustlehustlekh ([14dd665](https://github.com/qwersteve07/latin-dance/commit/14dd66571c2d1985b29ca59c5a5f5f9f8066b05e))
+* add i18n settings ([c5a3e48](https://github.com/qwersteve07/latin-dance/commit/c5a3e48db1fc6988122086733238930c275ac8d7))
+* add locales ([270ecd9](https://github.com/qwersteve07/latin-dance/commit/270ecd9712bb3442f0165377e22e8f1a7767d7c9))
+* add more events template ([fd847e5](https://github.com/qwersteve07/latin-dance/commit/fd847e5c1b0db9f1eda5c30d12e809ae8c38de42))
+* add more locate ([1985159](https://github.com/qwersteve07/latin-dance/commit/1985159426d816fa2f521130bd4feb1dcf99f259))
+* add organizer jane ([2f1448a](https://github.com/qwersteve07/latin-dance/commit/2f1448ac448ec21797304b04c7810804db903ab0))
+* add practice places ([8dd521c](https://github.com/qwersteve07/latin-dance/commit/8dd521c5524ee1359c0bd974d01f8c0f1c28be45))
+* add templates for more convenient events ([7fdecec](https://github.com/qwersteve07/latin-dance/commit/7fdecec7da6a59bf742dd39916f866d455bccc42))
+* adjust el-colmado data ([3a930d7](https://github.com/qwersteve07/latin-dance/commit/3a930d719aaf1de25592bcf1e0de142a843c4202))
+* include all south taiwan cities in one group ([b9f96b1](https://github.com/qwersteve07/latin-dance/commit/b9f96b1d2a396e9e172c738e00b37e23eb4e92d8))
+* remove organizer list in guide ([31ec58a](https://github.com/qwersteve07/latin-dance/commit/31ec58a39989b494c5c7a93c6a80d572967a6336))
+* update all text to i18n ([9dc7ae6](https://github.com/qwersteve07/latin-dance/commit/9dc7ae6bc025edbbdffb41e693e72e3944bfa0d5))
+* update i18n texts ([fbca0d2](https://github.com/qwersteve07/latin-dance/commit/fbca0d267f9e10ad892a24604f4f2b14d3b85514))
+* update lock file ([475577a](https://github.com/qwersteve07/latin-dance/commit/475577a126cd76deeefb39c74c830f8afe559b68))
+* update lock file ([f4efe9d](https://github.com/qwersteve07/latin-dance/commit/f4efe9d3476cc1ae41f05796f0fd2fe50d735ead))
+* update lock files ([9420dbc](https://github.com/qwersteve07/latin-dance/commit/9420dbc87fc80139c802e08e036cd6a681ad59d6))
+* update lock yaml ([07de478](https://github.com/qwersteve07/latin-dance/commit/07de4780e922a55b380b6bfd37305e7c4bf3eabb))
+* update middleware for i18n ([e7a51bb](https://github.com/qwersteve07/latin-dance/commit/e7a51bbc44a2295d47b39c3c1d39e9d3cc9af4e6))
+* update pages for i18n ([89fbbc1](https://github.com/qwersteve07/latin-dance/commit/89fbbc10dfdf0772fc7721a3eb67a53e5b59c2e7))
+* update seo texts ([dbacb75](https://github.com/qwersteve07/latin-dance/commit/dbacb75d5e4b3435d0c35a731f579d3f1f6a3077))
+* use cookie to maintain locale ([93e7121](https://github.com/qwersteve07/latin-dance/commit/93e7121ade4c7a30e43d208bf9550c82ea0621ba))
+
+
+### 🐛 Bug Fixes
+
+* adjust middleware config ([4b22b0d](https://github.com/qwersteve07/latin-dance/commit/4b22b0dc942b5907a5661ddd7b4a62b5815a214a))
+* navigator locale ([06fc110](https://github.com/qwersteve07/latin-dance/commit/06fc110930d873bccb0fbaf351d4f171783bd29d))
+* set cookie on all path ([c3073bb](https://github.com/qwersteve07/latin-dance/commit/c3073bbe5f970bb5c450b95b1b35e824b6639f27))
+
+
+### 🔧 chore
+
+* adjust ([9e4cc4f](https://github.com/qwersteve07/latin-dance/commit/9e4cc4f805ec9feb8069aa935a1568491af86383))
+* **release:** 1.11.0 ([ece7dde](https://github.com/qwersteve07/latin-dance/commit/ece7dde9605a8601662b93dcad962b69bed0baa9))
+* **release:** 1.12.0 ([b9cb92b](https://github.com/qwersteve07/latin-dance/commit/b9cb92bc073ab7228921d853703fc782fbfe4698))
+* **release:** 1.13.0 ([1bb951d](https://github.com/qwersteve07/latin-dance/commit/1bb951d28e2b4f6fe946cd9b96d40dc29b7b59f8))
+
+## [1.13.0](https://github.com/qwersteve07/latin-dance/compare/v1.12.0...v1.13.0) (2025-03-31)
+
+
+### ✨ Features
+
+* add organizer jane ([2f1448a](https://github.com/qwersteve07/latin-dance/commit/2f1448ac448ec21797304b04c7810804db903ab0))
+
+## [1.12.0](https://github.com/qwersteve07/latin-dance/compare/v1.11.0...v1.12.0) (2025-03-29)
+
+
+### ✨ Features
+
+* add i18n settings ([c5a3e48](https://github.com/qwersteve07/latin-dance/commit/c5a3e48db1fc6988122086733238930c275ac8d7))
+* add locales ([270ecd9](https://github.com/qwersteve07/latin-dance/commit/270ecd9712bb3442f0165377e22e8f1a7767d7c9))
+* add more events template ([fd847e5](https://github.com/qwersteve07/latin-dance/commit/fd847e5c1b0db9f1eda5c30d12e809ae8c38de42))
+* add practice places ([8dd521c](https://github.com/qwersteve07/latin-dance/commit/8dd521c5524ee1359c0bd974d01f8c0f1c28be45))
+* adjust el-colmado data ([3a930d7](https://github.com/qwersteve07/latin-dance/commit/3a930d719aaf1de25592bcf1e0de142a843c4202))
+* remove organizer list in guide ([31ec58a](https://github.com/qwersteve07/latin-dance/commit/31ec58a39989b494c5c7a93c6a80d572967a6336))
+* update all text to i18n ([9dc7ae6](https://github.com/qwersteve07/latin-dance/commit/9dc7ae6bc025edbbdffb41e693e72e3944bfa0d5))
+* update i18n texts ([fbca0d2](https://github.com/qwersteve07/latin-dance/commit/fbca0d267f9e10ad892a24604f4f2b14d3b85514))
+* update lock file ([f4efe9d](https://github.com/qwersteve07/latin-dance/commit/f4efe9d3476cc1ae41f05796f0fd2fe50d735ead))
+* update lock files ([9420dbc](https://github.com/qwersteve07/latin-dance/commit/9420dbc87fc80139c802e08e036cd6a681ad59d6))
+* update middleware for i18n ([e7a51bb](https://github.com/qwersteve07/latin-dance/commit/e7a51bbc44a2295d47b39c3c1d39e9d3cc9af4e6))
+* update pages for i18n ([89fbbc1](https://github.com/qwersteve07/latin-dance/commit/89fbbc10dfdf0772fc7721a3eb67a53e5b59c2e7))
+* use cookie to maintain locale ([93e7121](https://github.com/qwersteve07/latin-dance/commit/93e7121ade4c7a30e43d208bf9550c82ea0621ba))
+
+
+### 🐛 Bug Fixes
+
+* adjust middleware config ([4b22b0d](https://github.com/qwersteve07/latin-dance/commit/4b22b0dc942b5907a5661ddd7b4a62b5815a214a))
+* navigator locale ([06fc110](https://github.com/qwersteve07/latin-dance/commit/06fc110930d873bccb0fbaf351d4f171783bd29d))
+* set cookie on all path ([c3073bb](https://github.com/qwersteve07/latin-dance/commit/c3073bbe5f970bb5c450b95b1b35e824b6639f27))
+
+
+### 🔧 chore
+
+* adjust ([9e4cc4f](https://github.com/qwersteve07/latin-dance/commit/9e4cc4f805ec9feb8069aa935a1568491af86383))
+
 ## [1.11.0](https://github.com/qwersteve07/latin-dance/compare/v1.7.0...v1.11.0) (2025-03-25)
 
 
