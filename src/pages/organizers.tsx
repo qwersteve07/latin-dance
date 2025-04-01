@@ -122,7 +122,7 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
           if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">{t('organizers.individual')}</Tabs.Tab>
 
           return (
-            <Tabs.Tab value={item.id} key={item.id} className="w-[200px] hover:bg-background-sub">
+            <Tabs.Tab value={item.id} key={item.id} className="w-[250px] hover:bg-background-sub">
               {item.name}
             </Tabs.Tab>
           );

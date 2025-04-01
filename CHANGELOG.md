@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.16.0](https://github.com/qwersteve07/latin-dance/compare/v1.15.0...v1.16.0) (2025-04-01)
+
+
+### ✨ Features
+
+* change organizers path ([59e88da](https://github.com/qwersteve07/latin-dance/commit/59e88da7a216f62e7d5b3b4a7dd3db06687fcf40))
+* remove priority value on Image ([2eeb494](https://github.com/qwersteve07/latin-dance/commit/2eeb4943545a54a90372664fdcaa29877d81b1c9))
+
+
+### 👷 CI
+
+* sync public folders files to server ([be71d98](https://github.com/qwersteve07/latin-dance/commit/be71d988016dd23926666e120ed0cf7c978af007))
+
 ## [1.15.0](https://github.com/qwersteve07/latin-dance/compare/v1.14.0...v1.15.0) (2025-04-01)
 
 
