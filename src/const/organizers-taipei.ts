@@ -471,7 +471,7 @@ export const organizerTaipeiList = [
         "link": {
             "facebook": "",
             "instagram": "https://www.instagram.com/aaaj.ane",
-            "website": "bio.site/Dancingmuse",
+            "website": "https://bio.site/Dancingmuse",
             "location": ""
         },
         "party": "Bachata DJ\nRose & Wine Bachata Party",
