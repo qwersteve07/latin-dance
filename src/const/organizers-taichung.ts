@@ -34,6 +34,23 @@ export const organizerTaichungList = [
         "member": []
     },
     {
+        "id": "salsa-passion",
+        "name": "Salsa Passion",
+        "hide": false,
+        "city": "taichung",
+        "thumbnail": "/salsa-passion.jpg",
+        "intro": "salsa & bachata & merengue 舞蹈教學與推廣",
+        "link": {
+            "facebook": "https://www.facebook.com/salsapassionfun/",
+            "instagram": "https://www.instagram.com/salsa_taichung",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": ['salsa', 'bachata'],
+        "member": []
+    },
+    {
         "id": "tta-art-space",
         "name": "TTA ART SPACE",
         "hide": false,
