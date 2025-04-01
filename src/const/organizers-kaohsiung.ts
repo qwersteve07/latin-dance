@@ -17,6 +17,23 @@ export const organizerKaohsiungList = [
         "member": []
     },
     {
+        "id": "salsa_pier",
+        "name": "Salsa Pier",
+        "hide": false,
+        "city": "kaohsiung",
+        "thumbnail": "/salsa-pier.jpg",
+        "intro": "Salsa Studio@Kaohsiung",
+        "link": {
+            "facebook": "https://www.facebook.com/SalsaPier",
+            "instagram": "https://www.instagram.com/salsapier.kaohsiung/",
+            "website": "",
+            "location": ""
+        },
+        "party": "不定期舉辦舞會",
+        "classes": ['salsa', 'bachata'],
+        "member": []
+    },
+    {
         "id": "salsaton",
         "name": "Salsaton 高雄騷莎動",
         "hide": false,

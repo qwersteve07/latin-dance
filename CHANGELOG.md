@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.15.0](https://github.com/qwersteve07/latin-dance/compare/v1.14.0...v1.15.0) (2025-04-01)
+
+
+### ✨ Features
+
+* add more organizers ([70ed84a](https://github.com/qwersteve07/latin-dance/commit/70ed84a54d00148d59d5c4598bbd1a4cc870b708))
+* add salsa passion ([5faef96](https://github.com/qwersteve07/latin-dance/commit/5faef963ae6ddb13c012cba67384983e0fc40f7a))
+
+
+### 🐛 Bug Fixes
+
+* aaa jane link ([33265f8](https://github.com/qwersteve07/latin-dance/commit/33265f847698d4a0b453092c1e6128ac01071ae8))
+
 ## [1.14.0](https://github.com/qwersteve07/latin-dance/compare/v1.10.0...v1.14.0) (2025-04-01)
 
 

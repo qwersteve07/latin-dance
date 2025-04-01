@@ -321,6 +321,22 @@ export const organizerTaipeiList = [
         ]
     },
     {
+        "id": "taiwan-latin-smash",
+        "name": "Taiwan Latin Smash 臺灣拉丁重擊",
+        "city": "taipei",
+        "thumbnail": "/taiwan-latin-smash.jpg",
+        "intro": "「Taiwan Latin Smash 臺灣重擊拉丁」來自台灣的拉丁大樂團",
+        "classes": [],
+        "link": {
+            "facebook": "https://www.facebook.com/TaiwanLatinSmash",
+            "instagram": "https://www.instagram.com/taiwanlatinsmash",
+            "website": "",
+            "location": ""
+        },
+        "party": "不定期舉辦樂隊 party 表演",
+        "member": []
+    },
+    {
         "id": "zouk-it",
         "name": "Zouk It",
         "city": "taipei",
@@ -455,7 +471,7 @@ export const organizerTaipeiList = [
         "link": {
             "facebook": "",
             "instagram": "https://www.instagram.com/aaaj.ane",
-            "website": "bio.site/Dancingmuse",
+            "website": "https://bio.site/Dancingmuse",
             "location": ""
         },
         "party": "Bachata DJ\nRose & Wine Bachata Party",
