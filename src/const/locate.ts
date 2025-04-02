@@ -147,6 +147,12 @@ export const locateList = [
         url: 'https://maps.app.goo.gl/yZCr4wAYrxdm3Pjb8'
     },
     {
+        id: 'rah',
+        name: 'RAH Bar / Dessert',
+        city: "tainan",
+        url: 'https://maps.app.goo.gl/NTToYB6vQCxCPkZb9'
+    },
+    {
         id: 'jayHsuAlinaTsai-latin-standard-dance-studio',
         name: '許哲睿蔡宛蓁國標舞蹈教室',
         city: "kaohsiung",
