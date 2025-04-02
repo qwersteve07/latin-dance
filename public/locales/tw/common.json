@@ -2,6 +2,13 @@
   "title": "台灣社交舞指南",
   "description": "致力於提供最完善的社交舞資訊平台",
   "load_data_failed": "讀取資料失敗，可能發生一些問題😭請等我修復...",
+  "a2hs": {
+    "announce": "👆點擊加入到主畫面！",
+    "title": "將網站加入到手機主畫面",
+    "description": "加入到主畫面後，就可直接點擊 App Icon 快速查看當天的活動了喔！放心，我不會偷你們的資料的...",
+    "confirm": "加入",
+    "cancel": "先不用"
+  },
   "check_events": "查看所有活動",
   "check_guides": "查看舞會指引",
   "check_organizers": "查看團隊列表",

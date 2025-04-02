@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.18.0](https://github.com/qwersteve07/latin-dance/compare/v1.17.0...v1.18.0) (2025-04-02)
+
+
+### ✨ Features
+
+* add A2HS banner ([14f0090](https://github.com/qwersteve07/latin-dance/commit/14f0090b7d402a0ad07a1a0a568c3b1f6c02df95))
+* add experimental-https ([c5c49d0](https://github.com/qwersteve07/latin-dance/commit/c5c49d06d0f406334a097ad1cbf06743f0b5a0c5))
+* remove useless files ([287e558](https://github.com/qwersteve07/latin-dance/commit/287e558c434433c0bd31f415b5234df725b258de))
+* update gitignore ([02fbff1](https://github.com/qwersteve07/latin-dance/commit/02fbff1723fc3fda8138244f9c0ad3c3040e4d9d))
+* update package-lock ([993373c](https://github.com/qwersteve07/latin-dance/commit/993373cd2bb9f367145c6731537ebb289d9385c0))
+* update styles ([7f41160](https://github.com/qwersteve07/latin-dance/commit/7f411604e2239764037334d42a1ec213a892f85a))
+
+
+### 🐛 Bug Fixes
+
+* add check repository ([8c79daa](https://github.com/qwersteve07/latin-dance/commit/8c79daa6611457f328d619ea81c165383eb17f02))
+* adjust checkout respository path ([97f2bce](https://github.com/qwersteve07/latin-dance/commit/97f2bced8c127cea5bc4a88515d991cb99d58908))
+* fix public path script in action ([39e4d4f](https://github.com/qwersteve07/latin-dance/commit/39e4d4fbb9a11d5194290918db3488244b0745f0))
+
 ## [1.17.0](https://github.com/qwersteve07/latin-dance/compare/v1.16.0...v1.17.0) (2025-04-02)
 
 
