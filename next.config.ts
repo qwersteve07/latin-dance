@@ -1,5 +1,11 @@
 import type { NextConfig } from "next";
 import { i18n } from './next-i18next.config';
+import withPWAInit from "@ducanh2912/next-pwa";
+
+const withPWA = withPWAInit({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+})
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -43,4 +49,4 @@ const nextConfig: NextConfig = {
   i18n
 };
 
-export default nextConfig;
+export default withPWA(nextConfig);
