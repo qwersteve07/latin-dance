@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.17.0](https://github.com/qwersteve07/latin-dance/compare/v1.16.0...v1.17.0) (2025-04-02)
+
+
+### ✨ Features
+
+* add location ([40010bf](https://github.com/qwersteve07/latin-dance/commit/40010bf7bd0c8467d473e5da3969e312e3eecf6e))
+* add manifest ([5fad6ae](https://github.com/qwersteve07/latin-dance/commit/5fad6aedb986e48670b2a32a93c46990f4824608))
+* add next pwa settings ([7f259ec](https://github.com/qwersteve07/latin-dance/commit/7f259ec9939f7443ea02e56d86b056cf4c7514b5))
+* add webpush ([11b079d](https://github.com/qwersteve07/latin-dance/commit/11b079d55bab974760c357f4905ebdadb88f95d6))
+* delete manifest.ts and add json ([b20b896](https://github.com/qwersteve07/latin-dance/commit/b20b896267b0c31545b7cba3a4a774670cd85ac5))
+* delete useless file ([f7e2b10](https://github.com/qwersteve07/latin-dance/commit/f7e2b101f26dabd2318f1407205dd4ff5a41e4ac))
+* hide code ([19b1fe7](https://github.com/qwersteve07/latin-dance/commit/19b1fe7963cd8cfe559ee0a5082a424f9055e874))
+
 ## [1.16.0](https://github.com/qwersteve07/latin-dance/compare/v1.15.0...v1.16.0) (2025-04-01)
 
 
