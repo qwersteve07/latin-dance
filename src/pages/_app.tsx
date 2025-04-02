@@ -25,9 +25,6 @@ function App({ Component, pageProps }: AppProps) {
 		        `}
 			</Script>
 			<DefaultSeo
-				defaultTitle='Taiwan Social Dance Guide | 台灣社交舞指南'
-				titleTemplate='Taiwan Social Dance Guide | %s'
-				description="致力於提供最完善的拉丁社交舞資訊平台"
 				canonical="http://social-dance.tw"
 				additionalMetaTags={
 					[
@@ -59,10 +56,6 @@ function App({ Component, pageProps }: AppProps) {
 
 				]}
 				openGraph={{
-					type: 'website',
-					url: 'http://social-dance.tw',
-					siteName: 'Taiwan Social Dance Guide | 台灣社交舞指南',
-					description: '致力於提供最完善的社交舞資訊平台',
 					images: [
 						{
 							url: '/og.png', width: 800, height: 600, type: 'images/png'

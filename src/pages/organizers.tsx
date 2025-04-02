@@ -52,12 +52,12 @@ export default function Organizers() {
   return (
     <>
       <NextSeo
-        title={t('organizers.title')}
+        title={`${t('title')} | ${t('organizers.title')}`}
         description={t('organizers.description')}
         openGraph={{
           type: 'website',
           url: 'http://social-dance.tw/organizers',
-          siteName: `Taiwan Social Dance Guide | ${t('organizers.title')}`,
+          siteName: `${t('title')} | ${t('organizers.title')}`,
           description: t('organizers.description'),
         }}
       />
@@ -122,7 +122,7 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
           if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">{t('organizers.individual')}</Tabs.Tab>
 
           return (
-            <Tabs.Tab value={item.id} key={item.id} className="w-[200px] hover:bg-background-sub">
+            <Tabs.Tab value={item.id} key={item.id} className="w-[250px] hover:bg-background-sub">
               {item.name}
             </Tabs.Tab>
           );

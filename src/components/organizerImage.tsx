@@ -8,7 +8,6 @@ export default function OrganizerImage({ src, alt }: { src: string, alt: string 
         src={src}
         alt={alt}
         fill
-        priority
       />
     </div>
   );

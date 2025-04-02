@@ -86,7 +86,6 @@ export default function EditEvents() {
     const startAtPickerControl = (
         <ActionIcon variant="subtle" color="gray" onClick={() => startAtRef.current?.showPicker()}>
             <Image
-                priority
                 src='/icon-clock.svg'
                 alt="clock"
                 width="16"
@@ -98,7 +97,6 @@ export default function EditEvents() {
     const endAtPickerControl = (
         <ActionIcon variant="subtle" color="gray" onClick={() => endAtRef.current?.showPicker()}>
             <Image
-                priority
                 src='/icon-clock.svg'
                 alt="clock"
                 width="16"

@@ -16,6 +16,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useCookies } from "react-cookie";
 import { citiesList } from "@/const/cities";
+import { NextSeo } from "next-seo";
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -72,6 +73,16 @@ export default function Home() {
       <>
         <MobileEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
         <DesktopEvents events={currentWeekEvents} setSelectEvent={setSelectEvent} open={open} />
+        <NextSeo
+          title={t('title')}
+          description={t('description')}
+          openGraph={{
+            type: 'website',
+            url: 'http://social-dance.tw',
+            siteName: t('title'),
+            description: t('description'),
+          }}
+        />
         <div className="flex justify-center items-center max-md:flex-col my-8 gap-4 max-md:gap-1">
           <Button className="!w-[200px]" onClick={() => router.push("/calendar")}>
             {t('check_events')}
