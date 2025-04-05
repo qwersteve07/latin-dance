@@ -177,6 +177,12 @@ export const locateList = [
         url: "https://maps.app.goo.gl/BJZ7p5CCKsRv1TYFA"
     },
     {
+        id: 'leaploom',
+        name: '艾萊家',
+        city: 'kaohsiung',
+        url: "https://maps.app.goo.gl/eULb39mKCSAyEJ787"
+    },
+    {
         id: 'chito',
         name: '小嶼事',
         city: 'pingtung',
