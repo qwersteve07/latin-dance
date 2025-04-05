@@ -312,5 +312,17 @@ export const eventsTemplate = {
         "fee": "400 TWD",
         "content": "",
         "note": '',
+    },
+    "mini-social-party": {
+        "title": "Mini Social Party",
+        "host": "salsa6",
+        "locate": 'social-hub',
+        "rate": "Salsa / Bachata",
+        "types": ["salsa on 2", "bachata"],
+        "startAt": "19:30",
+        "endAt": "22:30",
+        "fee": "200 TWD",
+        "content": "",
+        "note": '',
     }
 }
