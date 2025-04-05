@@ -171,6 +171,12 @@ export const locateList = [
         url: "https://maps.app.goo.gl/Yut7ULQfNVWgEwdU7"
     },
     {
+        id: 'banana-music',
+        name: '駁二．BANANA音樂館',
+        city: 'kaohsiung',
+        url: "https://maps.app.goo.gl/BJZ7p5CCKsRv1TYFA"
+    },
+    {
         id: 'chito',
         name: '小嶼事',
         city: 'pingtung',
