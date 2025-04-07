@@ -135,6 +135,12 @@ export const locateList = [
         url: 'https://maps.app.goo.gl/ReuJzzB9yqyvwZxAA'
     },
     {
+        id: 'cuppa-vv-cafe',
+        name: 'Cuppa VV Cafe',
+        city: 'taichung',
+        url: 'https://maps.app.goo.gl/tdnPgN98Dw6Dipw48'
+    },
+    {
         id: 'dol-dance-studio',
         name: 'DOL舞蹈排練場',
         city: "taichung",
