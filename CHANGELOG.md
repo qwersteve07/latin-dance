@@ -2,6 +2,62 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.19.0](https://github.com/qwersteve07/latin-dance/compare/v1.13.0...v1.19.0) (2025-04-08)
+
+
+### ✨ Features
+
+* add A2HS banner ([14f0090](https://github.com/qwersteve07/latin-dance/commit/14f0090b7d402a0ad07a1a0a568c3b1f6c02df95))
+* add banana ([64a1ddb](https://github.com/qwersteve07/latin-dance/commit/64a1ddbdbd1d4ce32c0c090107fc0dce50a493ab))
+* add experimental-https ([c5c49d0](https://github.com/qwersteve07/latin-dance/commit/c5c49d06d0f406334a097ad1cbf06743f0b5a0c5))
+* add hustlehustlekh ([14dd665](https://github.com/qwersteve07/latin-dance/commit/14dd66571c2d1985b29ca59c5a5f5f9f8066b05e))
+* add locate ([376bd84](https://github.com/qwersteve07/latin-dance/commit/376bd84dfd7f08ca07d3ecb60fc0034e0d67ef17))
+* add locates leaploom ([898920d](https://github.com/qwersteve07/latin-dance/commit/898920dbc8b3f57f0fe7dcdaee61fa7f60aeca24))
+* add location ([40010bf](https://github.com/qwersteve07/latin-dance/commit/40010bf7bd0c8467d473e5da3969e312e3eecf6e))
+* add manifest ([5fad6ae](https://github.com/qwersteve07/latin-dance/commit/5fad6aedb986e48670b2a32a93c46990f4824608))
+* add mini-social ([a6873dc](https://github.com/qwersteve07/latin-dance/commit/a6873dc4b3b74341ead8656aa2e51a5a43382313))
+* add more locate ([1985159](https://github.com/qwersteve07/latin-dance/commit/1985159426d816fa2f521130bd4feb1dcf99f259))
+* add more organizers ([70ed84a](https://github.com/qwersteve07/latin-dance/commit/70ed84a54d00148d59d5c4598bbd1a4cc870b708))
+* add next pwa settings ([7f259ec](https://github.com/qwersteve07/latin-dance/commit/7f259ec9939f7443ea02e56d86b056cf4c7514b5))
+* add salsa passion ([5faef96](https://github.com/qwersteve07/latin-dance/commit/5faef963ae6ddb13c012cba67384983e0fc40f7a))
+* add webpush ([11b079d](https://github.com/qwersteve07/latin-dance/commit/11b079d55bab974760c357f4905ebdadb88f95d6))
+* change organizers path ([59e88da](https://github.com/qwersteve07/latin-dance/commit/59e88da7a216f62e7d5b3b4a7dd3db06687fcf40))
+* delete manifest.ts and add json ([b20b896](https://github.com/qwersteve07/latin-dance/commit/b20b896267b0c31545b7cba3a4a774670cd85ac5))
+* delete useless file ([f7e2b10](https://github.com/qwersteve07/latin-dance/commit/f7e2b101f26dabd2318f1407205dd4ff5a41e4ac))
+* hide code ([19b1fe7](https://github.com/qwersteve07/latin-dance/commit/19b1fe7963cd8cfe559ee0a5082a424f9055e874))
+* include all south taiwan cities in one group ([b9f96b1](https://github.com/qwersteve07/latin-dance/commit/b9f96b1d2a396e9e172c738e00b37e23eb4e92d8))
+* remove priority value on Image ([2eeb494](https://github.com/qwersteve07/latin-dance/commit/2eeb4943545a54a90372664fdcaa29877d81b1c9))
+* remove useless files ([287e558](https://github.com/qwersteve07/latin-dance/commit/287e558c434433c0bd31f415b5234df725b258de))
+* update ga ([3b52010](https://github.com/qwersteve07/latin-dance/commit/3b5201030ff590dfa452e3f08191a7d1e0626438))
+* update gitignore ([02fbff1](https://github.com/qwersteve07/latin-dance/commit/02fbff1723fc3fda8138244f9c0ad3c3040e4d9d))
+* update lock file ([d6ccd8b](https://github.com/qwersteve07/latin-dance/commit/d6ccd8b49a0b287b658e5a2908521bbe4cd9641f))
+* update lock file ([475577a](https://github.com/qwersteve07/latin-dance/commit/475577a126cd76deeefb39c74c830f8afe559b68))
+* update package-lock ([993373c](https://github.com/qwersteve07/latin-dance/commit/993373cd2bb9f367145c6731537ebb289d9385c0))
+* update seo texts ([dbacb75](https://github.com/qwersteve07/latin-dance/commit/dbacb75d5e4b3435d0c35a731f579d3f1f6a3077))
+* update styles ([7f41160](https://github.com/qwersteve07/latin-dance/commit/7f411604e2239764037334d42a1ec213a892f85a))
+
+
+### 🐛 Bug Fixes
+
+* aaa jane link ([33265f8](https://github.com/qwersteve07/latin-dance/commit/33265f847698d4a0b453092c1e6128ac01071ae8))
+* add check repository ([8c79daa](https://github.com/qwersteve07/latin-dance/commit/8c79daa6611457f328d619ea81c165383eb17f02))
+* adjust checkout respository path ([97f2bce](https://github.com/qwersteve07/latin-dance/commit/97f2bced8c127cea5bc4a88515d991cb99d58908))
+* fix public path script in action ([39e4d4f](https://github.com/qwersteve07/latin-dance/commit/39e4d4fbb9a11d5194290918db3488244b0745f0))
+
+
+### 🔧 chore
+
+* **release:** 1.14.0 ([8464b5c](https://github.com/qwersteve07/latin-dance/commit/8464b5cccddff3ae69923c181182a14ba3824181))
+* **release:** 1.15.0 ([4b5c296](https://github.com/qwersteve07/latin-dance/commit/4b5c29653f00ea8474975ee9e82a02217854e0b4))
+* **release:** 1.16.0 ([e65ca33](https://github.com/qwersteve07/latin-dance/commit/e65ca33fdc79c99f96057429d91f4a4d5d393952))
+* **release:** 1.17.0 ([1c36324](https://github.com/qwersteve07/latin-dance/commit/1c36324e37efd3121b051393a7bdeefa3d924246))
+* **release:** 1.18.0 ([d9f14ef](https://github.com/qwersteve07/latin-dance/commit/d9f14ef999d042057a2e23e9ca434b691d3f8068))
+
+
+### 👷 CI
+
+* sync public folders files to server ([be71d98](https://github.com/qwersteve07/latin-dance/commit/be71d988016dd23926666e120ed0cf7c978af007))
+
 ## [1.18.0](https://github.com/qwersteve07/latin-dance/compare/v1.17.0...v1.18.0) (2025-04-02)
 
 
