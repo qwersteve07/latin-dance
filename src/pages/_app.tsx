@@ -15,13 +15,16 @@ function App({ Component, pageProps }: AppProps) {
 
 	return (
 		<>
-
+			<Script
+				strategy="afterInteractive"
+				src={`https://www.googletagmanager.com/gtag/js?id=G-3WRCFDGBML`}
+			/>
 			<Script id="google-analytics" strategy="afterInteractive">
 				{`
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
 					gtag('js', new Date());
-					gtag('config', 'G-S3GNBK5XWJ');
+					gtag('config', 'G-3WRCFDGBML');
 		        `}
 			</Script>
 			<DefaultSeo
