@@ -16,4 +16,21 @@ export const organizerTainanList = [
         "classes": [],
         "member": []
     },
+    {
+        "id": "mex-cafe",
+        "name": "MexCafe 老墨酒吧 Mexican restaurant & bar",
+        "hide": true,
+        "city": "tainan",
+        "thumbnail": "",
+        "intro": "",
+        "link": {
+            "facebook": "",
+            "instagram": "",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": [],
+        "member": []
+    },
 ]
