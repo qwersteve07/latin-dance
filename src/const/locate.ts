@@ -153,6 +153,12 @@ export const locateList = [
         url: 'https://maps.app.goo.gl/yZCr4wAYrxdm3Pjb8'
     },
     {
+        id: 'mex-cafe',
+        name: '老墨酒吧',
+        city: "tainan",
+        url: 'https://maps.app.goo.gl/eTbtgd15MdSj81Kg6'
+    },
+    {
         id: 'rah',
         name: 'RAH Bar / Dessert',
         city: "tainan",

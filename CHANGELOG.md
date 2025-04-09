@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.20.0](https://github.com/qwersteve07/latin-dance/compare/v1.19.0...v1.20.0) (2025-04-09)
+
+
+### ✨ Features
+
+* add mex-cafe ([0a70c45](https://github.com/qwersteve07/latin-dance/commit/0a70c45bf74369d80711ec77cc5826a86edc8c3f))
+* group events ([b912983](https://github.com/qwersteve07/latin-dance/commit/b912983ae05e60cd53cc67ce602313d1fcded931))
+
 ## [1.19.0](https://github.com/qwersteve07/latin-dance/compare/v1.13.0...v1.19.0) (2025-04-08)
 
 
