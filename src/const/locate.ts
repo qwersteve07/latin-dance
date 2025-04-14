@@ -105,6 +105,12 @@ export const locateList = [
         url: 'https://maps.app.goo.gl/vW6JG8K1JdVZo6saA'
     },
     {
+        id: 'huashan1914',
+        name: '華山1914文化創意產業園區',
+        city: 'taipei',
+        url: 'https://maps.app.goo.gl/vhG6ZtDQHCGQDcLB8'
+    },
+    {
         id: 'cigar-vie',
         name: 'Cigar Vie',
         city: "taipei",
