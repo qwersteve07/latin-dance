@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.21.0](https://github.com/qwersteve07/latin-dance/compare/v1.18.0...v1.21.0) (2025-04-28)
+
+
+### ✨ Features
+
+* add banana ([64a1ddb](https://github.com/qwersteve07/latin-dance/commit/64a1ddbdbd1d4ce32c0c090107fc0dce50a493ab))
+* add huashand ([a020601](https://github.com/qwersteve07/latin-dance/commit/a020601f965f65068e1e74c379d72f3342b019ba))
+* add locate ([376bd84](https://github.com/qwersteve07/latin-dance/commit/376bd84dfd7f08ca07d3ecb60fc0034e0d67ef17))
+* add locates leaploom ([898920d](https://github.com/qwersteve07/latin-dance/commit/898920dbc8b3f57f0fe7dcdaee61fa7f60aeca24))
+* add mex-cafe ([0a70c45](https://github.com/qwersteve07/latin-dance/commit/0a70c45bf74369d80711ec77cc5826a86edc8c3f))
+* add mini-social ([a6873dc](https://github.com/qwersteve07/latin-dance/commit/a6873dc4b3b74341ead8656aa2e51a5a43382313))
+* group events ([b912983](https://github.com/qwersteve07/latin-dance/commit/b912983ae05e60cd53cc67ce602313d1fcded931))
+* update ga ([3b52010](https://github.com/qwersteve07/latin-dance/commit/3b5201030ff590dfa452e3f08191a7d1e0626438))
+* update lock file ([d6ccd8b](https://github.com/qwersteve07/latin-dance/commit/d6ccd8b49a0b287b658e5a2908521bbe4cd9641f))
+* update salsa-passion intro ([beb7d19](https://github.com/qwersteve07/latin-dance/commit/beb7d194d4fdd5f73488fe80e5b0fd34c0aff7d1))
+
+
+### 🔧 chore
+
+* **release:** 1.19.0 ([5f45942](https://github.com/qwersteve07/latin-dance/commit/5f45942f27ccb0d2216736dc92fcede2b9f52e48))
+* **release:** 1.20.0 ([fb56c39](https://github.com/qwersteve07/latin-dance/commit/fb56c391772727aadc5f9ea18ca22a11f2d3e840))
+
 ## [1.20.0](https://github.com/qwersteve07/latin-dance/compare/v1.19.0...v1.20.0) (2025-04-09)
 
 
