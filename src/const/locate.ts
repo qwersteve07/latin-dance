@@ -85,7 +85,7 @@ export const locateList = [
     },
     {
         id: "dao",
-        name: "Dao",
+        name: "流雲道美苑",
         city: "taipei",
         url: "https://maps.app.goo.gl/59rTtmpkLat5KZVBA",
     },
