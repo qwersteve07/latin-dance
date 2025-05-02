@@ -1,36 +1,58 @@
 export const organizerTainanList = [
-    {
-        "id": "tainanlatin",
-        "name": "Latin Party in Tainan",
-        "hide": false,
-        "city": "tainan",
-        "thumbnail": "/organizers/tainanlatin.jpg",
-        "intro": "",
-        "link": {
-            "facebook": "",
-            "instagram": "https://www.instagram.com/tainanlatin",
-            "website": "",
-            "location": ""
-        },
-        "party": "不定期舉辦 Salsa / Bachata 舞會",
-        "classes": [],
-        "member": []
+  {
+    id: "tainanlatin",
+    name: "Latin Party in Tainan",
+    hide: false,
+    city: "tainan",
+    thumbnail: "/organizers/tainanlatin.jpg",
+    intro: "",
+    link: {
+      facebook: "",
+      instagram: "https://www.instagram.com/tainanlatin",
+      website: "",
+      location: "",
     },
-    {
-        "id": "mex-cafe",
-        "name": "MexCafe 老墨酒吧 Mexican restaurant & bar",
-        "hide": true,
-        "city": "tainan",
-        "thumbnail": "",
-        "intro": "",
-        "link": {
-            "facebook": "",
-            "instagram": "",
-            "website": "",
-            "location": ""
-        },
-        "party": "",
-        "classes": [],
-        "member": []
+    party: "不定期舉辦 Salsa / Bachata 舞會",
+    classes: [],
+    member: [],
+  },
+  {
+    id: "bailamore",
+    name: "Baila'more Studio",
+    hide: false,
+    city: "tainan",
+    thumbnail: "/organizers/bailamore.jpg",
+    intro: "主要在台南推廣 Bachata/Salsa\n目前設有每週日的常態課",
+    link: {
+      facebook: "",
+      instagram: "https://www.instagram.com/baila_moredancestudio",
+      website: "https://www.bailamore-studio.com",
+      location: "",
     },
-]
+    party: "",
+    classes: ["salsa", "bachata"],
+    member: [
+      {
+        name: "Sean",
+        image: "/organizers/sean.jpg",
+      },
+    ],
+  },
+  {
+    id: "mex-cafe",
+    name: "MexCafe 老墨酒吧 Mexican restaurant & bar",
+    hide: true,
+    city: "tainan",
+    thumbnail: "",
+    intro: "",
+    link: {
+      facebook: "",
+      instagram: "",
+      website: "",
+      location: "",
+    },
+    party: "",
+    classes: [],
+    member: [],
+  },
+];
