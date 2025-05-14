@@ -174,6 +174,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/13ckbCCJCwdQyREJ7",
   },
   {
+    id: "free-space-studio",
+    name: "浮藝空間舞蹈工作室",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/6L7xrwoXohGefy8FA",
+  },
+  {
     id: "b16-tainan",
     name: "臺南文化創意產業園區",
     city: "tainan",
