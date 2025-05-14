@@ -90,6 +90,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/59rTtmpkLat5KZVBA",
   },
   {
+    id: "infinity",
+    name: "Infinity 樂雅無限專業舞蹈教室",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/1gDC8j5CHfdWun8U6",
+  },
+  {
     id: "nuzone",
     name: "NUZONE",
     city: "taipei",
