@@ -557,4 +557,21 @@ export const organizerTaipeiList = [
         "classes": [],
         "member": []
     },
+    {
+        "id": "camilaYe",
+        "name": "Camila",
+        "hide": true,
+        "city": "taipei",
+        "thumbnail": "",
+        "intro": "",
+        "link": {
+            "facebook": "",
+            "instagram": "",
+            "website": "",
+            "location": ""
+        },
+        "party": "",
+        "classes": [],
+        "member": []
+    },
 ]
