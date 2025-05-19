@@ -180,6 +180,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/13ckbCCJCwdQyREJ7",
   },
   {
+    id: "beacon-studio",
+    name: "Beacon Studio",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/3V4By7zKT8DewhCi6",
+  },
+  {
     id: "free-space-studio",
     name: "浮藝空間舞蹈工作室",
     city: "taichung",
