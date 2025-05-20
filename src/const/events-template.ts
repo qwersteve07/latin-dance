@@ -159,6 +159,16 @@ export const eventsTemplate = {
         "endAt": "00:00",
         "fee": "free"
     },
+    "daos-pa": {
+        "title": "【Dao's Pa: ZBK Social, Lady's Night】淑女之夜",
+        "host": "camilaYe",
+        "locate": "dao",
+        "rate": "Zouk: Bachata: Kizomba = 2: 2: 2",
+        "types": ["zouk","bachata","kizomba"],
+        "startAt": "20:00",
+        "endAt": "23:00",
+        "fee": "350 TWD"
+    },
     "barcade-bachata-night": {
         "title": "Barcade Bachata Night",
         "host": "bachata-taiwan",
