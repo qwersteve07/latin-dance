@@ -47,6 +47,9 @@ export default function Home() {
     {
       name: 'Marshall',
       url: 'https://www.instagram.com/marshallstudiotw/'
+    }, {
+      name: 'Salsa Momentum',
+      url: 'https://www.instagram.com/salsa.momentum'
     }
   ];
 
