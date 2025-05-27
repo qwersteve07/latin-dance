@@ -165,7 +165,7 @@ const DesktopEvents = ({ events, setSelectEvent, open }: { events: [string, Even
   return (
     <div className="max-md:hidden">
       <Title>{t('events_this_week')} in<City /></Title>
-      {events.length === 0 && <NoEvents>No Social Dance this week... 🥲</NoEvents>}
+      {events.length === 0 && <NoEvents>{t('no_events')}</NoEvents>}
       {events.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full">
         {events.map(([weekday, events]) => {
           return (
@@ -222,10 +222,13 @@ const EventsGroupDay = ({ weekday, day }: { weekday: string, day: string }) => {
   return (
     <div className={`
       font-bold mb-2 gap-2 p-2 rounded-xl text-text-main bg-background-sub
-      flex justify-start items-center relative`}>
+      flex justify-start items-center relative 
+      ${weekday === dayjs().format('dddd') && 'md:bg-red-500'}
+      ${dayjs(day).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
+      `}>
       <span>{weekday.substring(0, 3)}</span>
       <span>{dayjs(day).format("MM/DD")}</span>
-      {weekday === dayjs().format('dddd') && <span className="absolute top-4 right-3 w-2 h-2 rounded-full bg-red-500" />}
+      {weekday === dayjs().format('dddd') && <span className="absolute top-4 right-3 w-2 h-2 rounded-full bg-background-sub" />}
     </div>
   )
 }
