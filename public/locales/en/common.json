@@ -2,6 +2,7 @@
   "title": "Taiwan Social Dance Guide",
   "description": "Dedicated of providing the social dance information",
   "load_data_failed": "data fetching failed😭...Plead wait for the fixing",
+  "no_events": "No Social Dance this week...🥲",
   "a2hs": {
     "announce": "👆 Click to add to Home Screen!",
     "title": "Add this website to Home Screen!",
