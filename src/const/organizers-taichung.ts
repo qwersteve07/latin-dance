@@ -1,5 +1,32 @@
 export const organizerTaichungList = [
   {
+    id: "dol",
+    name: "DOL Dance Studio",
+    hide: false,
+    city: "taichung",
+    thumbnail: "/organizers/dol.jpg",
+    intro:
+      "台中在地推廣 Bachata 舞蹈與音樂的愉悅與歡樂，透過專業教學、精彩活動、熱情舞會及精湛表演，讓更多人感受到 Bachata 的浪漫節奏與情感魅力！\n我們致力於打造充滿活力的舞蹈社群，邀請喜愛 Bachata 音樂與舞蹈的舞友或是還沒接觸過的新朋友，一同在台中體驗 Bachata 的熱情與快樂，舞出屬於自己的精彩人生！",
+    link: {
+      facebook: "https://www.facebook.com/doldance1001/",
+      instagram: "https://www.instagram.com/dancingoflife?",
+      website: "",
+      location: "https://maps.app.goo.gl/egVNgUJfWm2t6h8M8",
+    },
+    party: "每月一次在 DOL 舉辦 Bachata Fever Taichung",
+    classes: ["bachata", "拉丁舞"],
+    member: [
+      //   {
+      //     name: "Ruby",
+      //     image: "/organizers/ruby.png",
+      //   },
+      //   {
+      //     name: "Kevin",
+      //     image: "/organizers/kevin.png",
+      //   },
+    ],
+  },
+  {
     id: "la-bocca",
     name: "La BOCCA",
     hide: false,
