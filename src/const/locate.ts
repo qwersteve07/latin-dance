@@ -138,6 +138,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/UX6Y7cUaLNjLnm2Y7",
   },
   {
+    id: "wen-li-center",
+    name: "文里活動中心",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/vqeMxbZLcBYVbxwQ8",
+  },
+  {
     id: "w-social",
     name: "利百代辦公大樓 8F",
     city: "taichung",
