@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.22.0](https://github.com/qwersteve07/latin-dance/compare/v1.20.0...v1.22.0) (2025-05-28)
+
+
+### ✨ Features
+
+* add bailamore organizer ([30737e6](https://github.com/qwersteve07/latin-dance/commit/30737e68f9bcca248da196857fc3044d335bb3b8))
+* add event template ([6fa3036](https://github.com/qwersteve07/latin-dance/commit/6fa303694a65d88278a8c1b567ca3d8f58098d93))
+* add huashand ([a020601](https://github.com/qwersteve07/latin-dance/commit/a020601f965f65068e1e74c379d72f3342b019ba))
+* add locate ([fe25aef](https://github.com/qwersteve07/latin-dance/commit/fe25aef7660ae2cd258598c461a5d7c26963017e))
+* add locate ([803fe55](https://github.com/qwersteve07/latin-dance/commit/803fe559fe39f3f7df98bd3caa9f2bf20a90d480))
+* add locate ([f67ebce](https://github.com/qwersteve07/latin-dance/commit/f67ebce8b9b39570a8a8361bad631e36b8f8f25a))
+* add locate ([51ac50d](https://github.com/qwersteve07/latin-dance/commit/51ac50d8aeb39500544f02c868e07e908e6f056a))
+* add locate ([54f6086](https://github.com/qwersteve07/latin-dance/commit/54f6086796e8e66a0bf04935e8de7e2d9aa85517))
+* add location ([03e1651](https://github.com/qwersteve07/latin-dance/commit/03e16517db403fa0c890bdfa491b8c7cf599c700))
+* add marshall studio ([07c589b](https://github.com/qwersteve07/latin-dance/commit/07c589beec8ae5053f4aaea79937a07a4363b339))
+* add no_events locale ([059fbc5](https://github.com/qwersteve07/latin-dance/commit/059fbc5d28e846b7b26250973d83f4fda4117523))
+* add organizer ([ba42e65](https://github.com/qwersteve07/latin-dance/commit/ba42e6538be9ec56c6972fe6d0a4658a4a8beb07))
+* add organizers ([21a7c77](https://github.com/qwersteve07/latin-dance/commit/21a7c773540b8ef75f93a62ad5f9eb4594154851))
+* add taichung location ([6720130](https://github.com/qwersteve07/latin-dance/commit/67201306bfedc7439acbf03642bb2e1296c70cc5))
+* add taipei location ([fb69508](https://github.com/qwersteve07/latin-dance/commit/fb6950829d4f3004bd4ac2be8b30803e316c54f9))
+* change naming ([f57c222](https://github.com/qwersteve07/latin-dance/commit/f57c222cf6ebe1d6961508feb920af665d029e1a))
+* set first day as Monday ([b199dbd](https://github.com/qwersteve07/latin-dance/commit/b199dbd6bedd24ebb564f35e4148ee063806e934))
+* update events template ([4a5222c](https://github.com/qwersteve07/latin-dance/commit/4a5222c050777df0f1546ba455e7f556c4bd32c6))
+* update salsa-passion intro ([beb7d19](https://github.com/qwersteve07/latin-dance/commit/beb7d194d4fdd5f73488fe80e5b0fd34c0aff7d1))
+* update ui ([22c49ef](https://github.com/qwersteve07/latin-dance/commit/22c49ef7f4a384149d4c218cb530d55ef8849ce6))
+* 自肥一下 ([88af46b](https://github.com/qwersteve07/latin-dance/commit/88af46be3d9ea80015742fdd4ccfea8576f515e0))
+
+
+### 🔧 chore
+
+* **release:** 1.21.0 ([d56d31a](https://github.com/qwersteve07/latin-dance/commit/d56d31a0c188e483118bd2babb583f30b7d6d6b9))
+
 ## [1.21.0](https://github.com/qwersteve07/latin-dance/compare/v1.18.0...v1.21.0) (2025-04-28)
 
 
