@@ -181,6 +181,7 @@ function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) 
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
+      weekNumberCalculation="ISO"
       initialView="dayGridMonth"
       events={data.map((e) => ({
         ...e,
