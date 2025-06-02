@@ -17,6 +17,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useCookies } from "react-cookie";
 import { citiesList } from "@/const/cities";
 import { NextSeo } from "next-seo";
+import Announcement from "@/components/announce";
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -106,6 +107,11 @@ export default function Home() {
   return (
     <div>
       <EventModal opened={opened} onClose={close} data={selectEvent} />
+      {appStore.currentCity === 'taichung' && (
+        <Announcement>
+          {t('contact_w_social')}&nbsp;<a className="font-bold underline" target='_blank' href="https://ig.me/m/wsocial_taichung">W Social</a>！
+        </Announcement>)
+      }
       <section>
         <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-12">
           <h1 className="text-center text-5xl font-bold mb-2 max-md:text-3xl">
