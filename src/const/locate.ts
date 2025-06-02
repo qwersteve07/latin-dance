@@ -192,6 +192,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/3V4By7zKT8DewhCi6",
   },
   {
+    id: "hopsquared",
+    name: "哈斯葵洋酒",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/ZCk6kgeydr38dRBq6",
+  },
+  {
     id: "free-space-studio",
     name: "浮藝空間舞蹈工作室",
     city: "taichung",

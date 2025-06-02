@@ -87,13 +87,6 @@ export const organizerTaipeiList = [
       location: "",
     },
     member: [],
-    // "member": [
-    //     {
-    //         "name": "Tony",
-    //         "image": "/organizers/tony.png"
-    //     },
-
-    // ]
   },
   {
     id: "feM",
@@ -110,7 +103,7 @@ export const organizerTaipeiList = [
       location: "",
     },
     classes: ["zouk", "lambada"],
-    party: "",
+    party: "每月一次舉辦 zouk / lambada party",
     member: [
       {
         name: "Finn",
@@ -345,22 +338,6 @@ export const organizerTaipeiList = [
       location: "",
     },
     party: "不定期舉辦樂隊 party 表演",
-    member: [],
-  },
-  {
-    id: "zouk-it",
-    name: "Zouk It",
-    city: "taipei",
-    thumbnail: "/organizers/zouk-it.jpg",
-    intro: "Zouk IT [ Zouk in Taiwan ] 我們希望在台灣推廣Brazilian Zouk",
-    classes: [],
-    link: {
-      facebook: "https://www.facebook.com/ZoukinTaiwan",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "每個月一到兩次",
     member: [],
   },
   {
