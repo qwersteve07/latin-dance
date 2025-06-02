@@ -17,6 +17,7 @@ import { useDay } from "@/use/use-day";
 import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import Announcement from "@/components/announce";
 
 export const danceTypeColor = (type: string) => {
   switch (type) {
@@ -149,6 +150,11 @@ export default function Calendar() {
         }}
       />
       <Title>{t('calendar.page_title')}</Title>
+      {appStore.currentCity === 'taichung' && (
+        <Announcement>
+          {t('contact_w_social')}&nbsp;<a className="font-bold underline" target='_blank' href="https://ig.me/m/wsocial_taichung">W Social</a>！
+        </Announcement>)
+      }
       {Content()}
     </>
   );
