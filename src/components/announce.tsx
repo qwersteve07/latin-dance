@@ -7,7 +7,7 @@ const Announcement = ({ children }: { children: React.ReactNode }) => {
         flex justify-center items-center
          z-10'>
             <IconSpeaker
-                className="w-7 mt-2 fill-text-main group-hover:-rotate-[20deg] transition-[transform] z-10"
+                className="w-7 fill-white group-hover:-rotate-[20deg] transition-[transform] z-10"
             />
             <div className='pointer-events-none opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-[opacity] 
             absolute bottom-0 right-0
