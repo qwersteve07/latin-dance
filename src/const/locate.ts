@@ -144,6 +144,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/vqeMxbZLcBYVbxwQ8",
   },
   {
+    id: "dolphin_cafe",
+    name: "海豚咖啡館",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/JirGxcj11Wf2utKB8",
+  },
+  {
     id: "w-social",
     name: "利百代辦公大樓 8F",
     city: "taichung",
