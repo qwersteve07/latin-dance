@@ -72,6 +72,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/knFcbmp67U26BVW49",
   },
   {
+    id: "here-taipei",
+    name: "Here Taipei",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/a9i1bayirEKE4kj19",
+  },
+  {
     id: "chinatown-taipei",
     name: "Chinatown Taipei",
     city: "taipei",
