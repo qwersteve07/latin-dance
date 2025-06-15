@@ -270,6 +270,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/bF8tqjfSqusjnUvu5",
   },
   {
+    id: "starlight-harbour-deck",
+    name: "星光棧海景餐酒館",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/Rqj5n2gtTXMjGWUw8",
+  },
+  {
     id: "leaploom",
     name: "艾萊家",
     city: "kaohsiung",
