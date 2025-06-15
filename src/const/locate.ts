@@ -162,6 +162,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/JirGxcj11Wf2utKB8",
   },
   {
+    id: "xin_dian_pool",
+    name: "大新店游泳池",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/MSuxXeYofnRiC6Fv7",
+  },
+  {
     id: "w-social",
     name: "利百代辦公大樓 8F",
     city: "taichung",
