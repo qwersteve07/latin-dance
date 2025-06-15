@@ -222,6 +222,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/6L7xrwoXohGefy8FA",
   },
   {
+    id: "nordic-restaurant",
+    name: "憲賣｜北歐食酒餐廳",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/EQ4Sm1hFnDsKxBN28",
+  },
+  {
     id: "b16-tainan",
     name: "臺南文化創意產業園區",
     city: "tainan",
