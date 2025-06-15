@@ -1,6 +1,6 @@
 export const eventsTemplate = {
   "flow-mini-social": {
-    title: "Bachata Mini Social",
+    title: "Flow Bachata Mini Social",
     host: "flow-taipei",
     locate: "flow-taipei",
     rate: "100% Bachata",
@@ -167,8 +167,8 @@ export const eventsTemplate = {
     types: ["zouk", "bachata", "kizomba"],
     startAt: "20:00",
     endAt: "23:00",
-    fee: "350 TWD",
-    note: "早鳥優惠，女 200，男 250",
+    fee: "男 300 TWD / 女 250 TWD，早鳥優惠折 50 TWD",
+    note: "",
   },
   "daos-pa-monday": {
     title: "【Dao's Pa: Latin Social, Monday Chill】週一《祖巴基》迷你派對",
@@ -288,7 +288,7 @@ export const eventsTemplate = {
     note: "入場費含軟性飲料 1 杯",
   },
   "tta-saturday-salsa-night": {
-    title: "Saturday Salsa Night",
+    title: "TTA Saturday Salsa Night",
     host: "tta-art-space",
     locate: "tta-art-space",
     rate: "Salsa / Bachata, Salsa 略多",
@@ -301,7 +301,7 @@ export const eventsTemplate = {
     note: "",
   },
   "s-b-z-social": {
-    title: "Saturday Salsa Night",
+    title: "SBZ social",
     host: "w-social",
     locate: "w-social",
     rate: "S:B:Z 2:2:2",
@@ -334,18 +334,6 @@ export const eventsTemplate = {
     startAt: "21:00",
     endAt: "00:00",
     fee: "400 TWD",
-    content: "",
-    note: "",
-  },
-  "mini-social-party": {
-    title: "Mini Social Party",
-    host: "salsa6",
-    locate: "social-hub",
-    rate: "Salsa / Bachata",
-    types: ["salsa on 2", "bachata"],
-    startAt: "19:30",
-    endAt: "22:30",
-    fee: "200 TWD",
     content: "",
     note: "",
   },
