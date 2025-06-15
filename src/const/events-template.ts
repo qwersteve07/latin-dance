@@ -168,6 +168,7 @@ export const eventsTemplate = {
     startAt: "20:00",
     endAt: "23:00",
     fee: "350 TWD",
+    note: "早鳥優惠，女 200，男 250",
   },
   "daos-pa-monday": {
     title: "【Dao's Pa: Latin Social, Monday Chill】週一《祖巴基》迷你派對",
