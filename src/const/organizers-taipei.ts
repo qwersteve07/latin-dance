@@ -380,6 +380,23 @@ export const organizerTaipeiList = [
     member: [],
   },
   {
+    id: "zac",
+    name: "Xac",
+    hide: true,
+    city: "taipei",
+    thumbnail: "",
+    intro: "",
+    link: {
+      facebook: "",
+      instagram: "",
+      website: "",
+      location: "",
+    },
+    party: "",
+    classes: [],
+    member: [],
+  },
+  {
     id: "brass-monkey",
     name: "Brass Monkey",
     hide: true,
