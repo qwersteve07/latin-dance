@@ -250,6 +250,18 @@ export const eventsTemplate = {
     content: "",
     note: "單人入場300元，好友一起入場500元/2人",
   },
+  izouk: {
+    title: "iZouk",
+    host: "feM",
+    locate: "sunny-side",
+    rate: "zouk / lambada",
+    types: ["zouk", "lambada"],
+    startAt: "20:00",
+    endAt: "23:30",
+    fee: "350 TWD",
+    content: "",
+    note: "",
+  },
   "kizomba-night": {
     title: "好想跳Kizomba! Kizomba Party in Taipei",
     host: "meet-kiz-taiwan",
