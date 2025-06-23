@@ -246,6 +246,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/eTbtgd15MdSj81Kg6",
   },
   {
+    id: "Sprawl",
+    name: "沙野 Sprawl",
+    city: "tainan",
+    url: "https://maps.app.goo.gl/jrJqP4N8gLUwxxwXA",
+  },
+  {
     id: "rah",
     name: "RAH Bar / Dessert",
     city: "tainan",
