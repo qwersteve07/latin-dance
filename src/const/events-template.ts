@@ -250,6 +250,18 @@ export const eventsTemplate = {
     content: "",
     note: "單人入場300元，好友一起入場500元/2人",
   },
+  suave: {
+    title: "Suave Latin Socials",
+    host: "zac",
+    locate: "here-taipei",
+    rate: "Salsa:Bachata:Kizomba 1:2:1",
+    types: ["salsa on 1", "salsa on 2", "bachata", "kizomba"],
+    startAt: "21:00",
+    endAt: "00:00",
+    fee: "300 TWD",
+    content: "",
+    note: "",
+  },
   izouk: {
     title: "iZouk",
     host: "feM",
