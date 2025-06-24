@@ -381,7 +381,7 @@ export const organizerTaipeiList = [
   },
   {
     id: "zac",
-    name: "Xac",
+    name: "Zac",
     hide: true,
     city: "taipei",
     thumbnail: "",
