@@ -34,8 +34,8 @@ export default function Home() {
       url: "https://www.instagram.com/ninjavideozz.taiwan/",
     },
     {
-      name: "Social Dance Vlog",
-      url: "https://www.instagram.com/socialdancevlog/",
+      name: "Social Dance Vibe",
+      url: "https://www.instagram.com/socialdance_vibe/",
     },
     {
       name: "Tyra",
