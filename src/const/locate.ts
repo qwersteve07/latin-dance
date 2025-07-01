@@ -144,6 +144,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/YaRYStESDT1VRk4X7",
   },
   {
+    id: "taipei-social-club",
+    name: "Taipei Social Club | 台北聚交",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/aWUZEnpPU9Q6mSdA7",
+  },
+  {
     id: "salsa-me",
     name: "騷莎迷SalsaMe",
     city: "taipei",
