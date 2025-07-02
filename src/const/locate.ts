@@ -240,6 +240,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/EQ4Sm1hFnDsKxBN28",
   },
   {
+    id: "block-hub",
+    name: "Block Hub",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/z9D8HCepXBDWnXWx9",
+  },
+  {
     id: "b16-tainan",
     name: "臺南文化創意產業園區",
     city: "tainan",
