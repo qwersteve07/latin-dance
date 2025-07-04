@@ -174,6 +174,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/MSuxXeYofnRiC6Fv7",
   },
   {
+    id: "dongxing-temple",
+    name: "福隆東興宮",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/6bZa71Kx6NoHkEud9",
+  },
+  {
     id: "w-social",
     name: "利百代辦公大樓 8F",
     city: "taichung",
