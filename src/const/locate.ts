@@ -294,6 +294,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/BJZ7p5CCKsRv1TYFA",
   },
   {
+    id: "brickyardclub",
+    name: "紅磚地窖",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/1it7ao9kc3iJyoMC8",
+  },
+  {
     id: "rock-music-live-house",
     name: "洛克音樂藝文展演空間 Rock Music Live House",
     city: "kaohsiung",
