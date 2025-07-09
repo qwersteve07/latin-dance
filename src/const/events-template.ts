@@ -361,4 +361,16 @@ export const eventsTemplate = {
     content: "",
     note: "",
   },
+  "social-night-fever": {
+    title: "Social Night Fever",
+    host: "salsa_pier",
+    locate: "social-hub",
+    rate: "Salsa / Bachata",
+    types: ["salsa on 2", "bachata"],
+    startAt: "20:00",
+    endAt: "23:30",
+    fee: "400 TWD",
+    content: "",
+    note: "",
+  },
 };

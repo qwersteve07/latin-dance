@@ -78,6 +78,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/a9i1bayirEKE4kj19",
   },
   {
+    id: "triangle",
+    name: "Triangle",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/72Z2ovcG5cZNgfM59",
+  },
+  {
     id: "chinatown-taipei",
     name: "Chinatown Taipei",
     city: "taipei",
@@ -180,6 +186,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/MSuxXeYofnRiC6Fv7",
   },
   {
+    id: "dongxing-temple",
+    name: "福隆東興宮",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/6bZa71Kx6NoHkEud9",
+  },
+  {
     id: "w-social",
     name: "利百代辦公大樓 8F",
     city: "taichung",
@@ -246,6 +258,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/EQ4Sm1hFnDsKxBN28",
   },
   {
+    id: "block-hub",
+    name: "Block Hub",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/z9D8HCepXBDWnXWx9",
+  },
+  {
     id: "b16-tainan",
     name: "臺南文化創意產業園區",
     city: "tainan",
@@ -292,6 +310,12 @@ export const locateList = [
     name: "駁二．BANANA音樂館",
     city: "kaohsiung",
     url: "https://maps.app.goo.gl/BJZ7p5CCKsRv1TYFA",
+  },
+  {
+    id: "brickyardclub",
+    name: "紅磚地窖",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/1it7ao9kc3iJyoMC8",
   },
   {
     id: "rock-music-live-house",
