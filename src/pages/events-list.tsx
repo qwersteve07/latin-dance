@@ -7,8 +7,7 @@ import { Button, Group, Modal, Table } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import useSWR from "swr";
 
 export default function EventsList() {
@@ -17,6 +16,8 @@ export default function EventsList() {
     const [removedId, setRemovedId] = useState('')
     const [opened, { open, close }] = useDisclosure(false);
     const [groupData, setGroupData] = useState<any>([])
+    const [ready, setReady] = useState(false)
+    const itemRefs = useRef([]);
     const dayjs = useDay()
 
     useEffect(() => {
@@ -25,7 +26,18 @@ export default function EventsList() {
         const newData = data.result.map((d: any) => ({ ...d, month: dayjs(d.date).month() }))
 
         setGroupData(() => Object.groupBy(newData, ({ month }: { month: number }) => month.toString()));
+
     }, [data, isLoading])
+
+    useEffect(() => {
+        if (!ready) return
+        const currentMonth = dayjs().month()
+        const monthEl = itemRefs.current[currentMonth]
+        const monthTop = monthEl?.offsetTop
+        window.scrollTo({
+            top: monthTop - 50,
+        })
+    }, [ready])
 
 
     if (error) return <div>failed to load</div>;
@@ -83,9 +95,6 @@ export default function EventsList() {
     return (
         <>
             <NextSeo noindex={true} />
-            <div className="flex justify-end">
-                <Button onClick={onAddEvent}>新增活動</Button>
-            </div>
             <Modal
                 opened={opened}
                 onClose={onCloseDialog}
@@ -101,8 +110,16 @@ export default function EventsList() {
             </Modal>
             {Object.entries(groupData).map(([month, value]: [string, any]) => {
                 return (
-                    <div key={month} className="mb-20">
-                        <div className="text-4xl font-bold mb-4">{parseInt(month) + 1} 月</div>
+                    <div key={month} ref={el => {
+                        itemRefs.current[parseInt(month)] = el
+                        if (parseInt(month) === 11) {
+                            setReady(true)
+                        }
+                    }} className="mb-20">
+                        <div className="flex justify-start items-center mb-4 gap-4">
+                            <div className="text-4xl font-bold ">{parseInt(month) + 1} 月</div>
+                            <Button onClick={onAddEvent}>新增活動</Button>
+                        </div>
                         <Table stickyHeader stickyHeaderOffset={60} highlightOnHover>
                             <Table.Thead>
                                 <Table.Tr>
