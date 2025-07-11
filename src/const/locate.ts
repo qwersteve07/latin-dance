@@ -330,6 +330,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/eULb39mKCSAyEJ787",
   },
   {
+    id: "moon-cafe",
+    name: "Moon月鯉灣景觀咖啡酒吧",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/fCZaxGNGWw2jGtRY8",
+  },
+  {
     id: "chito",
     name: "小嶼事",
     city: "pingtung",
