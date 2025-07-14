@@ -17,7 +17,7 @@ export default function EventsList() {
     const [opened, { open, close }] = useDisclosure(false);
     const [groupData, setGroupData] = useState<any>([])
     const [ready, setReady] = useState(false)
-    const itemRefs = useRef([]);
+    const itemRefs: any = useRef([]);
     const dayjs = useDay()
 
     useEffect(() => {
