@@ -342,6 +342,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/fCZaxGNGWw2jGtRY8",
   },
   {
+    id: "d.g-burger",
+    name: "Damn Good Burger ",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/L4M4uW2pvmxhFnJW7",
+  },
+  {
     id: "chito",
     name: "小嶼事",
     city: "pingtung",
