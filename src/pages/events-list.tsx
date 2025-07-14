@@ -32,7 +32,7 @@ export default function EventsList() {
     useEffect(() => {
         if (!ready) return
         const currentMonth = dayjs().month()
-        const monthEl = itemRefs.current[currentMonth]
+        const monthEl: any = itemRefs.current[currentMonth]
         const monthTop = monthEl?.offsetTop
         window.scrollTo({
             top: monthTop - 50,
