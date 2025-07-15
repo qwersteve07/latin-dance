@@ -18,6 +18,8 @@ export interface AppStore {
   setCurrentCity: (city: string) => void;
   installBannerHide: boolean;
   setInstallBannerHide: () => void;
+  getFuegoBannerHide: boolean;
+  setGetFuegoBannerHide: () => void;
 }
 
 export const useAppStore = create<AppStore>()(
@@ -28,6 +30,8 @@ export const useAppStore = create<AppStore>()(
         setCurrentCity: (city: string) => set(() => ({ currentCity: city })),
         installBannerHide: false,
         setInstallBannerHide: () => set(() => ({ installBannerHide: true })),
+        getFuegoBannerHide: false,
+        setGetFuegoBannerHide: () => set(() => ({ getFuegoBannerHide: true })),
       }),
       {
         name: "appStore",
