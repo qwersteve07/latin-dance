@@ -36,7 +36,7 @@ const InstallPromptBanner = () => {
                 className="w-full bg-red-500 text-white font-bold text-center cursor-pointer"
                 onClick={open}
             >
-                <div className="container px-6 h-10 mx-auto max-w-6xl relative flex items-center justify-center max-md:justify-between">
+                <div className="container px-6 py-2 mx-auto max-w-6xl relative flex items-center justify-center max-md:justify-between max-md:py-0">
                     {t("a2hs.announce")}
                     <span
                         className="absolute right-8 max-md:static top-0 w-10 h-10 flex justify-center items-center"
