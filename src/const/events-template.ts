@@ -23,11 +23,12 @@ export const eventsTemplate = {
     title: "Flow Friday Social",
     host: "flow-taipei",
     locate: "flow-taipei",
-    rate: "上半 3S:3B + Zouk room, 下半 2S:3B:1Z + Zouk room",
+    rate: "2S:3B + Zouk room",
     types: ["salsa on 2", "bachata", "zouk"],
     startAt: "21:00",
     endAt: "00:30",
     fee: "450 TWD or 1 flow point",
+    content: "Buddy Pass, 2 person $600 before 10pm",
   },
   "flow-bachata-mi-amor": {
     title: "Flow Bachata Mi Amor",
