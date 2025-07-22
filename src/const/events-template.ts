@@ -376,4 +376,16 @@ export const eventsTemplate = {
     content: "",
     note: "",
   },
+  "banana-salsa": {
+    title: "駁二 Banana 騷莎舞會 ",
+    host: "salsaton",
+    locate: "banana-music",
+    rate: "Salsa / Bachata",
+    types: ["salsa on 2", "bachata"],
+    startAt: "20:00",
+    endAt: "01:00",
+    fee: "400 TWD",
+    content: "",
+    note: "20:00 - 21:00 Free Lesson",
+  },
 };
