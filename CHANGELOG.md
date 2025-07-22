@@ -2,6 +2,53 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.24.0](https://github.com/qwersteve07/latin-dance/compare/v1.23.0...v1.24.0) (2025-07-15)
+
+
+### ✨ Features
+
+* add announcement ([0d555d6](https://github.com/qwersteve07/latin-dance/commit/0d555d6caf42ed6ddb93716beca221b216e26e43))
+* add block hub location ([024457b](https://github.com/qwersteve07/latin-dance/commit/024457bbd89af93281afe984ff09f2a86b9ddd28))
+* add brickyard location ([c57de1c](https://github.com/qwersteve07/latin-dance/commit/c57de1c2cf947d1ba335dbec53ab69f0764b0895))
+* add chinatown ([429ab30](https://github.com/qwersteve07/latin-dance/commit/429ab309bebb4b5959936290379b203df13c9357))
+* add dg burger location ([81b2d81](https://github.com/qwersteve07/latin-dance/commit/81b2d8121591abd7521b4cd463c746c4a37a70ba))
+* add dongxing temple location ([ae90a78](https://github.com/qwersteve07/latin-dance/commit/ae90a7894967dcfdfe6ac6b927b371f4ba99a8a9))
+* add getFuego banner ([094722d](https://github.com/qwersteve07/latin-dance/commit/094722d737f165ce707eb1e438b1c738cb7c79d4))
+* add here_taipei ([d4bf7a0](https://github.com/qwersteve07/latin-dance/commit/d4bf7a067eb777d50d666618e27189d6d424d0fc))
+* add izouk event template ([d31b61a](https://github.com/qwersteve07/latin-dance/commit/d31b61ac34c3f8d5088441af1e979e0a98be3aa8))
+* add locate ([27e3c1c](https://github.com/qwersteve07/latin-dance/commit/27e3c1c762c8821d04fd698274687c6ee2c90bed))
+* add locate ([466ffe3](https://github.com/qwersteve07/latin-dance/commit/466ffe31a592292ba3d9c7fd215fa159df2bc73c))
+* add locate ([e166ac3](https://github.com/qwersteve07/latin-dance/commit/e166ac3d55761a3219f6f91e40ed105405829ace))
+* add locate ([590e5ba](https://github.com/qwersteve07/latin-dance/commit/590e5ba94b736ed45c50cb4f00b51a489504faec))
+* add moon location ([1b1ce14](https://github.com/qwersteve07/latin-dance/commit/1b1ce147303fb6b03fb9f036522bb4771e9f7e73))
+* add new location sprawl ([45a10f4](https://github.com/qwersteve07/latin-dance/commit/45a10f40b4379db6813ad22408d97cb69af395f1))
+* add social-night-fever template ([609b56f](https://github.com/qwersteve07/latin-dance/commit/609b56f09cf3854d47b59f9ef6b8cf77f0c2c206))
+* add suave event template ([9fc4665](https://github.com/qwersteve07/latin-dance/commit/9fc46654fff79e0da0538e4d01972f0c54d30df5))
+* add taipei social club ([460b543](https://github.com/qwersteve07/latin-dance/commit/460b543fdca22bf2896a6c2fa7fb5c2b34d54f1f))
+* add triangle location ([bc1e2d3](https://github.com/qwersteve07/latin-dance/commit/bc1e2d3f6f95a435c7e778e2600cdc593023e7be))
+* add wanmei dance studio location ([a108b9a](https://github.com/qwersteve07/latin-dance/commit/a108b9ac9232784ad4c2590f9a189aa0165fb020))
+* add zac as a organizer ([4bd476d](https://github.com/qwersteve07/latin-dance/commit/4bd476de9276530dd80027f9d097873924012ae7))
+* adjust styles ([92fc8d1](https://github.com/qwersteve07/latin-dance/commit/92fc8d1dde6e2ed019b8bfed1273be9bbccdf19c))
+* optimize the event-list page ([a11164b](https://github.com/qwersteve07/latin-dance/commit/a11164b506f1dd1152ec0786398df2948c3c2a1a))
+* update location ([046e63c](https://github.com/qwersteve07/latin-dance/commit/046e63cf132774d5321ae916af685ef1502efdd0))
+* update organizers ([3d464b3](https://github.com/qwersteve07/latin-dance/commit/3d464b3ad4ba96577968ad82ea59750258d9640d))
+* update template ([6f062b3](https://github.com/qwersteve07/latin-dance/commit/6f062b371cd0f8e9c07608d4f0557d47b05ec260))
+* update template ([22f52de](https://github.com/qwersteve07/latin-dance/commit/22f52de67d9db89cf8bec8c0ef328a954e4a05dd))
+* update vlog list ([50ebb61](https://github.com/qwersteve07/latin-dance/commit/50ebb61bfc390cd60979246aa286c5a5a4341e59))
+
+
+### 🐛 Bug Fixes
+
+* fix lint ([42f8134](https://github.com/qwersteve07/latin-dance/commit/42f8134586f7884840157c94ce9615ae4c8f2987))
+* lint ([213dc58](https://github.com/qwersteve07/latin-dance/commit/213dc5846fa5ebef9f907b74529b013a4ab748e2))
+* typo ([1a5a2f6](https://github.com/qwersteve07/latin-dance/commit/1a5a2f608d0f3054f6b0bb70f422f949b640cbd8))
+* update ui ([e803209](https://github.com/qwersteve07/latin-dance/commit/e8032097076d0652f04d884a7c7f2ff209dd54b3))
+
+
+### 🔧 chore
+
+* typo ([d31a066](https://github.com/qwersteve07/latin-dance/commit/d31a06672f997925539833537820206cf50bd97e))
+
 ## [1.23.0](https://github.com/qwersteve07/latin-dance/compare/v1.21.0...v1.23.0) (2025-05-29)
 
 
