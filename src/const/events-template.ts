@@ -39,6 +39,7 @@ export const eventsTemplate = {
     startAt: "21:00",
     endAt: "00:30",
     fee: "450 TWD or 1 flow point",
+    content: "Buddy Pass, 2 person $600 before 10pm",
   },
   "copa-friday-social": {
     title: "Copa friday Social",
@@ -202,18 +203,6 @@ export const eventsTemplate = {
     fee: "400 TWD",
     content: "Bachata Free lesson at 8:00pm",
     note: "兩人同行 一人250NTD",
-  },
-  "la-havanita-party": {
-    title: "小哈瓦那 Party",
-    host: "la-havanita-dance-academy",
-    locate: "la-havanita-dance-academy",
-    rate: "Salsa 2 : Bachata 2 : Kizomba 2",
-    types: ["salsa on 1", "bachata", "kizomba"],
-    startAt: "20:30",
-    endAt: "23:30",
-    fee: "400 TWD",
-    content: "",
-    note: "",
   },
   "salud-friday-bachata-social": {
     title: "Salud Friday Bachata Social",
