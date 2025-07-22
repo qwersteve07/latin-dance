@@ -47,7 +47,7 @@ export const eventsTemplate = {
     rate: "100% Salsa Room + 100% Bachata Room",
     types: ["salsa on 2", "bachata"],
     startAt: "21:30",
-    endAt: "00:40",
+    endAt: "00:30",
     fee: "300 TWD",
   },
   "la-happy-hour": {
@@ -338,6 +338,19 @@ export const eventsTemplate = {
       "場地\n➤ 可自備茶水，現場也有販售酒精飲料與礦泉水\n➤ 場地為室內木地板，請幫我們準備鞋底乾淨的鞋子或室內舞鞋💖\n➤ 電梯直上八樓即可，毋須諮詢管理員。出入公共空間時請留意音量。",
     note: "",
   },
+  "bachata-fever-taichung": {
+    title: "Bachata Fever Taichung",
+    host: "dol",
+    locate: "dol-dance-studio",
+    rate: "Mostly Bachata",
+    types: ["bachata"],
+    startAt: "19:30",
+    endAt: "23:00",
+    fee: "初次體驗400TWD（含一杯飲料），加入會員另有優惠",
+    content:
+      "台中最特別的Bachata之夜，限會員參與，音樂100%Bachata！！\n欲了解會員詳情，請洽📞\n手機：0912760531 (Kevin)\n📲 LINE ID：kevindol",
+    note: "19:30-20:15 Bachata Lesson",
+  },
   "salsa6-saturday-party": {
     title: "Salsa6 Saturday Party",
     host: "salsa6",
@@ -351,7 +364,7 @@ export const eventsTemplate = {
     note: "",
   },
   "salsaton-party": {
-    title: "月度高雄騷莎動教室舞會",
+    title: "月度騷莎動舞會",
     host: "salsaton",
     locate: "",
     rate: "Salsa / Bachata",
