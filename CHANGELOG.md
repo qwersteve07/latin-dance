@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.25.0](https://github.com/qwersteve07/latin-dance/compare/v1.24.0...v1.25.0) (2025-07-28)
+
+
+### ✨ Features
+
+* add banana event ([7194d96](https://github.com/qwersteve07/latin-dance/commit/7194d96f4cd1d5cc5728109cb2ff4dd729918f65))
+* add dol event template ([ffd4fe5](https://github.com/qwersteve07/latin-dance/commit/ffd4fe5ab4cbeba0af25528acef95cd52865d48d))
+* add dol event template ([803274e](https://github.com/qwersteve07/latin-dance/commit/803274ec42ac78fc90aeaf598e855b93546fdf66))
+* remove useless tempalte ([7f1e264](https://github.com/qwersteve07/latin-dance/commit/7f1e26428ee72ed6bb1d9d46c9bf1e6f71ab653f))
+* update template ([9018b89](https://github.com/qwersteve07/latin-dance/commit/9018b89a5ccf55d4097b2df875640deb7431c714))
+
 ## [1.24.0](https://github.com/qwersteve07/latin-dance/compare/v1.23.0...v1.24.0) (2025-07-15)
 
 

@@ -327,6 +327,17 @@ export const eventsTemplate = {
       "場地\n➤ 可自備茶水，現場也有販售酒精飲料與礦泉水\n➤ 場地為室內木地板，請幫我們準備鞋底乾淨的鞋子或室內舞鞋💖\n➤ 電梯直上八樓即可，毋須諮詢管理員。出入公共空間時請留意音量。",
     note: "",
   },
+  "dol-bachata-pratica": {
+    title: "Bachata Sosial Practice",
+    host: "dol",
+    locate: "dol-dance-studio",
+    rate: "100% bachata",
+    types: ["bachata"],
+    startAt: "21:15",
+    endAt: "22:30",
+    fee: "free for member, 100 TWD for others",
+    note: "",
+  },
   "bachata-fever-taichung": {
     title: "Bachata Fever Taichung",
     host: "dol",
