@@ -10,7 +10,8 @@ const GetFuegoBanner = () => {
 
     useEffect(() => {
         setBannerHide(appStore.getFuegoBannerHide)
-    }, [])
+    }, [appStore.getFuegoBannerHide])
+
 
     if (bannerHide) return <></>;
 
@@ -27,6 +28,7 @@ const GetFuegoBanner = () => {
                         onClick={(e) => {
                             e.stopPropagation();
                             appStore.setGetFuegoBannerHide()
+                            setBannerHide(true)
                         }}
                     >
                         <Image
