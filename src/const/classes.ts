@@ -1,0 +1,400 @@
+export const classesData = [
+  {
+    "DS Salsa Fusion": [
+      {
+        weekday: "Wed",
+        type: "salsa",
+        name: "Salsa Training",
+        time: "20:30-22:00",
+      },
+    ],
+  },
+  {
+    "Eric Chen": [
+      {
+        weekday: "Thu",
+        type: "bachata",
+        name: "Bachata 舞池招式實用班",
+        time: "20:00-21:00",
+      },
+    ],
+  },
+  {
+    "Eric Wang": [
+      {
+        weekday: "Mon",
+        type: "bachata",
+        name: "Bachata PartnerWork",
+        time: "20:00-21:00",
+      },
+      {
+        weekday: "Fri",
+        type: "salsa",
+        name: "Salsa PartnerWork",
+        time: "20:00-21:00",
+      },
+    ],
+  },
+  {
+    Finn: [
+      {
+        weekday: "Tue",
+        type: "lambada",
+        name: "Lambada PartnerWork",
+        time: "20:00-21:45",
+      },
+    ],
+  },
+  {
+    Jenny: [
+      {
+        weekday: "Mon",
+        type: "bachata",
+        name: "Bachata Shine",
+        time: "20:00-21:00",
+      },
+    ],
+  },
+  {
+    leo: [
+      {
+        weekday: "Tue",
+        type: "salsa",
+        name: "Salsa Social Stylist",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Fri",
+        type: "salsa",
+        name: "Salsa 新手班",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Fri",
+        type: "salsa",
+        name: "Salsa 初級班",
+        time: "20:30-21:30",
+      },
+    ],
+  },
+  {
+    "One+ Mambo": [
+      {
+        weekday: "Wed",
+        type: "salsa",
+        name: "Salsa Lv2",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Thu",
+        type: "salsa",
+        name: "Salsa Lv1",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Thu",
+        type: "salsa",
+        name: "Salsa Intro",
+        time: "20:30-21:30",
+      },
+    ],
+  },
+  {
+    Patty: [
+      {
+        weekday: "Tue",
+        type: "bachata",
+        name: "Bachata Styling(open Lv)",
+        time: "21:00-22:15",
+      },
+      {
+        weekday: "Wed",
+        type: "salsa",
+        name: "Salsa Shine",
+        time: "19:00-20:30",
+      },
+      {
+        weekday: "Thu",
+        type: "bachata",
+        name: "Bachata Styling(beginner)",
+        time: "21:00-22:15",
+      },
+      {
+        weekday: "Fri",
+        type: "salsa",
+        name: "Salsa PartnerWork",
+        time: "20:00-21:00",
+      },
+    ],
+  },
+  {
+    "Bailalo Dance Studio": [
+      {
+        weekday: "Mon",
+        type: "salsa",
+        name: "Salsa Lv2.2",
+        time: "19:15-20:30",
+      },
+      {
+        weekday: "Mon",
+        type: "salsa",
+        name: "Salsa Advance",
+        time: "20:40-22:00",
+      },
+      {
+        weekday: "Tue",
+        type: "salsa",
+        name: "Spinning & Body Movement",
+        time: "19:15-20:30",
+      },
+      {
+        weekday: "Tue",
+        type: "bachata",
+        name: "Bachata Lv3",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Wed",
+        type: "salsa",
+        name: "Salsa Lv2.1",
+        time: "19:15-20:30",
+      },
+      {
+        weekday: "Wed",
+        type: "zouk",
+        name: "Zouk Social Confidence",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Wed",
+        type: "salsa",
+        name: "Salsa Lv4",
+        time: "20:40-22:00",
+      },
+      {
+        weekday: "Thu",
+        type: "bachata",
+        name: "Bachata Lv2.1",
+        time: "19:15-20:30",
+      },
+      {
+        weekday: "Fri",
+        type: "zouk",
+        name: "Zouk Lv2.1",
+        time: "19:15-20:30",
+      },
+      {
+        weekday: "Fri",
+        type: "zouk",
+        name: "Zouk Team Training",
+        time: "20:40-22:00",
+      },
+      {
+        weekday: "Sat",
+        type: "salsa",
+        name: "Salsa Lv3.1",
+        time: "15:00-16:20",
+      },
+      {
+        weekday: "Sat",
+        type: "salsa",
+        name: "Salsa Lv1",
+        time: "16:30-17:50",
+      },
+      {
+        weekday: "Sun",
+        type: "zouk",
+        name: "Zouk Lv3",
+        time: "12:00-13:20",
+      },
+      {
+        weekday: "Sun",
+        type: "bachata",
+        name: "Bachata Lv3",
+        time: "16:30-17:50",
+      },
+    ],
+  },
+  {
+    "La Salsa Taipei ": [
+      {
+        weekday: "Mon",
+        type: "salsa",
+        name: "Salsa Lv1A",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Mon",
+        type: "salsa",
+        name: "Salsa Lv3",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Tue",
+        type: "salsa",
+        name: "Salsa Lv1B",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Tue",
+        type: "bachata",
+        name: "Bachata Lv3B",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Tue",
+        type: "bachata",
+        name: "Bachata Lv4 Advance",
+        time: "20:30-21:40",
+      },
+      {
+        weekday: "Wed",
+        type: "salsa",
+        name: "Salsa Lv2",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Wed",
+        type: "bachata",
+        name: "Bachata Lady Styling",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Wed",
+        type: "bachata",
+        name: "Bachata Lv2B",
+        time: "20:40-22:00",
+      },
+      {
+        weekday: "Thu",
+        type: "bachata",
+        name: "Bachata Lv1A",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Thu",
+        type: "bachata",
+        name: "Bachata Lv2B",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Thu",
+        type: "salsa",
+        name: "Salsa Intro",
+        time: "20:30-21:40",
+      },
+      {
+        weekday: "Fri",
+        type: "bachata",
+        name: "Bachata Intro",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Fri",
+        type: "bachata",
+        name: "Bachata Lv3",
+        time: "20:30-21:40",
+      },
+      {
+        weekday: "Sat",
+        type: "salsa",
+        name: "Salsa Shine",
+        time: "14:00-15:00",
+      },
+    ],
+  },
+  {
+    "Flow Taipei": [
+      {
+        weekday: "Mon",
+        type: "bachata",
+        name: "Bachata Fundamental",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Mon",
+        type: "bachata",
+        name: "Bachata Lv1",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Mon",
+        type: "bachata",
+        name: "Bachata Lv2",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "Mon",
+        type: "bachata",
+        name: "Bachata PartnerWork",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "Tue",
+        type: "salsa",
+        name: "Salsa Styling",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Tue",
+        type: "bachata",
+        name: "Bachata Lv3",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Tue",
+        type: "salsa",
+        name: "Afro Cuban",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "Wed",
+        type: "salsa",
+        name: "Salsa Lv1",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Wed",
+        type: "zouk",
+        name: "Zouk Social Confidence",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Wed",
+        type: "salsa",
+        name: "Salsa PartnerWork",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "Thu",
+        type: "zouk",
+        name: "Zouk Lv1.5",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Thu",
+        type: "zouk",
+        name: "Zouk Lv2",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Thu",
+        type: "zouk",
+        name: "Zouk PartnerWork",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "Fri",
+        type: "zouk",
+        name: "Zouk Lv1",
+        time: "20:00-21:00",
+      },
+      {
+        weekday: "Fri",
+        type: "salsa",
+        name: "Salsa Drill Advance",
+        time: "20:00-21:30",
+      },
+    ],
+  },
+];

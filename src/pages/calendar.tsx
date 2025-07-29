@@ -23,6 +23,7 @@ export const danceTypeColor = (type: string) => {
   switch (type) {
     case 'salsa on 1': return 'bg-red-800';
     case 'salsa on 2': return 'bg-red-400';
+    case 'salsa': return 'bg-red-400'
     case 'bachata': return 'bg-yellow-300';
     case 'zouk': return 'bg-blue-400';
     case 'lambada': return 'bg-green-300';

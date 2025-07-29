@@ -15,6 +15,7 @@ export default function Navigator() {
   const routesList = [
     { id: "/calendar", name: t("calendar.title") },
     { id: "/organizers", name: t("organizers.title") },
+    { id: "/classes", name: t("classes.title") },
     { id: "/guides", name: t("guides.title") },
     { id: "/food-map", name: t("food_map.title") },
     { id: "/others", name: t("others.title") },
