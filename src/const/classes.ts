@@ -164,22 +164,10 @@ export const classesData = [
         time: "19:15-20:30",
       },
       {
-        weekday: "Tue",
-        type: "bachata",
-        name: "Bachata Lv3",
-        time: "19:30-20:30",
-      },
-      {
         weekday: "Wed",
         type: "salsa",
         name: "Salsa Lv2.1",
         time: "19:15-20:30",
-      },
-      {
-        weekday: "Wed",
-        type: "zouk",
-        name: "Zouk Social Confidence",
-        time: "19:30-20:30",
       },
       {
         weekday: "Wed",
@@ -367,12 +355,6 @@ export const classesData = [
         weekday: "Wed",
         type: "salsa",
         name: "Salsa Lv1",
-        time: "19:30-20:30",
-      },
-      {
-        weekday: "Wed",
-        type: "zouk",
-        name: "Zouk Social Confidence",
         time: "19:30-20:30",
       },
       {
