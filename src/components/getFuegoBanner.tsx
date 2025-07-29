@@ -1,12 +1,18 @@
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { useAppStore } from "@/store/appStore";
+import { useEffect, useState } from "react";
 
 const GetFuegoBanner = () => {
+    const [bannerHide, setBannerHide] = useState(true)
     const appStore = useAppStore()
     const { t } = useTranslation("common");
 
-    if (appStore.getFuegoBannerHide) return <></>;
+    useEffect(() => {
+        setBannerHide(appStore.getFuegoBannerHide)
+    }, [])
+
+    if (bannerHide) return <></>;
 
     return (
         <>
