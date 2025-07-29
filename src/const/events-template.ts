@@ -265,16 +265,15 @@ export const eventsTemplate = {
     note: "",
   },
   "kizomba-night": {
-    title: "好想跳Kizomba! Kizomba Party in Taipei",
+    title: "Kizomba Party in Taipei",
     host: "meet-kiz-taiwan",
     locate: "",
     rate: "100% Kizomba",
     types: ["kizomba"],
     startAt: "21:00",
     endAt: "00:00",
-    fee: "350 TWD",
-    content:
-      "每月固定的純Kiz趴，3月再來跳好跳滿!歡迎大家帶飲料零食來同樂會~\n歡迎老朋友帶新朋友來玩，沒跳過KIZOMBA但很好奇的人，當天開放免費入場體驗，可提供基礎教學，請先私訊報名唷。",
+    fee: "400 TWD",
+    content: "",
     note: "",
   },
   "sunday-sbk-night": {
