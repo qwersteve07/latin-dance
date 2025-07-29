@@ -71,5 +71,11 @@
     "page_title": "Events Calendar",
     "description": "Includes all kinds of social events informations",
     "filtered": "Filtered with"
+  },
+  "classes": {
+    "title": "Classes",
+    "page_title": "Classes",
+    "description": "Provide the classes Information",
+    "note": "*Only Taipei Studio from now"
   }
 }

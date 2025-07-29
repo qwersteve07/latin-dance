@@ -71,5 +71,11 @@
     "page_title": "活動日曆",
     "description": "囊括所有不同類型的社交舞活動資訊",
     "filtered": "目前顯示"
+  },
+  "classes": {
+    "title": "課程資訊",
+    "page_title": "課程資訊",
+    "description": "提供各地區的教室課程",
+    "note": "*目前僅提供台北課程資訊"
   }
 }
