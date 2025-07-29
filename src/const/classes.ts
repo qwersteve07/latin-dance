@@ -56,7 +56,7 @@ export const classesData = [
     ],
   },
   {
-    leo: [
+    Leo: [
       {
         weekday: "Tue",
         type: "salsa",
@@ -74,6 +74,22 @@ export const classesData = [
         type: "salsa",
         name: "Salsa 初級班",
         time: "20:30-21:30",
+      },
+    ],
+  },
+  {
+    "Meet Kiz Taiwan": [
+      {
+        weekday: "Fri",
+        type: "kizomba",
+        name: "Kiz Fundamental",
+        time: "20:00-21:00",
+      },
+      {
+        weekday: "Sun",
+        type: "kizomba",
+        name: "Kiz Lv2",
+        time: "18:00-19:00",
       },
     ],
   },
