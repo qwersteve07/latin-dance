@@ -156,6 +156,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/aWUZEnpPU9Q6mSdA7",
   },
   {
+    id: "studio-komi",
+    name: "柯米空間 Studio KoMi",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/ghFkCC9ay6bHFy176",
+  },
+  {
     id: "wanmei-dance-studio",
     name: "Wanmei Dance Studio",
     city: "taipei",
