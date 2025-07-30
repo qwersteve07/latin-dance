@@ -7,6 +7,8 @@ import { danceTypeColor } from "./calendar";
 import React, { useEffect, useState } from "react";
 import { classesData } from "@/const/classes";
 import { useMedia } from "react-use";
+import { useRouter } from "next/router";
+import { organizerList } from "@/store/appState";
 
 const weekdays = ['Mon', 'Tue', "Wed", "Thu", 'Fri', 'Sat', 'Sun']
 
@@ -31,15 +33,13 @@ export default function Classes() {
     }, [selectType])
 
     function getFilteredClassesData(selectType: string) {
-        return classesData.map(classesData => {
-            const team: any = Object.keys(classesData)
-            const classesGroup = Object.values(classesData)[0];
-            console.log(classesGroup)
-            const filteredClassesGroup = classesGroup.filter((c: any) => {
+        return classesData.map(data => {
+            const filteredClassesGroup = data.class.filter((c: any) => {
                 return c.type == selectType
             });
             return {
-                [team]: filteredClassesGroup
+                ...data,
+                class: filteredClassesGroup
             }
         })
     }
@@ -87,22 +87,56 @@ function MobileUI() {
 }
 
 function DesktopUI({ data }: { data: any }) {
+    // const appStore = useAppStore()
+    const router = useRouter()
+    // const [offset, setOffset] = useState(0)
+    // const appState = useAppState()
+
+    // useEffect(() => {
+    //     if (!appState.domLoaded) return
+    //     if (!appState.installPromptBannerRef.current) return
+    //     console.log('classes')
+    //     console.log(appState.installPromptBannerRef.current)
+    // }, [appState.domLoaded, appState.installPromptBannerRef, appState.installPromptBannerRef.current])
+
+    // // useEffect(() => {
+    // //     if (!appState.domLoaded) return
+    // //     console.log(appState.domLoaded)
+    // //     const installPromptBannerShow = !appStore.installBannerHide
+    // //     const fuegoBannerShow = !appStore.getFuegoBannerHide
+    // //     const amount = 0
+    // //     if (installPromptBannerShow) {
+    // //         console.log(appState.installPromptBannerRef.current)
+    // //         console.log(appState.getFuegoBannerRef.current)
+    // //     }
+    // // }, [appState.domLoaded])
+
     return (
         <>
-            <div className="grid grid-cols-8 gap-2 sticky top-0 py-4 mb-4 border-b border-border-main bg-background-main">
+            <div className={`grid grid-cols-8 gap-2  z-[101] py-4 mb-4 border-b border-border-main bg-background-main`}>
                 <div></div>
                 {weekdays.map(day => <div key={day} className="font-bold">{day}</div>)}
             </div>
             <div className="grid grid-cols-8 gap-2">
-                {data.map((classData: any, i: any) => {
-                    const team = Object.keys(classData) || ''
-                    const classesGroup: any = Object.values(classData)[0]
-                    if (classesGroup.length === 0) return <></>
+                {data.map((classData: any, i: number) => {
+                    if (classData.class.length === 0) return <></>
+
+                    const Organizer = () => {
+                        if (!classData.organizer) return <></>
+                        const name = organizerList.find(o => o.id === classData.organizer)?.name
+                        return <div className="font-bold italic text-gray-500">{name}</div>
+                    }
                     return (
                         <>
-                            <div className="font-bold">{team}</div>
+                            <div onClick={() => {
+                                if (classData.organizer) return router.push(`/organizers?id=${classData.organizer}`)
+                                router.push(`/organizers?id=${classData.id}`)
+                            }} className="group cursor-pointer">
+                                <div className="font-bold text-lg group-hover:text-red-500 transition-[color]">{classData.name}</div>
+                                <Organizer />
+                            </div>
                             {weekdays.map((weekday, i) => {
-                                const classesInWeekday = classesGroup.filter((g: any) => g.weekday === weekday)
+                                const classesInWeekday = classData.class.filter((g: any) => g.weekday === weekday)
                                 if (classesInWeekday.length === 0) return <div key={i}></div>
 
                                 return (

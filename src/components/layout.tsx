@@ -2,11 +2,18 @@ import Footer from './footer';
 import Navigator from './navigator';
 import InstallPromptBanner from './InstallPromptBanner';
 import GetFuegoBanner from './getFuegoBanner';
+import { useEffect } from 'react';
+import { useAppState } from '@/store/appState';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const appState = useAppState()
+
+  useEffect(() => {
+    appState.setDomLoaded()
+  }, [])
   return (
     <div className="flex justify-start items-center flex-col min-h-screen bg-background-main text-text-main">
-      <div className="w-full">
+      <div className="w-full sticky top-0 z-[100]">
         <InstallPromptBanner />
         <GetFuegoBanner />
         <Navigator />

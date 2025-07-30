@@ -85,7 +85,7 @@ export const organizerTaipeiList = [
     member: [],
   },
   {
-    id: "feM",
+    id: "fem",
     name: "FeM",
     city: "taipei",
     thumbnail: "/organizers/fem.jpg",
@@ -279,6 +279,22 @@ export const organizerTaipeiList = [
     ],
   },
   {
+    id: "one-mambo",
+    name: "One+ Mambo",
+    city: "taipei",
+    thumbnail: "",
+    intro: "WIP",
+    link: {
+      facebook: "",
+      instagram: "",
+      website: "",
+      location: "",
+    },
+    classes: [],
+    party: "",
+    member: [],
+  },
+  {
     id: "salsa-me",
     name: "騷莎迷 SalsaMe",
     city: "taipei",
@@ -297,7 +313,7 @@ export const organizerTaipeiList = [
   },
   {
     id: "taipei-bachata-vibes",
-    name: "TaipeiBachata Vibes",
+    name: "Taipei Bachata Vibes",
     city: "taipei",
     thumbnail: "/organizers/tbv.jpg",
     intro: "LatinVibes .Taipei Taiwan",
@@ -518,6 +534,24 @@ export const organizerTaipeiList = [
     member: [],
   },
   {
+    id: "ds-salsa-fusion",
+    name: "DS Salsa Fusion",
+    hide: false,
+    solo: true,
+    city: "taipei",
+    thumbnail: "",
+    intro: "WIP",
+    link: {
+      facebook: "",
+      instagram: "",
+      website: "",
+      location: "",
+    },
+    party: "",
+    classes: [],
+    member: [],
+  },
+  {
     id: "eric-wang",
     name: "Eric Wang",
     hide: false,
@@ -575,7 +609,8 @@ export const organizerTaipeiList = [
       facebook: "https://www.facebook.com/leokaku",
 
       instagram: "https://www.instagram.com/leokaku/",
-      website: "https://linktr.ee/leokaku?fbclid=PAZXh0bgNhZW0CMTEAAafn7rJ0kmU9V9FazocRrSN3o33Xpi3j_Qmiduhn4IAfCMa4KbA8eU84f-w-tQ_aem_hQwJzd-YGa19x6Ybiw6ViQ",
+      website:
+        "https://linktr.ee/leokaku?fbclid=PAZXh0bgNhZW0CMTEAAafn7rJ0kmU9V9FazocRrSN3o33Xpi3j_Qmiduhn4IAfCMa4KbA8eU84f-w-tQ_aem_hQwJzd-YGa19x6Ybiw6ViQ",
       location: "",
     },
     party: "",

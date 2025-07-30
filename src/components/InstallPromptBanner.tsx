@@ -3,8 +3,10 @@ import InstallModal from "./installModal";
 import { useDisclosure } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
 import { useBeforeInstallPrompt } from "@/use/usebeforeintallprompt";
+import { useAppState } from "@/store/appState";
 
 const InstallPromptBanner = () => {
+    const appState = useAppState()
     const { installBannerShow, deferredPrompt, hideInstallBanner } =
         useBeforeInstallPrompt();
 
@@ -33,6 +35,7 @@ const InstallPromptBanner = () => {
                 onClose={close}
             />
             <div
+                ref={appState.installPromptBannerRef}
                 className="w-full bg-red-500 text-white font-bold text-center cursor-pointer"
                 onClick={open}
             >
