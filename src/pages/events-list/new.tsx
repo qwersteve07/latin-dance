@@ -1,4 +1,3 @@
-import { organizerList } from "@/store/appStore";
 import { locateList } from "@/const/locate";
 import { fetcher } from "@/utils/fetcher";
 import { ActionIcon, Button, Checkbox, MultiSelect, Select, Textarea, TextInput } from "@mantine/core";
@@ -11,6 +10,7 @@ import { danceTypes } from "@/const/dance-types";
 import { useDay } from "@/use/use-day";
 import { NextSeo } from "next-seo";
 import { eventsTemplate } from "@/const/events-template";
+import { organizerList } from "@/store/appState";
 
 export default function NewEvents() {
     const [loading, setLoading] = useState(false)

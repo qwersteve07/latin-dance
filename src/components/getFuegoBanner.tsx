@@ -2,22 +2,24 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { useAppStore } from "@/store/appStore";
 import { useEffect, useState } from "react";
+import { useAppState } from "@/store/appState";
 
 const GetFuegoBanner = () => {
-    const [bannerHide, setBannerHide] = useState(true)
     const appStore = useAppStore()
+    const appState = useAppState()
+    const [bannerHide, setBannerHide] = useState(true)
     const { t } = useTranslation("common");
 
     useEffect(() => {
         setBannerHide(appStore.getFuegoBannerHide)
     }, [appStore.getFuegoBannerHide])
 
-
     if (bannerHide) return <></>;
 
     return (
         <>
             <div
+                ref={appState.getFuegoBannerRef}
                 className="w-full bg-yellow-500 text-white font-bold text-center cursor-pointer"
                 onClick={() => window.open('https://bit.ly/45UHTlP')}
             >

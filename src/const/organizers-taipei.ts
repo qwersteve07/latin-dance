@@ -85,7 +85,7 @@ export const organizerTaipeiList = [
     member: [],
   },
   {
-    id: "feM",
+    id: "fem",
     name: "FeM",
     city: "taipei",
     thumbnail: "/organizers/fem.jpg",
@@ -297,7 +297,7 @@ export const organizerTaipeiList = [
   },
   {
     id: "taipei-bachata-vibes",
-    name: "TaipeiBachata Vibes",
+    name: "Taipei Bachata Vibes",
     city: "taipei",
     thumbnail: "/organizers/tbv.jpg",
     intro: "LatinVibes .Taipei Taiwan",
@@ -575,7 +575,8 @@ export const organizerTaipeiList = [
       facebook: "https://www.facebook.com/leokaku",
 
       instagram: "https://www.instagram.com/leokaku/",
-      website: "https://linktr.ee/leokaku?fbclid=PAZXh0bgNhZW0CMTEAAafn7rJ0kmU9V9FazocRrSN3o33Xpi3j_Qmiduhn4IAfCMa4KbA8eU84f-w-tQ_aem_hQwJzd-YGa19x6Ybiw6ViQ",
+      website:
+        "https://linktr.ee/leokaku?fbclid=PAZXh0bgNhZW0CMTEAAafn7rJ0kmU9V9FazocRrSN3o33Xpi3j_Qmiduhn4IAfCMa4KbA8eU84f-w-tQ_aem_hQwJzd-YGa19x6Ybiw6ViQ",
       location: "",
     },
     party: "",
