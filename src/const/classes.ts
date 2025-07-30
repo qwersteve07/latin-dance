@@ -1,6 +1,9 @@
 export const classesData = [
   {
-    "DS Salsa Fusion": [
+    id: "ds-salsa-fusion",
+    name: "DS Salsa Fusion",
+    organizer: "",
+    class: [
       {
         weekday: "Wed",
         type: "salsa",
@@ -10,7 +13,10 @@ export const classesData = [
     ],
   },
   {
-    "Eric Chen": [
+    id: "eric-chen",
+    name: "Eric Chen",
+    organizer: "taipei-bachata-vibes",
+    class: [
       {
         weekday: "Thu",
         type: "bachata",
@@ -20,7 +26,10 @@ export const classesData = [
     ],
   },
   {
-    "Eric Wang": [
+    id: "eric-wang",
+    name: "Eric Wang",
+    organizer: "",
+    class: [
       {
         weekday: "Mon",
         type: "bachata",
@@ -36,7 +45,10 @@ export const classesData = [
     ],
   },
   {
-    Finn: [
+    id: "finn",
+    name: "Finn",
+    organizer: "fem",
+    class: [
       {
         weekday: "Tue",
         type: "lambada",
@@ -46,7 +58,10 @@ export const classesData = [
     ],
   },
   {
-    Jenny: [
+    id: "jenny",
+    name: "Jenny",
+    organizer: "",
+    class: [
       {
         weekday: "Mon",
         type: "bachata",
@@ -56,7 +71,10 @@ export const classesData = [
     ],
   },
   {
-    Leo: [
+    id: "leo",
+    name: "Leo",
+    organizer: "",
+    class: [
       {
         weekday: "Tue",
         type: "salsa",
@@ -78,7 +96,10 @@ export const classesData = [
     ],
   },
   {
-    "Meet Kiz Taiwan": [
+    id: "zoe",
+    name: "Zoe",
+    organizer: "meet-kiz-taiwan",
+    class: [
       {
         weekday: "Fri",
         type: "kizomba",
@@ -94,7 +115,10 @@ export const classesData = [
     ],
   },
   {
-    "One+ Mambo": [
+    id: "yi-chia",
+    name: "Yi Chia",
+    organizer: "one-mambo",
+    class: [
       {
         weekday: "Wed",
         type: "salsa",
@@ -116,7 +140,10 @@ export const classesData = [
     ],
   },
   {
-    Patty: [
+    id: "patty-lin",
+    name: "Patty",
+    organizer: "",
+    class: [
       {
         weekday: "Tue",
         type: "bachata",
@@ -144,7 +171,10 @@ export const classesData = [
     ],
   },
   {
-    "Bailalo Dance Studio": [
+    id: "bailalo-dance-studio",
+    name: "Bailalo Dance Studio",
+    organizer: "",
+    class: [
       {
         weekday: "Mon",
         type: "salsa",
@@ -220,7 +250,10 @@ export const classesData = [
     ],
   },
   {
-    "La Salsa Taipei ": [
+    id: "la-salsa-taipei",
+    name: "La Salsa Taipei",
+    organizer: "",
+    class: [
       {
         weekday: "Mon",
         type: "salsa",
@@ -308,7 +341,10 @@ export const classesData = [
     ],
   },
   {
-    "Flow Taipei": [
+    id: "flow-taipei",
+    name: "Flow Taipei",
+    organizer: "",
+    class: [
       {
         weekday: "Mon",
         type: "bachata",
