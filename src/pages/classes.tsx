@@ -113,7 +113,7 @@ function DesktopUI({ data }: { data: any }) {
 
     return (
         <>
-            <div className={`grid grid-cols-8 gap-2 sticky top-${0} z-[101] py-4 mb-4 border-b border-border-main bg-background-main`}>
+            <div className={`grid grid-cols-8 gap-2  z-[101] py-4 mb-4 border-b border-border-main bg-background-main`}>
                 <div></div>
                 {weekdays.map(day => <div key={day} className="font-bold">{day}</div>)}
             </div>
