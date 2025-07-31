@@ -124,7 +124,7 @@ function MobileUI({ data }: { data: any }) {
             </div>
             <div className="grid grid-cols-2 gap-2">
                 {currentData.length === 0 && <div className="col-span-2">{t('classes.no_classes')}</div>}
-                {currentData.map((classData: any, i: number) => {
+                {currentData.map((classData: any) => {
                     if (classData.class.length === 0) return <></>
 
                     const Organizer = () => {
@@ -195,7 +195,7 @@ function DesktopUI({ data }: { data: any }) {
                 {weekdays.map(day => <div key={day} className="font-bold">{day}</div>)}
             </div>
             <div className="grid grid-cols-8 gap-2">
-                {data.map((classData: any, i: number) => {
+                {data.map((classData: any) => {
                     const Organizer = () => {
                         if (!classData.organizer) return <></>
                         const name = organizerList.find(o => o.id === classData.organizer)?.name
