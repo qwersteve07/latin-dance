@@ -8,7 +8,9 @@ import React, { useEffect, useState } from "react";
 import { classesData } from "@/const/classes";
 import { useMedia } from "react-use";
 import { useRouter } from "next/router";
-import { organizerList } from "@/store/appState";
+import { organizerList, useAppState } from "@/store/appState";
+import { Select } from "@mantine/core";
+
 
 const weekdays = ['Mon', 'Tue', "Wed", "Thu", 'Fri', 'Sat', 'Sun']
 
@@ -19,9 +21,9 @@ export default function Classes() {
     const [selectType, setSelectType] = useState<string>('');
     const [currentClassesData, setCurrentClassesData] = useState<any>([]);
     const isMobile = useMedia("(max-width: 768px)");
+    const appState = useAppState()
 
     useEffect(() => {
-
         let result;
         if (selectType === '') {
             result = classesData
@@ -30,10 +32,11 @@ export default function Classes() {
         }
 
         setCurrentClassesData(result)
+        console.log(result)
     }, [selectType])
 
     function getFilteredClassesData(selectType: string) {
-        return classesData.map(data => {
+        const result = classesData.map(data => {
             const filteredClassesGroup = data.class.filter((c: any) => {
                 return c.type == selectType
             });
@@ -42,6 +45,12 @@ export default function Classes() {
                 class: filteredClassesGroup
             }
         })
+
+        return result.filter((d: any) => d.class.length > 0)
+    }
+
+    if (!appState.domLoaded) {
+        return <></>;
     }
 
     return (
@@ -76,14 +85,82 @@ export default function Classes() {
                         </div>)
                 })}
             </div>
-            {isMobile && <MobileUI />}
+            {isMobile && <MobileUI data={currentClassesData} />}
             {!isMobile && <DesktopUI data={currentClassesData} />}
         </>
     )
 }
 
-function MobileUI() {
-    return <div>WIP, Please use Desktop Thanks :)</div>
+function MobileUI({ data }: { data: any }) {
+    const [currentWeekDay, setCurrentWeekDay] = useState<string>(weekdays[0])
+    const [currentData, setCurrentData] = useState<any>([])
+    const router = useRouter()
+    const { t } = useTranslation('common')
+
+    useEffect(() => {
+        const filteredData = data.map((d: any) => ({
+            ...d,
+            class: d.class.filter((c: any) => c.weekday === currentWeekDay)
+        })).filter((d: any) => d.class.length > 0)
+
+        setCurrentData(filteredData);
+    }, [data, currentWeekDay])
+
+    return (
+        <div>
+            <div className={`grid grid-cols-2 gap-2 z-[101] py-4 mb-3 border-b border-border-main bg-background-main`}>
+                <div></div>
+                <Select
+                    className="w-full"
+                    defaultValue={weekdays[0]}
+                    value={currentWeekDay}
+                    onChange={value => setCurrentWeekDay(value || '')}
+                    data={weekdays.map(item => ({
+                        value: item,
+                        label: item
+                    }))}
+                    allowDeselect={false}
+                />
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+                {currentData.length === 0 && <div className="col-span-2">{t('classes.no_classes')}</div>}
+                {currentData.map((classData: any, i: number) => {
+                    if (classData.class.length === 0) return <></>
+
+                    const Organizer = () => {
+                        if (!classData.organizer) return <></>
+                        const name = organizerList.find(o => o.id === classData.organizer)?.name
+                        return <div className="font-bold italic text-gray-500">{name}</div>
+                    }
+                    return (
+                        <>
+                            <div onClick={() => {
+                                if (classData.organizer) return router.push(`/organizers?id=${classData.organizer}`)
+                                router.push(`/organizers?id=${classData.id}`)
+                            }} className="group cursor-pointer">
+                                <div className="font-bold text-lg group-hover:text-red-500 transition-[color]">{classData.name}</div>
+                                <Organizer />
+                            </div>
+                            <div>{classData.class.map((c: any) => {
+                                return (
+                                    <div key={c.name} className="flex justify-start items-start gap-2 border border-border-main rounded-2xl p-2 mb-1 hover:bg-background-third transition">
+                                        <div className={`mt-1.5 rounded-sm min-w-3 h-3 ${danceTypeColor(c.type)}`} />
+                                        <div>
+                                            <div className="font-semibold">{c.name}</div>
+                                            <div >{c.time}</div>
+                                        </div>
+                                    </div>
+                                )
+                            })}</div>
+                            <hr className="col-span-2 border-0 border-b border-border-main" />
+                        </>
+                    )
+                })}
+            </div>
+
+        </div>
+    )
+
 }
 
 function DesktopUI({ data }: { data: any }) {
@@ -113,14 +190,12 @@ function DesktopUI({ data }: { data: any }) {
 
     return (
         <>
-            <div className={`grid grid-cols-8 gap-2  z-[101] py-4 mb-4 border-b border-border-main bg-background-main`}>
+            <div className={`grid grid-cols-8 gap-2 z-[101] py-4 mb-3 border-b border-border-main bg-background-main`}>
                 <div></div>
                 {weekdays.map(day => <div key={day} className="font-bold">{day}</div>)}
             </div>
             <div className="grid grid-cols-8 gap-2">
                 {data.map((classData: any, i: number) => {
-                    if (classData.class.length === 0) return <></>
-
                     const Organizer = () => {
                         if (!classData.organizer) return <></>
                         const name = organizerList.find(o => o.id === classData.organizer)?.name
@@ -155,7 +230,7 @@ function DesktopUI({ data }: { data: any }) {
 
 
                             })}
-                            {i !== data.length - 1 && <hr className="col-span-8 border-0 border-b border-border-main" />}
+                            <hr className="col-span-8 border-0 border-b border-border-main" />
                         </>
                     )
                 })}
