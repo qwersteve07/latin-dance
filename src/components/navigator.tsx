@@ -65,6 +65,7 @@ export default function Navigator() {
         data={citiesList.map(item => ({
           ...item, value: item.id, label: currentLocale === 'tw' ? item.name : item.id
         }))}
+        allowDeselect={false}
       />
     )
   }

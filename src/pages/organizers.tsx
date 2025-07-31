@@ -16,23 +16,19 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { southTaiwanCities } from "@/const/cities";
 import { useRouter } from "next/router";
-import { organizerList } from "@/store/appState";
+import { organizerList, useAppState } from "@/store/appState";
 
 export default function Organizers() {
   const appStore = useAppStore()
-  const [domLoaded, setDomLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState<string | null>('');
   const [opened, { open, close }] = useDisclosure(false);
   const [selectOrganizer, setSelectOrganizer] = useState<Organizer>({} as any);
   const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
   const { t } = useTranslation('common')
   const router = useRouter()
+  const appState = useAppState()
 
   const isMobile = useMedia("(max-width: 768px)");
-
-  useEffect(() => {
-    setDomLoaded(true);
-  }, []);
 
   useEffect(() => {
     if (!appStore.currentCity) return
@@ -55,7 +51,7 @@ export default function Organizers() {
 
   }, [appStore.currentCity])
 
-  if (!domLoaded) {
+  if (!appState.domLoaded) {
     return <></>;
   }
 
