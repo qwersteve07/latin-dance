@@ -3,14 +3,13 @@ import { danceTypes } from "@/const/dance-types";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
-import { danceTypeColor } from "./calendar";
 import React, { useEffect, useState } from "react";
-import { classesData } from "@/const/classes";
 import { useMedia } from "react-use";
 import { useRouter } from "next/router";
-import { organizerList, useAppState } from "@/store/appState";
+import { organizerList, classesList, useAppState } from "@/store/appState";
 import { Select } from "@mantine/core";
-
+import { useAppStore } from "@/store/appStore";
+import DanceTypeCube from "@/components/dance-type-cube";
 
 const weekdays = ['Mon', 'Tue', "Wed", "Thu", 'Fri', 'Sat', 'Sun']
 
@@ -22,31 +21,40 @@ export default function Classes() {
     const [currentClassesData, setCurrentClassesData] = useState<any>([]);
     const isMobile = useMedia("(max-width: 768px)");
     const appState = useAppState()
+    const appStore = useAppStore()
 
     useEffect(() => {
-        let result;
-        if (selectType === '') {
-            result = classesData
-        } else {
-            result = getFilteredClassesData(selectType)
-        }
+        if (!appStore.currentCity) return
 
+        const result = getFilteredClassesData(appStore.currentCity, selectType)
         setCurrentClassesData(result)
-        console.log(result)
-    }, [selectType])
+    }, [appStore.currentCity, selectType])
 
-    function getFilteredClassesData(selectType: string) {
-        const result = classesData.map(data => {
-            const filteredClassesGroup = data.class.filter((c: any) => {
-                return c.type == selectType
-            });
-            return {
-                ...data,
-                class: filteredClassesGroup
-            }
+    function getFilteredClassesData(city: string, selectType: string) {
+        let result;
+        const filterByCityClasses = classesList.filter((data) => {
+            return data.city === city
         })
 
-        return result.filter((d: any) => d.class.length > 0)
+        if (selectType === '') {
+            result = filterByCityClasses
+        } else {
+            result = filterByCityClasses.map((data) => {
+                const filteredLessons = data.lessons.filter((c) => {
+                    if (Array.isArray(c.type)) {
+                        return c.type.includes(selectType)
+                    } else {
+                        return c.type === selectType
+                    }
+                });
+                return {
+                    ...data,
+                    lessons: filteredLessons
+                }
+            }).filter((d: any) => d.lessons.length > 0)
+        }
+
+        return result;
     }
 
     if (!appState.domLoaded) {
@@ -81,7 +89,7 @@ export default function Classes() {
                                 }
                             }}
                         >
-                            <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} />{t}
+                            <DanceTypeCube type={t} />{t}
                         </div>)
                 })}
             </div>
@@ -100,8 +108,8 @@ function MobileUI({ data }: { data: any }) {
     useEffect(() => {
         const filteredData = data.map((d: any) => ({
             ...d,
-            class: d.class.filter((c: any) => c.weekday === currentWeekDay)
-        })).filter((d: any) => d.class.length > 0)
+            lessons: d.lessons.filter((c: any) => c.weekday === currentWeekDay)
+        })).filter((d: any) => d.lessons.length > 0)
 
         setCurrentData(filteredData);
     }, [data, currentWeekDay])
@@ -123,9 +131,9 @@ function MobileUI({ data }: { data: any }) {
                 />
             </div>
             <div className="grid grid-cols-2 gap-2">
-                {currentData.length === 0 && <div className="col-span-2">{t('classes.no_classes')}</div>}
+                {currentData.length === 0 && <div className="col-span-2">{t('classes.no_classes_day')}</div>}
                 {currentData.map((classData: any) => {
-                    if (classData.class.length === 0) return <></>
+                    if (classData.lessons.length === 0) return <></>
 
                     const Organizer = () => {
                         if (!classData.organizer) return <></>
@@ -141,10 +149,17 @@ function MobileUI({ data }: { data: any }) {
                                 <div className="font-bold text-lg group-hover:text-red-500 transition-[color]">{classData.name}</div>
                                 <Organizer />
                             </div>
-                            <div>{classData.class.map((c: any) => {
+                            <div>{classData.lessons.map((c: any) => {
+                                const DanceType = () => {
+                                    if (Array.isArray(c.type)) {
+                                        return c.type.map((t: string) => <DanceTypeCube type={t} key={t} />)
+                                    } else {
+                                        return <DanceTypeCube type={c.type} />
+                                    }
+                                }
                                 return (
                                     <div key={c.name} className="flex justify-start items-start gap-2 border border-border-main rounded-2xl p-2 mb-1 hover:bg-background-third transition">
-                                        <div className={`mt-1.5 rounded-sm min-w-3 h-3 ${danceTypeColor(c.type)}`} />
+                                        <div className="mt-1.5 flex flex-col gap-1"><DanceType /></div>
                                         <div>
                                             <div className="font-semibold">{c.name}</div>
                                             <div >{c.time}</div>
@@ -157,15 +172,14 @@ function MobileUI({ data }: { data: any }) {
                     )
                 })}
             </div>
-
         </div>
     )
-
 }
 
 function DesktopUI({ data }: { data: any }) {
-    // const appStore = useAppStore()
+    const { t } = useTranslation('common')
     const router = useRouter()
+    // const appStore = useAppStore()
     // const [offset, setOffset] = useState(0)
     // const appState = useAppState()
 
@@ -195,12 +209,14 @@ function DesktopUI({ data }: { data: any }) {
                 {weekdays.map(day => <div key={day} className="font-bold">{day}</div>)}
             </div>
             <div className="grid grid-cols-8 gap-2">
+                {data.length === 0 && <div className="col-span-8">{t('classes.no_classes_city')}</div>}
                 {data.map((classData: any) => {
                     const Organizer = () => {
                         if (!classData.organizer) return <></>
                         const name = organizerList.find(o => o.id === classData.organizer)?.name
                         return <div className="font-bold italic text-gray-500">{name}</div>
                     }
+
                     return (
                         <>
                             <div onClick={() => {
@@ -211,14 +227,22 @@ function DesktopUI({ data }: { data: any }) {
                                 <Organizer />
                             </div>
                             {weekdays.map((weekday, i) => {
-                                const classesInWeekday = classData.class.filter((g: any) => g.weekday === weekday)
+                                const classesInWeekday = classData.lessons.filter((g: any) => g.weekday === weekday)
                                 if (classesInWeekday.length === 0) return <div key={i}></div>
 
                                 return (
                                     <div key={i}>{classesInWeekday.map((c: any) => {
+
+                                        const DanceType = () => {
+                                            if (Array.isArray(c.type)) {
+                                                return c.type.map((t: string) => <DanceTypeCube type={t} key={t} />)
+                                            } else {
+                                                return <DanceTypeCube type={c.type} key={c.type} />
+                                            }
+                                        }
                                         return (
                                             <div key={c.name} className="flex justify-start items-start gap-2 border border-border-main rounded-2xl p-2 mb-1 hover:bg-background-third transition">
-                                                <div className={`mt-1.5 rounded-sm min-w-3 h-3 ${danceTypeColor(c.type)}`} />
+                                                <div className="mt-1.5 flex flex-col gap-1"><DanceType /></div>
                                                 <div>
                                                     <div className="font-semibold">{c.name}</div>
                                                     <div >{c.time}</div>
@@ -227,8 +251,6 @@ function DesktopUI({ data }: { data: any }) {
                                         )
                                     })}</div>
                                 )
-
-
                             })}
                             <hr className="col-span-8 border-0 border-b border-border-main" />
                         </>

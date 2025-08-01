@@ -76,7 +76,8 @@
     "title": "課程資訊",
     "page_title": "課程資訊",
     "description": "提供各地區的教室課程",
-    "note": "*目前僅提供台北課程資訊，實際授課依照教室為主：）",
-    "no_classes": "當天無任何課程🥹"
+    "note": "實際授課依照教室為主",
+    "no_classes_day": "當天無任何課程🥹",
+    "no_classes_city": "此地區無任何課程🥹"
   }
 }

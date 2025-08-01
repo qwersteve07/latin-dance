@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import { Event, EventWithEventDate } from "@/types/event";
 import { getCurrentWeekEvents, getEventsFilterByCity } from "@/utils/getEvents";
 import EventModal from "@/components/eventModal";
-import { danceTypeColor } from "./calendar";
 import Loading from "@/components/loading";
 import { useAppStore } from "@/store/appStore";
 import { useDay } from "@/use/use-day";
@@ -18,6 +17,7 @@ import { useCookies } from "react-cookie";
 import { citiesList } from "@/const/cities";
 import { NextSeo } from "next-seo";
 import Announcement from "@/components/announce";
+import DanceTypeCube from "@/components/dance-type-cube";
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -259,7 +259,7 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
     >
       <div className="flex items-start gap-2 font-semibold" style={{ 'wordBreak': 'break-word' }}>
         <div className="flex gap-1 mt-[6px]">
-          {event.types.map(t => <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />)}
+          {event.types.map(t => <DanceTypeCube type={t} key={t} />)}
         </div>
         <div className={`${event.canceled ? 'line-through' : ''}`}>
           {event.title}

@@ -76,7 +76,8 @@
     "title": "Classes",
     "page_title": "Classes",
     "description": "Provide the classes Information",
-    "note": "*Only Taipei Studio from now",
-    "no_classes": "No classes found in this day🥹"
+    "note": "Classes will be held in the designated classroom.",
+    "no_classes_day": "No classes found in this day🥹",
+    "no_classes_city": "No classes found in this city🥹"
   }
 }
