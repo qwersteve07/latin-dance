@@ -26,7 +26,7 @@ export default function Classes() {
     useEffect(() => {
         if (!appStore.currentCity) return
 
-        let result = getFilteredClassesData(appStore.currentCity, selectType)
+        const result = getFilteredClassesData(appStore.currentCity, selectType)
         setCurrentClassesData(result)
     }, [appStore.currentCity, selectType])
 
@@ -152,7 +152,7 @@ function MobileUI({ data }: { data: any }) {
                             <div>{classData.lessons.map((c: any) => {
                                 const DanceType = () => {
                                     if (Array.isArray(c.type)) {
-                                        return c.type.map((t: string) => <DanceTypeCube type={t} />)
+                                        return c.type.map((t: string) => <DanceTypeCube type={t} key={t} />)
                                     } else {
                                         return <DanceTypeCube type={c.type} />
                                     }
@@ -235,9 +235,9 @@ function DesktopUI({ data }: { data: any }) {
 
                                         const DanceType = () => {
                                             if (Array.isArray(c.type)) {
-                                                return c.type.map((t: string) => <DanceTypeCube type={t} />)
+                                                return c.type.map((t: string) => <DanceTypeCube type={t} key={t} />)
                                             } else {
-                                                return <DanceTypeCube type={c.type} />
+                                                return <DanceTypeCube type={c.type} key={c.type} />
                                             }
                                         }
                                         return (
