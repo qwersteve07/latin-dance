@@ -18,18 +18,7 @@ import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Announcement from "@/components/announce";
-
-export const danceTypeColor = (type: string) => {
-  switch (type) {
-    case 'salsa on 1': return 'bg-red-800';
-    case 'salsa on 2': return 'bg-red-400';
-    case 'salsa': return 'bg-red-400'
-    case 'bachata': return 'bg-yellow-300';
-    case 'zouk': return 'bg-blue-400';
-    case 'lambada': return 'bg-green-300';
-    case 'kizomba': return 'bg-purple-400'
-  }
-}
+import DanceTypeCube from "@/components/dance-type-cube";
 
 export default function Calendar() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -88,7 +77,7 @@ export default function Calendar() {
         <div className="flex gap-1 max-md:gap-1.5 items-center">
           <div className="ml-1 flex gap-0.5 max-md:flex-col">
             {eventInfo.event.extendedProps.types.map((t: string, i: string) => {
-              return <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={i} />
+              return <DanceTypeCube type={t} key={i} />
             })}
           </div>
           <div className="font-semibold">{eventInfo.event.title}</div>
@@ -127,7 +116,7 @@ export default function Calendar() {
                   }
                 }}
               >
-                <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} />{t}
+                <DanceTypeCube type={t} />{t}
               </div>)
           })}
         </div>

@@ -3,9 +3,9 @@ import { getHost } from "@/utils/getHost"
 import { getLocate, getLocateLink } from "@/utils/getLocate"
 import { Modal } from "@mantine/core"
 import OuterLink from "./outerLink"
-import { danceTypeColor } from "@/pages/calendar"
 import IconLocate from '../../public/icon-location.svg'
 import { useDay } from "@/use/use-day"
+import DanceTypeCube from "./dance-type-cube"
 
 const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate> }) => {
     const dayjs = useDay()
@@ -23,7 +23,7 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                 {data.types?.map(t => {
                     return (
                         <div className="flex justify-start items-center gap-2 border border-border-main rounded-full h-8 px-3" key={t}>
-                            <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />
+                            <DanceTypeCube type={t} key={t} />
                             {t}
                         </div>)
                 })}
