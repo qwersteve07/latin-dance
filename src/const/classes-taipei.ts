@@ -1,9 +1,10 @@
-export const classesData = [
+export const classesTaipeiList = [
   {
     id: "ds-salsa-fusion",
     name: "DS Salsa Fusion",
     organizer: "",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Wed",
         type: "salsa",
@@ -16,7 +17,8 @@ export const classesData = [
     id: "eric-chen",
     name: "Eric Chen",
     organizer: "taipei-bachata-vibes",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Thu",
         type: "bachata",
@@ -29,7 +31,8 @@ export const classesData = [
     id: "eric-wang",
     name: "Eric Wang",
     organizer: "",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Mon",
         type: "bachata",
@@ -48,7 +51,8 @@ export const classesData = [
     id: "finn",
     name: "Finn",
     organizer: "fem",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Tue",
         type: "lambada",
@@ -61,7 +65,8 @@ export const classesData = [
     id: "jenny",
     name: "Jenny",
     organizer: "",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Mon",
         type: "bachata",
@@ -74,7 +79,8 @@ export const classesData = [
     id: "leo",
     name: "Leo",
     organizer: "",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Tue",
         type: "salsa",
@@ -99,7 +105,8 @@ export const classesData = [
     id: "zoe",
     name: "Zoe",
     organizer: "meet-kiz-taiwan",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Fri",
         type: "kizomba",
@@ -118,7 +125,8 @@ export const classesData = [
     id: "yi-chia",
     name: "Yi Chia",
     organizer: "one-mambo",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Wed",
         type: "salsa",
@@ -143,7 +151,8 @@ export const classesData = [
     id: "patty-lin",
     name: "Patty",
     organizer: "",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Tue",
         type: "bachata",
@@ -174,7 +183,8 @@ export const classesData = [
     id: "bailalo-dance-studio",
     name: "Bailalo Dance Studio",
     organizer: "",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Mon",
         type: "salsa",
@@ -253,7 +263,8 @@ export const classesData = [
     id: "la-salsa-taipei",
     name: "La Salsa Taipei",
     organizer: "",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Mon",
         type: "salsa",
@@ -344,7 +355,8 @@ export const classesData = [
     id: "flow-taipei",
     name: "Flow Taipei",
     organizer: "",
-    class: [
+    city: "taipei",
+    lessons: [
       {
         weekday: "Mon",
         type: "bachata",
