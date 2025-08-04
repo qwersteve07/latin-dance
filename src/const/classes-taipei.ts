@@ -309,6 +309,12 @@ export const classesTaipeiList = [
       },
       {
         weekday: "Wed",
+        type: ["salsa", "bachata"],
+        name: "Body Movement",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "Wed",
         type: "bachata",
         name: "Bachata Lv2B",
         time: "20:40-22:00",
