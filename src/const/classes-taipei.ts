@@ -124,7 +124,7 @@ export const classesTaipeiList = [
   {
     id: "yi-chia",
     name: "Yi Chia",
-    organizer: "one-mambo",
+    organizer: "one-plus-mambo",
     city: "taipei",
     lessons: [
       {
