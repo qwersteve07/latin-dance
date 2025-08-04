@@ -279,22 +279,6 @@ export const organizerTaipeiList = [
     ],
   },
   {
-    id: "one-plus-mambo",
-    name: "One+ Mambo",
-    city: "taipei",
-    thumbnail: "/organizers/one-plus-mambo.jpeg",
-    intro: "WIP",
-    link: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    classes: [],
-    party: "",
-    member: [],
-  },
-  {
     id: "salsa-me",
     name: "騷莎迷 SalsaMe",
     city: "taipei",
@@ -654,5 +638,30 @@ export const organizerTaipeiList = [
     party: "",
     classes: ["salsa", "bachata", "yogalates"],
     member: [],
+  },
+  {
+    id: "yi-chia",
+    name: "Yi Chia",
+    hide: false,
+    solo: true,
+    city: "taipei",
+    thumbnail: "/organizers/yi-chia.png",
+    intro: "台灣Salsa舞者與編舞老師，專精紐約On2風格與Mambo Shine。目前與Belle共同領導One+ Mambo Team，擔任團隊的主要編舞與教學指導。\n舞團風格講求節奏精準、動作流暢、編排華麗，長期活躍於亞洲各大Salsa舞台，並多次受邀前往日本、韓國、新加坡、越南等地參與國際舞蹈節及表演活動，致力於把台灣的Salsa能量推上國際舞台。\n除了舞台演出，我也熱衷推廣Salsa文化，從教學到社交舞Party，讓更多人認識Salsa的熱情、自由與樂趣。\n相信跳舞不只是運動，也是認識自己的方式。\n擺脫社交障礙，讓生活不只下班，還有舞池裡的全新世界！",
+    link: {
+      facebook: "",
+      instagram: "https://www.instagram.com/yichia0625/",
+      website: "",
+      location: "",
+    },
+    classes: ["salsa"],
+    party: "",
+    member: [],
+    dance_group: {
+      name: "One+ Mambo",
+      thumbnail: "/organizers/one-plus-mambo.jpeg",
+      intro:
+        "One+ Mambo Team 是一支來自台灣的 Salsa 表演與教學團隊。\n除了在舞台上帶來華麗的演出，我們平常也熱衷於教學和推廣Salsa文化，\n希望讓更多人透過跳舞和參與社交舞會，感受到 Salsa 的自由、連結與快樂！\n我們相信，跳舞不只是學動作，它能幫助你重新發現自己的身體潛力，也能透過Party交流、認識新朋友，打開生活中不一樣的視野與樂趣。",
+      link: "https://www.instagram.com/oneplus_mambo/",
+    },
   },
 ];
