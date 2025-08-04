@@ -292,15 +292,15 @@ export const classesTaipeiList = [
       {
         weekday: "Tue",
         type: "bachata",
-        name: "Bachata Lv4 Advance",
+        name: "舞感養成-單人舞序",
         time: "20:30-21:40",
       },
-      {
-        weekday: "Wed",
-        type: "salsa",
-        name: "Salsa Lv2",
-        time: "19:20-20:30",
-      },
+      // {
+      //   weekday: "Tue",
+      //   type: "bachata",
+      //   name: "Bachata Lv4 Advance",
+      //   time: "20:30-21:40",
+      // },
       {
         weekday: "Wed",
         type: "bachata",
@@ -316,7 +316,7 @@ export const classesTaipeiList = [
       {
         weekday: "Wed",
         type: "bachata",
-        name: "Bachata Lv2B",
+        name: "Bachata Lv2A",
         time: "20:40-22:00",
       },
       {
