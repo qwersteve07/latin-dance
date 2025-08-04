@@ -252,6 +252,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/ZCk6kgeydr38dRBq6",
   },
   {
+    id: "la-bodega",
+    name: "La Bodega",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/GTB3H9efDJsDab4S8",
+  },
+  {
     id: "free-space-studio",
     name: "浮藝空間舞蹈工作室",
     city: "taichung",
