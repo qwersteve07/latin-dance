@@ -279,10 +279,10 @@ export const organizerTaipeiList = [
     ],
   },
   {
-    id: "one-mambo",
+    id: "one-plus-mambo",
     name: "One+ Mambo",
     city: "taipei",
-    thumbnail: "",
+    thumbnail: "/organizers/one-plus-mambo.jpeg",
     intro: "WIP",
     link: {
       facebook: "",
