@@ -322,7 +322,7 @@ export const classesTaipeiList = [
       {
         weekday: "Thu",
         type: "bachata",
-        name: "Bachata Lv1A",
+        name: "Bachata Lv1B",
         time: "19:20-20:30",
       },
       {
@@ -346,7 +346,7 @@ export const classesTaipeiList = [
       {
         weekday: "Fri",
         type: "bachata",
-        name: "Bachata Lv3",
+        name: "Bachata Lv3A",
         time: "20:30-21:40",
       },
       {
