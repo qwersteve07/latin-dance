@@ -11,6 +11,12 @@ export const classesTaipeiList = [
         name: "Salsa Training",
         time: "20:30-22:00",
       },
+      {
+        weekday: "Sun",
+        type: "salsa",
+        name: "Sherry's Salsa Movement",
+        time: "17:00-18:30",
+      },
     ],
   },
   {
