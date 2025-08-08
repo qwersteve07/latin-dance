@@ -13,8 +13,6 @@ import DanceTypeCube from "@/components/dance-type-cube";
 
 const weekdays = ['Mon', 'Tue', "Wed", "Thu", 'Fri', 'Sat', 'Sun']
 
-danceTypes.splice(0, 2, 'salsa')
-
 export default function Classes() {
     const { t } = useTranslation('common')
     const [selectType, setSelectType] = useState<string>('');
@@ -22,6 +20,7 @@ export default function Classes() {
     const isMobile = useMedia("(max-width: 768px)");
     const appState = useAppState()
     const appStore = useAppStore()
+    const currentDanceTypes = ['salsa'].concat(danceTypes.filter((type) => type !== 'salsa on 1' && type !== 'salsa on 2'))
 
     useEffect(() => {
         if (!appStore.currentCity) return
@@ -76,7 +75,7 @@ export default function Classes() {
             <Title>{t('classes.page_title')}</Title>
             <p>{t('classes.note')}</p>
             <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm mt-10">
-                {danceTypes.map(t => {
+                {currentDanceTypes.map(t => {
                     return (
                         <div
                             key={t}
