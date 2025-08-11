@@ -387,7 +387,7 @@ export const eventsTemplate = {
     note: "",
   },
   "banana-salsa": {
-    title: "駁二 Banana 騷莎舞會 ",
+    title: "駁二 Banana 騷莎舞會",
     host: "salsaton",
     locate: "banana-music",
     rate: "Salsa / Bachata",
@@ -397,5 +397,17 @@ export const eventsTemplate = {
     fee: "400 TWD",
     content: "",
     note: "20:00 - 21:00 Free Lesson",
+  },
+  "cafe-party": {
+    title: "咖啡館 party",
+    host: "salsa_pier",
+    locate: "moon-cafe",
+    rate: "Salsa 2 : Bachata 4",
+    types: ["salsa on 2", "bachata"],
+    startAt: "18:00",
+    endAt: "22:00",
+    fee: "任一飲料即可",
+    content: "",
+    note: "",
   },
 };
