@@ -115,11 +115,11 @@ export default function Home() {
       }
       <section>
         <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-12">
-          <h1 className="text-center text-5xl font-bold max-md:text-3xl">
+          <h1 className="text-center text-5xl font-bold max-md:text-4xl">
             <div className="mb-4">💃🕺</div>
             <div>{t('title')}</div>
           </h1>
-          <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 text-sm mt-6 mb-10">
+          <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 text-sm mt-6 max-md:mt-3">
             {simpleDanceTypes.map(t => {
               return (
                 <div
