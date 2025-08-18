@@ -95,8 +95,8 @@ export const classesTaipeiList = [
       },
       {
         weekday: "Fri",
-        type: "salsa",
-        name: "Salsa 新手班",
+        type: ["salsa", "bachata"],
+        name: "舞感訓練班",
         time: "19:30-20:30",
       },
       {

@@ -1,5 +1,5 @@
 import Title from "@/components/title";
-import { danceTypes } from "@/const/dance-types";
+import { simpleDanceTypes } from "@/const/dance-types";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
@@ -20,7 +20,6 @@ export default function Classes() {
     const isMobile = useMedia("(max-width: 768px)");
     const appState = useAppState()
     const appStore = useAppStore()
-    const currentDanceTypes = ['salsa'].concat(danceTypes.filter((type) => type !== 'salsa on 1' && type !== 'salsa on 2'))
 
     useEffect(() => {
         if (!appStore.currentCity) return
@@ -75,7 +74,7 @@ export default function Classes() {
             <Title>{t('classes.page_title')}</Title>
             <p>{t('classes.note')}</p>
             <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm mt-10">
-                {currentDanceTypes.map(t => {
+                {simpleDanceTypes.map(t => {
                     return (
                         <div
                             key={t}

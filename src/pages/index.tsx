@@ -18,6 +18,7 @@ import { citiesList } from "@/const/cities";
 import { NextSeo } from "next-seo";
 import Announcement from "@/components/announce";
 import DanceTypeCube from "@/components/dance-type-cube";
+import { simpleDanceTypes } from "@/const/dance-types";
 
 export default function Home() {
   const [opened, { open, close }] = useDisclosure(false);
@@ -114,10 +115,21 @@ export default function Home() {
       }
       <section>
         <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-12">
-          <h1 className="text-center text-5xl font-bold mb-2 max-md:text-3xl">
+          <h1 className="text-center text-5xl font-bold max-md:text-3xl">
             <div className="mb-4">💃🕺</div>
             <div>{t('title')}</div>
           </h1>
+          <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 text-sm mt-6 mb-10">
+            {simpleDanceTypes.map(t => {
+              return (
+                <div
+                  key={t}
+                  className="border-border-main border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1"
+                >
+                  <DanceTypeCube type={t} />{t}
+                </div>)
+            })}
+          </div>
         </div>
         <Content />
       </section>
