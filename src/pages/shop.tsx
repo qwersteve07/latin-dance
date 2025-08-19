@@ -1,4 +1,3 @@
-import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
