@@ -20,20 +20,26 @@ export default function Shop() {
                 }}
             />
             <Title>{t('shop.page_title')}</Title>
+            <p>敬請期待😚</p>
             <div className="flex justify-start items-center gap-4 max-md:flex-col">
                 <div className="w-[400px] relative h-[440px] overflow-hidden rounded-xl mt-4 max-md:w-[300px] max-md:h-[330px]">
                     <Image
-                        src="/cloth.jpg"
+                        src="/cloth-1.jpg"
                         alt="cross"
                         fill
                         className="object-contain"
                     />
                 </div>
-                <div>
-                    <h3 className="font-bold text-2xl mb-2">跳舞人蔘 T-shirt</h3>
-                    <p>敬請期待😚</p>
+                <div className="w-[370px] relative h-[440px] overflow-hidden rounded-xl mt-4 max-md:w-[300px] max-md:h-[330px]">
+                    <Image
+                        src="/cloth-2.png"
+                        alt="cross"
+                        fill
+                        className="object-contain"
+                    />
                 </div>
             </div>
+
         </>
     )
 }
