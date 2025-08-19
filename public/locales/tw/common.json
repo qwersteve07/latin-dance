@@ -79,5 +79,10 @@
     "note": "實際授課依照教室為主",
     "no_classes_day": "當天無任何課程🥹",
     "no_classes_city": "此地區無任何課程🥹"
+  },
+  "shop":{
+    "title": "商品小物",
+    "page_title": "商品小物",
+    "description": "素人設計的舞圈用品"
   }
 }

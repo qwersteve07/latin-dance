@@ -79,5 +79,11 @@
     "note": "Classes will be held in the designated classroom.",
     "no_classes_day": "No classes found in this day🥹",
     "no_classes_city": "No classes found in this city🥹"
+  },
+  "shop":{
+    "title": "Shop",
+    "page_title": "Shop",
+    "description": "Design by ordinary person",
+    
   }
 }
