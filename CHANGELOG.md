@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.26.0](https://github.com/qwersteve07/latin-dance/compare/v1.25.0...v1.26.0) (2025-08-19)
+
+
+### ✨ Features
+
+* add cafe-party event template ([0492521](https://github.com/qwersteve07/latin-dance/commit/04925219e900b370b7324728dea088cae98893bc))
+* add classes navigator ([e68631c](https://github.com/qwersteve07/latin-dance/commit/e68631ccb7480f93b5a458fb01c3d402d764de50))
+* add classes page ([5b90fc8](https://github.com/qwersteve07/latin-dance/commit/5b90fc84a04d778661538608d2be6180edb419b2))
+* add dancetype at home ([f3965b7](https://github.com/qwersteve07/latin-dance/commit/f3965b73990cf344b617d86e87eff385a57ccffa))
+* add la bodega location ([afb4422](https://github.com/qwersteve07/latin-dance/commit/afb44229f7f40cdf459582b238b39dc96ff0c9a0))
+* add locate komi ([100453c](https://github.com/qwersteve07/latin-dance/commit/100453c16ca4dbaa0acb08024070162a331e9d33))
+* add meet-kiz-taiwan classes ([ad6407e](https://github.com/qwersteve07/latin-dance/commit/ad6407e4e8d3e1e77520287efbd6f9c038b17c4d))
+* add mobile classes ui ([ae38169](https://github.com/qwersteve07/latin-dance/commit/ae381694d9a4a9d189cde7cc248b9107c787cb84))
+* add more independent dancers ([d5a77ad](https://github.com/qwersteve07/latin-dance/commit/d5a77ade6dbdd4c42b9900a0520128e7eeab58a3))
+* add notes ([9f4642c](https://github.com/qwersteve07/latin-dance/commit/9f4642c4df4de5463dab66eef466c7603fca449a))
+* add other city lessons ([616bc31](https://github.com/qwersteve07/latin-dance/commit/616bc317722b382836d4a461ddbd2e0c2af1ba9f))
+* add salsa dance color ([78b566d](https://github.com/qwersteve07/latin-dance/commit/78b566d11d07ced4c342362d25057764a068ac47))
+* add shop page ([f7736d8](https://github.com/qwersteve07/latin-dance/commit/f7736d8b54419f2468a18c906c067ec4b0263aa7))
+* adjust kizomba template ([874b6d8](https://github.com/qwersteve07/latin-dance/commit/874b6d87995c363a233dc83f7674614e0e9b95a7))
+* adjust other page ([1811322](https://github.com/qwersteve07/latin-dance/commit/181132278bca5700f38ebb03322240fd7b8ec3a1))
+* extract DanceTypeCube ([f07805d](https://github.com/qwersteve07/latin-dance/commit/f07805d5b4236d0a932b7b4feda6188ee081f804))
+* extract organizerList to appState ([441303c](https://github.com/qwersteve07/latin-dance/commit/441303c794b2289d763fa574b780ff876fffd049))
+* optimize class ([5570148](https://github.com/qwersteve07/latin-dance/commit/5570148c49d6f912b26c2c30066ce6fe8b4c7873))
+* remove classes ([2423cd8](https://github.com/qwersteve07/latin-dance/commit/2423cd8cdccbbb17ee58a8bd0f9b18faee356a6b))
+* update classes ([45fbeac](https://github.com/qwersteve07/latin-dance/commit/45fbeac1e58d04f85513e5d58dd26d8d75e2f8b6))
+* update classes in lasalsa ([5dcf6c8](https://github.com/qwersteve07/latin-dance/commit/5dcf6c813d4ef5ba26c7a06df0788425e6048452))
+* update classes lasalsa ([a9a9fdd](https://github.com/qwersteve07/latin-dance/commit/a9a9fdd7fa6a9ec83c7d14b047ce4a7093172df9))
+* update lasalsa classes ([babc556](https://github.com/qwersteve07/latin-dance/commit/babc556bcb1050ebdc3a75b48ffa505e57e2664c))
+* update leo classes ([47fc602](https://github.com/qwersteve07/latin-dance/commit/47fc6029bf372bbf3d51f2ee3b35ab47e519b8c8))
+* update margin ([4855282](https://github.com/qwersteve07/latin-dance/commit/485528223e49a19db36336cf0d14873faeb8d93a))
+* update one+mambo thumbnail ([36f44fc](https://github.com/qwersteve07/latin-dance/commit/36f44fcd9dbd06d955ada32c561ca626f1e25bf8))
+* update yi-chia profile ([4924d14](https://github.com/qwersteve07/latin-dance/commit/4924d14dd3b49f3d55a779dced72f78823095d1f))
+
+
+### 🐛 Bug Fixes
+
+* danceType bug ([881a135](https://github.com/qwersteve07/latin-dance/commit/881a135ae81064384b3cf7f68358533629e010d5))
+* fix fuego banner hide bug ([3d4c035](https://github.com/qwersteve07/latin-dance/commit/3d4c035638f9ce4b3a6f6c33074c9f7f7e6e467a))
+* fuego banner bug ([cfe493f](https://github.com/qwersteve07/latin-dance/commit/cfe493f9b6a63c6977a5bf31a9c0383383c7f598))
+* lint wanring ([af413d4](https://github.com/qwersteve07/latin-dance/commit/af413d4dae354c3c2d68d3025e6261a44b02f740))
+* remove useless parameter ([cca0434](https://github.com/qwersteve07/latin-dance/commit/cca04345b4299b8d3e2b088edf18d43a743cbba4))
+* temp remove weekdays sticky ([a83cd38](https://github.com/qwersteve07/latin-dance/commit/a83cd382baf8ff0ae58fc6b2b612ef9a823d2d92))
+
 ## [1.25.0](https://github.com/qwersteve07/latin-dance/compare/v1.24.0...v1.25.0) (2025-07-28)
 
 
