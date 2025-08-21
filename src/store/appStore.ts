@@ -8,6 +8,12 @@ export interface AppStore {
   setInstallBannerHide: () => void;
   getFuegoBannerHide: boolean;
   setGetFuegoBannerHide: () => void;
+  username: string;
+  setUsername: (username: string) => void;
+  password: string;
+  setPassword: (password: string) => void;
+  rememberMe: boolean;
+  setRememberMe: (rememberMe: boolean) => void;
 }
 
 export const useAppStore = create<AppStore>()(
@@ -20,6 +26,12 @@ export const useAppStore = create<AppStore>()(
         setInstallBannerHide: () => set(() => ({ installBannerHide: true })),
         getFuegoBannerHide: false,
         setGetFuegoBannerHide: () => set(() => ({ getFuegoBannerHide: true })),
+        username: "",
+        setUsername: (username: string) => set(() => ({ username })),
+        password: "",
+        setPassword: (password: string) => set(() => ({ password })),
+        rememberMe: false,
+        setRememberMe: (rememberMe: boolean) => set(() => ({ rememberMe })),
       }),
       {
         name: "appStore",
