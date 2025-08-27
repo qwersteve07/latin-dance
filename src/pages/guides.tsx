@@ -27,9 +27,38 @@ export default function Guides() {
       title: t('guides.item4_title'),
       content: t('guides.item4_content'),
     },
+    {
+      title: t('guides.item5_title'),
+      content: t('guides.item5_content'),
+    },
+    {
+      title: t('guides.item6_title'),
+      content: t('guides.item6_content'),
+    },
+    {
+      title: t('guides.item7_title'),
+      content: t('guides.item7_content'),
+    },
+    {
+      title: t('guides.item8_title'),
+      content: t('guides.item8_content'),
+    },
+    {
+      title: t('guides.item9_title'),
+      content: t('guides.item9_content'),
+    },
+    {
+      title: t('guides.item10_title'),
+      content: t('guides.item10_content'),
+    },
+
   ];
 
   const recommendList = [
+    {
+      title: "We dance, We don't teach in social",
+      link: 'https://www.instagram.com/p/DN2IxIz5Hgq/?igsh=ajIzcmNpOG83OG12'
+    },
     {
       title: "舞會禮儀知多少？",
       link: "https://www.instagram.com/p/DF8SdNGTvBq/?igsh=MTZkZzJkNmg0N3QyYg%3D%3D",
@@ -68,19 +97,20 @@ export default function Guides() {
       <div className="flex justify-between items-center flex-col justify-items-center min-h-screen container mx-auto">
         <div>
           <Title>{t('guides.page_title')}</Title>
-          <p className="-mt-4 mb-10 font-bold">Written by Eric Chen</p>
-          <p className="mb-4 ">{t('guides.description')}:</p>
-          <ul className="list-disc pl-4 mb-4">
+          <p className="-mt-4 mb-12 font-bold">Written by Eric Chen / Kiki</p>
+          <ul className="list-disc pl-4 mb-12">
             {groundRules.map(r => (
               <li key={r.title} className="mb-7">
                 <div className="text-lg font-bold">{r.title}</div>
-                <div>{r.content}</div>
+                <div>{r.content?.split("\n").map(x => (
+                  <p key={x} className="">
+                    {x}
+                    <br />
+                  </p>
+                ))}</div>
               </li>
             ))}
           </ul>
-          <p className="mb-12">
-            {t('guides.warning')}
-          </p>
           <h2 className="text-2xl font-bold mb-4">{t('guides.read')}</h2>
           <ul className="list-disc pl-4 mb-12 max-md:mb-8">
             {recommendList.map(item => {
