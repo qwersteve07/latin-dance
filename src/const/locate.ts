@@ -174,6 +174,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/UX6Y7cUaLNjLnm2Y7",
   },
   {
+    id: "hin-chu-jian-hwua-center",
+    name: "新竹市建華市民活動中心",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/4txKQZ7LXcwfKNz77",
+  },
+  {
     id: "wen-li-center",
     name: "文里活動中心",
     city: "taipei",
@@ -250,7 +256,7 @@ export const locateList = [
     name: "哈斯葵洋酒",
     city: "taichung",
     url: "https://maps.app.goo.gl/ZCk6kgeydr38dRBq6",
-  },
+  }, ㄟ
   {
     id: "la-bodega",
     name: "La Bodega",
