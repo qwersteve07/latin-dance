@@ -256,7 +256,7 @@ export const locateList = [
     name: "哈斯葵洋酒",
     city: "taichung",
     url: "https://maps.app.goo.gl/ZCk6kgeydr38dRBq6",
-  }, ㄟ
+  },
   {
     id: "la-bodega",
     name: "La Bodega",
