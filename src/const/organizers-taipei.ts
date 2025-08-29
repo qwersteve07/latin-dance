@@ -58,7 +58,7 @@ export const organizerTaipeiList = [
     link: {
       facebook: "https://www.facebook.com/CopaTaiwanSalsaSeries/",
       instagram: "https://www.instagram.com/copataiwan_salsaparty/",
-      website: "",
+      website: "https://copataiwan.com/",
       location: "",
     },
     member: [
