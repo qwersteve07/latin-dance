@@ -13,9 +13,9 @@ export const locateList = [
   },
   {
     id: "ba-basement",
-    name: "BA Basement",
+    name: "ODORO",
     city: "taipei",
-    url: "https://maps.app.goo.gl/yiGy2EFKuoeH6QGX6",
+    url: "https://maps.app.goo.gl/YZNwpuq3mcfjSAeU8",
   },
   {
     id: "maji-square",
