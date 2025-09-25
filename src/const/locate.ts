@@ -60,6 +60,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/ogm9iHzqyrDiNLh47",
   },
   {
+    id: "skyco-ch-8f",
+    name: "信義市府 Skyco 8F",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/oLvaNLxSrSQrgy7FA",
+  },
+  {
     id: "skyco-zhongxiao-yanji-7f",
     name: "忠孝延吉 Skyco 7F",
     city: "taipei",
