@@ -366,6 +366,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/fCZaxGNGWw2jGtRY8",
   },
   {
+    id: "yuju-street",
+    name: "玉竹商圈",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/V3dGMSL7Ls9Ng2C37",
+  },
+  {
     id: "d.g-burger",
     name: "Damn Good Burger ",
     city: "kaohsiung",
