@@ -29,8 +29,12 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                 })}
             </div>
             <div className="grid grid-cols-[80px,1fr] gap-2">
-                <div className="font-semibold">Host</div>
-                <div>{getHost(data.host || '')}</div>
+                {data.host && (
+                    <>
+                        <div className="font-semibold">Host</div>
+                        <div>{getHost(data.host)}</div>
+                    </>
+                )}
                 <div className="font-bold">Locate</div>
                 <div>
                     {hasLocate ?
