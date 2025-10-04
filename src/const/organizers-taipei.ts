@@ -58,7 +58,7 @@ export const organizerTaipeiList = [
     link: {
       facebook: "https://www.facebook.com/CopaTaiwanSalsaSeries/",
       instagram: "https://www.instagram.com/copataiwan_salsaparty/",
-      website: "",
+      website: "https://copataiwan.com/",
       location: "",
     },
     member: [
@@ -83,6 +83,32 @@ export const organizerTaipeiList = [
       location: "",
     },
     member: [],
+  },
+  {
+    id: "ds-salsa-fusion",
+    name: "DS Salsa Fusion",
+    hide: false,
+    city: "taipei",
+    thumbnail: "/organizers/ds.png",
+    intro: "由Dan和Sherry共同經營的舞蹈團隊，以厚實的Salsa為核心基礎，樂於嘗試不同的教學內容與編創表演，自由合作不設限，與團員一起成長探索更多可能性。",
+    link: {
+      facebook: "",
+      instagram: "",
+      website: "https://lin.ee/R1Bl9H6",
+      location: "",
+    },
+    party: "",
+    classes: ["salsa"],
+    member: [
+      {
+        name: "Dan",
+        image: "/organizers/dan.png",
+      },
+      {
+        name: "Sherry",
+        image: "/organizers/sherry.png",
+      },
+    ],
   },
   {
     id: "fem",
@@ -499,6 +525,25 @@ export const organizerTaipeiList = [
     member: [],
   },
   {
+    id: "dan",
+    name: "Dan",
+    hide: false,
+    solo: true,
+    city: "taipei",
+    thumbnail: "/organizers/dan.png",
+    intro:
+      "活躍於舞池及國內外各大活動的Social dancer，流暢多變的身體風格專注於當下與音樂及舞伴的連結，喜歡將Salsa融合Hip Hop等元素創造自由不受限的律動。自2019年投入Salsa教學至今，擅長營造輕鬆無壓力的學習環境，與學生一起享受跳舞的樂趣。2022年開始持續創作編舞小品，並與Sherry共同成立DS Salsa Fusion舞團，堅持原創的精神，發表大型舞台作品，帶領團員訓練提升，體會舞蹈的不同層次的啟發。",
+    link: {
+      facebook: "",
+      instagram: "https://www.instagram.com/dankaras/",
+      website: "",
+      location: "",
+    },
+    party: "",
+    classes: ['Salsa雙人舞課程', '單人律動', 'Man Styling', '舞蹈編排'],
+    member: [],
+  },
+  {
     id: "dj-cola",
     name: "DJ Cola",
     hide: false,
@@ -517,24 +562,7 @@ export const organizerTaipeiList = [
     classes: [],
     member: [],
   },
-  {
-    id: "ds-salsa-fusion",
-    name: "DS Salsa Fusion",
-    hide: false,
-    solo: true,
-    city: "taipei",
-    thumbnail: "",
-    intro: "WIP",
-    link: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
-  },
+
   {
     id: "eric-wang",
     name: "Eric Wang",
@@ -637,6 +665,25 @@ export const organizerTaipeiList = [
     },
     party: "",
     classes: ["salsa", "bachata", "yogalates"],
+    member: [],
+  },
+  {
+    id: "sherry",
+    name: "Sherry",
+    hide: false,
+    solo: true,
+    city: "taipei",
+    thumbnail: "/organizers/sherry.png",
+    intro:
+      "對於跳舞有高度需求的人，長期接觸芭蕾、爵士、雷鬼、現代等舞蹈訓練，因為喜歡所以一直跳。從音樂認識Salsa，從Salsa體會到雙人舞的魔力，覺得跳舞可以分享是一件很棒的事。2020年開始Salsa教學至今，2023與Dan共同成立帶領DS Salsa Fusion，發現編舞創作很有趣，和學生互相啟發很開心，希望繼續跟大家一起享受跳舞的快樂。",
+    link: {
+      facebook: "",
+      instagram: "https://www.instagram.com/sherry_is_dancing",
+      website: "",
+      location: "",
+    },
+    party: "",
+    classes: ['Salsa雙人舞課程', '單人律動', '舞蹈體驗', '舞蹈編排'],
     member: [],
   },
   {

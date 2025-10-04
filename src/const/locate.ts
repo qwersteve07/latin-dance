@@ -13,9 +13,9 @@ export const locateList = [
   },
   {
     id: "ba-basement",
-    name: "BA Basement",
+    name: "ODORO",
     city: "taipei",
-    url: "https://maps.app.goo.gl/yiGy2EFKuoeH6QGX6",
+    url: "https://maps.app.goo.gl/YZNwpuq3mcfjSAeU8",
   },
   {
     id: "maji-square",
@@ -58,6 +58,12 @@ export const locateList = [
     name: "南京復興 Skyco 9F",
     city: "taipei",
     url: "https://maps.app.goo.gl/ogm9iHzqyrDiNLh47",
+  },
+  {
+    id: "skyco-ch-8f",
+    name: "信義市府 Skyco 8F",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/oLvaNLxSrSQrgy7FA",
   },
   {
     id: "skyco-zhongxiao-yanji-7f",
@@ -358,6 +364,12 @@ export const locateList = [
     name: "Moon月鯉灣景觀咖啡酒吧",
     city: "kaohsiung",
     url: "https://maps.app.goo.gl/fCZaxGNGWw2jGtRY8",
+  },
+  {
+    id: "yuju-street",
+    name: "玉竹商圈",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/V3dGMSL7Ls9Ng2C37",
   },
   {
     id: "d.g-burger",
