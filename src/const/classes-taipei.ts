@@ -67,6 +67,26 @@ export const classesTaipeiList = [
       },
     ],
   },
+    {
+    id: "german",
+    name: "German",
+    organizer: "",
+    city: "taipei",
+    lessons: [
+      {
+        weekday: "Wed",
+        type: "bachata",
+        name: "Bachata Intro",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "Wed",
+        type: "bachata",
+        name: "Bachata Open Lv",
+        time: "20:45-21:45",
+      },
+    ],
+  },
   {
     id: "jenny",
     name: "Jenny",
@@ -170,6 +190,12 @@ export const classesTaipeiList = [
         type: "salsa",
         name: "Salsa Shine",
         time: "19:00-20:30",
+      },
+       {
+        weekday: "Wed",
+        type: "bachata",
+        name: "Bachata Open Lv",
+        time: "20:45-21:45",
       },
       {
         weekday: "Thu",
