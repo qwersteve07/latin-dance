@@ -562,7 +562,6 @@ export const organizerTaipeiList = [
     classes: [],
     member: [],
   },
-
   {
     id: "eric-wang",
     name: "Eric Wang",
@@ -588,6 +587,25 @@ export const organizerTaipeiList = [
         "Grupo Esencia是由知名的西班牙Bachata男神Marco Espejo以及女神Sara Panero所創立的Bachata舞團，其特色是充滿活力與創意的表演風格，最近幾年迅速紅遍世界各地，成為了最廣為人知的舞團品牌之一。\n目前Grupo Esencia已在許多國家&城市成立舞團分部，在亞洲也已成立了多個分團，例如首爾、釜山、東京、大阪、上海以及台北等地。\n在台灣則是由Eric老師代理，招募了幾位Bachata同好，組成了Grupo Esencia Taipei。舞團成員不乏在國內已享負盛名的師資與高手，幾乎都是常常在舞池中大家爭相邀舞的對象。舞團成軍五年以來，已經完成發表10首作品，每一支舞碼都令人耳目一新，並在圈中獲得熱烈的迴響。目前舞團正在籌備新的舞碼，近期又將開始新一波的招募與訓練。\n備註：Grupo Esencia Taipei舞團正在招募新成員，如果你/妳喜歡Bachata，也想要挑戰表演舞碼，歡迎與Eric老師聯繫，把握站上表演舞台的機會！",
       link: "https://www.instagram.com/grupoesencia_taipei/",
     },
+  },
+   {
+    id: "german",
+    name: "German",
+    hide: false,
+    solo: true,
+    city: "taipei",
+    thumbnail: "",
+    intro:
+      "WIP",
+    link: {
+      facebook: "",
+      instagram: "",
+      website: "",
+      location: "",
+    },
+    party: "",
+    classes: ['bachata'],
+    member: [],
   },
   {
     id: "jenny",
