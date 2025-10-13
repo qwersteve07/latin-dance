@@ -322,6 +322,29 @@ export const organizerTaipeiList = [
     member: [],
   },
   {
+    id: "sbk-taiwan",
+    name: "SBK Taiwan",
+    city: "taipei",
+    thumbnail: "/organizers/sbk-taiwan.jpeg",
+    intro:
+      "Salsa Bachata Kizomba social dance in Taiwan 🇹🇼",
+    link: {
+      facebook: "https://www.facebook.com/profile.php?id=61578977113446",
+      instagram: "https://www.instagram.com/sbk_taiwan/",
+      website: "",
+      location: "",
+    },
+    classes: ["Urban Kizomba"],
+    party: "SBK Night at Barcade on Sundays & SBK with Copa Friday Social on Friday",
+    member: [{
+      name: 'Jamie',
+      image: ''
+    }, {
+      name: 'Susan',
+      image: ''
+    }],
+  },
+  {
     id: "taipei-bachata-vibes",
     name: "Taipei Bachata Vibes",
     city: "taipei",
@@ -588,7 +611,7 @@ export const organizerTaipeiList = [
       link: "https://www.instagram.com/grupoesencia_taipei/",
     },
   },
-   {
+  {
     id: "german",
     name: "German",
     hide: false,
