@@ -52,8 +52,10 @@ export default function LoginPage() {
                 method: 'POST',
                 body: JSON.stringify(value)
             })
+
             if (result.error) throw result
-            cookieStore.setAuthToken(result.token);
+            cookieStore.setAuthToken(result.data.accessToken);
+            cookieStore.setRefreshToken(result.data.refreshToken);
             router.push('/events-list')
         } catch (e) {
             console.log(e)
