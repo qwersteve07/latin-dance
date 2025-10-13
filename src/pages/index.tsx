@@ -39,8 +39,8 @@ export default function Home() {
       url: "https://www.instagram.com/socialdance_vibe/",
     },
     {
-      name: "Tyra",
-      url: "https://www.instagram.com/tyrarara0830",
+      name: "Sloat Media",
+      url: "https://www.instagram.com/sloatmedia",
     },
     {
       name: "Jim",
