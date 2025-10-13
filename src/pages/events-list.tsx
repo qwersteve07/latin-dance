@@ -12,7 +12,7 @@ import useSWR from "swr";
 
 export default function EventsList() {
     const router = useRouter()
-    const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
+    const { data, error, isLoading } = useSWR("/social-dance/eventsList", fetcher);
     const [removedId, setRemovedId] = useState('')
     const [opened, { open, close }] = useDisclosure(false);
     const [groupData, setGroupData] = useState<any>([])
