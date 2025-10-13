@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
 
   // check the match routes
   if (authenticationRoutes.some(route => pathname.includes(route))) {
-    const authToken = request.cookies.get('social-dance-token')
+    const authToken = request.cookies.get('social-dance-access-token')
     if (!authToken) {
       return NextResponse.redirect(new URL('/', request.url)); // Redirect to root
     } else {
