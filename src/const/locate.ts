@@ -72,6 +72,18 @@ export const locateList = [
     url: "https://maps.app.goo.gl/KH6AxUdgTbWyYig37",
   },
   {
+    id: "la-fin-taipei",
+    name: "la fin Taipei",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/M9b5ftWe8qJJ2QLt7",
+  },
+  {
+    id: 'taplife-cafe',
+    name: 'TapLife Cafe',
+    city: 'taipei',
+    url: 'https://maps.app.goo.gl/8PBdxD3BdtPPyFu3A'
+  },
+  {
     id: "corner-max",
     name: "CORNER MAX",
     city: "taipei",

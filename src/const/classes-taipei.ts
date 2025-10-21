@@ -226,7 +226,7 @@ export const classesTaipeiList = [
       {
         weekday: "Mon",
         type: "salsa",
-        name: "Salsa Lv2.2",
+        name: "Salsa Lv2.3",
         time: "19:15-20:30",
       },
       {
@@ -237,14 +237,14 @@ export const classesTaipeiList = [
       },
       {
         weekday: "Tue",
-        type: "salsa",
+        type: ["salsa", "bachata"],
         name: "Spinning & Body Movement",
         time: "19:15-20:30",
       },
       {
         weekday: "Wed",
         type: "salsa",
-        name: "Salsa Lv2.1",
+        name: "Salsa Lv2.2",
         time: "19:15-20:30",
       },
       {
@@ -316,6 +316,12 @@ export const classesTaipeiList = [
         time: "19:20-20:30",
       },
       {
+        weekday: "Mon",
+        type: "salsa",
+        name: "Salsa Adv.",
+        time: "20:30-21:40",
+      },
+      {
         weekday: "Tue",
         type: "salsa",
         name: "Salsa Lv2",
@@ -324,13 +330,13 @@ export const classesTaipeiList = [
       {
         weekday: "Tue",
         type: "bachata",
-        name: "Bachata Lv3B",
+        name: "Bachata Lv4",
         time: "19:20-20:30",
       },
       {
         weekday: "Tue",
         type: "bachata",
-        name: "Bachata Lv4 Advance",
+        name: "Bachata Adv.",
         time: "20:30-21:40",
       },
       {
@@ -354,19 +360,19 @@ export const classesTaipeiList = [
       {
         weekday: "Wed",
         type: "bachata",
-        name: "Bachata Lv2A",
+        name: "Bachata Lv2B",
         time: "20:40-22:00",
       },
       {
         weekday: "Thu",
         type: "bachata",
-        name: "Bachata Lv1B",
+        name: "Bachata Lv2A",
         time: "19:20-20:30",
       },
       {
         weekday: "Thu",
         type: "bachata",
-        name: "Bachata Lv2B",
+        name: "Bachata Lv3",
         time: "19:20-20:30",
       },
       {
@@ -378,13 +384,13 @@ export const classesTaipeiList = [
       {
         weekday: "Fri",
         type: "bachata",
-        name: "Bachata Intro",
+        name: "Bachata Lv1A",
         time: "19:20-20:30",
       },
       {
         weekday: "Fri",
         type: "bachata",
-        name: "Bachata Lv3A",
+        name: "Bachata Intro",
         time: "20:30-21:40",
       },
       {
@@ -392,6 +398,18 @@ export const classesTaipeiList = [
         type: "salsa",
         name: "Salsa Shine",
         time: "14:00-15:00",
+      },
+      {
+        weekday: "Sat",
+        type: "bachata",
+        name: "Bachata Intro",
+        time: "15:00-16:10",
+      },
+      {
+        weekday: "Sat",
+        type: "salsa",
+        name: "Salsa Intro",
+        time: "15:20-16:30",
       },
     ],
   },
@@ -428,7 +446,7 @@ export const classesTaipeiList = [
       {
         weekday: "Tue",
         type: "salsa",
-        name: "Salsa Styling",
+        name: "Afro",
         time: "19:30-20:30",
       },
       {
@@ -440,7 +458,7 @@ export const classesTaipeiList = [
       {
         weekday: "Tue",
         type: "salsa",
-        name: "Afro Cuban",
+        name: "Salsa Adv.",
         time: "20:45-21:45",
       },
       {
@@ -450,15 +468,9 @@ export const classesTaipeiList = [
         time: "19:30-20:30",
       },
       {
-        weekday: "Wed",
-        type: "salsa",
-        name: "Salsa PartnerWork",
-        time: "20:45-21:45",
-      },
-      {
         weekday: "Thu",
         type: "zouk",
-        name: "Zouk Lv1.5",
+        name: "Zouk Lv2.5",
         time: "19:30-20:30",
       },
       {
@@ -476,8 +488,14 @@ export const classesTaipeiList = [
       {
         weekday: "Fri",
         type: "zouk",
-        name: "Zouk Lv1",
+        name: "Zouk Lv1.5",
         time: "20:00-21:00",
+      },
+      {
+        weekday: "Fri",
+        type: "bachata",
+        name: "Bachata Trendy Social Moves",
+        time: "19:30-20:30",
       },
       {
         weekday: "Fri",
