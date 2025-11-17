@@ -293,6 +293,12 @@ export const locateList = [
     city: "taichung",
     url: "https://maps.app.goo.gl/EQ4Sm1hFnDsKxBN28",
   },
+    {
+    id: "stream",
+    name: "洄流餐食",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/3Ykkmqxe8gny3EsC6",
+  },
   {
     id: "block-hub",
     name: "Block Hub",
@@ -335,6 +341,7 @@ export const locateList = [
     city: "kaohsiung",
     url: "https://maps.app.goo.gl/AD2mKpkpUnzDNCa76",
   },
+  
   {
     id: "social-hub",
     name: "Social Hub",
