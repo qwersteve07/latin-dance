@@ -232,7 +232,7 @@ export const classesTaipeiList = [
       {
         weekday: "Mon",
         type: "salsa",
-        name: "Salsa Lv2.3",
+        name: "Salsa Lv1",
         time: "19:15-20:30",
       },
       {
@@ -312,7 +312,7 @@ export const classesTaipeiList = [
       {
         weekday: "Mon",
         type: "salsa",
-        name: "Salsa Lv1A",
+        name: "Salsa Lv1",
         time: "19:20-20:30",
       },
       {
@@ -330,7 +330,7 @@ export const classesTaipeiList = [
       {
         weekday: "Tue",
         type: "salsa",
-        name: "Salsa Lv2",
+        name: "Salsa Intro",
         time: "19:20-20:30",
       },
       {
