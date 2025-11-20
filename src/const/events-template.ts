@@ -41,6 +41,17 @@ export const eventsTemplate = {
     fee: "450 TWD or 1 flow point",
     content: "Buddy Pass, 2 person $600 before 10pm",
   },
+   "flow-sunset-zouk": {
+    title: "Flow Sunset Zouk",
+    host: "flow-taipei",
+    locate: "flow-taipei",
+    rate: "100% Zouk",
+    types: ["zouk"],
+    startAt: "15:00",
+    endAt: "19:30",
+    fee: "450 TWD or 1 flow point",
+    content: "Buddy Pass, 2 person $600 before 16:00",
+  },
   "copa-friday-social": {
     title: "Copa friday Social",
     host: "copa-taiwan",
