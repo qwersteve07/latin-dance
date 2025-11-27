@@ -185,6 +185,12 @@ export const locateList = [
     city: "taipei",
     url: "https://maps.app.goo.gl/CryD421JL6WXhfR4A",
   },
+   {
+    id: "woomanpower",
+    name: "woomanpower女力空間",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/umnE1uHgX3rzed8i8",
+  },
   {
     id: "salsa-me",
     name: "騷莎迷SalsaMe",
