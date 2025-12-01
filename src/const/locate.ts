@@ -227,6 +227,12 @@ export const locateList = [
     city: "taipei",
     url: "https://maps.app.goo.gl/6bZa71Kx6NoHkEud9",
   },
+   {
+    id: "bonjour-cheby",
+    name: "Bonjour Cheby",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/R7S7MXzBtA7KGNyK7",
+  },
   {
     id: "w-social",
     name: "利百代辦公大樓 8F",
