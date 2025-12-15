@@ -37,6 +37,12 @@ export const classesTaipeiList = [
         name: "Bachata 舞池招式實用班",
         time: "20:00-21:00",
       },
+      {
+        weekday: "Sun",
+        type: "bachata",
+        name: "Bachata Training",
+        time: "12:00-13:30",
+      },
     ],
   },
   {
@@ -73,7 +79,7 @@ export const classesTaipeiList = [
       },
     ],
   },
-    {
+  {
     id: "german",
     name: "German",
     organizer: "",
@@ -82,14 +88,14 @@ export const classesTaipeiList = [
       {
         weekday: "Wed",
         type: "bachata",
-        name: "Bachata Intro",
-        time: "19:30-20:30",
-      },
-      {
-        weekday: "Wed",
-        type: "bachata",
         name: "Bachata Open Lv",
         time: "20:45-21:45",
+      },
+      {
+        weekday: "Fri",
+        type: "bachata",
+        name: "Bachata Lv2",
+        time: "20:00-21:00",
       },
     ],
   },
@@ -203,7 +209,7 @@ export const classesTaipeiList = [
         name: "Salsa Shine",
         time: "19:00-20:30",
       },
-       {
+      {
         weekday: "Wed",
         type: "bachata",
         name: "Bachata Open Lv",
@@ -467,7 +473,7 @@ export const classesTaipeiList = [
         name: "Bachata Solo Styling",
         time: "20:45-21:45",
       },
-       {
+      {
         weekday: "Tue",
         type: "salsa",
         name: "Salsa Adv.",
@@ -479,7 +485,7 @@ export const classesTaipeiList = [
         name: "Salsa 初期班 S3",
         time: "19:30-20:30",
       },
-         {
+      {
         weekday: "Wed",
         type: "salsa",
         name: "Salsa 初級班",
@@ -497,7 +503,7 @@ export const classesTaipeiList = [
         name: "Zouk Lv3",
         time: "19:30-20:30",
       },
-       {
+      {
         weekday: "Thu",
         type: "salsa",
         name: "Salsa Bodymovement & Footwork Drills",
