@@ -312,6 +312,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/EQ4Sm1hFnDsKxBN28",
   },
   {
+    id: "fantacy-green-light",
+    name: "綠光計畫范特喜文創聚落",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/EQrQFqKGcUpj7SK79",
+  },
+  {
     id: "stream",
     name: "洄流餐食",
     city: "taichung",
