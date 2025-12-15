@@ -72,16 +72,22 @@ export const locateList = [
     url: "https://maps.app.goo.gl/KH6AxUdgTbWyYig37",
   },
   {
+    id: "vana-taipei",
+    name: "VANA Taipei",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/GqMJM3eXnmoZUwrp8",
+  },
+  {
     id: "la-fin-taipei",
     name: "la fin Taipei",
     city: "taipei",
     url: "https://maps.app.goo.gl/M9b5ftWe8qJJ2QLt7",
   },
   {
-    id: 'taplife-cafe',
-    name: 'TapLife Cafe',
-    city: 'taipei',
-    url: 'https://maps.app.goo.gl/8PBdxD3BdtPPyFu3A'
+    id: "taplife-cafe",
+    name: "TapLife Cafe",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/8PBdxD3BdtPPyFu3A",
   },
   {
     id: "corner-max",
@@ -185,7 +191,7 @@ export const locateList = [
     city: "taipei",
     url: "https://maps.app.goo.gl/CryD421JL6WXhfR4A",
   },
-   {
+  {
     id: "woomanpower",
     name: "woomanpower女力空間",
     city: "taipei",
@@ -227,7 +233,7 @@ export const locateList = [
     city: "taipei",
     url: "https://maps.app.goo.gl/6bZa71Kx6NoHkEud9",
   },
-   {
+  {
     id: "bonjour-cheby",
     name: "Bonjour Cheby",
     city: "taipei",
@@ -305,7 +311,7 @@ export const locateList = [
     city: "taichung",
     url: "https://maps.app.goo.gl/EQ4Sm1hFnDsKxBN28",
   },
-    {
+  {
     id: "stream",
     name: "洄流餐食",
     city: "taichung",
@@ -353,7 +359,6 @@ export const locateList = [
     city: "kaohsiung",
     url: "https://maps.app.goo.gl/AD2mKpkpUnzDNCa76",
   },
-  
   {
     id: "social-hub",
     name: "Social Hub",
