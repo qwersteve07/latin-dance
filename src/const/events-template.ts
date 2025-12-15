@@ -41,7 +41,7 @@ export const eventsTemplate = {
     fee: "450 TWD or 1 flow point",
     content: "Buddy Pass, 2 person $600 before 10pm",
   },
-   "flow-sunset-zouk": {
+  "flow-sunset-zouk": {
     title: "Flow Sunset Zouk",
     host: "flow-taipei",
     locate: "flow-taipei",
@@ -289,7 +289,7 @@ export const eventsTemplate = {
   },
   "sunday-sbk-night": {
     title: "Sunday SBK Night",
-    host: "meet-kiz-taiwan",
+    host: "sbk-taiwan",
     locate: "barcade-taiwan",
     rate: "Salsa 1 : Bachata 2 : Kizomba 2",
     types: ["salsa on 1", "salsa on 2", "bachata", "kizomba"],
@@ -297,7 +297,19 @@ export const eventsTemplate = {
     endAt: "23:00",
     fee: "250 TWD",
     content: "",
-    note: "活動主辦-Susan/Jamie",
+    note: "",
+  },
+  "taipei-bkk-night": {
+    title: "Taipei BKK Night",
+    host: "meet-kiz-taiwan",
+    locate: "",
+    rate: "Bachata / Kizomba / Konpa",
+    types: ["bachata", "kizomba"],
+    startAt: "20:00",
+    endAt: "23:30",
+    fee: "",
+    content: "",
+    note: "",
   },
   "cigar-vie-latin-night": {
     title: "Cigar Vie Latin Night",
