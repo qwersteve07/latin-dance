@@ -242,7 +242,7 @@ export const eventsTemplate = {
   },
   suave: {
     title: "Suave Latin Social",
-    host: "zac",
+    host: "rams",
     locate: "here-taipei",
     rate: "Salsa:Bachata:Kizomba 1:2:1",
     types: ["salsa on 1", "salsa on 2", "bachata", "kizomba"],
