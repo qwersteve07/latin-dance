@@ -4,7 +4,7 @@ export const eventsTemplate = {
     host: "flow-taipei",
     locate: "flow-taipei",
     rate: "100% Bachata",
-    types: ["bachata", "salsa on 2"],
+    types: ["bachata"],
     startAt: "22:00",
     endAt: "23:30",
     fee: "250 TWD or 0.5 flow point(當日上課學生免費)",
@@ -241,7 +241,7 @@ export const eventsTemplate = {
     note: "單人入場300元，好友一起入場500元/2人",
   },
   suave: {
-    title: "Suave Latin Socials",
+    title: "Suave Latin Social",
     host: "zac",
     locate: "here-taipei",
     rate: "Salsa:Bachata:Kizomba 1:2:1",
