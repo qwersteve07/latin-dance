@@ -19,12 +19,14 @@ import { NextSeo } from "next-seo";
 import Announcement from "@/components/announce";
 import DanceTypeCube from "@/components/dance-type-cube";
 import { simpleDanceTypes } from "@/const/dance-types";
+import dayjs from "dayjs";
 
 export default function Home() {
+  const today = dayjs();
   const [opened, { open, close }] = useDisclosure(false);
   const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
   const [currentWeekEvents, setCurrentWeekEvents] = useState<[string, Event[]][]>([]);
-  const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
+  const { data, error, isLoading } = useSWR(`/social-dance/events?year=${today.year()}&month=${today.month() + 1}`, fetcher);
   const router = useRouter();
   const appStore = useAppStore()
   const { t } = useTranslation('common')
