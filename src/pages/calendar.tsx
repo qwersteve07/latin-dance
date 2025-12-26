@@ -10,7 +10,6 @@ import { Event, EventWithEventDate } from "@/types/event";
 import EventModal from "@/components/eventModal";
 import Title from "@/components/title";
 import { danceTypes } from "@/const/dance-types";
-import Loading from "@/components/loading";
 import { useAppStore } from "@/store/appStore";
 import { getEventsFilterByCity } from "@/utils/getEvents";
 import { useDay } from "@/use/use-day";
@@ -21,9 +20,11 @@ import Announcement from "@/components/announce";
 import DanceTypeCube from "@/components/dance-type-cube";
 
 export default function Calendar() {
+  const [currentYear, setCurrentYear] = useState('2026')
+  const [currentMonth, setCurrentMonth] = useState('1')
   const [opened, { open, close }] = useDisclosure(false);
   const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
-  const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
+  const { data, error, isLoading } = useSWR(`/social-dance/events?year=${currentYear}&month=${currentMonth}`, fetcher);
   const [currentData, setCurrentData] = useState<Array<Event>>([])
   const [selectTypes, setSelectTypes] = useState<string[]>([]);
   const appStore = useAppStore()
@@ -43,7 +44,7 @@ export default function Calendar() {
     }
 
     setCurrentData(result)
-  }, [isLoading, selectTypes, appStore.currentCity])
+  }, [isLoading, selectTypes, appStore.currentCity, data?.result])
 
   function getFilteredCurrentData(types: string[], city: string) {
 
@@ -89,14 +90,6 @@ export default function Calendar() {
   const Content = () => {
     if (error) return <div>{t('load_data_failed')}</div>;
 
-    if (isLoading) {
-      return (
-        <div className="w-full h-[70dvh] flex justify-center items-center">
-          <Loading />
-        </div>
-      )
-    }
-
     return (
       <>
         <EventModal opened={opened} onClose={close} data={selectEvent} />
@@ -121,8 +114,8 @@ export default function Calendar() {
           })}
         </div>
         {selectTypes.length !== 0 && <div className="-mt-3 mb-8 font-bold">{t('calendar.filtered')}：{selectTypes.join('、')}</div>}
-        {isMobile && <MobileCalendar data={currentData} render={render} />}
-        {!isMobile && <DesktopCalendar data={currentData} render={render} />}
+        {isMobile && <MobileCalendar data={currentData} render={render} setCurrentYear={setCurrentYear} setCurrentMonth={setCurrentMonth} />}
+        {!isMobile && <DesktopCalendar data={currentData} render={render} setCurrentYear={setCurrentYear} setCurrentMonth={setCurrentMonth} />}
       </>
     )
   }
@@ -150,7 +143,7 @@ export default function Calendar() {
   );
 }
 
-function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
+function MobileCalendar({ data, render, setCurrentYear, setCurrentMonth }: { data: Array<Event>, render: any, setCurrentYear: any, setCurrentMonth: any }) {
   const dayjs = useDay()
   return (
     <FullCalendar
@@ -160,6 +153,13 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
         return {
           start: dayjs().startOf('day').format('YYYY-MM-DDT00:00:00'),
         };
+      }}
+      datesSet={(data) => {
+        const currentDate = dayjs(data.view.currentStart)
+        const year = currentDate.year()
+        const month = currentDate.month() + 1
+        setCurrentYear(year)
+        setCurrentMonth(month)
       }}
       initialView="listMonth"
       events={data.map((e) => ({
@@ -172,13 +172,20 @@ function MobileCalendar({ data, render }: { data: Array<Event>, render: any }) {
   );
 }
 
-function DesktopCalendar({ data, render }: { data: Array<Event>, render: any }) {
+function DesktopCalendar({ data, render, setCurrentYear, setCurrentMonth }: { data: Array<Event>, render: any, setCurrentYear: any, setCurrentMonth: any }) {
   const dayjs = useDay()
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
       weekNumberCalculation="ISO"
       initialView="dayGridMonth"
+      datesSet={(data) => {
+        const currentDate = dayjs(data.view.currentStart)
+        const year = currentDate.year()
+        const month = currentDate.month() + 1
+        setCurrentYear(year)
+        setCurrentMonth(month)
+      }}
       events={data.map((e) => ({
         ...e,
         start: dayjs(e.date).format("YYYY-MM-DDT00:00"),

@@ -78,6 +78,12 @@ export const locateList = [
     url: "https://maps.app.goo.gl/GqMJM3eXnmoZUwrp8",
   },
   {
+    id: "the-venue",
+    name: "The Venue",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/ZEXpuwpVCmSXhGME8",
+  },
+  {
     id: "la-fin-taipei",
     name: "la fin Taipei",
     city: "taipei",
