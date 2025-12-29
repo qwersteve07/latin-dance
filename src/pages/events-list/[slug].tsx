@@ -1,4 +1,3 @@
-import { locateList } from "@/const/locate";
 import { fetcher } from "@/utils/fetcher";
 import { ActionIcon, Button, Select, Textarea, TextInput, MultiSelect, Checkbox } from "@mantine/core";
 import { DatePickerInput, TimeInput } from '@mantine/dates';
@@ -10,7 +9,7 @@ import Image from "next/image";
 import { danceTypes } from "@/const/dance-types";
 import { useDay } from "@/use/use-day";
 import { NextSeo } from "next-seo";
-import { organizerList } from "@/store/appState";
+import { locateList, organizerList } from "@/store/appState";
 
 export default function EditEvents() {
     const [loading, setLoading] = useState(false)

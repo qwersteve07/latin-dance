@@ -1,5 +1,5 @@
 import { southTaiwanCities } from "@/const/cities";
-import { locateList } from "@/const/locate";
+import { locateList } from "@/store/appState";
 import { Event } from "@/types/event";
 import dayjs from "dayjs";
 import isSameOrBefore from "dayjs/plugin/isSameOrAfter"
