@@ -8,6 +8,11 @@ import { createRef } from "react";
 import { classesTaipeiList } from "@/const/classes-taipei";
 import { classesTaichungList } from "@/const/classes-taichung";
 import { Classes } from "@/types/classes";
+import { locationTaipei } from "@/const/location-taipei";
+import { locationTaichung } from "@/const/location-taichung";
+import { locationTainan } from "@/const/location-tainan";
+import { locationKaohsiung } from "@/const/location-kaohsiung";
+import { Location } from "@/types/locate";
 
 export const organizerList: Array<Organizer> = [
   ...organizerTaipeiList,
@@ -15,6 +20,13 @@ export const organizerList: Array<Organizer> = [
   ...organizerTainanList,
   ...organizerKaohsiungList,
 ];
+
+export const locateList : Array<Location> = [
+  ...locationTaipei,
+  ...locationTaichung,
+  ...locationTainan,
+  ...locationKaohsiung,
+]
 
 export const classesList: Array<Classes> = [
   ...classesTaipeiList,

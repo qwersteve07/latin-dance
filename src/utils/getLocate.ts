@@ -1,4 +1,4 @@
-import { locateList } from "@/const/locate"
+import { locateList } from "@/store/appState"
 
 export const getLocate = (locate: string) => {
     if (!locate) return ''
