@@ -13,6 +13,8 @@ import { locationTaichung } from "@/const/location-taichung";
 import { locationTainan } from "@/const/location-tainan";
 import { locationKaohsiung } from "@/const/location-kaohsiung";
 import { Location } from "@/types/locate";
+import { classesTainanList } from "@/const/classes-tainan";
+import { classesKaohsiungList } from "@/const/classes-kaohsiung";
 
 export const organizerList: Array<Organizer> = [
   ...organizerTaipeiList,
@@ -31,6 +33,8 @@ export const locateList : Array<Location> = [
 export const classesList: Array<Classes> = [
   ...classesTaipeiList,
   ...classesTaichungList,
+  ...classesTainanList,
+  ...classesKaohsiungList
 ];
 
 export interface AppState {
