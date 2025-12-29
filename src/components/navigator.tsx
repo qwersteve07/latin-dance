@@ -18,7 +18,7 @@ export default function Navigator() {
     { id: "/classes", name: t("classes.title") },
     { id: "/guides", name: t("guides.title") },
     // { id: "/shop", name: t("shop.title") },
-    { id: "/food-map", name: t("food_map.title") },
+    // { id: "/food-map", name: t("food_map.title") },
     { id: "/others", name: t("others.title") },
   ];
 
