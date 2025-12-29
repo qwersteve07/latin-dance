@@ -31,7 +31,11 @@ export default function Classes() {
     function getFilteredClassesData(city: string, selectType: string) {
         let result;
         const filterByCityClasses = classesList.filter((data) => {
-            return data.city === city
+            if (city === 'south-taiwan') {
+                return data.city === 'tainan' || data.city === 'kaohsiung'
+            } else {
+                return data.city === city
+            }
         })
 
         if (selectType === '') {
