@@ -203,6 +203,12 @@ export const locationTaipei = [
     city: "taipei",
     url: "https://maps.app.goo.gl/umnE1uHgX3rzed8i8",
   },
+   {
+    id: "paps_bar",
+    name: "Pap's Ximen Bar & Cocktails",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/xbVUFNPu73ievShcA",
+  },
   {
     id: "salsa-me",
     name: "騷莎迷SalsaMe",

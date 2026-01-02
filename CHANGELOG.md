@@ -2,6 +2,63 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.27.0](https://github.com/qwersteve07/latin-dance/compare/v1.26.0...v1.27.0) (2025-12-29)
+
+
+### ✨ Features
+
+* 調整文案 ([fe9d1f8](https://github.com/qwersteve07/latin-dance/commit/fe9d1f82c322bf146c072ac6e74e28a0ff064bb6))
+* add 玉竹商圈 ([bc1d061](https://github.com/qwersteve07/latin-dance/commit/bc1d0618a9d95705c496a34d634982529c66968c))
+* add DS ([d79b623](https://github.com/qwersteve07/latin-dance/commit/d79b6233f8ddd13adac85485ecb871c610953846))
+* add events-template ([9d521e2](https://github.com/qwersteve07/latin-dance/commit/9d521e232e966ed5a15462d47fc48571edd12232))
+* add german ([74e5d02](https://github.com/qwersteve07/latin-dance/commit/74e5d026901e02b32fb2002b74b5dadf4d3d22f2))
+* add locate ([838824a](https://github.com/qwersteve07/latin-dance/commit/838824ac0f1f8e17718e3453de296072cf554c15))
+* add locate ([245bede](https://github.com/qwersteve07/latin-dance/commit/245bede7de6f456e4807a8667141054c2a38473f))
+* add locate ([123fe97](https://github.com/qwersteve07/latin-dance/commit/123fe97b8958bcd2b4920375a5251cf15d63dd84))
+* add locate ([3b8e10e](https://github.com/qwersteve07/latin-dance/commit/3b8e10e93118c066a540306f6f0f6209567c8419))
+* add locate ([beea3b3](https://github.com/qwersteve07/latin-dance/commit/beea3b39cd1704aa4b92f2fc55727bfeb9224dcf))
+* add locate la fin ([2a845b2](https://github.com/qwersteve07/latin-dance/commit/2a845b236c29891a95c87978187714f11221439c))
+* add location ([48ca515](https://github.com/qwersteve07/latin-dance/commit/48ca5154f9010c99f94e4b0590baadd41fa25183))
+* add new locate ([e51da82](https://github.com/qwersteve07/latin-dance/commit/e51da823f14d2e4cc1685e79e38769c90012aff6))
+* add new location ([3c65781](https://github.com/qwersteve07/latin-dance/commit/3c65781d01740640c248c1b8a08a2fd6323812e1))
+* add new location ([e853cff](https://github.com/qwersteve07/latin-dance/commit/e853cffcdd4f7e5de6736d17214f108c2d2af990))
+* add sunset zouk template ([9cb4416](https://github.com/qwersteve07/latin-dance/commit/9cb4416faeda3ca0d5cd6b2ae7915944729ea6b6))
+* adjust event model host ([ccce232](https://github.com/qwersteve07/latin-dance/commit/ccce23231e7edb65f3dae83dc22e193127ff5686))
+* adjust text ([69c1c1c](https://github.com/qwersteve07/latin-dance/commit/69c1c1c826f6fa727d1542fec4022b3a8763c6a8))
+* fetch one month ([4a907a1](https://github.com/qwersteve07/latin-dance/commit/4a907a12566ebf30bfe6f2dd48f0269b1054481a))
+* hide shop ([d4761bd](https://github.com/qwersteve07/latin-dance/commit/d4761bd56d58005558db1ed757ad608f82cf4bc7))
+* impl refresh token machenics ([b7b5902](https://github.com/qwersteve07/latin-dance/commit/b7b5902ce74805cecb1473b867ca007fbcf47080))
+* impl remember me function ([390b020](https://github.com/qwersteve07/latin-dance/commit/390b0201b7c2f85a3a11d9db6b7a9257e78f4c6c))
+* remove food-map ([07b8337](https://github.com/qwersteve07/latin-dance/commit/07b83372af17209403f1b2926f8cccd8c8c94b1d))
+* update api naming ([063e199](https://github.com/qwersteve07/latin-dance/commit/063e1996002cac2faaea06cd241109de978ae0dd))
+* update classes ([0782eec](https://github.com/qwersteve07/latin-dance/commit/0782eec29187d5f811aa00c6b7a552139c0dbef7))
+* update classes ([056812d](https://github.com/qwersteve07/latin-dance/commit/056812d70309ec41487534a963db84d9e124b515))
+* update classes ([9a79c75](https://github.com/qwersteve07/latin-dance/commit/9a79c75c526d740cccfd34312e000e6b0394cb91))
+* update classes ([11a98ef](https://github.com/qwersteve07/latin-dance/commit/11a98ef4e0012f610d7bac20efdbfe0abb2ae89f))
+* update classes ([e4aeeed](https://github.com/qwersteve07/latin-dance/commit/e4aeeedff6fb4ed92f8996b93d5d22d70d0a215a))
+* update classes ([fa0e89d](https://github.com/qwersteve07/latin-dance/commit/fa0e89dc3f72ce12959aafad493b9fb822439bde))
+* update classes ([d1ba718](https://github.com/qwersteve07/latin-dance/commit/d1ba718f5021463c8c68328c3403107927c2faa1))
+* update classes ([edc0454](https://github.com/qwersteve07/latin-dance/commit/edc04545804381c380795252a9044818c6f2f2d7))
+* update cloth ([aa62cd0](https://github.com/qwersteve07/latin-dance/commit/aa62cd086fbba5713f698d93f13e7d98d016f215))
+* update cookie name ([150fa1c](https://github.com/qwersteve07/latin-dance/commit/150fa1c1a05883ac6edb41fb7ee0b3c4c5a34f5e))
+* update copa info ([a6cc035](https://github.com/qwersteve07/latin-dance/commit/a6cc035f537e2f7e8b84225c796959d823f6fe43))
+* update event tempalte ([33bb7ba](https://github.com/qwersteve07/latin-dance/commit/33bb7ba1f9f9696db0274283104d2bc8e11bf2d5))
+* update events ([c2c4614](https://github.com/qwersteve07/latin-dance/commit/c2c4614fb766bd52e0e9747393339ed8076970ef))
+* update events template ([0e5042c](https://github.com/qwersteve07/latin-dance/commit/0e5042c5bb3c32e3e36759e54b4843f348820b5d))
+* update guides ([e3571d1](https://github.com/qwersteve07/latin-dance/commit/e3571d186d08fc25951f75a7c6aebe10b0a2cb91))
+* update instagram list ([208d6c8](https://github.com/qwersteve07/latin-dance/commit/208d6c80b6ffe49ed80e71d626bdd6d8fec63e55))
+* update lasalsa classes ([4ded6b6](https://github.com/qwersteve07/latin-dance/commit/4ded6b6cc22a8e76cf2a0de1cc6e068171c4f431))
+* update location ([b66b067](https://github.com/qwersteve07/latin-dance/commit/b66b067e5df73479bdcf582ae95f1cb1d3889d79))
+* update sbk taiwan ([2587ab5](https://github.com/qwersteve07/latin-dance/commit/2587ab56909da3ad985999b513b2b1f8fda4791a))
+* update text ([98ceb85](https://github.com/qwersteve07/latin-dance/commit/98ceb85f12e1fffaf4429b520031e673a439d443))
+
+
+### 🐛 Bug Fixes
+
+* fix lint ([e23b332](https://github.com/qwersteve07/latin-dance/commit/e23b332cfd9b3017ddddeccd930acc62adb27c40))
+* i18n bug ([125d82d](https://github.com/qwersteve07/latin-dance/commit/125d82d65fc16db0d3fcaff732802290af0ded90))
+* remove useless code ([8c56424](https://github.com/qwersteve07/latin-dance/commit/8c56424a5ccb16cbc7d1b22a995850b73606ed7f))
+
 ## [1.26.0](https://github.com/qwersteve07/latin-dance/compare/v1.25.0...v1.26.0) (2025-08-19)
 
 
