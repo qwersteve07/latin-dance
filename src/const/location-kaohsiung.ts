@@ -66,6 +66,12 @@ export const locationKaohsiung = [
     url: "https://maps.app.goo.gl/L4M4uW2pvmxhFnJW7",
   },
   {
+    id: "zo-zo-buzz",
+    name: "微醺走走 ZO ZO BUZZ",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/s7XdHeEpm9e5b6HW6",
+  },
+  {
     id: "chito",
     name: "小嶼事",
     city: "pingtung",
@@ -77,4 +83,5 @@ export const locationKaohsiung = [
     city: "pingtung",
     url: "https://maps.app.goo.gl/2uyCa68vHdGvjdWNA",
   },
+  
 ]
