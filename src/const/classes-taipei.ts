@@ -145,13 +145,13 @@ export const classesTaipeiList = [
         name: "Salsa Social Stylist",
         time: "19:30-20:30",
       },
-       {
+      {
         weekday: "Wed",
         type: "salsa",
         name: "Salsa LV",
         time: "19:30-20:30",
       },
-       {
+      {
         weekday: "Wed",
         type: "salsa",
         name: "Salsa LV2",
@@ -168,6 +168,20 @@ export const classesTaipeiList = [
         type: "salsa",
         name: "Salsa 初級班",
         time: "20:30-21:30",
+      },
+    ],
+  },
+  {
+    id: "noya",
+    name: "Noya",
+    organizer: "",
+    city: "taipei",
+    lessons: [
+      {
+        weekday: "Wed",
+        type: "salsa",
+        name: "Salsa Shine",
+        time: "19:30-20:30",
       },
     ],
   },
@@ -327,7 +341,7 @@ export const classesTaipeiList = [
         name: "Zouk Lv3",
         time: "12:00-13:20",
       },
-        {
+      {
         weekday: "Sun",
         type: "lambada",
         name: "Intro to Lambada",
