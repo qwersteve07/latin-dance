@@ -18,11 +18,15 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Announcement from "@/components/announce";
 import DanceTypeCube from "@/components/dance-type-cube";
+import DeleteEventModal from "@/components/deleteModal";
+import EventEditModal from "@/components/EventEditModal";
 
 export default function Calendar() {
   const [currentYear, setCurrentYear] = useState('2026')
   const [currentMonth, setCurrentMonth] = useState('1')
-  const [opened, { open, close }] = useDisclosure(false);
+  const [eventModalOpened, { open: openEventModal, close: closeEventModal }] = useDisclosure(false);
+  const [eventEditModalOpened, { open: openEventEditModal, close: closeEventEditModal }] = useDisclosure(false);
+  const [deleteEventModalOpened, { open: openDeleteEventModal, close: closeDeleteEventModal }] = useDisclosure(false);
   const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
   const { data, error, isLoading } = useSWR(`/social-dance/events?year=${currentYear}&month=${currentMonth}`, fetcher);
   const [currentData, setCurrentData] = useState<Array<Event>>([])
@@ -30,6 +34,7 @@ export default function Calendar() {
   const appStore = useAppStore()
   const dayjs = useDay()
   const { t } = useTranslation('common')
+  const [eventId, setEventId] = useState('')
 
   useEffect(() => {
     if (isLoading) return
@@ -59,6 +64,18 @@ export default function Calendar() {
     return getEventsFilterByCity(dataFilteredByTypes, city)
   }
 
+  async function onDeleteEvent() {
+    try {
+      await fetcher(`/social-dance/events/${selectEvent.id}`, {
+        method: 'delete',
+      })
+      closeDeleteEventModal()
+      closeEventModal()
+    } catch (e) {
+      console.log(e)
+    }
+  };
+
   const isMobile = useMedia("(max-width: 768px)");
 
   function render(eventInfo: any) {
@@ -69,9 +86,10 @@ export default function Calendar() {
         onClick={() => {
           setSelectEvent({
             ...eventInfo.event.extendedProps,
+            id: eventInfo.event.id,
             title: eventInfo.event.title,
           });
-          open();
+          openEventModal();
         }}
       >
         {eventInfo.event.extendedProps.canceled && <div className="absolute w-full h-0.5 bg-text-main top-1/2" />}
@@ -87,12 +105,24 @@ export default function Calendar() {
     );
   }
 
+  function handleOpenEventEditModal(id: string) {
+    openEventEditModal()
+    setEventId(id)
+  }
+
+  function handleCloseEventEditModal() {
+    closeEventEditModal()
+    closeEventModal()
+  }
+
   const Content = () => {
     if (error) return <div>{t('load_data_failed')}</div>;
 
     return (
       <>
-        <EventModal opened={opened} onClose={close} data={selectEvent} />
+        <DeleteEventModal opened={deleteEventModalOpened} onClose={closeDeleteEventModal} onDelete={onDeleteEvent} />
+        <EventModal opened={eventModalOpened} onClose={closeEventModal} data={selectEvent} onOpenEditModal={handleOpenEventEditModal} onOpenDeleteModal={openDeleteEventModal} />
+        <EventEditModal opened={eventEditModalOpened} onClose={handleCloseEventEditModal} id={eventId} />
         <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm">
           {danceTypes.map(t => {
             return (
