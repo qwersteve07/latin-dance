@@ -56,7 +56,7 @@ export default function LoginPage() {
             if (result.error) throw result
             cookieStore.setAuthToken(result.data.accessToken);
             cookieStore.setRefreshToken(result.data.refreshToken);
-            router.push('/events-list')
+            router.push('/calendar')
         } catch (e) {
             console.log(e)
         } finally {
