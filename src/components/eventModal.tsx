@@ -1,15 +1,18 @@
 import { EventWithEventDate } from "@/types/event"
 import { getHost } from "@/utils/getHost"
 import { getLocate, getLocateLink } from "@/utils/getLocate"
-import { Modal } from "@mantine/core"
+import { Button, Modal } from "@mantine/core"
 import OuterLink from "./outerLink"
 import IconLocate from '../../public/icon-location.svg'
 import { useDay } from "@/use/use-day"
 import DanceTypeCube from "./dance-type-cube"
+import { useLogin } from "@/use/use-login"
 
-const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate> }) => {
+const EventModal = ({ opened, onClose, data, onOpenEditModal, onOpenDeleteModal }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate>, onOpenEditModal: (id: string) => void, onOpenDeleteModal: () => void }) => {
+    const { isLogin } = useLogin()
     const dayjs = useDay()
     const hasLocate = Object.keys(data.locate || {}).length !== 0
+
     return (
         <Modal
             opened={opened}
@@ -68,6 +71,12 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                             <div>{data.note}</div>
                         </>
                     )}
+                {isLogin && <div className="col-span-2 flex justify-end items-center gap-3">
+                    <Button radius={20} size='compact-sm' onClick={() => {
+                        onOpenEditModal(data.id as string)
+                    }}>編輯</Button>
+                    <Button color="red" radius={20} size='compact-sm' onClick={onOpenDeleteModal}>刪除</Button>
+                </div>}
             </div>
         </Modal >
     )
