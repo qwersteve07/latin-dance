@@ -9,7 +9,7 @@ import { danceTypes } from "@/const/dance-types";
 import { useDay } from "@/use/use-day";
 import { locateList, organizerList } from "@/store/appState";
 
-function EventEditModal({ opened, onClose, id }: { opened: boolean, onClose: () => void, id: string }) {
+function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean, onClose: () => void, id: string, defaultDate: string }) {
 
     const [loading, setLoading] = useState(false)
     const startAtRef = useRef<HTMLInputElement>(null);
@@ -42,8 +42,15 @@ function EventEditModal({ opened, onClose, id }: { opened: boolean, onClose: () 
     });
 
     useEffect(() => {
-        setEventId(id)
-    }, [id])
+        if (!id) {
+            form.reset();
+            form.setValues({
+                date: dayjs(defaultDate).toDate() as any,
+            })
+        } else {
+            setEventId(id)
+        }
+    }, [id, defaultDate])
 
 
     useEffect(() => {
@@ -73,10 +80,17 @@ function EventEditModal({ opened, onClose, id }: { opened: boolean, onClose: () 
         values.date = dayjs(values.date).format('YYYY-MM-DDT00:00:00')
 
         try {
-            await fetcher(`/social-dance/events/${eventId}`, {
-                method: 'PUT',
-                body: JSON.stringify(values)
-            })
+            if (!id) {
+                await fetcher(`/social-dance/events/`, {
+                    method: 'POST',
+                    body: JSON.stringify(values)
+                })
+            } else {
+                await fetcher(`/social-dance/events/${eventId}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(values)
+                })
+            }
             onClose()
             setLoading(false)
         } catch (e) {
@@ -111,7 +125,7 @@ function EventEditModal({ opened, onClose, id }: { opened: boolean, onClose: () 
     if (error || isLoading || !data.result) return <div></div>;
 
     return (
-        <Drawer position="right" opened={opened} onClose={onClose} title={data?.result?.title}>
+        <Drawer position="right" opened={opened} onClose={onClose} >
             <form className="flex flex-col gap-4" onSubmit={form.onSubmit(handleSubmit)} >
                 <div className="flex justify-start items-center">
                     <Checkbox
@@ -160,6 +174,7 @@ function EventEditModal({ opened, onClose, id }: { opened: boolean, onClose: () 
                     key={form.key('rate')}
                     {...form.getInputProps('rate')} />
                 <MultiSelect
+                    withAsterisk
                     label="舞種"
                     placeholder="Pick types"
                     data={danceTypes}
