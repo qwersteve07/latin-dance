@@ -121,7 +121,7 @@ export const eventsTemplate = {
     types: ["salsa on 2"],
     startAt: "18:30",
     endAt: "21:00",
-    fee: "250 TWD",
+    fee: "300 TWD",
   },
   "bailalo-bachata-social": {
     title: "Bailalo Bachata Social",
