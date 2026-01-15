@@ -212,14 +212,6 @@ export const organizerTaipeiList = [
         name: "Cheli",
         image: "/organizers/cheli.jpg",
       },
-      {
-        name: "Noya",
-        image: "/organizers/noya.jpg",
-      },
-      {
-        name: "Remi",
-        image: "/organizers/remi.jpg",
-      },
     ],
   },
   {
@@ -700,6 +692,25 @@ export const organizerTaipeiList = [
       facebook: "https://www.facebook.com/latiifah.tsai",
       instagram: "https://www.instagram.com/latiitoo/",
       website: "https://latiifahtsai.medium.com",
+      location: "",
+    },
+    party: "",
+    classes: ["salsa"],
+    member: [],
+  },
+  {
+    id: "noya",
+    name: "Noya",
+    hide: false,
+    solo: true,
+    city: "taipei",
+    thumbnail: "/organizers/noya.png",
+    intro:
+      "Noya 自幼接受舞蹈科班訓練，並在拉丁音樂的環境中長大— 她的父親是知名鼓手小白老師，從小耳濡目染，對節奏與音樂有特別敏銳的感受力。自 2021 年起，Noya深入學習 Salsa 與其文化脈絡，發展出自然流暢、兼具邏輯與能量的教學風格。\n私課，團訓，小班制課程皆可預約，請直接私訊Noya IG預約時間，感謝！",
+    link: {
+      facebook: "",
+      instagram: "https://www.instagram.com/noyalee",
+      website: "",
       location: "",
     },
     party: "",
