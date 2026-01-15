@@ -72,7 +72,7 @@ export async function fetcher(url: string, options: any) {
       if (!isRefreshing) {
         refreshTokens().catch((err) => {
           console.error('Token refresh failed:', err);
-          // window.location.href = '/';
+          cookieStore.clearToken()
         });
       }
     })
