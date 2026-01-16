@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { organizerList, classesList, useAppState } from "@/store/appState";
 import { Select } from "@mantine/core";
 import { useAppStore } from "@/store/appStore";
+import { DanceType } from "@/types/danceTypes";
 import DanceTypeCube from "@/components/danceTypeCube";
 import DanceTypeBadge from "@/components/danceTypeBadge";
 
@@ -148,7 +149,7 @@ function MobileUI({ data }: { data: any }) {
                             <div>{classData.lessons.map((c: any) => {
                                 const DanceType = () => {
                                     if (Array.isArray(c.type)) {
-                                        return c.type.map((t: string) => <DanceTypeCube type={t} key={t} />)
+                                        return c.type.map((t: DanceType) => <DanceTypeCube type={t} key={t} />)
                                     } else {
                                         return <DanceTypeCube type={c.type} />
                                     }
@@ -231,7 +232,7 @@ function DesktopUI({ data }: { data: any }) {
 
                                         const DanceType = () => {
                                             if (Array.isArray(c.type)) {
-                                                return c.type.map((t: string) => <DanceTypeCube type={t} key={t} />)
+                                                return c.type.map((t: DanceType) => <DanceTypeCube type={t} key={t} />)
                                             } else {
                                                 return <DanceTypeCube type={c.type} key={c.type} />
                                             }
