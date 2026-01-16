@@ -14,7 +14,7 @@ const DanceTypeCube = ({ type, className }: { type: DanceType, className?: strin
         }
     }
 
-    return <div className={`${className} rounded-sm min-w-3 h-3 ${danceTypeColor(type)}`} />
+    return <div className={`${className} rounded-full w-2 h-2 ${danceTypeColor(type)}`} />
 }
 
 export default DanceTypeCube
