@@ -162,7 +162,7 @@ const MobileEvents = ({ events, setSelectEvent, open }: { events: [string, Event
       {filteredEvents.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full flex-col">
         {filteredEvents.map(([weekday, events]) => {
           return (
-            <li key={weekday} className="flex flex-col flex-[1] w-full">
+            <li key={weekday} className="flex flex-col flex-[1] w-full rounded-lg px-2 border border-red-500/50 shadow-red-800/30">
               <EventsGroupDay weekday={weekday} day={events[0].date} />
               <div className="h-full">
                 {events.map(e => {
@@ -184,10 +184,11 @@ const DesktopEvents = ({ events, setSelectEvent, open }: { events: [string, Even
     <div className="max-md:hidden">
       <Title>{t('events_this_week')} in<City /></Title>
       {events.length === 0 && <NoEvents>{t('no_events')}</NoEvents>}
-      {events.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full">
+      {events.length !== 0 && (<ul className="flex justify-center items-start gap-3 w-full">
         {events.map(([weekday, events]) => {
+          const isToday = weekday === dayjs().format('dddd')
           return (
-            <li key={weekday} className="flex flex-col flex-[1] max-w-[200px]">
+            <li key={weekday} className={`flex flex-col flex-[1] max-w-[200px] px-2 rounded-xl ${isToday && 'border border-red-500/50  shadow-red-800/30'}`}>
               <EventsGroupDay weekday={weekday} day={events[0].date} />
               <div className="h-full">
                 {events.map(e => {
@@ -236,17 +237,17 @@ const City = () => {
 
 const EventsGroupDay = ({ weekday, day }: { weekday: string, day: string }) => {
   const dayjs = useDay()
+  const isToday = weekday === dayjs().format('dddd')
 
   return (
     <div className={`
-      font-bold mb-2 gap-2 p-2 rounded-xl text-text-main bg-background-sub
-      flex justify-start items-center relative 
-      ${weekday === dayjs().format('dddd') && 'md:bg-red-500'}
+      font-bold mb-2 gap-2 p-2 rounded-xl text-text-main
+      flex justify-between items-end relative 
+      }
       ${dayjs(day).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
       `}>
-      <span>{weekday.substring(0, 3)}</span>
-      <span>{dayjs(day).format("MM/DD")}</span>
-      {weekday === dayjs().format('dddd') && <span className="absolute top-4 right-3 w-2 h-2 rounded-full bg-background-sub" />}
+      <span className={`text-sm text-gray-500 ${isToday && 'text-red-500'}`}>{weekday.substring(0, 3).toUpperCase()}</span>
+      <span className={`text-lg text-white ${isToday && '!text-red-500'}`}>{dayjs(day).format("MM/DD")}</span>
     </div>
   )
 }
@@ -255,7 +256,7 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
   const dayjs = useDay()
   return (
     <div
-      className={`cursor-pointer p-2 rounded-xl border border-border-main mb-2 hover:bg-background-third transition
+      className={`cursor-pointer p-2 rounded-xl bg-background-main mb-2 hover:bg-background-third transition
        ${dayjs(event.date).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
       `}
       onClick={() => {
@@ -266,8 +267,8 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
         open();
       }}
     >
-      <div className="flex items-start gap-2 font-semibold" style={{ 'wordBreak': 'break-word' }}>
-        <div className="flex gap-1 mt-[6px]">
+      <div className="font-semibold" style={{ 'wordBreak': 'break-word' }}>
+        <div className="flex gap-1 mb-1">
           {event.types.map(t => <DanceTypeCube type={t} key={t} />)}
         </div>
         <div className={`${event.canceled ? 'line-through' : ''}`}>

@@ -41,19 +41,19 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                         <span className="text-sm">{data.startAt} - {data.endAt}</span>
                     </div>
                 </div>
-                <div className="border-t border-gray-800" />
+                <div className="border-t border-background-third" />
                 <div className="flex flex-col gap-2">
                     {data.host && <div className="flex items-center gap-3 text-gray-500">
                         <User className="h-4 w-4" />
                         <span className="text-sm">
-                            Hosted by <span className="text-gray-300 font-medium">{getHost(data.host)}</span>
+                            Hosted by <span className="text-text-main">{getHost(data.host)}</span>
                         </span>
                     </div>}
                     <div className="flex items-center gap-3 text-gray-500">
                         <MapPin className="h-4 w-4" />
                         <span className="text-sm">
                             <OuterLink href={getLocateLink(data.locate || '')}>
-                                <div className="text-gray-300">
+                                <div className="text-text-main font-bold">
                                     {getLocate(data.locate || '')}
                                 </div>
                             </OuterLink>
@@ -70,7 +70,7 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                 </div>
                 {(data.content || data.note) &&
                     <>
-                        <div className="border-t border-gray-800" />
+                        <div className="border-t border-background-third" />
                         <div>
                             <h4 className="text-sm font-medium text-gray-300 mb-2">About this event</h4>
                             <p className="text-sm text-gray-500 leading-relaxed">{data.content}</p>
