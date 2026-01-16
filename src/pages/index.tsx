@@ -17,9 +17,10 @@ import { useCookies } from "react-cookie";
 import { citiesList } from "@/const/cities";
 import { NextSeo } from "next-seo";
 import Announcement from "@/components/announce";
-import DanceTypeCube from "@/components/dance-type-cube";
+import DanceTypeCube from "@/components/danceTypeCube";
 import { simpleDanceTypes } from "@/const/dance-types";
 import dayjs from "dayjs";
+import DanceTypeBadge from "@/components/danceTypeBadge";
 
 export default function Home() {
   const today = dayjs();
@@ -123,13 +124,7 @@ export default function Home() {
           </h1>
           <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 text-sm mt-6 max-md:mt-3">
             {simpleDanceTypes.map(t => {
-              return (
-                <div
-                  key={t}
-                  className="border-border-main border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1"
-                >
-                  <DanceTypeCube type={t} />{t}
-                </div>)
+              return <DanceTypeBadge key={t} type={t} />
             })}
           </div>
         </div>
