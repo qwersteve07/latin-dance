@@ -1,73 +1,83 @@
+import { Clock, Calendar, MapPin, User, DollarSign, Music, CircleAlert } from "lucide-react"
 import { EventWithEventDate } from "@/types/event"
 import { getHost } from "@/utils/getHost"
 import { getLocate, getLocateLink } from "@/utils/getLocate"
 import { Modal } from "@mantine/core"
 import OuterLink from "./outerLink"
-import IconLocate from '../../public/icon-location.svg'
 import { useDay } from "@/use/use-day"
-import DanceTypeCube from "./dance-type-cube"
+import DanceTypeBadge from "./danceTypeBadge"
 
 const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate> }) => {
     const dayjs = useDay()
-    const hasLocate = Object.keys(data.locate || {}).length !== 0
     return (
         <Modal
             opened={opened}
             onClose={onClose}
-            title={<div className="flex justify-start items-center">
-                <b className="text-xl">{data.title}</b>
-                {data.canceled && <span className="text-red-500 font-bold ml-4">本週取消！Canceled！</span>}</div>}
             centered
+            title={
+                <>
+                    {data.canceled &&
+                        <div className="flex justify-start items-center gap-1 text-red-500 font-bold text-sm mb-2">
+                            <CircleAlert className="h-4 w-4" />
+                            This Event Has been Canceled
+                        </div>
+                    }
+                    <div className={`flex justify-start items-center text-2xl font-bold ${data.canceled && 'line-through'}`}>
+                        {data.title}
+                    </div>
+                </>}
         >
             <div className="flex flex-wrap gap-2 mb-3">
-                {data.types?.map(t => {
-                    return (
-                        <div className="flex justify-start items-center gap-2 border border-border-main rounded-full h-8 px-3" key={t}>
-                            <DanceTypeCube type={t} key={t} />
-                            {t}
-                        </div>)
-                })}
+                {data.types?.map(t => <DanceTypeBadge type={t} key={t} />)}
             </div>
-            <div className="grid grid-cols-[80px,1fr] gap-2">
-                {data.host && (
-                    <>
-                        <div className="font-semibold">Host</div>
-                        <div>{getHost(data.host)}</div>
-                    </>
-                )}
-                <div className="font-bold">Locate</div>
-                <div>
-                    {hasLocate ?
-                        (<OuterLink href={getLocateLink(data.locate || '')}>
-                            <div className="group inline-flex justify-start items-center gap-1">
-                                {getLocate(data.locate || '')}
-                                <IconLocate className="transition-stroke duration-200 group-hover:stroke-red-500 w-5" />
-                            </div>
-                        </OuterLink>)
-                        : 'TBD'}
+            <div className="space-y-4 pt-2">
+                <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3 text-gray-500">
+                        <Calendar className="h-4 w-4" />
+                        <span className="text-sm">{dayjs(data.eventDate || data.date).format('YYYY-MM-DD')}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-gray-500">
+                        <Clock className="h-4 w-4" />
+                        <span className="text-sm">{data.startAt} - {data.endAt}</span>
+                    </div>
                 </div>
-                <div className="font-semibold">Date</div>
-                <div>{dayjs(data.eventDate || data.date).format('YYYY/MM/DD')}</div>
-                <div className="font-semibold">Time</div>
-                <div>{data.startAt} - {data.endAt}</div>
-                <div className="font-semibold">Fee</div>
-                <div>{data.fee}</div>
-                <div className="font-semibold">Rate</div>
-                <div>{data.rate}</div>
-                {data.content &&
-                    (
-                        <>
-                            <div className="font-semibold">Content</div>
-                            <div>{data.content}</div>
-                        </>
-                    )}
-                {data.note &&
-                    (
-                        <>
-                            <div className="font-semibold">Note</div>
-                            <div>{data.note}</div>
-                        </>
-                    )}
+                <div className="border-t border-gray-800" />
+                <div className="flex flex-col gap-2">
+                    {data.host && <div className="flex items-center gap-3 text-gray-500">
+                        <User className="h-4 w-4" />
+                        <span className="text-sm">
+                            Hosted by <span className="text-gray-300 font-medium">{getHost(data.host)}</span>
+                        </span>
+                    </div>}
+                    <div className="flex items-center gap-3 text-gray-500">
+                        <MapPin className="h-4 w-4" />
+                        <span className="text-sm">
+                            <OuterLink href={getLocateLink(data.locate || '')}>
+                                <div className="text-gray-300">
+                                    {getLocate(data.locate || '')}
+                                </div>
+                            </OuterLink>
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-3 text-gray-500">
+                        <DollarSign className="h-4 w-4" />
+                        <span className="text-sm">{data.fee}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-gray-500">
+                        <Music className="h-4 w-4" />
+                        <span className="text-sm">{data.rate}</span>
+                    </div>
+                </div>
+                {(data.content || data.note) &&
+                    <>
+                        <div className="border-t border-gray-800" />
+                        <div>
+                            <h4 className="text-sm font-medium text-gray-300 mb-2">About this event</h4>
+                            <p className="text-sm text-gray-500 leading-relaxed">{data.content}</p>
+                            <p className="text-sm text-gray-500 leading-relaxed">{data.note}</p>
+                        </div>
+                    </>
+                }
             </div>
         </Modal >
     )
