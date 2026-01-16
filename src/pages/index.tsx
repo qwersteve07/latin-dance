@@ -161,8 +161,13 @@ const MobileEvents = ({ events, setSelectEvent, open }: { events: [string, Event
       {filteredEvents.length === 0 && <NoEvents>No Social Dance today... 🥲</NoEvents>}
       {filteredEvents.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full flex-col">
         {filteredEvents.map(([weekday, events]) => {
+          const borderStyle = () => {
+            const isToday = weekday === dayjs().format('dddd')
+            if (isToday) return 'border-2 border-red-500/50  shadow-red-800/30'
+            return 'border border-border-third'
+          }
           return (
-            <li key={weekday} className="flex flex-col flex-[1] w-full rounded-lg px-2 border border-red-500/50 shadow-red-800/30">
+            <li key={weekday} className={`flex flex-col flex-[1] w-full rounded-lg px-2 border ${borderStyle()}`}>
               <EventsGroupDay weekday={weekday} day={events[0].date} />
               <div className="h-full">
                 {events.map(e => {
@@ -186,9 +191,13 @@ const DesktopEvents = ({ events, setSelectEvent, open }: { events: [string, Even
       {events.length === 0 && <NoEvents>{t('no_events')}</NoEvents>}
       {events.length !== 0 && (<ul className="flex justify-center items-start gap-3 w-full">
         {events.map(([weekday, events]) => {
-          const isToday = weekday === dayjs().format('dddd')
+          const borderStyle = () => {
+            const isToday = weekday === dayjs().format('dddd')
+            if (isToday) return 'border-2 border-red-500/50  shadow-red-800/30'
+            return 'border border-border-third'
+          }
           return (
-            <li key={weekday} className={`flex flex-col flex-[1] max-w-[200px] px-2 rounded-xl ${isToday && 'border border-red-500/50  shadow-red-800/30'}`}>
+            <li key={weekday} className={`flex flex-col flex-[1] max-w-[200px] px-2 rounded-xl ${borderStyle()}`}>
               <EventsGroupDay weekday={weekday} day={events[0].date} />
               <div className="h-full">
                 {events.map(e => {
@@ -210,7 +219,7 @@ const Title = ({ children }: { children: ReactNode }) => {
 }
 
 const NoEvents = ({ children }: { children: ReactNode }) => {
-  return <div className="text-lg text-center">{children}</div>
+  return <div className="text-lg text-center border border-border-third p-2 rounded-xl">{children}</div>
 }
 
 const City = () => {
@@ -247,7 +256,7 @@ const EventsGroupDay = ({ weekday, day }: { weekday: string, day: string }) => {
       ${dayjs(day).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
       `}>
       <span className={`text-sm text-gray-500 ${isToday && 'text-red-500'}`}>{weekday.substring(0, 3).toUpperCase()}</span>
-      <span className={`text-lg text-white ${isToday && '!text-red-500'}`}>{dayjs(day).format("MM/DD")}</span>
+      <span className={`text-lg text-text-main ${isToday && '!text-red-500'}`}>{dayjs(day).format("MM/DD")}</span>
     </div>
   )
 }
