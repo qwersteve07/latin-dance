@@ -1,14 +1,15 @@
 import { DanceType } from "@/types/danceTypes"
+import DanceTypeCube from "./danceTypeCube"
 
-function DanceTypeBadge({ type }: { type: DanceType }) {
+function DanceTypeBadge({ type, className, onClick }: { type: DanceType, className?: string, onClick?: () => void }) {
     const colors: Record<DanceType, string> = {
-        'salsa on 1': 'bg-red-800/20 text-red-500 border-red-500/30',
-        'salsa on 2': 'bg-red-800/20 text-red-500 border-red-500/30',
-        'salsa': 'bg-red-800/20 text-red-500 border-red-500/30',
-        'bachata': 'bg-yellow-800/20 text-yellow-500 border-yellow-500/30',
-        'zouk': 'bg-blue-800/20 text-blue-500 border-blue-500/30',
-        'lambada': 'bg-green-800/20 text-green-500 border-green-500/30',
-        'kizomba': 'bg-purple-800/20 text-purple-500 border-purple-500/30'
+        'salsa on 1': 'text-red-800 border-red-800/30',
+        'salsa on 2': 'text-red-400 border-red-400/30',
+        'salsa': 'text-red-400 border-red-400/30',
+        'bachata': 'text-yellow-400 border-yellow-400/30',
+        'zouk': 'text-blue-400 border-blue-400/30',
+        'lambada': 'text-green-300 border-green-300/30',
+        'kizomba': 'text-purple-400 border-purple-400/30'
     }
 
     const labels: Record<DanceType, string> = {
@@ -22,7 +23,12 @@ function DanceTypeBadge({ type }: { type: DanceType }) {
 
     }
 
-    return <span className={`px-2 py-1 text-xs font-medium rounded-full border ${colors[type]}`}>{labels[type]}</span>
+    return (
+        <span className={`px-2 py-1 text-xs font-medium rounded-full border flex items-center gap-2 ${colors[type]} ${className}`} onClick={onClick}>
+            <DanceTypeCube type={type} />
+            {labels[type]}
+        </span>
+    )
 }
 
 export default DanceTypeBadge
