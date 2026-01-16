@@ -1,13 +1,13 @@
 import { Clock, Calendar, MapPin, User, DollarSign, Music, CircleAlert } from "lucide-react"
-import { EventWithEventDate } from "@/types/event"
 import { getHost } from "@/utils/getHost"
 import { getLocate, getLocateLink } from "@/utils/getLocate"
 import { Modal } from "@mantine/core"
 import OuterLink from "./outerLink"
 import { useDay } from "@/use/use-day"
 import DanceTypeBadge from "./danceTypeBadge"
+import { DanceType } from "@/types/danceTypes"
 
-const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate> }) => {
+const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: any }) => {
     const dayjs = useDay()
     return (
         <Modal
@@ -28,7 +28,7 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                 </>}
         >
             <div className="flex flex-wrap gap-2 mb-3">
-                {data.types?.map(t => <DanceTypeBadge type={t} key={t} />)}
+                {data.types?.map((t: DanceType) => <DanceTypeBadge type={t} key={t} />)}
             </div>
             <div className="space-y-4 pt-2">
                 <div className="flex flex-col gap-2">

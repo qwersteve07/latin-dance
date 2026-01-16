@@ -19,6 +19,7 @@ import { useTranslation } from "next-i18next";
 import Announcement from "@/components/announce";
 import DanceTypeCube from "@/components/danceTypeCube";
 import DanceTypeBadge from "@/components/danceTypeBadge";
+import { DanceType } from "@/types/danceTypes";
 
 export default function Calendar() {
   const [currentYear, setCurrentYear] = useState("2026");
@@ -73,8 +74,8 @@ export default function Calendar() {
           dayjs(),
           "day"
         )
-            ? "opacity-20"
-            : ""
+          ? "opacity-20"
+          : ""
           }`}
         onClick={() => {
           setSelectEvent({
@@ -89,7 +90,7 @@ export default function Calendar() {
         )}
         <div className="flex gap-1 max-md:gap-1.5 items-center">
           <div className="ml-1 flex gap-0.5 max-md:flex-col">
-            {eventInfo.event.extendedProps.types.map((t: string, i: string) => {
+            {eventInfo.event.extendedProps.types.map((t: DanceType, i: string) => {
               return <DanceTypeCube type={t} key={i} />;
             })}
           </div>
@@ -112,8 +113,8 @@ export default function Calendar() {
                 key={t}
                 type={t}
                 className={`cursor-pointer border-dashed md:hover:bg-background-sub ${selectTypes.includes(t)
-                    ? "bg-background-sub"
-                    : "bg-transparent"
+                  ? "bg-background-sub"
+                  : "bg-transparent"
                   }`}
                 onClick={() => {
                   if (selectTypes.find(types => types === t)) {
