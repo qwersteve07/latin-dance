@@ -1,6 +1,8 @@
-const DanceTypeCube = ({ type, className }: { type: string, className?: string }) => {
+import { DanceType } from "@/types/danceTypes";
 
-    const danceTypeColor = (type: string) => {
+const DanceTypeCube = ({ type, className }: { type: DanceType, className?: string }) => {
+
+    const danceTypeColor = (type: DanceType) => {
         switch (type) {
             case 'salsa on 1': return 'bg-red-800';
             case 'salsa on 2': return 'bg-red-400';
@@ -12,7 +14,7 @@ const DanceTypeCube = ({ type, className }: { type: string, className?: string }
         }
     }
 
-    return <div className={`${className} rounded-sm min-w-3 h-3 ${danceTypeColor(type)}`} />
+    return <div className={`${className} rounded-full w-2 h-2 ${danceTypeColor(type)}`} />
 }
 
 export default DanceTypeCube
