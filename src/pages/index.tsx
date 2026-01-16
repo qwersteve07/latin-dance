@@ -269,7 +269,7 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
     >
       <div className="font-semibold" style={{ 'wordBreak': 'break-word' }}>
         <div className="flex gap-1 mb-1">
-          {event.types.map(t => <DanceTypeCube type={t} key={t} />)}
+          {event.types.map((t: any) => <DanceTypeCube type={t} key={t} />)}
         </div>
         <div className={`${event.canceled ? 'line-through' : ''}`}>
           {event.title}
