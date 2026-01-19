@@ -7,11 +7,18 @@ import IconLocate from '../../public/icon-location.svg'
 import { useDay } from "@/use/use-day"
 import DanceTypeCube from "./dance-type-cube"
 import { useLogin } from "@/use/use-login"
+import { useAppStore } from "@/store/appStore"
 
 const EventModal = ({ opened, onClose, data, onOpenEditModal, onOpenDeleteModal }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate>, onOpenEditModal: (id: string) => void, onOpenDeleteModal: () => void }) => {
     const { isLogin } = useLogin()
     const dayjs = useDay()
     const hasLocate = Object.keys(data.locate || {}).length !== 0
+    const appStore = useAppStore()
+    const userRole: string = appStore.user ? appStore.user['role'] : ''
+    const isUserEvent = () => {
+        if (userRole === 'superUser' || userRole === 'user') return true
+        return userRole === data.host
+    }
 
     return (
         <Modal
@@ -71,7 +78,7 @@ const EventModal = ({ opened, onClose, data, onOpenEditModal, onOpenDeleteModal 
                             <div>{data.note}</div>
                         </>
                     )}
-                {isLogin && <div className="col-span-2 flex justify-end items-center gap-3">
+                {isLogin && isUserEvent() && <div className="col-span-2 flex justify-end items-center gap-3">
                     <Button radius={20} size='compact-sm' onClick={() => {
                         onOpenEditModal(data.id as string)
                     }}>編輯</Button>

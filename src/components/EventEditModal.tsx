@@ -8,15 +8,19 @@ import Image from "next/image";
 import { danceTypes } from "@/const/dance-types";
 import { useDay } from "@/use/use-day";
 import { locateList, organizerList } from "@/store/appState";
+import { eventsTemplate } from "@/const/events-template";
+import { useAppStore } from "@/store/appStore";
+import { getLocateCity } from "@/utils/getLocate";
 
 function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean, onClose: () => void, id: string, defaultDate: string }) {
-
     const [loading, setLoading] = useState(false)
     const startAtRef = useRef<HTMLInputElement>(null);
     const endAtRef = useRef<HTMLInputElement>(null);
     const [eventId, setEventId] = useState(id)
     const { data, error, isLoading } = useSWR(`/social-dance/events/${eventId}`, fetcher);
     const dayjs = useDay()
+    const appStore = useAppStore()
+    const userRole: string = appStore.user ? appStore.user['role'] : ''
 
     const form = useForm({
         mode: 'uncontrolled',
@@ -42,16 +46,16 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
     });
 
     useEffect(() => {
-        if (!id) {
+        if (opened) {
+            if (id) setEventId(id)
+        } else {
             form.reset();
             form.setValues({
                 date: dayjs(defaultDate).toDate() as any,
             })
-        } else {
-            setEventId(id)
-        }
-    }, [id, defaultDate])
 
+        }
+    }, [opened, id, defaultDate])
 
     useEffect(() => {
         if (!data) return
@@ -74,6 +78,31 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
         });
 
     }, [data])
+
+    const filteredEventsTemplate = () => {
+        const filteredTemplate = Object.entries(eventsTemplate).filter((t: any) => {
+            const city = getLocateCity(t[1].locate)
+            if (appStore.currentCity === 'south-taiwan') {
+                return city === 'tainan' || city === 'kaohsiung' || city === 'pingtung'
+            }
+            return city === appStore.currentCity
+        })
+
+        if (userRole === 'superUser' || userRole === 'user') return filteredTemplate
+
+        return filteredTemplate
+            .filter((t: any) => {
+                return t[1].host === userRole
+            })
+    }
+
+    const filteredOrganizer = () => {
+        if (userRole === 'superUser' || userRole === 'user') return organizerList
+
+        return organizerList.filter((o: any) => {
+            return o.id === userRole
+        })
+    }
 
     const handleSubmit = async (values: typeof form.values) => {
         setLoading(true)
@@ -125,7 +154,14 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
     if (error || isLoading || !data.result) return <div></div>;
 
     return (
-        <Drawer position="right" opened={opened} onClose={onClose} >
+        <Drawer position="right" opened={opened} onClose={onClose}>
+            {!id && <div className="flex justify-start items-center flex-wrap gap-2 mb-6">
+                {filteredEventsTemplate().map(([templateId, data]: [string, any]) => {
+                    return <div key={templateId} className="cursor-pointer  transition hover:bg-gray-50  hover:border-red-500 rounded-full px-3 py-1 border" onClick={() => {
+                        form.setValues(data)
+                    }}>{data.title}</div>
+                })}
+            </div>}
             <form className="flex flex-col gap-4" onSubmit={form.onSubmit(handleSubmit)} >
                 <div className="flex justify-start items-center">
                     <Checkbox
@@ -148,7 +184,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
                 <Select
                     withAsterisk
                     label="主辦單位"
-                    data={organizerList.map(item => ({ ...item, value: item.id, label: item.name }))}
+                    data={filteredOrganizer().map((item: any) => ({ ...item, value: item.id, label: item.name }))}
                     key={form.key('host')}
                     {...form.getInputProps('host')}
                 />
