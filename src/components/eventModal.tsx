@@ -9,7 +9,7 @@ import { DanceType } from "@/types/danceTypes"
 import { useLogin } from "@/use/use-login"
 import { useAppStore } from "@/store/appStore"
 
-const EventModal = ({ opened, onClose, data, onOpenEditModal, onOpenDeleteModal }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate>, onOpenEditModal: (id: string) => void, onOpenDeleteModal: () => void }) => {
+const EventModal = ({ opened, onClose, data, onOpenEditModal, onOpenDeleteModal }: { opened: boolean, onClose: () => void, data: any, onOpenEditModal?: (id: string) => void, onOpenDeleteModal?: () => void }) => {
     const { isLogin } = useLogin()
     const dayjs = useDay()
     const appStore = useAppStore()
@@ -90,7 +90,7 @@ const EventModal = ({ opened, onClose, data, onOpenEditModal, onOpenDeleteModal 
                     </>
                 }
                 {
-                    isLogin && isUserEvent() && <div className="col-span-2 flex justify-end items-center gap-3">
+                    onOpenEditModal && isLogin && isUserEvent() && <div className="col-span-2 flex justify-end items-center gap-3">
                         <Button radius={20} size='compact-sm' onClick={() => {
                             onOpenEditModal(data.id as string)
                         }}>編輯</Button>
