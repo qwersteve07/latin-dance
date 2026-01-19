@@ -3,7 +3,7 @@ import { ActionIcon, Button, Select, Textarea, TextInput, MultiSelect, Checkbox,
 import { DatePickerInput, TimeInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import { useEffect, useRef, useState, } from "react";
-import useSWR from "swr";
+import useSWR, { useSWRConfig } from "swr";
 import Image from "next/image";
 import { danceTypes } from "@/const/dance-types";
 import { useDay } from "@/use/use-day";
@@ -16,8 +16,9 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
     const [loading, setLoading] = useState(false)
     const startAtRef = useRef<HTMLInputElement>(null);
     const endAtRef = useRef<HTMLInputElement>(null);
-    const [eventId, setEventId] = useState(id)
-    const { data, error, isLoading } = useSWR(`/social-dance/events/${eventId}`, fetcher);
+    const { data, error, isLoading } = useSWR(id ? `/social-dance/events/${id}` : null, fetcher);
+    const { mutate } = useSWRConfig()
+
     const dayjs = useDay()
     const appStore = useAppStore()
     const userRole: string = appStore.user ? appStore.user['role'] : ''
@@ -47,7 +48,13 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
 
     useEffect(() => {
         if (opened) {
-            if (id) setEventId(id)
+            if (id) {
+                mutate(`/social-dance/events/${id}`)
+            } else {
+                form.setValues({
+                    date: dayjs(defaultDate).toDate() as any,
+                })
+            }
         } else {
             form.reset();
             form.setValues({
@@ -115,7 +122,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
                     body: JSON.stringify(values)
                 })
             } else {
-                await fetcher(`/social-dance/events/${eventId}`, {
+                await fetcher(`/social-dance/events/${id}`, {
                     method: 'PUT',
                     body: JSON.stringify(values)
                 })
@@ -151,7 +158,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
     );
 
 
-    if (error || isLoading || !data.result) return <div></div>;
+    if (error || isLoading) return <div></div>;
 
     return (
         <Drawer position="right" opened={opened} onClose={onClose}>
