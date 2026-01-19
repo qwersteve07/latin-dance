@@ -16,6 +16,7 @@ export default {
         'text-sub': "var(--text-sub)",
         'border-main': "var(--border-main)",
         'border-sub': "var(--border-sub)",
+        'border-third': "var(--border-third)",
         'text-hover': "var(--text-hover)"
       },
     },

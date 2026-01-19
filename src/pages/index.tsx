@@ -17,9 +17,10 @@ import { useCookies } from "react-cookie";
 import { citiesList } from "@/const/cities";
 import { NextSeo } from "next-seo";
 import Announcement from "@/components/announce";
-import DanceTypeCube from "@/components/dance-type-cube";
+import DanceTypeCube from "@/components/danceTypeCube";
 import { simpleDanceTypes } from "@/const/dance-types";
 import dayjs from "dayjs";
+import DanceTypeBadge from "@/components/danceTypeBadge";
 
 export default function Home() {
   const today = dayjs();
@@ -123,13 +124,7 @@ export default function Home() {
           </h1>
           <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 text-sm mt-6 max-md:mt-3">
             {simpleDanceTypes.map(t => {
-              return (
-                <div
-                  key={t}
-                  className="border-border-main border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1"
-                >
-                  <DanceTypeCube type={t} />{t}
-                </div>)
+              return <DanceTypeBadge key={t} type={t} />
             })}
           </div>
         </div>
@@ -166,8 +161,13 @@ const MobileEvents = ({ events, setSelectEvent, open }: { events: [string, Event
       {filteredEvents.length === 0 && <NoEvents>No Social Dance today... 🥲</NoEvents>}
       {filteredEvents.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full flex-col">
         {filteredEvents.map(([weekday, events]) => {
+          const borderStyle = () => {
+            const isToday = weekday === dayjs().format('dddd')
+            if (isToday) return 'border-2 border-red-500/50  shadow-red-800/30'
+            return 'border border-border-third'
+          }
           return (
-            <li key={weekday} className="flex flex-col flex-[1] w-full">
+            <li key={weekday} className={`flex flex-col flex-[1] w-full rounded-lg px-2 border ${borderStyle()}`}>
               <EventsGroupDay weekday={weekday} day={events[0].date} />
               <div className="h-full">
                 {events.map(e => {
@@ -189,10 +189,15 @@ const DesktopEvents = ({ events, setSelectEvent, open }: { events: [string, Even
     <div className="max-md:hidden">
       <Title>{t('events_this_week')} in<City /></Title>
       {events.length === 0 && <NoEvents>{t('no_events')}</NoEvents>}
-      {events.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full">
+      {events.length !== 0 && (<ul className="flex justify-center items-start gap-3 w-full">
         {events.map(([weekday, events]) => {
+          const borderStyle = () => {
+            const isToday = weekday === dayjs().format('dddd')
+            if (isToday) return 'border-2 border-red-500/50  shadow-red-800/30'
+            return 'border border-border-third'
+          }
           return (
-            <li key={weekday} className="flex flex-col flex-[1] max-w-[200px]">
+            <li key={weekday} className={`flex flex-col flex-[1] max-w-[200px] px-2 rounded-xl ${borderStyle()}`}>
               <EventsGroupDay weekday={weekday} day={events[0].date} />
               <div className="h-full">
                 {events.map(e => {
@@ -214,7 +219,7 @@ const Title = ({ children }: { children: ReactNode }) => {
 }
 
 const NoEvents = ({ children }: { children: ReactNode }) => {
-  return <div className="text-lg text-center">{children}</div>
+  return <div className="text-lg text-center border border-border-third p-2 rounded-xl">{children}</div>
 }
 
 const City = () => {
@@ -241,17 +246,17 @@ const City = () => {
 
 const EventsGroupDay = ({ weekday, day }: { weekday: string, day: string }) => {
   const dayjs = useDay()
+  const isToday = weekday === dayjs().format('dddd')
 
   return (
     <div className={`
-      font-bold mb-2 gap-2 p-2 rounded-xl text-text-main bg-background-sub
-      flex justify-start items-center relative 
-      ${weekday === dayjs().format('dddd') && 'md:bg-red-500'}
+      font-bold mb-2 gap-2 p-2 rounded-xl text-text-main
+      flex justify-between items-end relative 
+      }
       ${dayjs(day).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
       `}>
-      <span>{weekday.substring(0, 3)}</span>
-      <span>{dayjs(day).format("MM/DD")}</span>
-      {weekday === dayjs().format('dddd') && <span className="absolute top-4 right-3 w-2 h-2 rounded-full bg-background-sub" />}
+      <span className={`text-sm text-gray-500 ${isToday && 'text-red-500'}`}>{weekday.substring(0, 3).toUpperCase()}</span>
+      <span className={`text-lg text-text-main ${isToday && '!text-red-500'}`}>{dayjs(day).format("MM/DD")}</span>
     </div>
   )
 }
@@ -260,7 +265,7 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
   const dayjs = useDay()
   return (
     <div
-      className={`cursor-pointer p-2 rounded-xl border border-border-main mb-2 hover:bg-background-third transition
+      className={`cursor-pointer p-2 rounded-xl bg-background-main mb-2 hover:bg-background-third transition
        ${dayjs(event.date).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
       `}
       onClick={() => {
@@ -271,9 +276,9 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
         open();
       }}
     >
-      <div className="flex items-start gap-2 font-semibold" style={{ 'wordBreak': 'break-word' }}>
-        <div className="flex gap-1 mt-[6px]">
-          {event.types.map(t => <DanceTypeCube type={t} key={t} />)}
+      <div className="font-semibold" style={{ 'wordBreak': 'break-word' }}>
+        <div className="flex gap-1 mb-1">
+          {event.types.map((t: any) => <DanceTypeCube type={t} key={t} />)}
         </div>
         <div className={`${event.canceled ? 'line-through' : ''}`}>
           {event.title}

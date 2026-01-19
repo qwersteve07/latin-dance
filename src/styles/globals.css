@@ -10,6 +10,7 @@
   --text-sub: theme("colors.stone.700");
   --border-main: theme("colors.gray.200");
   --border-sub: theme("colors.gray.400");
+  --border-third: theme("colors.stone.200");
   --text-hover: theme("colors.red.300");
   --button-hover: theme("colors.red.500");
 }
@@ -23,6 +24,7 @@
     --text-sub: theme("colors.stone.200");
     --border-main: theme("colors.stone.600");
     --border-sub: theme("colors.stone.400");
+    --border-third: theme("colors.stone.800");
     --text-hover: theme("colors.red.900");
     --button-hover: theme("colors.red.500");
   }

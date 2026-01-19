@@ -9,7 +9,9 @@ import { useRouter } from "next/router";
 import { organizerList, classesList, useAppState } from "@/store/appState";
 import { Select } from "@mantine/core";
 import { useAppStore } from "@/store/appStore";
-import DanceTypeCube from "@/components/dance-type-cube";
+import { DanceType } from "@/types/danceTypes";
+import DanceTypeCube from "@/components/danceTypeCube";
+import DanceTypeBadge from "@/components/danceTypeBadge";
 
 const weekdays = ['Mon', 'Tue', "Wed", "Thu", 'Fri', 'Sat', 'Sun']
 
@@ -79,20 +81,13 @@ export default function Classes() {
             <p>{t('classes.note')}</p>
             <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm mt-10">
                 {simpleDanceTypes.map(t => {
-                    return (
-                        <div
-                            key={t}
-                            className={`cursor-pointer border-dashed border-border-main border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 md:hover:bg-background-sub ${selectType === t ? 'bg-background-sub border-border-sub' : 'bg-transparent'}`}
-                            onClick={() => {
-                                if (selectType !== t) {
-                                    setSelectType(t)
-                                } else {
-                                    setSelectType('')
-                                }
-                            }}
-                        >
-                            <DanceTypeCube type={t} />{t}
-                        </div>)
+                    return <DanceTypeBadge key={t} type={t} className={`cursor-pointer border-dashed ${selectType === t ? 'bg-background-sub' : 'bg-transparent'}`} onClick={() => {
+                        if (selectType !== t) {
+                            setSelectType(t)
+                        } else {
+                            setSelectType('')
+                        }
+                    }} />
                 })}
             </div>
             {isMobile && <MobileUI data={currentClassesData} />}
@@ -154,7 +149,7 @@ function MobileUI({ data }: { data: any }) {
                             <div>{classData.lessons.map((c: any) => {
                                 const DanceType = () => {
                                     if (Array.isArray(c.type)) {
-                                        return c.type.map((t: string) => <DanceTypeCube type={t} key={t} />)
+                                        return c.type.map((t: DanceType) => <DanceTypeCube type={t} key={t} />)
                                     } else {
                                         return <DanceTypeCube type={c.type} />
                                     }
@@ -237,7 +232,7 @@ function DesktopUI({ data }: { data: any }) {
 
                                         const DanceType = () => {
                                             if (Array.isArray(c.type)) {
-                                                return c.type.map((t: string) => <DanceTypeCube type={t} key={t} />)
+                                                return c.type.map((t: DanceType) => <DanceTypeCube type={t} key={t} />)
                                             } else {
                                                 return <DanceTypeCube type={c.type} key={c.type} />
                                             }

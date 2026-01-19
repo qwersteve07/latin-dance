@@ -19,10 +19,12 @@ import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Announcement from "@/components/announce";
-import DanceTypeCube from "@/components/dance-type-cube";
 import DeleteEventModal from "@/components/deleteModal";
 import EventEditModal from "@/components/EventEditModal";
 import { useLogin } from "@/use/use-login";
+import DanceTypeCube from "@/components/danceTypeCube";
+import DanceTypeBadge from "@/components/danceTypeBadge";
+import { DanceType } from "@/types/danceTypes";
 
 export default function Calendar() {
   const [currentYear, setCurrentYear] = useState('2026')
@@ -41,32 +43,32 @@ export default function Calendar() {
   const [defaultDate, setDefaultDate] = useState('')
   const { isLogin } = useLogin()
 
+
   useEffect(() => {
-    if (isLoading) return
-    if (!data?.result) return
-    if (!appStore.currentCity) return
+    if (isLoading) return;
+    if (!data?.result) return;
+    if (!appStore.currentCity) return;
 
     let result;
     if (selectTypes.length === 0) {
-      result = getFilteredCurrentData([], appStore.currentCity)
+      result = getFilteredCurrentData([], appStore.currentCity);
     } else {
-      result = getFilteredCurrentData(selectTypes, appStore.currentCity)
+      result = getFilteredCurrentData(selectTypes, appStore.currentCity);
     }
 
-    setCurrentData(result)
-  }, [isLoading, selectTypes, appStore.currentCity, data?.result])
+    setCurrentData(result);
+  }, [isLoading, selectTypes, appStore.currentCity, data?.result]);
 
   function getFilteredCurrentData(types: string[], city: string) {
-
     if (types.length === 0) {
-      return getEventsFilterByCity(data.result, city)
+      return getEventsFilterByCity(data.result, city);
     }
 
     const dataFilteredByTypes = data.result.filter((event: Event) => {
-      return event.types.some(x => types.includes(x))
-    })
+      return event.types.some(x => types.includes(x));
+    });
 
-    return getEventsFilterByCity(dataFilteredByTypes, city)
+    return getEventsFilterByCity(dataFilteredByTypes, city);
   }
 
   const isMobile = useMedia("(max-width: 768px)");
@@ -74,7 +76,13 @@ export default function Calendar() {
   function render(eventInfo: any) {
     return (
       <div
-        className={`cursor-pointer md:truncate relative ${dayjs(eventInfo.event.extendedProps.eventDate).isBefore(dayjs(), 'day') ? 'opacity-20' : ''}`}
+        className={`cursor-pointer md:truncate relative ${dayjs(eventInfo.event.extendedProps.eventDate).isBefore(
+          dayjs(),
+          "day"
+        )
+          ? "opacity-20"
+          : ""
+          }`}
         onClick={() => {
           setSelectEvent({
             ...eventInfo.event.extendedProps,
@@ -84,11 +92,13 @@ export default function Calendar() {
           openEventModal();
         }}
       >
-        {eventInfo.event.extendedProps.canceled && <div className="absolute w-full h-0.5 bg-text-main top-1/2" />}
+        {eventInfo.event.extendedProps.canceled && (
+          <div className="absolute w-full h-0.5 bg-text-main top-1/2" />
+        )}
         <div className="flex gap-1 max-md:gap-1.5 items-center">
           <div className="ml-1 flex gap-0.5 max-md:flex-col">
-            {eventInfo.event.extendedProps.types.map((t: string, i: string) => {
-              return <DanceTypeCube type={t} key={i} />
+            {eventInfo.event.extendedProps.types.map((t: DanceType, i: string) => {
+              return <DanceTypeCube type={t} key={i} />;
             })}
           </div>
           <div className="font-semibold">{eventInfo.event.title}</div>
@@ -128,7 +138,7 @@ export default function Calendar() {
 
 
   const Content = () => {
-    if (error) return <div>{t('load_data_failed')}</div>;
+    if (error) return <div>{t("load_data_failed")}</div>;
 
     return (
       <>
@@ -138,40 +148,42 @@ export default function Calendar() {
         <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm">
           {danceTypes.map(t => {
             return (
-              <div
+              <DanceTypeBadge
                 key={t}
-                className={`cursor-pointer border-dashed border-border-main border-2 rounded-2xl px-3 py-1 flex justify-start items-center gap-1 md:hover:bg-background-sub ${selectTypes.includes(t) ? 'bg-background-sub border-border-sub' : 'bg-transparent'}`}
+                type={t}
+                className={`cursor-pointer border-dashed md:hover:bg-background-sub ${selectTypes.includes(t)
+                  ? "bg-background-sub"
+                  : "bg-transparent"
+                  }`}
                 onClick={() => {
                   if (selectTypes.find(types => types === t)) {
-                    const result = selectTypes.filter(types => types !== t)
-                    setSelectTypes(result)
+                    const result = selectTypes.filter(types => types !== t);
+                    setSelectTypes(result);
                   } else {
-                    const result = selectTypes.concat([t])
-                    setSelectTypes(result)
+                    const result = selectTypes.concat([t]);
+                    setSelectTypes(result);
                   }
                 }}
-              >
-                <DanceTypeCube type={t} />{t}
-              </div>)
+              />
+            );
           })}
         </div>
-        {selectTypes.length !== 0 && <div className="-mt-3 mb-8 font-bold">{t('calendar.filtered')}：{selectTypes.join('、')}</div>}
         {isMobile && <MobileCalendar data={currentData} render={render} setCurrentYear={setCurrentYear} setCurrentMonth={setCurrentMonth} />}
         {!isMobile && <DesktopCalendar data={currentData} render={render} setCurrentYear={setCurrentYear} setCurrentMonth={setCurrentMonth} onOpenAddEventModal={onOpenAddEventModal} />}
       </>
-    )
-  }
+    );
+  };
 
   return (
     <>
       <NextSeo
-        title={`${t('title')} | ${t('calendar.title')}`}
-        description={t('calendar.description')}
+        title={`${t("title")} | ${t("calendar.title")}`}
+        description={t("calendar.description")}
         openGraph={{
-          type: 'website',
-          url: 'http://social-dance.tw/calendar',
-          siteName: `${t('title')} | ${t('calendar.title')}`,
-          description: t('calendar.description'),
+          type: "website",
+          url: "http://social-dance.tw/calendar",
+          siteName: `${t("title")} | ${t("calendar.title")}`,
+          description: t("calendar.description"),
         }}
       />
       <div className="flex justify-between items-center">
@@ -182,9 +194,17 @@ export default function Calendar() {
       </div>
       {appStore.currentCity === 'taichung' && (
         <Announcement>
-          {t('contact_w_social')}&nbsp;<a className="font-bold underline" target='_blank' href="https://ig.me/m/wsocial_taichung">W Social</a>！
-        </Announcement>)
-      }
+          {t("contact_w_social")}&nbsp;
+          <a
+            className="font-bold underline"
+            target="_blank"
+            href="https://ig.me/m/wsocial_taichung"
+          >
+            W Social
+          </a>
+          ！
+        </Announcement>
+      )}
       {Content()}
     </>
   );
@@ -199,18 +219,18 @@ function MobileCalendar({ data, render, setCurrentYear, setCurrentMonth }: { dat
       plugins={[listPlugin]}
       validRange={() => {
         return {
-          start: dayjs().startOf('day').format('YYYY-MM-DDT00:00:00'),
+          start: dayjs().startOf("day").format("YYYY-MM-DDT00:00:00"),
         };
       }}
-      datesSet={(data) => {
-        const currentDate = dayjs(data.view.currentStart)
-        const year = currentDate.year()
-        const month = currentDate.month() + 1
-        setCurrentYear(year)
-        setCurrentMonth(month)
+      datesSet={data => {
+        const currentDate = dayjs(data.view.currentStart);
+        const year = currentDate.year();
+        const month = currentDate.month() + 1;
+        setCurrentYear(year);
+        setCurrentMonth(month);
       }}
       initialView="listMonth"
-      events={data.map((e) => ({
+      events={data.map(e => ({
         ...e,
         start: dayjs(e.date).format(`YYYY-MM-DDT${e.startAt}`),
         eventDate: e.date,
@@ -222,17 +242,18 @@ function MobileCalendar({ data, render, setCurrentYear, setCurrentMonth }: { dat
 
 function DesktopCalendar({ data, render, setCurrentYear, setCurrentMonth, onOpenAddEventModal }: { data: Array<Event>, render: any, setCurrentYear: any, setCurrentMonth: any, onOpenAddEventModal: any }) {
   const dayjs = useDay()
+
   return (
     <FullCalendar
       plugins={[dayGridPlugin, interactionPlugin]}
       weekNumberCalculation="ISO"
       initialView="dayGridMonth"
-      datesSet={(data) => {
-        const currentDate = dayjs(data.view.currentStart)
-        const year = currentDate.year()
-        const month = currentDate.month() + 1
-        setCurrentYear(year)
-        setCurrentMonth(month)
+      datesSet={data => {
+        const currentDate = dayjs(data.view.currentStart);
+        const year = currentDate.year();
+        const month = currentDate.month() + 1;
+        setCurrentYear(year);
+        setCurrentMonth(month);
       }}
       dateClick={onOpenAddEventModal}
       events={data.map((e) => ({
@@ -248,9 +269,7 @@ function DesktopCalendar({ data, render, setCurrentYear, setCurrentMonth, onOpen
 export async function getServerSideProps({ locale }: { locale: any }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, [
-        'common',
-      ])),
+      ...(await serverSideTranslations(locale, ["common"])),
     },
-  }
+  };
 }
