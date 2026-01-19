@@ -1,8 +1,10 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
+import interactionPlugin from "@fullcalendar/interaction"
 import { useMedia } from "react-use";
 import { useDisclosure } from "@mantine/hooks";
+import { Button } from "@mantine/core"
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "@/utils/fetcher";
@@ -17,26 +19,30 @@ import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Announcement from "@/components/announce";
+import DeleteEventModal from "@/components/deleteModal";
+import EventEditModal from "@/components/EventEditModal";
+import { useLogin } from "@/use/use-login";
 import DanceTypeCube from "@/components/danceTypeCube";
 import DanceTypeBadge from "@/components/danceTypeBadge";
 import { DanceType } from "@/types/danceTypes";
 
 export default function Calendar() {
-  const [currentYear, setCurrentYear] = useState("2026");
-  const [currentMonth, setCurrentMonth] = useState("1");
-  const [opened, { open, close }] = useDisclosure(false);
-  const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>(
-    {}
-  );
-  const { data, error, isLoading } = useSWR(
-    `/social-dance/events?year=${currentYear}&month=${currentMonth}`,
-    fetcher
-  );
-  const [currentData, setCurrentData] = useState<Array<Event>>([]);
+  const [currentYear, setCurrentYear] = useState('2026')
+  const [currentMonth, setCurrentMonth] = useState('1')
+  const [eventModalOpened, { open: openEventModal, close: closeEventModal }] = useDisclosure(false);
+  const [eventEditModalOpened, { open: openEventEditModal, close: closeEventEditModal }] = useDisclosure(false);
+  const [deleteEventModalOpened, { open: openDeleteEventModal, close: closeDeleteEventModal }] = useDisclosure(false);
+  const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
+  const { data, error, isLoading } = useSWR(`/social-dance/events?year=${currentYear}&month=${currentMonth}`, fetcher);
+  const [currentData, setCurrentData] = useState<Array<Event>>([])
   const [selectTypes, setSelectTypes] = useState<string[]>([]);
-  const appStore = useAppStore();
-  const dayjs = useDay();
-  const { t } = useTranslation("common");
+  const appStore = useAppStore()
+  const dayjs = useDay()
+  const { t } = useTranslation('common')
+  const [eventId, setEventId] = useState('')
+  const [defaultDate, setDefaultDate] = useState('')
+  const { isLogin } = useLogin()
+
 
   useEffect(() => {
     if (isLoading) return;
@@ -80,9 +86,10 @@ export default function Calendar() {
         onClick={() => {
           setSelectEvent({
             ...eventInfo.event.extendedProps,
+            id: eventInfo.event.id,
             title: eventInfo.event.title,
           });
-          open();
+          openEventModal();
         }}
       >
         {eventInfo.event.extendedProps.canceled && (
@@ -100,12 +107,44 @@ export default function Calendar() {
     );
   }
 
+  function onOpenAddEventModal(date: any) {
+    if (!isLogin) return
+    setDefaultDate(date.dateStr)
+    openEventEditModal()
+  }
+
+  function handleOpenEventEditModal(id: string) {
+    openEventEditModal()
+    setEventId(id)
+  }
+
+  function handleCloseEventEditModal() {
+    closeEventEditModal()
+    closeEventModal()
+    setEventId('')
+  }
+
+  async function onDeleteEvent() {
+    try {
+      await fetcher(`/social-dance/events/${selectEvent.id}`, {
+        method: 'delete',
+      })
+      closeDeleteEventModal()
+      closeEventModal()
+    } catch (e) {
+      console.log(e)
+    }
+  };
+
+
   const Content = () => {
     if (error) return <div>{t("load_data_failed")}</div>;
 
     return (
       <>
-        <EventModal opened={opened} onClose={close} data={selectEvent} />
+        <DeleteEventModal opened={deleteEventModalOpened} onClose={closeDeleteEventModal} onDelete={onDeleteEvent} />
+        <EventModal opened={eventModalOpened} onClose={closeEventModal} data={selectEvent} onOpenEditModal={handleOpenEventEditModal} onOpenDeleteModal={openDeleteEventModal} />
+        <EventEditModal opened={eventEditModalOpened} onClose={handleCloseEventEditModal} id={eventId} defaultDate={defaultDate} />
         <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm">
           {danceTypes.map(t => {
             return (
@@ -129,22 +168,8 @@ export default function Calendar() {
             );
           })}
         </div>
-        {isMobile && (
-          <MobileCalendar
-            data={currentData}
-            render={render}
-            setCurrentYear={setCurrentYear}
-            setCurrentMonth={setCurrentMonth}
-          />
-        )}
-        {!isMobile && (
-          <DesktopCalendar
-            data={currentData}
-            render={render}
-            setCurrentYear={setCurrentYear}
-            setCurrentMonth={setCurrentMonth}
-          />
-        )}
+        {isMobile && <MobileCalendar data={currentData} render={render} setCurrentYear={setCurrentYear} setCurrentMonth={setCurrentMonth} />}
+        {!isMobile && <DesktopCalendar data={currentData} render={render} setCurrentYear={setCurrentYear} setCurrentMonth={setCurrentMonth} onOpenAddEventModal={onOpenAddEventModal} />}
       </>
     );
   };
@@ -161,8 +186,13 @@ export default function Calendar() {
           description: t("calendar.description"),
         }}
       />
-      <Title>{t("calendar.page_title")}</Title>
-      {appStore.currentCity === "taichung" && (
+      <div className="flex justify-between items-center">
+        <Title>{t('calendar.page_title')}</Title>
+        {isLogin && <Button className="!w-20 mb-8" onClick={() => {
+          onOpenAddEventModal({ dateStr: dayjs().format('YYYY-MM-DD') })
+        }}>新增</Button>}
+      </div>
+      {appStore.currentCity === 'taichung' && (
         <Announcement>
           {t("contact_w_social")}&nbsp;
           <a
@@ -180,18 +210,9 @@ export default function Calendar() {
   );
 }
 
-function MobileCalendar({
-  data,
-  render,
-  setCurrentYear,
-  setCurrentMonth,
-}: {
-  data: Array<Event>;
-  render: any;
-  setCurrentYear: any;
-  setCurrentMonth: any;
-}) {
-  const dayjs = useDay();
+function MobileCalendar({ data, render, setCurrentYear, setCurrentMonth }: { data: Array<Event>, render: any, setCurrentYear: any, setCurrentMonth: any }) {
+  const dayjs = useDay()
+
   return (
     <FullCalendar
       height="auto"
@@ -219,21 +240,12 @@ function MobileCalendar({
   );
 }
 
-function DesktopCalendar({
-  data,
-  render,
-  setCurrentYear,
-  setCurrentMonth,
-}: {
-  data: Array<Event>;
-  render: any;
-  setCurrentYear: any;
-  setCurrentMonth: any;
-}) {
-  const dayjs = useDay();
+function DesktopCalendar({ data, render, setCurrentYear, setCurrentMonth, onOpenAddEventModal }: { data: Array<Event>, render: any, setCurrentYear: any, setCurrentMonth: any, onOpenAddEventModal: any }) {
+  const dayjs = useDay()
+
   return (
     <FullCalendar
-      plugins={[dayGridPlugin]}
+      plugins={[dayGridPlugin, interactionPlugin]}
       weekNumberCalculation="ISO"
       initialView="dayGridMonth"
       datesSet={data => {
@@ -243,7 +255,8 @@ function DesktopCalendar({
         setCurrentYear(year);
         setCurrentMonth(month);
       }}
-      events={data.map(e => ({
+      dateClick={onOpenAddEventModal}
+      events={data.map((e) => ({
         ...e,
         start: dayjs(e.date).format("YYYY-MM-DDT00:00"),
         eventDate: e.date,

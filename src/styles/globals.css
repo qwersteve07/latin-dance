@@ -37,12 +37,36 @@ body {
 .fc-theme-standard .fc-scrollgrid,
 .fc-theme-standard td,
 .fc-theme-standard th {
-  border-color: var(--border-main);
+  border: none;
+  /* border-color: var(--border-main); */
 }
 
-/* .fc .fc-daygrid-day.fc-day-today{
-  background: theme('colors.red.50');
-} */
+.fc-theme-standard td, .fc-theme-standard th{
+  padding: 5px;
+}
+
+.fc .fc-daygrid-day-frame{
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--border-third)
+}
+
+.fc .fc-daygrid-day.fc-day-today{
+  background: none;
+}
+
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-frame{
+  @apply border-red-500/50 border-2;
+}
+
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number{
+  @apply text-red-500 font-bold;
+}
+
+.fc-col-header-cell{
+  @apply text-gray-500;
+}
+
 .fc .fc-button-primary {
   background: var(--background-sub);
   border: var(--background-sub);
