@@ -236,6 +236,13 @@ function MobileCalendar({ data, render, setCurrentYear, setCurrentMonth }: { dat
         eventDate: e.date,
       }))}
       eventContent={render}
+      listDaySideFormat={{
+        weekday: 'short',
+      }}
+      listDayFormat={{
+        month: "2-digit",
+        day: "2-digit"
+      }}
     />
   );
 }

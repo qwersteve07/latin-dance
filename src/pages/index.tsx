@@ -163,7 +163,7 @@ const MobileEvents = ({ events, setSelectEvent, open }: { events: [string, Event
         {filteredEvents.map(([weekday, events]) => {
           const borderStyle = () => {
             const isToday = weekday === dayjs().format('dddd')
-            if (isToday) return 'border-2 border-red-500/50  shadow-red-800/30'
+            if (isToday) return 'border border-red-500/50  shadow-red-800/30'
             return 'border border-border-third'
           }
           return (
@@ -193,7 +193,7 @@ const DesktopEvents = ({ events, setSelectEvent, open }: { events: [string, Even
         {events.map(([weekday, events]) => {
           const borderStyle = () => {
             const isToday = weekday === dayjs().format('dddd')
-            if (isToday) return 'border-2 border-red-500/50  shadow-red-800/30'
+            if (isToday) return 'border border-red-500/50  shadow-red-800/30'
             return 'border border-border-third'
           }
           return (
