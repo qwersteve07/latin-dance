@@ -88,7 +88,7 @@ export const classesTaipeiList = [
   {
     id: "finn",
     name: "Finn",
-    organizer: "fem",
+    organizer: "FeM",
     city: "taipei",
     lessons: [
       {

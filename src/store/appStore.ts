@@ -14,6 +14,8 @@ export interface AppStore {
   setPassword: (password: string) => void;
   rememberMe: boolean;
   setRememberMe: (rememberMe: boolean) => void;
+  user: undefined,
+  setUser: (user: any) => void
 }
 
 export const useAppStore = create<AppStore>()(
@@ -32,6 +34,8 @@ export const useAppStore = create<AppStore>()(
         setPassword: (password: string) => set(() => ({ password })),
         rememberMe: false,
         setRememberMe: (rememberMe: boolean) => set(() => ({ rememberMe })),
+        user: undefined,
+        setUser: (user: any) => set(() => ({ user }))
       }),
       {
         name: "appStore",

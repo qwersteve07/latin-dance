@@ -1,14 +1,24 @@
 import { Clock, Calendar, MapPin, User, DollarSign, Music, CircleAlert } from "lucide-react"
 import { getHost } from "@/utils/getHost"
 import { getLocate, getLocateLink } from "@/utils/getLocate"
-import { Modal } from "@mantine/core"
+import { Button, Modal } from "@mantine/core"
 import OuterLink from "./outerLink"
 import { useDay } from "@/use/use-day"
 import DanceTypeBadge from "./danceTypeBadge"
 import { DanceType } from "@/types/danceTypes"
+import { useLogin } from "@/use/use-login"
+import { useAppStore } from "@/store/appStore"
 
-const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () => void, data: any }) => {
+const EventModal = ({ opened, onClose, data, onOpenEditModal, onOpenDeleteModal }: { opened: boolean, onClose: () => void, data: Partial<EventWithEventDate>, onOpenEditModal: (id: string) => void, onOpenDeleteModal: () => void }) => {
+    const { isLogin } = useLogin()
     const dayjs = useDay()
+    const appStore = useAppStore()
+    const userRole: string = appStore.user ? appStore.user['role'] : ''
+    const isUserEvent = () => {
+        if (userRole === 'superUser' || userRole === 'user') return true
+        return userRole === data.host
+    }
+
     return (
         <Modal
             opened={opened}
@@ -41,6 +51,7 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                         <span className="text-sm">{data.startAt} - {data.endAt}</span>
                     </div>
                 </div>
+
                 <div className="border-t border-background-third" />
                 <div className="flex flex-col gap-2">
                     {data.host && <div className="flex items-center gap-3 text-gray-500">
@@ -78,7 +89,15 @@ const EventModal = ({ opened, onClose, data }: { opened: boolean, onClose: () =>
                         </div>
                     </>
                 }
-            </div>
+                {
+                    isLogin && isUserEvent() && <div className="col-span-2 flex justify-end items-center gap-3">
+                        <Button radius={20} size='compact-sm' onClick={() => {
+                            onOpenEditModal(data.id as string)
+                        }}>編輯</Button>
+                        <Button color="red" radius={20} size='compact-sm' onClick={onOpenDeleteModal}>刪除</Button>
+                    </div>
+                }
+            </div >
         </Modal >
     )
 }
