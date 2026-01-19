@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import { Event, EventWithEventDate } from "@/types/event";
 import { getCurrentWeekEvents, getEventsFilterByCity } from "@/utils/getEvents";
 import EventModal from "@/components/eventModal";
-import { danceTypeColor } from "./calendar";
 import Loading from "@/components/loading";
 import { useAppStore } from "@/store/appStore";
 import { useDay } from "@/use/use-day";
@@ -17,12 +16,18 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useCookies } from "react-cookie";
 import { citiesList } from "@/const/cities";
 import { NextSeo } from "next-seo";
+import Announcement from "@/components/announce";
+import DanceTypeCube from "@/components/danceTypeCube";
+import { simpleDanceTypes } from "@/const/dance-types";
+import dayjs from "dayjs";
+import DanceTypeBadge from "@/components/danceTypeBadge";
 
 export default function Home() {
+  const today = dayjs();
   const [opened, { open, close }] = useDisclosure(false);
   const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
   const [currentWeekEvents, setCurrentWeekEvents] = useState<[string, Event[]][]>([]);
-  const { data, error, isLoading } = useSWR("/social-dance/events", fetcher);
+  const { data, error, isLoading } = useSWR(`/social-dance/events?year=${today.year()}&month=${today.month() + 1}`, fetcher);
   const router = useRouter();
   const appStore = useAppStore()
   const { t } = useTranslation('common')
@@ -33,17 +38,24 @@ export default function Home() {
       url: "https://www.instagram.com/ninjavideozz.taiwan/",
     },
     {
-      name: "Social Dance Vlog",
-      url: "https://www.instagram.com/socialdancevlog/",
+      name: "Social Dance Vibe",
+      url: "https://www.instagram.com/socialdance_vibe/",
     },
     {
-      name: "Tyra",
-      url: "https://www.instagram.com/tyrarara0830",
+      name: "Sloat Media",
+      url: "https://www.instagram.com/sloatmedia",
     },
     {
       name: "Jim",
       url: "https://www.instagram.com/jimframe",
     },
+    {
+      name: 'Marshall',
+      url: 'https://www.instagram.com/marshallstudiotw/'
+    }, {
+      name: 'Salsa Momentum',
+      url: 'https://www.instagram.com/salsa.momentum'
+    }
   ];
 
   useEffect(() => {
@@ -99,19 +111,29 @@ export default function Home() {
   return (
     <div>
       <EventModal opened={opened} onClose={close} data={selectEvent} />
+      {appStore.currentCity === 'taichung' && (
+        <Announcement>
+          {t('contact_w_social')}&nbsp;<a className="font-bold underline" target='_blank' href="https://ig.me/m/wsocial_taichung">W Social</a>！
+        </Announcement>)
+      }
       <section>
         <div className="mt-6 mb-20 max-md:mt-2 max-md:mb-12">
-          <h1 className="text-center text-5xl font-bold mb-2 max-md:text-3xl">
+          <h1 className="text-center text-5xl font-bold max-md:text-4xl">
             <div className="mb-4">💃🕺</div>
             <div>{t('title')}</div>
           </h1>
+          <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 text-sm mt-6 max-md:mt-3">
+            {simpleDanceTypes.map(t => {
+              return <DanceTypeBadge key={t} type={t} />
+            })}
+          </div>
         </div>
         <Content />
       </section>
       <hr className="w-20 mx-auto my-16 border-t-border-main" />
       <section>
         <h3 className="text-center text-2xl font-bold mb-8">{t('highlights')}</h3>
-        <div className="flex justify-center items-center gap-4 flex-wrap w-[80%] max-xl:w-[90%] mx-auto max-md:w-full max-md:flex-col">
+        <div className="flex justify-center items-center gap-4 flex-wrap max-xl:w-[90%] mx-auto max-md:w-full max-md:flex-col">
           {vlogIGList.map(item => {
             return (
               <div key={item.name}>
@@ -139,8 +161,13 @@ const MobileEvents = ({ events, setSelectEvent, open }: { events: [string, Event
       {filteredEvents.length === 0 && <NoEvents>No Social Dance today... 🥲</NoEvents>}
       {filteredEvents.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full flex-col">
         {filteredEvents.map(([weekday, events]) => {
+          const borderStyle = () => {
+            const isToday = weekday === dayjs().format('dddd')
+            if (isToday) return 'border border-red-500/50  shadow-red-800/30'
+            return 'border border-border-third'
+          }
           return (
-            <li key={weekday} className="flex flex-col flex-[1] w-full">
+            <li key={weekday} className={`flex flex-col flex-[1] w-full rounded-lg px-2 border ${borderStyle()}`}>
               <EventsGroupDay weekday={weekday} day={events[0].date} />
               <div className="h-full">
                 {events.map(e => {
@@ -161,11 +188,16 @@ const DesktopEvents = ({ events, setSelectEvent, open }: { events: [string, Even
   return (
     <div className="max-md:hidden">
       <Title>{t('events_this_week')} in<City /></Title>
-      {events.length === 0 && <NoEvents>No Social Dance this week... 🥲</NoEvents>}
-      {events.length !== 0 && (<ul className="flex justify-center items-start gap-5 w-full">
+      {events.length === 0 && <NoEvents>{t('no_events')}</NoEvents>}
+      {events.length !== 0 && (<ul className="flex justify-center items-start gap-3 w-full">
         {events.map(([weekday, events]) => {
+          const borderStyle = () => {
+            const isToday = weekday === dayjs().format('dddd')
+            if (isToday) return 'border border-red-500/50  shadow-red-800/30'
+            return 'border border-border-third'
+          }
           return (
-            <li key={weekday} className="flex flex-col flex-[1] max-w-[200px]">
+            <li key={weekday} className={`flex flex-col flex-[1] max-w-[200px] px-2 rounded-xl ${borderStyle()}`}>
               <EventsGroupDay weekday={weekday} day={events[0].date} />
               <div className="h-full">
                 {events.map(e => {
@@ -187,7 +219,7 @@ const Title = ({ children }: { children: ReactNode }) => {
 }
 
 const NoEvents = ({ children }: { children: ReactNode }) => {
-  return <div className="text-lg text-center">{children}</div>
+  return <div className="text-lg text-center border border-border-third p-2 rounded-xl">{children}</div>
 }
 
 const City = () => {
@@ -214,14 +246,17 @@ const City = () => {
 
 const EventsGroupDay = ({ weekday, day }: { weekday: string, day: string }) => {
   const dayjs = useDay()
+  const isToday = weekday === dayjs().format('dddd')
 
   return (
     <div className={`
-      font-bold mb-2 gap-2 p-2 rounded-xl text-text-main bg-background-sub
-      flex justify-start items-center relative`}>
-      <span>{weekday.substring(0, 3)}</span>
-      <span>{dayjs(day).format("MM/DD")}</span>
-      {weekday === dayjs().format('dddd') && <span className="absolute top-4 right-3 w-2 h-2 rounded-full bg-red-500" />}
+      font-bold mb-2 gap-2 p-2 rounded-xl text-text-main
+      flex justify-between items-end relative 
+      }
+      ${dayjs(day).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
+      `}>
+      <span className={`text-sm text-gray-500 ${isToday && 'text-red-500'}`}>{weekday.substring(0, 3).toUpperCase()}</span>
+      <span className={`text-lg text-text-main ${isToday && '!text-red-500'}`}>{dayjs(day).format("MM/DD")}</span>
     </div>
   )
 }
@@ -230,7 +265,7 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
   const dayjs = useDay()
   return (
     <div
-      className={`cursor-pointer p-2 rounded-xl border border-border-main mb-2 hover:bg-background-third transition
+      className={`cursor-pointer p-2 rounded-xl bg-background-main mb-2 hover:bg-background-third transition
        ${dayjs(event.date).isBefore(dayjs(), 'day') ? 'opacity-30' : ''}
       `}
       onClick={() => {
@@ -241,9 +276,9 @@ const EventItem = ({ event, setSelectEvent, open }: { event: Event, setSelectEve
         open();
       }}
     >
-      <div className="flex items-start gap-2 font-semibold" style={{ 'wordBreak': 'break-word' }}>
-        <div className="flex gap-1 mt-[6px]">
-          {event.types.map(t => <div className={`rounded-sm w-3 h-3 ${danceTypeColor(t)}`} key={t} />)}
+      <div className="font-semibold" style={{ 'wordBreak': 'break-word' }}>
+        <div className="flex gap-1 mb-1">
+          {event.types.map((t: any) => <DanceTypeCube type={t} key={t} />)}
         </div>
         <div className={`${event.canceled ? 'line-through' : ''}`}>
           {event.title}

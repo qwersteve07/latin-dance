@@ -1,5 +1,3 @@
-import { organizerList } from "@/store/appStore";
-import { locateList } from "@/const/locate";
 import { fetcher } from "@/utils/fetcher";
 import { ActionIcon, Button, Checkbox, MultiSelect, Select, Textarea, TextInput } from "@mantine/core";
 import { DatePickerInput, TimeInput } from '@mantine/dates';
@@ -11,6 +9,7 @@ import { danceTypes } from "@/const/dance-types";
 import { useDay } from "@/use/use-day";
 import { NextSeo } from "next-seo";
 import { eventsTemplate } from "@/const/events-template";
+import { locateList, organizerList } from "@/store/appState";
 
 export default function NewEvents() {
     const [loading, setLoading] = useState(false)
@@ -62,7 +61,6 @@ export default function NewEvents() {
     const startAtPickerControl = (
         <ActionIcon variant="subtle" color="gray" onClick={() => startAtRef.current?.showPicker()}>
             <Image
-                priority
                 src='/icon-clock.svg'
                 width="16"
                 height="16"
@@ -74,7 +72,6 @@ export default function NewEvents() {
     const endAtPickerControl = (
         <ActionIcon variant="subtle" color="gray" onClick={() => endAtRef.current?.showPicker()}>
             <Image
-                priority
                 src='/icon-clock.svg'
                 width="16"
                 height="16"

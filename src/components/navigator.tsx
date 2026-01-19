@@ -15,8 +15,10 @@ export default function Navigator() {
   const routesList = [
     { id: "/calendar", name: t("calendar.title") },
     { id: "/organizers", name: t("organizers.title") },
+    { id: "/classes", name: t("classes.title") },
     { id: "/guides", name: t("guides.title") },
-    { id: "/food-map", name: t("food_map.title") },
+    // { id: "/shop", name: t("shop.title") },
+    // { id: "/food-map", name: t("food_map.title") },
     { id: "/others", name: t("others.title") },
   ];
 
@@ -64,6 +66,7 @@ export default function Navigator() {
         data={citiesList.map(item => ({
           ...item, value: item.id, label: currentLocale === 'tw' ? item.name : item.id
         }))}
+        allowDeselect={false}
       />
     )
   }
@@ -88,7 +91,7 @@ export default function Navigator() {
           <Routes />
         </div>
       </Drawer>
-      <nav className="fixed top-0 z-10  border-b border-b-border-main w-full backdrop-blur-xl">
+      <nav className="border-b border-b-border-main w-full backdrop-blur-xl">
         <div className="flex justify-between items-center h-16 container mx-auto px-6 max-w-6xl">
           <div className="text-2xl">
             <Link href="/">💃🕺</Link>

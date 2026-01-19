@@ -4,7 +4,7 @@ export const organizerKaohsiungList = [
         "name": "高雄 Salsa6",
         "hide": false,
         "city": "kaohsiung",
-        "thumbnail": "/salsa6.png",
+        "thumbnail": "/organizers/salsa6.png",
         "intro": "高雄Salsa6 主要推廣Salsa、Bachata社交舞蹈。不定期舉辦舞會，增進彼此的互動與交流、也邀請國內外老師舉辦workshop學習更多元的觀念、跳舞技巧。\n一起來享受浪漫與熱情的拉丁舞蹈吧！",
         "link": {
             "facebook": "https://www.facebook.com/profile.php?id=61558856470450",
@@ -21,7 +21,7 @@ export const organizerKaohsiungList = [
         "name": "Salsa Pier",
         "hide": false,
         "city": "kaohsiung",
-        "thumbnail": "/salsa-pier.jpg",
+        "thumbnail": "/organizers/salsa-pier.jpg",
         "intro": "Salsa Studio@Kaohsiung",
         "link": {
             "facebook": "https://www.facebook.com/SalsaPier",
@@ -38,7 +38,7 @@ export const organizerKaohsiungList = [
         "name": "Salsaton 高雄騷莎動",
         "hide": false,
         "city": "kaohsiung",
-        "thumbnail": "/salsaton.jpg",
+        "thumbnail": "/organizers/salsaton.jpg",
         "intro": "Kaohsiung Salsaton成立於2019年\n專注於拉丁騷莎舞和巴恰達舞，並定期舉辦舞會。\n讓每個人都可以找到自己的節奏，享受跳舞的樂趣是我們的使命。\n期待更多人加入我們，一起享受舞蹈的美好。",
         "link": {
             "facebook": "https://www.facebook.com/khsalsaton",
@@ -50,7 +50,7 @@ export const organizerKaohsiungList = [
         "classes": ['salsa', 'bachata'],
         "member": [{
             name: 'Ryan',
-            image: '/ryan.png'
+            image: '/organizers/ryan.png'
         }]
     },
     {
@@ -58,7 +58,7 @@ export const organizerKaohsiungList = [
         "name": "Hustlehustle Kaohsiung",
         "hide": false,
         "city": "kaohsiung",
-        "thumbnail": "/hustlehustlekh.jpg",
+        "thumbnail": "/organizers/hustlehustlekh.jpg",
         "intro": "主要在高雄推廣使用disco音樂的Hustle與來自巴西的Zouk。\n目前設有常態課，也會不定期舉辦舞會、與邀請國內外老師來開課！",
         "link": {
             "facebook": "https://www.facebook.com/profile.php?id=100063792773011",

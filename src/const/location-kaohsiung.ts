@@ -1,0 +1,87 @@
+export const locationKaohsiung = [
+    {
+    id: "jayHsuAlinaTsai-latin-standard-dance-studio",
+    name: "許哲睿蔡宛蓁國標舞蹈教室",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/sy3S3sScENBDRCGU9",
+  },
+  {
+    id: "caesar-art",
+    name: "凱撒藝術廣場 6 F",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/AD2mKpkpUnzDNCa76",
+  },
+  {
+    id: "social-hub",
+    name: "Social Hub",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/Yut7ULQfNVWgEwdU7",
+  },
+  {
+    id: "banana-music",
+    name: "駁二．BANANA音樂館",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/BJZ7p5CCKsRv1TYFA",
+  },
+  {
+    id: "brickyardclub",
+    name: "紅磚地窖",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/1it7ao9kc3iJyoMC8",
+  },
+  {
+    id: "rock-music-live-house",
+    name: "洛克音樂藝文展演空間 Rock Music Live House",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/bF8tqjfSqusjnUvu5",
+  },
+  {
+    id: "starlight-harbour-deck",
+    name: "星光棧海景餐酒館",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/Rqj5n2gtTXMjGWUw8",
+  },
+  {
+    id: "leaploom",
+    name: "艾萊家",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/eULb39mKCSAyEJ787",
+  },
+  {
+    id: "moon-cafe",
+    name: "Moon月鯉灣景觀咖啡酒吧",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/fCZaxGNGWw2jGtRY8",
+  },
+  {
+    id: "yuju-street",
+    name: "玉竹商圈",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/V3dGMSL7Ls9Ng2C37",
+  },
+  {
+    id: "d.g-burger",
+    name: "Damn Good Burger ",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/L4M4uW2pvmxhFnJW7",
+  },
+  {
+    id: "zo-zo-buzz",
+    name: "微醺走走 ZO ZO BUZZ",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/s7XdHeEpm9e5b6HW6",
+  },
+  {
+    id: "chito",
+    name: "小嶼事",
+    city: "pingtung",
+    url: "https://maps.app.goo.gl/v5om3AHhPnBVwfnbA",
+  },
+  {
+    id: "yello-house",
+    name: "Yellow House",
+    city: "pingtung",
+    url: "https://maps.app.goo.gl/2uyCa68vHdGvjdWNA",
+  },
+  
+]

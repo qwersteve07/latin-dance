@@ -12,15 +12,19 @@ import { appWithTranslation } from 'next-i18next'
 import { CookiesProvider } from 'react-cookie';
 
 function App({ Component, pageProps }: AppProps) {
+
 	return (
 		<>
-
+			<Script
+				strategy="afterInteractive"
+				src={`https://www.googletagmanager.com/gtag/js?id=G-3WRCFDGBML`}
+			/>
 			<Script id="google-analytics" strategy="afterInteractive">
 				{`
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
 					gtag('js', new Date());
-					gtag('config', 'G-S3GNBK5XWJ');
+					gtag('config', 'G-3WRCFDGBML');
 		        `}
 			</Script>
 			<DefaultSeo
@@ -30,6 +34,10 @@ function App({ Component, pageProps }: AppProps) {
 						{
 							'name': 'viewport',
 							'content': 'user-scalable=no,width=device-width,initial-scale=1,shrink-to-fit=no,minimum-scale=1,maximum-scale=1,viewport-fit=cover'
+						},
+						{
+							name: 'application-name',
+							content: 'Taiwan Social Dance Guide'
 						}
 					]
 				}
@@ -38,6 +46,17 @@ function App({ Component, pageProps }: AppProps) {
 						rel: 'icon',
 						href: '/favicon.png',
 					},
+
+					{
+						rel: 'apple-touch-icon',
+						href: '/icon-150.png',
+						sizes: '150x150'
+					},
+					{
+						rel: 'manifest',
+						href: '/manifest.json'
+					},
+
 				]}
 				openGraph={{
 					images: [

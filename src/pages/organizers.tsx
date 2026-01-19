@@ -6,7 +6,7 @@ import MemberImage from "@/components/memberImage";
 import { Organizer } from "@/types/organizer";
 import Title from "@/components/title";
 import OrganizerImage from "@/components/organizerImage";
-import { organizerList, useAppStore } from "@/store/appStore";
+import { useAppStore } from "@/store/appStore";
 import IconFacebook from '../../public/icon-facebook.svg'
 import IconInstagram from '../../public/icon-instagram.svg'
 import IconWebsite from '../../public/icon-website.svg'
@@ -15,24 +15,24 @@ import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { southTaiwanCities } from "@/const/cities";
+import { useRouter } from "next/router";
+import { organizerList, useAppState } from "@/store/appState";
 
 export default function Organizers() {
-  const [domLoaded, setDomLoaded] = useState(false);
+  const appStore = useAppStore()
   const [activeTab, setActiveTab] = useState<string | null>('');
   const [opened, { open, close }] = useDisclosure(false);
   const [selectOrganizer, setSelectOrganizer] = useState<Organizer>({} as any);
   const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
-  const appStore = useAppStore()
   const { t } = useTranslation('common')
+  const router = useRouter()
+  const appState = useAppState()
 
   const isMobile = useMedia("(max-width: 768px)");
 
   useEffect(() => {
-    setDomLoaded(true);
-  }, []);
-
-  useEffect(() => {
     if (!appStore.currentCity) return
+
     const filteredOrganizersList = organizerList.filter(t => !t.hide).filter(o => {
       if (appStore.currentCity === 'south-taiwan') {
         return southTaiwanCities.includes(o.city)
@@ -42,10 +42,16 @@ export default function Organizers() {
     })
     if (!Array.isArray(filteredOrganizersList)) return
     setActiveOrganizerList(filteredOrganizersList)
-    setActiveTab(filteredOrganizersList[0].id);
+
+    if (router.query.id && typeof (router.query.id) === 'string') {
+      setActiveTab(router.query.id)
+    } else {
+      setActiveTab(filteredOrganizersList[0].id);
+    }
+
   }, [appStore.currentCity])
 
-  if (!domLoaded) {
+  if (!appState.domLoaded) {
     return <></>;
   }
 
@@ -122,7 +128,7 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
           if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">{t('organizers.individual')}</Tabs.Tab>
 
           return (
-            <Tabs.Tab value={item.id} key={item.id} className="w-[200px] hover:bg-background-sub">
+            <Tabs.Tab value={item.id} key={item.id} className={`w-[250px] hover:bg-background-sub ${activeTab === item.id ? '!text-red-500' : ''}`}>
               {item.name}
             </Tabs.Tab>
           );

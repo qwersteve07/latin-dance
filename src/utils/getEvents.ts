@@ -1,11 +1,17 @@
 import { southTaiwanCities } from "@/const/cities";
-import { locateList } from "@/const/locate";
+import { locateList } from "@/store/appState";
 import { Event } from "@/types/event";
 import dayjs from "dayjs";
 import isSameOrBefore from "dayjs/plugin/isSameOrAfter"
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter"
+import updateLocale from 'dayjs/plugin/updateLocale'
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
+dayjs.extend(updateLocale)
+dayjs.updateLocale('en', {
+    weekStart: 1
+})
+
 
 export function getLatestWeekEvents(events: Array<Event>) {
     const weekEvents = events.filter((event: Event) => {
@@ -56,9 +62,9 @@ export function getCurrentWeekEvents(events: Array<Event>) {
 export function getEventsFilterByCity(events: Array<Event>, city: string) {
     return events.filter((event: Event) => {
         const eventCity = locateList.find(x => x.id === event.locate)
-        if(city === 'south-taiwan'){
+        if (city === 'south-taiwan') {
             return southTaiwanCities.includes(eventCity?.city || '')
-        }else{
+        } else {
             return eventCity?.city === city
         }
     })
