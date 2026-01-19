@@ -17,7 +17,7 @@ export const eventsTemplate = {
     types: ["zouk"],
     startAt: "22:00",
     endAt: "23:30",
-    fee: "200 TWD",
+    fee: "250TWD or 0.5 flow point(當日上課學生免費)",
   },
   "flow-friday-social": {
     title: "Flow Friday Social",
@@ -53,7 +53,7 @@ export const eventsTemplate = {
     content: "Buddy Pass, 2 person $600 before 16:00",
   },
   "copa-friday-social": {
-    title: "Copa friday Social",
+    title: "Copa Friday Social",
     host: "copa-taiwan",
     locate: "ba-basement",
     rate: "100% Salsa Room + 100% Bachata Room",
@@ -121,7 +121,7 @@ export const eventsTemplate = {
     types: ["salsa on 2"],
     startAt: "18:30",
     endAt: "21:00",
-    fee: "250 TWD",
+    fee: "300 TWD",
   },
   "bailalo-bachata-social": {
     title: "Bailalo Bachata Social",
@@ -131,17 +131,17 @@ export const eventsTemplate = {
     types: ["bachata"],
     startAt: "18:30",
     endAt: "21:00",
-    fee: "250 TWD",
+    fee: "300 TWD",
   },
   "bailalo-lambada-zouk-social": {
     title: "Bailalo Lambada & Zouk Social",
     host: "bailalo-dance-studio",
-    locate: "",
+    locate: "bailalo-dance-studio",
     rate: "Lambada & Zouk",
     types: ["zouk", "lambada"],
     startAt: "19:30",
     endAt: "23:00",
-    fee: "400 TWD",
+    fee: "300 TWD",
   },
   "outdoor-salsa-concert": {
     title: "戶外 Salsa Concert",
@@ -274,9 +274,21 @@ export const eventsTemplate = {
     content: "",
     note: "",
   },
+  'la-calle': {
+    title: "La Calle",
+    host: "leo",
+    locate: "the-venue",
+    rate: "70% Salsa, 30% Chacha, Merengue, Reggaeton, Hiphop, R&B, Bachata",
+    types: ["salsa on 2", "bachata"],
+    startAt: "21:30",
+    endAt: "00:30",
+    fee: "250 TWD",
+    content: "",
+    note: ""
+  },
   izouk: {
     title: "iZouk",
-    host: "feM",
+    host: "FeM",
     locate: "sunny-side",
     rate: "zouk / lambada",
     types: ["zouk", "lambada"],
@@ -289,7 +301,7 @@ export const eventsTemplate = {
   "kizomba-night": {
     title: "Kizomba Party in Taipei",
     host: "meet-kiz-taiwan",
-    locate: "",
+    locate: "barcade-taiwan",
     rate: "100% Kizomba",
     types: ["kizomba"],
     startAt: "21:00",
@@ -313,7 +325,7 @@ export const eventsTemplate = {
   "taipei-bkk-night": {
     title: "Taipei BKK Night",
     host: "meet-kiz-taiwan",
-    locate: "",
+    locate: "here-taipei",
     rate: "Bachata / Kizomba / Konpa",
     types: ["bachata", "kizomba"],
     startAt: "20:00",
@@ -361,7 +373,7 @@ export const eventsTemplate = {
     note: "",
   },
   "dol-bachata-pratica": {
-    title: "Bachata Sosial Practice",
+    title: "Bachata Social Practice",
     host: "dol",
     locate: "dol-dance-studio",
     rate: "100% bachata",
@@ -399,7 +411,7 @@ export const eventsTemplate = {
   "salsaton-party": {
     title: "月度騷莎動舞會",
     host: "salsaton",
-    locate: "",
+    locate: "leaploom",
     rate: "Salsa / Bachata",
     types: ["salsa on 2", "bachata"],
     startAt: "21:00",
