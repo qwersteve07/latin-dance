@@ -269,6 +269,7 @@ function DesktopCalendar({ data, render, setCurrentYear, setCurrentMonth, onOpen
         eventDate: e.date,
       }))}
       eventContent={render}
+      height="auto"
     />
   );
 }
