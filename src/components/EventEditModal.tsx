@@ -18,7 +18,6 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
     const endAtRef = useRef<HTMLInputElement>(null);
     const { data, error, isLoading } = useSWR(id ? `/social-dance/events/${id}` : null, fetcher);
     const { mutate } = useSWRConfig()
-
     const dayjs = useDay()
     const appStore = useAppStore()
     const userRole: string = appStore.user ? appStore.user['role'] : ''
@@ -40,9 +39,13 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
             note: ''
         },
         validate: {
+            date: (value) => value ? null : 'needed',
             title: (value) => value ? null : 'needed',
-            rate: (value) => value ? null : 'needed',
-            fee: (value) => value ? null : 'needed',
+            host: (value) => Object.entries(value).length !== 0 ? null : 'needed',
+            locate: (value) => Object.entries(value).length !== 0 ? null : 'needed',
+            startAt: (value) => value ? null : 'needed',
+            endAt: (value) => value ? null : 'needed',
+            types: (value) => value.length !== 0 ? null : 'needed',
         },
     });
 
@@ -53,14 +56,11 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
             } else {
                 form.setValues({
                     date: dayjs(defaultDate).toDate() as any,
+                    host: userRole
                 })
             }
         } else {
             form.reset();
-            form.setValues({
-                date: dayjs(defaultDate).toDate() as any,
-            })
-
         }
     }, [opened, id, defaultDate])
 
@@ -164,7 +164,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
         <Drawer position="right" opened={opened} onClose={onClose}>
             {!id && <div className="flex justify-start items-center flex-wrap gap-2 mb-6">
                 {filteredEventsTemplate().map(([templateId, data]: [string, any]) => {
-                    return <div key={templateId} className="cursor-pointer  transition hover:bg-gray-50  hover:border-red-500 rounded-full px-3 py-1 border" onClick={() => {
+                    return <div key={templateId} className="cursor-pointer transition hover:bg-background-third  hover:border-red-500 rounded-full px-3 py-1 border" onClick={() => {
                         form.setValues(data)
                     }}>{data.title}</div>
                 })}
@@ -177,6 +177,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
                         {...form.getInputProps('canceled', { type: 'checkbox' })} />
                 </div>
                 <DatePickerInput
+                    withAsterisk
                     label="日期"
                     valueFormat="YYYY/MM/DD"
                     key={form.key('date')}
@@ -196,18 +197,21 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
                     {...form.getInputProps('host')}
                 />
                 <Select
+                    withAsterisk
                     label="活動地點"
                     data={locateList.map(item => ({ ...item, value: item.id, label: item.name }))}
                     key={form.key('locate')}
                     {...form.getInputProps('locate')}
                 />
                 <TimeInput label="開始時間"
+                    withAsterisk
                     ref={startAtRef}
                     rightSection={startAtPickerControl}
                     key={form.key('startAt')}
                     {...form.getInputProps('startAt')}
                 />
                 <TimeInput label="結束時間"
+                    withAsterisk
                     ref={endAtRef}
                     key={form.key('endAt')}
                     rightSection={endAtPickerControl}
