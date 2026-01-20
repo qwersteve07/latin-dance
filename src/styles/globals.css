@@ -58,6 +58,10 @@ body {
   background: none;
 }
 
+.fc .fc-scrollgrid-section-sticky > * {
+  background: none;
+}
+
 .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-frame {
   @apply border-red-500/50 border-2;
 }
