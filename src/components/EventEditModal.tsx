@@ -202,6 +202,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
                     label="活動地點"
                     data={locateList.map(item => ({ ...item, value: item.id, label: item.name }))}
                     key={form.key('locate')}
+                    searchable
                     {...form.getInputProps('locate')}
                 />
                 <TimeInput label="開始時間"
