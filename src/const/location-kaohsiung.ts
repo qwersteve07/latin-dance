@@ -41,6 +41,12 @@ export const locationKaohsiung = [
     city: "kaohsiung",
     url: "https://maps.app.goo.gl/Rqj5n2gtTXMjGWUw8",
   },
+   {
+    id: "the-pier-garden",
+    name: "渡船頭啤酒花園",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/Am7LcQkGiFGwqpdj9",
+  },
   {
     id: "leaploom",
     name: "艾萊家",
