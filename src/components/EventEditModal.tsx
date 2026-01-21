@@ -192,6 +192,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
                 <Select
                     withAsterisk
                     label="主辦單位"
+                    searchable
                     data={filteredOrganizer().map((item: any) => ({ ...item, value: item.id, label: item.name }))}
                     key={form.key('host')}
                     {...form.getInputProps('host')}
