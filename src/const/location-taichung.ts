@@ -95,5 +95,11 @@ export const locationTaichung = [
     name: '愛釀餐酒館 iBREW-BEER BISTRO',
     city: 'taichung',
     url: 'https://maps.app.goo.gl/QxXrUa5ATZGG1jzt5'
+  },
+  {
+    id: 'heart-valley',
+    name: '心之谷永續教育園區 HeartValley Gallery',
+    city: 'taichung',
+    url: 'https://maps.app.goo.gl/gzsZgg3Gr3PFoeGb8'
   }
 ]
