@@ -1,4 +1,4 @@
-import { Tabs, Modal } from "@mantine/core";
+import { Tabs, Modal, Button } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import { useMedia } from "react-use";
@@ -17,6 +17,7 @@ import { useTranslation } from "next-i18next";
 import { southTaiwanCities } from "@/const/cities";
 import { useRouter } from "next/router";
 import { organizerList, useAppState } from "@/store/appState";
+import { useUser } from "@/use/use-user";
 
 export default function Organizers() {
   const appStore = useAppStore()
@@ -117,6 +118,7 @@ function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organi
 function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerList: Array<Organizer>, activeTab: string | null, setActiveTab: (value: string | null) => void }) {
   const { t } = useTranslation('common')
 
+
   return (
     <Tabs
       value={activeTab}
@@ -154,9 +156,19 @@ function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerL
 }
 
 function OrganizerContent({ item }: { item: Organizer }) {
+  const { isLogin, userRole, isSU } = useUser()
+
+  const isUserTab = () => {
+    if (isSU(userRole)) return true
+    return userRole === item.id
+  }
+
   return (
     <div className="flex justify-between items-center flex-col h-full w-full">
-      <div className="flex justify-between items-start flex-col w-2/3 max-md:w-full">
+      <div className="flex justify-between items-start flex-col w-2/3 max-md:w-full relative">
+        {isLogin && isUserTab() && <Button className="!absolute right-0 top-0 !w-20" onClick={() => {
+
+        }}>編輯</Button>}
         {item.solo ? <MemberImage src={item.thumbnail} alt={item.name} /> : <OrganizerImage src={item.thumbnail} alt={item.name} />}
         <div className="font-bold text-2xl mt-4 mb-4">{item.name}</div>
         <div className="flex justify-center gap-4 mb-10">
