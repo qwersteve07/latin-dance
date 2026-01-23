@@ -55,7 +55,6 @@ export default function LoginPage() {
             })
 
             if (result.error) throw result
-            appStore.setUser(parseJWT(result.data.accessToken))
             cookieStore.setAuthToken(result.data.accessToken);
             cookieStore.setRefreshToken(result.data.refreshToken);
             router.push('/calendar')

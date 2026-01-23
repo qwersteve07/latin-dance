@@ -11,6 +11,7 @@ import { locateList, organizerList } from "@/store/appState";
 import { eventsTemplate } from "@/const/events-template";
 import { useAppStore } from "@/store/appStore";
 import { getLocateCity } from "@/utils/getLocate";
+import { useUser } from "@/use/use-user";
 
 function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean, onClose: () => void, id: string, defaultDate: string }) {
     const [loading, setLoading] = useState(false)
@@ -20,7 +21,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
     const { mutate } = useSWRConfig()
     const dayjs = useDay()
     const appStore = useAppStore()
-    const userRole: string = appStore.user ? appStore.user['role'] : ''
+    const { userRole, isSU } = useUser()
 
     const form = useForm({
         mode: 'uncontrolled',
@@ -95,7 +96,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
             return city === appStore.currentCity
         })
 
-        if (userRole === 'superUser' || userRole === 'user') return filteredTemplate
+        if (isSU(userRole)) return filteredTemplate
 
         return filteredTemplate
             .filter((t: any) => {
@@ -104,7 +105,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
     }
 
     const filteredOrganizer = () => {
-        if (userRole === 'superUser' || userRole === 'user') return organizerList
+        if (isSU(userRole)) return organizerList
 
         return organizerList.filter((o: any) => {
             return o.id === userRole
