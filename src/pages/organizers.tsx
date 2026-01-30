@@ -1,29 +1,27 @@
-import { Tabs, Modal } from "@mantine/core";
+import { Modal, Button } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import { useMedia } from "react-use";
-import MemberImage from "@/components/memberImage";
 import { Organizer } from "@/types/organizer";
 import Title from "@/components/title";
 import OrganizerImage from "@/components/organizerImage";
 import { useAppStore } from "@/store/appStore";
-import IconFacebook from '../../public/icon-facebook.svg'
-import IconInstagram from '../../public/icon-instagram.svg'
-import IconWebsite from '../../public/icon-website.svg'
-import IconLocate from '../../public/icon-location.svg'
 import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { southTaiwanCities } from "@/const/cities";
 import { useRouter } from "next/router";
 import { organizerList, useAppState } from "@/store/appState";
+import { OrganizerCard } from "@/components/organizerCard";
+import { OrganizerDetail } from "@/components/OrganizerDetail";
 
 export default function Organizers() {
   const appStore = useAppStore()
-  const [activeTab, setActiveTab] = useState<string | null>('');
+  // const [activeTab, setActiveTab] = useState<string | null>('');
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectOrganizer, setSelectOrganizer] = useState<Organizer>({} as any);
+  const [editingOrganizer, setEditingOrganizer] = useState<Organizer>({} as any);
   const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
+  const [selectedOrganizer, setSelectedOrganizer] = useState<Organizer>();
   const { t } = useTranslation('common')
   const router = useRouter()
   const appState = useAppState()
@@ -33,20 +31,23 @@ export default function Organizers() {
   useEffect(() => {
     if (!appStore.currentCity) return
 
-    const filteredOrganizersList = organizerList.filter(t => !t.hide).filter(o => {
-      if (appStore.currentCity === 'south-taiwan') {
-        return southTaiwanCities.includes(o.city)
-      } else {
-        return o.city === appStore.currentCity
-      }
-    })
+    const filteredOrganizersList = organizerList
+      .filter(t => !t.hide).filter(o => {
+        if (appStore.currentCity === 'south-taiwan') {
+          return southTaiwanCities.includes(o.city)
+        } else {
+          return o.city === appStore.currentCity
+        }
+      })
+
     if (!Array.isArray(filteredOrganizersList)) return
     setActiveOrganizerList(filteredOrganizersList)
+    setSelectedOrganizer(filteredOrganizersList[0])
 
     if (router.query.id && typeof (router.query.id) === 'string') {
-      setActiveTab(router.query.id)
+      // setActiveTab(router.query.id)
     } else {
-      setActiveTab(filteredOrganizersList[0].id);
+      // setActiveTab(filteredOrganizersList[0].id);
     }
 
   }, [appStore.currentCity])
@@ -73,18 +74,18 @@ export default function Organizers() {
         onClose={close}
         centered
       >
-        <OrganizerContent item={selectOrganizer} />
+        {/* <OrganizerContent item={selectedOrganizer} /> */}
       </Modal>
       {isMobile && (
         <MobileStudios
           organizerList={activeOrganizerList}
           onClick={(organizer: Organizer) => {
-            setSelectOrganizer(organizer)
+            setSelectedOrganizer(organizer)
             open()
           }} />
       )}
-      {!isMobile && (
-        <DesktopStudios organizerList={activeOrganizerList} activeTab={activeTab} setActiveTab={setActiveTab} />
+      {!isMobile && selectedOrganizer && (
+        <DesktopStudios organizerList={activeOrganizerList} selectedOrganizer={selectedOrganizer} setSelectedOrganizer={setSelectedOrganizer} setEditingOrganizer={setEditingOrganizer} />
       )}
     </>
   );
@@ -114,124 +115,112 @@ function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organi
   );
 }
 
-function DesktopStudios({ organizerList, activeTab, setActiveTab }: { organizerList: Array<Organizer>, activeTab: string | null, setActiveTab: (value: string | null) => void }) {
-  const { t } = useTranslation('common')
 
-  return (
-    <Tabs
-      value={activeTab}
-      onChange={setActiveTab}
-      orientation="vertical"
-    >
-      <Tabs.List >
-        {organizerList.map(item => {
-          if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">{t('organizers.individual')}</Tabs.Tab>
-
-          return (
-            <Tabs.Tab value={item.id} key={item.id} className={`w-[250px] hover:bg-background-sub ${activeTab === item.id ? '!text-red-500' : ''}`}>
-              {item.name}
-            </Tabs.Tab>
-          );
-        })}
-      </Tabs.List >
-      {
-        organizerList.map(item => {
-          if (item.id === '') return <Tabs.Panel value="block" key="block">block</Tabs.Panel>
-
-          return (
-            <Tabs.Panel
-              value={item.id}
-              key={item.id}
-              className="p-4 flex flex-col justify-start items-center gap-5"
-            >
-              <OrganizerContent item={item} />
-            </Tabs.Panel>
-          );
-        })
-      }
-    </Tabs >
-  );
-}
-
-function OrganizerContent({ item }: { item: Organizer }) {
-  return (
-    <div className="flex justify-between items-center flex-col h-full w-full">
-      <div className="flex justify-between items-start flex-col w-2/3 max-md:w-full">
-        {item.solo ? <MemberImage src={item.thumbnail} alt={item.name} /> : <OrganizerImage src={item.thumbnail} alt={item.name} />}
-        <div className="font-bold text-2xl mt-4 mb-4">{item.name}</div>
-        <div className="flex justify-center gap-4 mb-10">
-          {Object.entries(item.link).filter(item => item[1] !== '').map(([key, value]) => {
-            return <SocialLink key={value} type={key} link={value} />;
-          })}
-        </div>
-        <div className="mb-4">
-          {item.intro?.split("\n").map(x => (
-            <p key={x} className="mb-2">
-              {x}
-              <br />
-            </p>
-          ))}
-        </div>
-        {item.classes.length !== 0 && <div className="">
-          課程包含：<span className="font-bold">{item.classes.join('、')}</span>
-        </div>}
-        {item.party && <div className="">舞會活動：{item.party}</div>}
-        {item.member.length !== 0 && (
-          <>
-            <div className="text-xl font-bold mt-8 mb-6">團隊成員</div>
-            <div className="flex justify-starts items-center gap-x-12 gap-y-4 mb-12 flex-wrap">
-              {item.member.map(h => (
-                <div
-                  key={h.name}
-                  className="flex justify-center items-center flex-col gap-2"
-                >
-                  <MemberImage src={h.image} alt={h.name} />
-                  <div className="text-xl ">{h.name}</div>
-                </div>
-              ))}
-            </div></>
-        )}
-        {item.dance_group && (
-          <div className="flex justify-start items-start mt-14 gap-6 max-md:flex-col">
-            <div className="relative w-40 min-w-40 rounded-lg overflow-hidden">
-              <img src={item.dance_group.thumbnail} alt={item.dance_group.name} className="object-contain" />
-            </div>
-            <div>
-              <div className="font-bold text-2xl mb-4">{item.dance_group.name}</div>
-              <div className="mb-4">
-                <SocialLink type='instagram' link={item.dance_group.link} />
-              </div>
-              <div className="mb-4">
-                {item.dance_group.intro?.split("\n").map(x => (
-                  <p key={x} className="mb-2">
-                    {x}
-                    <br />
-                  </p>
-                ))}
-              </div>
-            </div>
-          </div>
-        )
-        }
-      </div >
-
-    </div >
-  );
-}
-
-function SocialLink({ type, link }: { type: string, link: string }) {
-
-  const Icon = (props: any) => {
-    switch (type) {
-      case 'facebook': return <IconFacebook {...props} />
-      case 'instagram': return <IconInstagram {...props} />
-      case 'website': return <IconWebsite {...props} />
-      case 'location': return <IconLocate {...props} />
-      default: return <></>
-    }
+function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer, setEditingOrganizer }: { organizerList: Array<Organizer>, selectedOrganizer: Organizer, setSelectedOrganizer: (value: Organizer) => void, setEditingOrganizer: (value: Organizer) => void }) {
+  const handleAddNew = () => {
+    // const newOrganizer: Organizer = {
+    //   id: Date.now().toString(),
+    //   name: "",
+    //   thumbnail: "",
+    //   content: "",
+    //   links: [],
+    //   classes: [],
+    //   city: '',
+    //   related: null,
+    // }
+    // setEditingOrganizer(newOrganizer)
+    // setIsDialogOpen(true)
   }
 
-  return <Icon className="w-6 hover:stroke-red-500 cursor-pointer" onClick={() => window.open(link)} />
+  const handleSelect = (organizer: Organizer) => {
+    setSelectedOrganizer(organizer)
+  }
+
+  const handleEdit = (organizer: Organizer) => {
+    setEditingOrganizer(organizer)
+  }
+
+  return (
+    <div className="flex h-[calc(100vh-285px)] gap-6">
+      {/* Left Panel - Organizer List */}
+      <div className="w-80 shrink-0 flex flex-col">
+        {/* <div className="space-y-4 pb-4">
+          <Button onClick={handleAddNew} fullWidth>
+            <Plus className="h-4 w-4 mr-2" />
+            Add Organizer
+          </Button>
+        </div> */}
+        <div className="flex-1 overflow-y-auto space-y-2 pr-2">
+          {organizerList.map((organizer) => (
+            <OrganizerCard
+              key={organizer.id}
+              organizer={organizer}
+              isSelected={selectedOrganizer?.id === organizer.id}
+              onClick={() => handleSelect(organizer)}
+            />
+          ))
+          }
+        </div>
+      </div>
+      <div className="flex-1 overflow-y-auto">
+        {selectedOrganizer ? (
+          <OrganizerDetail
+            organizer={selectedOrganizer}
+            onEdit={() => handleEdit(selectedOrganizer)}
+          />
+        ) : (
+          <div className="flex h-full items-center justify-center text-muted-foreground">
+            Select an organizer to view details
+          </div>
+        )}
+      </div>
+
+      {/* <EditOrganizerDialog
+        organizer={editingOrganizer}
+        open={isDialogOpen}
+        onOpenChange={setIsDialogOpen}
+        onSave={handleSave}
+      /> */}
+    </div>
+  )
+
+
+
+
+  // return (
+  //   <Tabs
+  //     value={activeTab}
+  //     onChange={setActiveTab}
+  //     orientation="vertical"
+  //   >
+  //     <Tabs.List >
+  //       {organizerList.map(item => {
+  //         if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">{t('organizers.individual')}</Tabs.Tab>
+
+  //         return (
+  //           <Tabs.Tab value={item.id} key={item.id} className={`w-[250px] hover:bg-background-sub ${activeTab === item.id ? '!text-red-500' : ''}`}>
+  //             {item.name}
+  //           </Tabs.Tab>
+  //         );
+  //       })}
+  //     </Tabs.List >
+  //     {
+  //       organizerList.map(item => {
+  //         if (item.id === '') return <Tabs.Panel value="block" key="block">block</Tabs.Panel>
+
+  //         return (
+  //           <Tabs.Panel
+  //             value={item.id}
+  //             key={item.id}
+  //             className="p-4 flex flex-col justify-start items-center gap-5"
+  //           >
+  //             <OrganizerContent item={item} />
+  //           </Tabs.Panel>
+  //         );
+  //       })
+  //     }
+  //   </Tabs >
+  // );
 }
 
 export async function getServerSideProps({ locale }: { locale: any }) {
