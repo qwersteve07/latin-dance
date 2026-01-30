@@ -6,16 +6,13 @@ import OuterLink from "./outerLink"
 import { useDay } from "@/use/use-day"
 import DanceTypeBadge from "./danceTypeBadge"
 import { DanceType } from "@/types/danceTypes"
-import { useLogin } from "@/use/use-login"
-import { useAppStore } from "@/store/appStore"
+import { useUser } from "@/use/use-user"
 
 const EventModal = ({ opened, onClose, data, onOpenEditModal, onOpenDeleteModal }: { opened: boolean, onClose: () => void, data: any, onOpenEditModal?: (id: string) => void, onOpenDeleteModal?: () => void }) => {
-    const { isLogin } = useLogin()
+    const { isSU, userRole, isLogin } = useUser()
     const dayjs = useDay()
-    const appStore = useAppStore()
-    const userRole: string = appStore.user ? appStore.user['role'] : ''
     const isUserEvent = () => {
-        if (userRole === 'superUser' || userRole === 'user') return true
+        if (isSU(userRole)) return true
         return userRole === data.host
     }
 

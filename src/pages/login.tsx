@@ -8,7 +8,6 @@ import { NextSeo } from 'next-seo';
 import { useAppStore } from '@/store/appStore';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useAppState } from '@/store/appState';
-import { parseJWT } from '@/utils/jwpParser';
 
 export default function LoginPage() {
     const router = useRouter()
@@ -55,7 +54,6 @@ export default function LoginPage() {
             })
 
             if (result.error) throw result
-            appStore.setUser(parseJWT(result.data.accessToken))
             cookieStore.setAuthToken(result.data.accessToken);
             cookieStore.setRefreshToken(result.data.refreshToken);
             router.push('/calendar')

@@ -5,16 +5,13 @@ export const organizerTainanList = [
     hide: false,
     city: "tainan",
     thumbnail: "/organizers/tainanlatin.jpg",
-    intro: "",
-    link: {
-      facebook: "",
-      instagram: "https://www.instagram.com/tainanlatin",
-      website: "",
-      location: "",
-    },
-    party: "不定期舉辦 Salsa / Bachata 舞會",
-    classes: [],
-    member: [],
+    content: "",
+    links: [
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/tainanlatin",
+      },
+    ],
   },
   {
     id: "bailamore",
@@ -22,21 +19,47 @@ export const organizerTainanList = [
     hide: false,
     city: "tainan",
     thumbnail: "/organizers/bailamore.jpg",
-    intro: "主要在台南推廣 Bachata/Salsa\n目前設有每週日的常態課",
-    link: {
-      facebook: "",
-      instagram: "https://www.instagram.com/baila_moredancestudio",
-      website: "https://www.bailamore-studio.com",
-      location: "",
-    },
-    party: "",
-    classes: ["salsa", "bachata"],
-    member: [
+    content: "主要在台南推廣 Bachata/Salsa\n目前設有每週日的常態課",
+    links: [
       {
-        name: "Sean",
-        image: "/organizers/sean.jpg",
+        type: "instagram",
+        url: "https://www.instagram.com/baila_moredancestudio",
+      },
+      {
+        type: "website",
+        url: "https://www.bailamore-studio.com",
       },
     ],
+    classes: [
+      {
+        weekday: "sunday",
+        type: "bachata",
+        name: "Bachata 進階",
+        time: "14:00-15:00",
+        level: "intermediate",
+      },
+      {
+        weekday: "sunday",
+        type: "bachata",
+        name: "Bachata Lv1",
+        time: "15:00-16:00",
+        level: "beginner",
+      },
+      {
+        weekday: "sunday",
+        type: "salsa",
+        name: "Salsa Lv1",
+        time: "16:00-17:00",
+        level: "beginner",
+      },
+      {
+        weekday: "sunday",
+        type: "bachata",
+        name: "Bachata Lv2",
+        time: "17:00-18:00",
+        level: "beginner",
+      },
+    ]
   },
   {
     id: "mex-cafe",
@@ -44,15 +67,7 @@ export const organizerTainanList = [
     hide: true,
     city: "tainan",
     thumbnail: "",
-    intro: "",
-    link: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
+    content: "",
+    links: [],
   },
 ];

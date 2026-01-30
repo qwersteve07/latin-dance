@@ -21,7 +21,7 @@ import { useTranslation } from "next-i18next";
 import Announcement from "@/components/announce";
 import DeleteEventModal from "@/components/deleteModal";
 import EventEditModal from "@/components/EventEditModal";
-import { useLogin } from "@/use/use-login";
+import { useUser } from "@/use/use-user";
 import DanceTypeCube from "@/components/danceTypeCube";
 import DanceTypeBadge from "@/components/danceTypeBadge";
 import { DanceType } from "@/types/danceTypes";
@@ -41,7 +41,7 @@ export default function Calendar() {
   const { t } = useTranslation('common')
   const [eventId, setEventId] = useState('')
   const [defaultDate, setDefaultDate] = useState('')
-  const { isLogin } = useLogin()
+  const { isLogin } = useUser()
 
 
   useEffect(() => {
