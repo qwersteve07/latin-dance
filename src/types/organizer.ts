@@ -10,7 +10,7 @@ export interface Organizer {
   solo: boolean;
   hide: boolean; 
   city: string;
-  related: Related | null
+  related: Related[] | null
 }
 
 export interface DanceClass {
