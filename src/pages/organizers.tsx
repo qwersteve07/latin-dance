@@ -21,10 +21,11 @@ export default function Organizers() {
   const [opened, { open, close }] = useDisclosure(false);
   const [editingOrganizer, setEditingOrganizer] = useState<Organizer>({} as any);
   const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
-  const [selectedOrganizer, setSelectedOrganizer] = useState<Organizer>();
+  const [selectedOrganizer, setSelectedOrganizer] = useState<Organizer | null>(null);
   const { t } = useTranslation('common')
   const router = useRouter()
   const appState = useAppState()
+  console.log(editingOrganizer)
 
   const isMobile = useMedia("(max-width: 768px)");
 
@@ -74,7 +75,10 @@ export default function Organizers() {
         onClose={close}
         centered
       >
-        {/* <OrganizerContent item={selectedOrganizer} /> */}
+        <OrganizerDetail
+          organizer={selectedOrganizer}
+        // onEdit={() => handleEdit(selectedOrganizer)}
+        />
       </Modal>
       {isMobile && (
         <MobileStudios
@@ -117,20 +121,20 @@ function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organi
 
 
 function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer, setEditingOrganizer }: { organizerList: Array<Organizer>, selectedOrganizer: Organizer, setSelectedOrganizer: (value: Organizer) => void, setEditingOrganizer: (value: Organizer) => void }) {
-  const handleAddNew = () => {
-    // const newOrganizer: Organizer = {
-    //   id: Date.now().toString(),
-    //   name: "",
-    //   thumbnail: "",
-    //   content: "",
-    //   links: [],
-    //   classes: [],
-    //   city: '',
-    //   related: null,
-    // }
-    // setEditingOrganizer(newOrganizer)
-    // setIsDialogOpen(true)
-  }
+  // const handleAddNew = () => {
+  // const newOrganizer: Organizer = {
+  //   id: Date.now().toString(),
+  //   name: "",
+  //   thumbnail: "",
+  //   content: "",
+  //   links: [],
+  //   classes: [],
+  //   city: '',
+  //   related: null,
+  // }
+  // setEditingOrganizer(newOrganizer)
+  // setIsDialogOpen(true)
+  // }
 
   const handleSelect = (organizer: Organizer) => {
     setSelectedOrganizer(organizer)
@@ -183,44 +187,6 @@ function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer
       /> */}
     </div>
   )
-
-
-
-
-  // return (
-  //   <Tabs
-  //     value={activeTab}
-  //     onChange={setActiveTab}
-  //     orientation="vertical"
-  //   >
-  //     <Tabs.List >
-  //       {organizerList.map(item => {
-  //         if (item.id === '') return <Tabs.Tab value="block" key='block' className="pointer-events-none !text-xl font-bold mt-4">{t('organizers.individual')}</Tabs.Tab>
-
-  //         return (
-  //           <Tabs.Tab value={item.id} key={item.id} className={`w-[250px] hover:bg-background-sub ${activeTab === item.id ? '!text-red-500' : ''}`}>
-  //             {item.name}
-  //           </Tabs.Tab>
-  //         );
-  //       })}
-  //     </Tabs.List >
-  //     {
-  //       organizerList.map(item => {
-  //         if (item.id === '') return <Tabs.Panel value="block" key="block">block</Tabs.Panel>
-
-  //         return (
-  //           <Tabs.Panel
-  //             value={item.id}
-  //             key={item.id}
-  //             className="p-4 flex flex-col justify-start items-center gap-5"
-  //           >
-  //             <OrganizerContent item={item} />
-  //           </Tabs.Panel>
-  //         );
-  //       })
-  //     }
-  //   </Tabs >
-  // );
 }
 
 export async function getServerSideProps({ locale }: { locale: any }) {

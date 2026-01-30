@@ -4,7 +4,7 @@ import { Badge } from "@mantine/core"
 const levelColors: any = {
     beginner: "gray",
     intermediate: "yellow",
-    advanced: "red",
+    advanced: "orange",
     "open-lv": "cyan",
 }
 
@@ -15,12 +15,14 @@ const levelLabels: any = {
     "open-lv": "Open Levels",
 }
 
-export function ClassLevelBadge({ level }: { level: DanceClassLevel }) {
+export function ClassLevelBadge({ level, className, onClick }: { level: DanceClassLevel, className?: string, onClick?: () => void }) {
     return (
         <Badge
             variant="outline"
             size="sm"
             color={levelColors[level]}
+            className={className}
+            onClick={onClick}
         >
             {levelLabels[level]}
         </Badge>
