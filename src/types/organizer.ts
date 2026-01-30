@@ -5,12 +5,12 @@ export interface Organizer {
   name: string;
   thumbnail: string;
   content: string;
-  links: Link[];
-  classes: DanceClass[]
-  solo: boolean;
-  hide: boolean; 
+  links?: Link[];
+  classes?: DanceClass[]
+  solo?: boolean;
+  hide?: boolean;
   city: string;
-  related: Related[] | null
+  related?: Related[] | null
 }
 
 export interface DanceClass {

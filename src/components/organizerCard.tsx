@@ -1,4 +1,5 @@
 import { Organizer } from "@/types/organizer";
+import { User } from "lucide-react";
 import Image from "next/image";
 
 export function OrganizerCard({ organizer, isSelected, onClick }: { organizer: Organizer, isSelected: boolean, onClick: () => void }) {
@@ -25,8 +26,8 @@ export function OrganizerCard({ organizer, isSelected, onClick }: { organizer: O
                         </div>
                     )}
                 </div>
-                <span className="text-sm">
-                    {organizer.name}
+                <span className="text-sm flex-1 inline-flex justify-between">
+                    {organizer.name}{organizer.solo && <User className="text-gray-500" />}
                 </span>
             </div>
         </button >
