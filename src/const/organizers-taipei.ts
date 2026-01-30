@@ -6,95 +6,107 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/bailalo.jpeg",
     content:
       "人類是群體動物, 我們喜歡和人接觸, 相互關懷. 舞蹈是一種語言, 是一種生活的呈現, 透過舞蹈可以認識新朋友. 現在幾乎世界上每個國家都有Salsa, Bachata 和Zouk的舞會.\n認識自己的身體, 雖然我們一輩子都在我們的身體裡面, 大部份的人可能一輩子都沒有機會學西如何使用自己的身體. 跳舞可以開發肢體的協調性, 調整姿勢, 增強自信心, 並了解肢體語言的重要.\n跳舞既好玩又健康. 聽音樂可以刺激我們的大腦, 活化我們的腦神經. 而跳舞更能夠讓我們的大腦和身體保持年輕, 思緒靈活, 反應靈敏.",
-    links: {
-      facebook: "https://www.facebook.com/bailalodancestudio/",
-      instagram: "https://www.instagram.com/bailalotaipei/",
-      website: "https://bailalotaipei.com/index.php/zh/522-2/",
-      location: "https://maps.app.goo.gl/TKVKPDHBY4GD4D9p6",
-    },
+    links: [
+      {
+        type: "facebook",
+        url: '"https://www.facebook.com/bailalodancestudio/"',
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/bailalotaipei/",
+      },
+      {
+        type: "website",
+        url: "https://bailalotaipei.com/index.php/zh/522-2/",
+      },
+      {
+        type: "location",
+        url: "https://maps.app.goo.gl/TKVKPDHBY4GD4D9p6",
+      },
+    ],
     classes: [
       {
         type: "salsa",
         name: "Salsa Lv1",
         weekday: "monday",
-        level: 'beginner',
+        level: "beginner",
         time: "19:15-20:30",
       },
       {
         type: "salsa",
         name: "Salsa Advance",
         weekday: "monday",
-        level: 'advanced',
+        level: "advanced",
         time: "20:40-22:00",
       },
       {
         type: "salsa",
         name: "Salsa Lv2.2",
         weekday: "wednesday",
-        level: 'intermediate',
+        level: "intermediate",
         time: "19:15-20:30",
       },
       {
         type: "salsa",
         name: "Salsa Lv4",
         weekday: "wednesday",
-        level: 'intermediate',
+        level: "intermediate",
         time: "20:40-22:00",
       },
       {
         type: "bachata",
         name: "Bachata Lv2.1",
         weekday: "thursday",
-        level: 'beginner',
+        level: "beginner",
         time: "19:15-20:30",
       },
       {
         weekday: "friday",
         type: "zouk",
         name: "Zouk Lv2.1",
-        level: 'beginner',
+        level: "beginner",
         time: "19:15-20:30",
       },
       {
         weekday: "friday",
         type: "zouk",
         name: "Zouk Team Training",
-        level: 'advanced',
+        level: "advanced",
         time: "20:40-22:00",
       },
       {
         type: "salsa",
         name: "Salsa Lv3.1",
         weekday: "saturday",
-        level: 'intermediate',
+        level: "intermediate",
         time: "15:00-16:20",
       },
       {
         weekday: "saturday",
         type: "salsa",
         name: "Salsa Lv2.1",
-        level: 'beginner',
+        level: "beginner",
         time: "16:30-17:50",
       },
       {
         weekday: "sunday",
         type: "zouk",
         name: "Zouk Lv3",
-        level: 'intermediate',
+        level: "intermediate",
         time: "12:00-13:20",
       },
       {
         weekday: "sunday",
         type: "lambada",
         name: "Intro to Lambada",
-        level: 'beginner',
+        level: "beginner",
         time: "13:30-15:00",
       },
       {
         weekday: "sunday",
         type: "bachata",
         name: "Bachata Lv3",
-        level: 'intermediate',
+        level: "intermediate",
         time: "16:30-17:50",
       },
     ],
@@ -106,17 +118,14 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/bachata-taiwan.jpg",
     content: "Life is Simple\nDance and Keep it Real\n不只是生活，更要享受快樂",
     classes: [],
-    party: "每週四晚上 21:00-01:00 在 barcade 舉辦 bachata night",
-    links: {
-      facebook: "https://www.facebook.com/bachatataiwan/",
-      instagram: "https://www.instagram.com/bachatataiwan/",
-      website: "",
-      location: "",
-    },
-    member: [
+    links: [
       {
-        name: "Trison",
-        image: "/organizers/trison.png",
+        type: "facebook",
+        url: '"https://www.facebook.com/bachatataiwan/',
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/bachatataiwan/",
       },
     ],
   },
@@ -127,87 +136,19 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/copa-taiwan.jpg",
     content:
       "Copa Taiwan的宗旨是在台灣各地推廣音樂與舞蹈所表達的喜樂, 透過舞會,教學,網路廣播,表演等多元的方式, 讓更多人知道Salsa的精神!",
-    party: "每週五晚上在 BA Basement 舉辦 Salsa/Bachata Social",
     classes: [],
-    links: {
-      facebook: "https://www.facebook.com/CopaTaiwanSalsaSeries/",
-      instagram: "https://www.instagram.com/copataiwan_salsaparty/",
-      website: "https://copataiwan.com/",
-      location: "",
-    },
-    member: [
+    links: [
       {
-        name: "Calvin",
-        image: "/organizers/calvin.jpg",
-      },
-    ],
-  },
-  {
-    id: "el-colmado-social-taiwan",
-    name: "El Colmado Social Taiwan",
-    city: "taipei",
-    thumbnail: "/organizers/el-colmado.jpg",
-    content: "🇩🇴Traditional Bachata in Taiwan\n🇩🇴Back to the Roots",
-    party: "不定期舉辦 El Colmado Social 及大師課",
-    classes: ["bachata"],
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/elcolmado.taiwan/",
-      website: "",
-      location: "",
-    },
-    member: [],
-  },
-  {
-    id: "ds-salsa-fusion",
-    name: "DS Salsa Fusion",
-    hide: false,
-    city: "taipei",
-    thumbnail: "/organizers/ds.png",
-    content: "由Dan和Sherry共同經營的舞蹈團隊，以厚實的Salsa為核心基礎，樂於嘗試不同的教學內容與編創表演，自由合作不設限，與團員一起成長探索更多可能性。",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "https://lin.ee/R1Bl9H6",
-      location: "",
-    },
-    party: "",
-    classes: ["salsa"],
-    member: [
-      {
-        name: "Dan",
-        image: "/organizers/dan.png",
+        type: "facebook",
+        url: '"https://www.facebook.com/CopaTaiwanSalsaSeries/',
       },
       {
-        name: "Sherry",
-        image: "/organizers/sherry.png",
-      },
-    ],
-  },
-  {
-    id: "FeM",
-    name: "FeM",
-    city: "taipei",
-    thumbnail: "/organizers/fem.jpg",
-    content:
-      "Hi~ 👋，我們是Finn和Minnie 😁，我們熱愛Lambada/Zouk，想推廣讓更多的人加入跳 Lambada/Zouk，一起享受 Lambada/Zouk的美好🩵，期望讓台灣成為亞洲熱門 Lambada/Zouk大國🎉。\n每週二晚上在忠孝新生教Lambada/Zouk，歡迎大家加入一起玩🥳。",
-    links: {
-      facebook: "",
-      instagram: "",
-      website:
-        "https://docs.google.com/forms/d/e/1FAIpQLSfdx5w_iz6S4ZXrARh2AZkN3vXX9dx8ETGzJWDY6qhqvaN2uQ/viewform",
-      location: "",
-    },
-    classes: ["zouk", "lambada"],
-    party: "每月一次舉辦 zouk / lambada party",
-    member: [
-      {
-        name: "Finn",
-        image: "/organizers/finn.jpg",
+        type: "instagram",
+        url: "https://www.instagram.com/copataiwan_salsaparty/",
       },
       {
-        name: "Minnie",
-        image: "/organizers/minnie.jpg",
+        type: "website",
+        url: "https://copataiwan.com/",
       },
     ],
   },
@@ -218,54 +159,125 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/flow.png",
     content:
       "Flow是由一群熱愛生活熱愛舞蹈，想要為有同樣熱忱的舞者提供更好的學舞、練舞環境，並和更多人分享跳舞的熱情與樂趣而成立的舞蹈空間。\n對我們而言，跳舞不僅只是為生活帶來樂趣，更是與他人交流溝通，互相激發創造力，互相激勵的一個途徑。\n我們在這裡用舞蹈表達自己，也因為跳舞和其他人建立更深厚的連結，大家不再只是為了生活，為了工作匆匆忙忙路過的陌生人。\n在這裡，我們歡迎每個熱愛舞蹈的人，都站上這個舞台，和我們分享你們的故事。",
-    links: {
-      facebook: "https://www.facebook.com/FlowTaipei/",
-      instagram: "https://www.instagram.com/flow.taipei/",
-      website: "https://flowtaipei.com/",
-      location: "https://maps.app.goo.gl/1E6tLF4NUgXsiTVn8",
-    },
-    classes: ["salsa", "bachata", "zouk", "afro"],
-    party: "每週五晚上在 Flow Taipei 舉辦 Salsa/Bachata/Zouk Social",
-    member: [
+    links: [
       {
-        name: "Glenn",
-        image: "/organizers/glenn.jpg",
+        type: "facebook",
+        url: '"https://www.facebook.com/FlowTaipei/',
       },
       {
-        name: "Mandy",
-        image: "/organizers/mandy.jpg",
+        type: "instagram",
+        url: "https://www.instagram.com/flow.taipei/",
       },
       {
-        name: "Nana",
-        image: "/organizers/nana.jpg",
+        type: "website",
+        url: "https://flowtaipei.com/",
       },
       {
-        name: "Tyra",
-        image: "/organizers/tyra.jpg",
+        type: "location",
+        url: "https://maps.app.goo.gl/1E6tLF4NUgXsiTVn8",
+      },
+    ],
+    classes: [
+      {
+        weekday: "monday",
+        type: "bachata",
+        name: "Bachata Lv1",
+        level: "beginner",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "monday",
+        type: "bachata",
+        name: "Bachata Lv2",
+        level: "beginner",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "monday",
+        type: "bachata",
+        name: "Bachata Intermediate",
+        level: "intermediate",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "tuesday",
+        type: "salsa",
+        name: "Afro",
+        level: "open-lv",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "tuesday",
+        type: "bachata",
+        name: "Bachata Lv3",
+        level: "intermediate",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "tuesday",
+        type: "bachata",
+        name: "Bachata Solo Styling",
+        level: "open-lv",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "tuesday",
+        type: "salsa",
+        name: "Salsa Adv.",
+        level: "advanced",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa 初期班 S3",
+        level: "beginner",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "thursday",
+        type: "zouk",
+        name: "Zouk Lv2.5",
+        level: "intermediate",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "thursday",
+        type: "zouk",
+        name: "Zouk Lv3",
+        level: "intermediate",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "thursday",
+        type: "salsa",
+        name: "Salsa Bodymovement & Footwork Drills",
+        level: "open-lv",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "thursday",
+        type: "zouk",
+        name: "Zouk PartnerWork",
+        level: "intermediate",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "friday",
+        type: "zouk",
+        name: "Zouk Lv2",
+        level: "beginner",
+        time: "20:00-21:00",
+      },
+      {
+        weekday: "friday",
+        type: "bachata",
+        name: "Bachata Trendy Social Moves",
+        level: "intermediate",
+        time: "19:30-20:30",
       },
     ],
   },
-  // {
-  //     "id": "la-havanita-dance-academy",
-  //     "name": "La Havanita Dance Academy ",
-  // "city": "taipei",
-  //     "thumbnail": "/organizers/la-havanita.jpg",
-  //     "content": "La Havanita是全台北唯一專門教授On 1 LA Style Salsa以及Cuban Style Salsa的舞蹈學校",
-  //     "links": {
-  //         "facebook": "https://www.facebook.com/LaHavanita",
-  //         "instagram": "https://www.instagram.com/lahavanita_da_/",
-  //         "website": "",
-  //         "location": "https://maps.app.goo.gl/vKxuBEmDkRpxSd5x6"
-  //     },
-  //     "classes": ['salsa', 'bachata'],
-  //     "party": "",
-  //     "member": [
-  //         {
-  //             "name": "Frank",
-  //             "image": "/organizers/frank.jpg"
-  //         },
-  //     ]
-  // },
   {
     id: "latinesa-studio",
     name: "Latinesa Studio",
@@ -273,20 +285,25 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/latinesa.jpg",
     content:
       "Latinesa Studio 由 Cheli 創立，融合她的舞蹈藝名與教室名稱，象徵對拉丁與台灣文化的熱愛。自 2024 年 3 月成立以來，專注推廣 Salsa 與拉丁文化。Latinesa 結合 Latina（拉丁女孩）與 Taiwanesa（台灣女孩），展現 Cheli 的文化認同與熱情。\nCheli 舞齡 24 年，自幼學習民俗舞、芭蕾、爵士、現代、寶萊塢與拉丁舞，在台灣升學體制下仍堅持藝術初心。近 10 年從商管轉向國際關係，並於歐洲、拉丁美洲深耕工作，最終回台創業，結合西班牙產品與藝術文化交流，致力於 Salsa 表演、教學與推廣。",
-    links: {
-      facebook: "https://www.facebook.com/share/1A1Bvqvn7x/?mibextid=wwXIfr",
-      instagram: "https://www.instagram.com/latinesastudio",
-      website: "https://www.fit-book.com.tw/latinesa/",
-      location: "https://maps.app.goo.gl/UgXTEfACJyHeeoWD8",
-    },
-    classes: ["salsa"],
-    party: "不定期舉辦國外大師工作坊 / Salsa 舞會",
-    member: [
+    links: [
       {
-        name: "Cheli",
-        image: "/organizers/cheli.jpg",
+        type: "facebook",
+        url: '"https://www.facebook.com/share/1A1Bvqvn7x/?mibextid=wwXIfr',
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/latinesastudio",
+      },
+      {
+        type: "website",
+        url: "https://www.fit-book.com.tw/latinesa/",
+      },
+      {
+        type: "location",
+        url: "https://maps.app.goo.gl/UgXTEfACJyHeeoWD8",
       },
     ],
+    classes: [],
   },
   {
     id: "la-salsa-taipei",
@@ -295,34 +312,140 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/lasalsa.jpg",
     content:
       "台北樂騷莎 La Salsa Taipei\n教學SALSA舞及BACHATA舞\n台北最具規模的社交舞蹈學院",
-    links: {
-      facebook: "https://www.facebook.com/LaSalsaTaipei/",
-      instagram: "https://www.instagram.com/la_salsa_taipei/",
-      website: "",
-      location: "https://maps.app.goo.gl/qunZybuZXmnshA367",
-    },
-    classes: ["salsa", "bachata"],
-    party: "每週六晚上在 La Salsa Taipei 舉辦 Salsa/Bachata Social",
-    member: [
+    links: [
       {
-        name: "Larry",
-        image: "/organizers/larry.jpg",
+        type: "facebook",
+        url: '"https',
       },
       {
-        name: "Jessica",
-        image: "/organizers/jessica.jpg",
+        type: "instagram",
+        url: "https",
       },
       {
-        name: "Vivi",
-        image: "/organizers/vivi.jpg",
+        type: "location",
+        url: "https",
+      },
+    ],
+
+    classes: [
+      {
+        weekday: "monday",
+        type: "salsa",
+        name: "Salsa Lv2",
+        level: "beginner",
+        time: "19:20-20:30",
       },
       {
-        name: "Maha",
-        image: "/organizers/maha.jpg",
+        weekday: "monday",
+        type: "salsa",
+        name: "Salsa Lv3",
+        level: "intermediate",
+        time: "19:20-20:30",
       },
       {
-        name: "Natasha",
-        image: "/organizers/natasha.png",
+        weekday: "monday",
+        type: "salsa",
+        name: "Salsa Adv.",
+        level: "advanced",
+        time: "20:30-21:40",
+      },
+      {
+        weekday: "tuesday",
+        type: "salsa",
+        name: "Salsa Intro",
+        level: "beginner",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "tuesday",
+        type: "bachata",
+        name: "Bachata Lv4",
+        level: "intermediate",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "tuesday",
+        type: "bachata",
+        name: "Bachata Adv.",
+        level: "advanced",
+        time: "20:30-21:40",
+      },
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa Lv1",
+        level: "beginner",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "wednesday",
+        type: "bachata",
+        name: "Bachata Lady Styling",
+        level: "open-lv",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "wednesday",
+        type: "bachata",
+        name: "Bachata Lv2B",
+        level: "beginner",
+        time: "20:40-22:00",
+      },
+      {
+        weekday: "thursday",
+        type: "bachata",
+        name: "Bachata Lv2B",
+        level: "beginner",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "thursday",
+        type: "bachata",
+        name: "Bachata Lv3",
+        level: "intermediate",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "thursday",
+        type: "salsa",
+        name: "Salsa Lv1",
+        level: "beginner",
+        time: "20:30-21:40",
+      },
+      {
+        weekday: "friday",
+        type: "bachata",
+        name: "Bachata Lv2A",
+        level: "beginner",
+        time: "19:20-20:30",
+      },
+      {
+        weekday: "friday",
+        type: "bachata",
+        name: "Bachata Lv1",
+        level: "beginner",
+        time: "20:30-21:40",
+      },
+      {
+        weekday: "saturday",
+        type: "salsa",
+        name: "Salsa Shine",
+        level: "open-lv",
+        time: "14:00-15:00",
+      },
+      {
+        weekday: "saturday",
+        type: "bachata",
+        name: "Bachata Intro",
+        level: "beginner",
+        time: "15:00-16:10",
+      },
+      {
+        weekday: "saturday",
+        type: "salsa",
+        level: "beginner",
+        name: "Salsa Intro",
+        time: "15:20-16:30",
       },
     ],
   },
@@ -333,18 +456,14 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/lia_spice_ladies.jpg",
     content:
       "我們是「Lia Spice Ladies」！深耕新北地區的莉亞老師以擅長的拉丁舞融入各種元素聞名，從高跟鞋性感舞、爵士到中國風，還擁有多年編舞經驗，帶領舞團不斷探索舞蹈肢體的無限可能。",
-    links: {
-      facebook: "https://www.facebook.com/share/1BXdQo7Tgo/",
-      instagram: "https://www.instagram.com/lia_spice_ladies",
-      website: "",
-      location: "",
-    },
-    classes: ["拉丁舞", "High Heels", "爵士", "中國風"],
-    party: "",
-    member: [
+    links: [
       {
-        name: "Lia",
-        image: "/organizers/lia.jpg",
+        type: "facebook",
+        url: "https://www.facebook.com/share/1BXdQo7Tgo/",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/lia_spice_ladies",
       },
     ],
   },
@@ -355,18 +474,30 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/meet-kiz-taiwan.jpg",
     content:
       "Meet Kiz Taiwan 是台灣專注於推廣 Kizomba、Urban Kiz、Tarraxo 及 Konpa 的舞蹈團隊。我們透過固定課程、社交舞會，以及不定期邀請國際師資來台舉辦 工作坊，讓更多人能夠體驗並深入了解非洲音樂、非洲律動的魅力。",
-    links: {
-      facebook: "https://www.facebook.com/meetkiztw",
-      instagram: "https://www.instagram.com/meetkiztw",
-      website: "",
-      location: "",
-    },
-    classes: ["kizomba"],
-    party: "每月一次週六 Kizomba 舞會 21:00-00:00 於 Sunny Side",
-    member: [
+    links: [
       {
-        name: "Zoe",
-        image: "/organizers/zoe.jpg",
+        type: "facebook",
+        url: "https://www.facebook.com/meetkiztw",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/meetkiztw",
+      },
+    ],
+    classes: [
+      {
+        weekday: "friday",
+        type: "kizomba",
+        name: "Kiz Fundamental",
+        level: "beginner",
+        time: "20:00-21:00",
+      },
+      {
+        weekday: "sunday",
+        type: "kizomba",
+        name: "Kiz Lv2",
+        level: "beginner",
+        time: "18:00-19:00",
       },
     ],
   },
@@ -377,64 +508,39 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/salsame.jpg",
     content:
       "一個下班後開心跳舞的地方\n🏠𝟮𝟬𝟭𝟴年成立於新北板橋,專精於𝗦𝗮𝗹𝘀𝗮,尤其是可以跟任何人跳的𝗦𝗼𝗰𝗶𝗮𝗹 𝗗𝗮𝗻𝗰𝗲.",
-    links: {
-      facebook: "https://www.facebook.com/salsametaiwan",
-      instagram: "https://www.instagram.com/salsameplus/",
-      website: "",
-      location: "https://maps.app.goo.gl/Ydhup9Wj3YGgtMpT8",
-    },
-    classes: ["salsa", "bachata"],
-    party: "每個月最後一個星期六舉辦",
-    member: [],
+    links: [
+      {
+        type: "facebook",
+        url: "https://www.facebook.com/salsametaiwan",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/salsameplus/",
+      },
+      {
+        type: "location",
+        url: "https://maps.app.goo.gl/Ydhup9Wj3YGgtMpT8",
+      },
+    ],
   },
   {
     id: "sbk-taiwan",
     name: "SBK Taiwan",
     city: "taipei",
     thumbnail: "/organizers/sbk-taiwan.jpeg",
-    content:
-      "Salsa Bachata Kizomba social dance in Taiwan 🇹🇼",
-    links: {
-      facebook: "https://www.facebook.com/profile.php?id=61578977113446",
-      instagram: "https://www.instagram.com/sbk_taiwan/",
-      website: "",
-      location: "",
-    },
-    classes: ["Urban Kizomba"],
-    party: "SBK Night at Barcade on Sundays & SBK with Copa Friday Social on Friday",
-    member: [{
-      name: 'Jamie',
-      image: ''
-    }, {
-      name: 'Susan',
-      image: ''
-    }],
-  },
-  {
-    id: "taipei-bachata-vibes",
-    name: "Taipei Bachata Vibes",
-    city: "taipei",
-    thumbnail: "/organizers/tbv.jpg",
-    content: "LatinVibes .Taipei Taiwan",
-    classes: ["bachata"],
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/taipeibachata_vibes/",
-      website: "",
-      location: "",
-    },
-    party: "",
-    member: [
+    content: "Salsa Bachata Kizomba social dance in Taiwan 🇹🇼",
+    links: [
       {
-        name: "Eric Chen",
-        image: "/organizers/eric_chen.jpg",
+        type: "facebook",
+        url: "https://www.facebook.com/profile.php?id=61578977113446",
       },
       {
-        name: "吳天天",
-        image: "/organizers/tian.jpg",
+        type: "instagram",
+        url: "https://www.instagram.com/sbk_taiwan/",
       },
     ],
   },
+
   {
     id: "taiwan-latin-smash",
     name: "Taiwan Latin Smash 臺灣拉丁重擊",
@@ -442,14 +548,16 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/taiwan-latin-smash.jpg",
     content: "「Taiwan Latin Smash 臺灣重擊拉丁」來自台灣的拉丁大樂團",
     classes: [],
-    links: {
-      facebook: "https://www.facebook.com/TaiwanLatinSmash",
-      instagram: "https://www.instagram.com/taiwanlatinsmash",
-      website: "",
-      location: "",
-    },
-    party: "不定期舉辦樂隊 party 表演",
-    member: [],
+    links: [
+      {
+        type: "facebook",
+        url: "https://www.facebook.com/TaiwanLatinSmash",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/taiwanlatinsmash",
+      },
+    ],
   },
   {
     id: "dance-salsa-under-sky",
@@ -458,18 +566,10 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/sky.png",
     content:
       "本社團的宗旨很簡單，就是希望多舉辦在戶外的Salsa party。\n讓舞者伴著陽光、星空、微風、沙灘、草地.................在大自然下.自在隨意的舞動。\n也歡迎要辦戶外Salsa活動的朋友一起藉由這社團.豐富臺灣的Salsa圈。",
-    links: {
-      facebook: "https://www.facebook.com/groups/1787977234751823",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    classes: [],
-    party: "每月第一個周日於圓山 Maji Square 舉辦 Salsa/Bachata/Kizomba Social",
-    member: [
+    links: [
       {
-        name: "蔣哥",
-        image: "/organizers/cyc_chiang.png",
+        type: "facebook",
+        url: "https://www.facebook.com/groups/1787977234751823",
       },
     ],
   },
@@ -639,15 +739,42 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/dan.png",
     content:
       "活躍於舞池及國內外各大活動的Social dancer，流暢多變的身體風格專注於當下與音樂及舞伴的連結，喜歡將Salsa融合Hip Hop等元素創造自由不受限的律動。自2019年投入Salsa教學至今，擅長營造輕鬆無壓力的學習環境，與學生一起享受跳舞的樂趣。2022年開始持續創作編舞小品，並與Sherry共同成立DS Salsa Fusion舞團，堅持原創的精神，發表大型舞台作品，帶領團員訓練提升，體會舞蹈的不同層次的啟發。",
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/dankaras/",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: ['Salsa雙人舞課程', '單人律動', 'Man Styling', '舞蹈編排'],
-    member: [],
+    links: [
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/dankaras/",
+      },
+    ],
+    classes: [
+      {
+        weekday: "tuesday",
+        type: "salsa",
+        name: "Salsa Newbie",
+        level: "beginner",
+        time: "20:00-21:30",
+      },
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa Training",
+        level: "intermediate",
+        time: "20:30-22:00",
+      },
+    ],
+    related: [
+      {
+        name: "DS Salsa Fusion",
+        thumbnail: "/organizers/ds.png",
+        content:
+          "由Dan和Sherry共同經營的舞蹈團隊，以厚實的Salsa為核心基礎，樂於嘗試不同的教學內容與編創表演，自由合作不設限，與團員一起成長探索更多可能性。",
+        links: [
+          {
+            type: "website",
+            url: "https://lin.ee/R1Bl9H6",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "dj-cola",
@@ -669,6 +796,46 @@ export const organizerTaipeiList = [
     member: [],
   },
   {
+    id: "eric-chen",
+    name: "Eric Chen",
+    hide: false,
+    solo: true,
+    city: "taipei",
+    thumbnail: "/organizers/eric_chen.jpg",
+    content: "",
+    links: "",
+    classes: [
+        {
+        weekday: "thursday",
+        type: "bachata",
+        name: "Bachata 舞池招式實用班",
+        level: 'intermediate',
+        time: "20:00-21:00",
+      },
+      {
+        weekday: "sunday",
+        type: "bachata",
+        name: "Bachata Training",
+        level: 'intermediate',
+        time: "12:00-13:30",
+      },
+    ],
+    related: [
+      {
+        id: "taipei-bachata-vibes",
+        name: "Taipei Bachata Vibes",
+        thumbnail: "/organizers/tbv.jpg",
+        content: "LatinVibes .Taipei Taiwan",
+        links: [
+          {
+            type: "instagram",
+            url: "https://www.instagram.com/taipeibachata_vibes/",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "eric-wang",
     name: "Eric Wang",
     hide: false,
@@ -677,22 +844,75 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/eric-wang.png",
     content:
       "台灣騷莎圈最資深的教師之一，自 2008 年起投身舞蹈教學，對騷莎舞懷抱深厚熱情。曾參與創辦並經營台北最大的騷莎舞蹈教室 Taipei Salsa Motion，多年來培育無數優秀舞者，影響力遍及台灣騷莎圈。\nP.S. 如今圈內資深舞者（>10 年）中，絕大多數都曾是 Eric 老師的學生，足見其深厚的教學經驗與傳承精神。\nEric 老師熱愛社交舞，深信舞蹈不僅是一種技巧，更是一種交流與享受。他希望透過教學，培養更多優秀的舞者，讓更多人愛上騷莎舞，並共同提升舞池的整體水平，讓每一次的舞會都充滿熱情、活力與愉悅的氛圍。",
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/salsaericwang/",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: ["salsa", "bachata"],
-    member: [],
-    dance_group: {
-      name: "Group Esencia Taipei",
-      thumbnail: "/organizers/group-esencia.jpg",
-      content:
-        "Grupo Esencia是由知名的西班牙Bachata男神Marco Espejo以及女神Sara Panero所創立的Bachata舞團，其特色是充滿活力與創意的表演風格，最近幾年迅速紅遍世界各地，成為了最廣為人知的舞團品牌之一。\n目前Grupo Esencia已在許多國家&城市成立舞團分部，在亞洲也已成立了多個分團，例如首爾、釜山、東京、大阪、上海以及台北等地。\n在台灣則是由Eric老師代理，招募了幾位Bachata同好，組成了Grupo Esencia Taipei。舞團成員不乏在國內已享負盛名的師資與高手，幾乎都是常常在舞池中大家爭相邀舞的對象。舞團成軍五年以來，已經完成發表10首作品，每一支舞碼都令人耳目一新，並在圈中獲得熱烈的迴響。目前舞團正在籌備新的舞碼，近期又將開始新一波的招募與訓練。\n備註：Grupo Esencia Taipei舞團正在招募新成員，如果你/妳喜歡Bachata，也想要挑戰表演舞碼，歡迎與Eric老師聯繫，把握站上表演舞台的機會！",
-      links: "https://www.instagram.com/grupoesencia_taipei/",
-    },
+    links: [
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/salsaericwang/",
+      },
+    ],
+    classes: [
+      {
+        weekday: "monday",
+        type: "bachata",
+        name: "Bachata PartnerWork",
+        level: "intermediate",
+        time: "20:00-21:00",
+      },
+      {
+        weekday: "friday",
+        type: "salsa",
+        name: "Salsa PartnerWork",
+        level: "intermediate",
+        time: "20:00-21:00",
+      },
+    ],
+    related: [
+      {
+        name: "Group Esencia Taipei",
+        thumbnail: "/organizers/group-esencia.jpg",
+        content:
+          "Grupo Esencia是由知名的西班牙Bachata男神Marco Espejo以及女神Sara Panero所創立的Bachata舞團，其特色是充滿活力與創意的表演風格，最近幾年迅速紅遍世界各地，成為了最廣為人知的舞團品牌之一。\n目前Grupo Esencia已在許多國家&城市成立舞團分部，在亞洲也已成立了多個分團，例如首爾、釜山、東京、大阪、上海以及台北等地。\n在台灣則是由Eric老師代理，招募了幾位Bachata同好，組成了Grupo Esencia Taipei。舞團成員不乏在國內已享負盛名的師資與高手，幾乎都是常常在舞池中大家爭相邀舞的對象。舞團成軍五年以來，已經完成發表10首作品，每一支舞碼都令人耳目一新，並在圈中獲得熱烈的迴響。目前舞團正在籌備新的舞碼，近期又將開始新一波的招募與訓練。\n備註：Grupo Esencia Taipei舞團正在招募新成員，如果你/妳喜歡Bachata，也想要挑戰表演舞碼，歡迎與Eric老師聯繫，把握站上表演舞台的機會！",
+        links: [
+          {
+            type: "instagram",
+            url: "https://www.instagram.com/grupoesencia_taipei/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "finn",
+    name: "Finn",
+    hide: false,
+    solo: true,
+    city: "taipei",
+    thumbnail: "/organizers/finn.jpg",
+    content: "",
+    classes: [
+      {
+        weekday: "tuesday",
+        type: "lambada",
+        name: "Lambada PartnerWork",
+        level: "intermediate",
+        time: "20:00-21:45",
+      },
+    ],
+    related: [
+      {
+        id: "FeM",
+        name: "FeM",
+        thumbnail: "/organizers/fem.jpg",
+        content:
+          "Hi~ 👋，我們是Finn和Minnie 😁，我們熱愛Lambada/Zouk，想推廣讓更多的人加入跳 Lambada/Zouk，一起享受 Lambada/Zouk的美好🩵，期望讓台灣成為亞洲熱門 Lambada/Zouk大國🎉。\n每週二晚上在忠孝新生教Lambada/Zouk，歡迎大家加入一起玩🥳。",
+        links: [
+          {
+            type: "website",
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSfdx5w_iz6S4ZXrARh2AZkN3vXX9dx8ETGzJWDY6qhqvaN2uQ/viewform",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "german",
@@ -701,17 +921,23 @@ export const organizerTaipeiList = [
     solo: true,
     city: "taipei",
     thumbnail: "",
-    content:
-      "WIP",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: ['bachata'],
-    member: [],
+    content: "",
+    classes: [
+      {
+        weekday: "wednesday",
+        type: "bachata",
+        name: "Bachata Open Lv",
+        level: "open-lv",
+        time: "20:45-21:45",
+      },
+      {
+        weekday: "friday",
+        type: "bachata",
+        name: "Bachata Lv2",
+        level: "beginner",
+        time: "20:00-21:00",
+      },
+    ],
   },
   {
     id: "jenny",
@@ -722,15 +948,25 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/jenny.png",
     content:
       "Salsa/Bachata/Zouk dancer\nBachata Instructor\nLatin music DJ\nfrom Taiwan🇹🇼",
-    links: {
-      facebook: "https://www.facebook.com/jenny.chang.5015",
-      instagram: "https://www.instagram.com/jennyfhc_tw",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: ["bachata"],
-    member: [],
+    links: [
+      {
+        type: "facebook",
+        url: "https://www.facebook.com/jenny.chang.5015",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/jennyfhc_tw",
+      },
+    ],
+    classes: [
+      {
+        weekday: "monday",
+        type: "bachata",
+        name: "Bachata Shine",
+        level: "open-lv",
+        time: "20:00-21:00",
+      },
+    ],
   },
   {
     id: "leo",
@@ -743,15 +979,35 @@ export const organizerTaipeiList = [
       "2008年於日本明治大學社團開始接觸Salsa，一開始就迷上了雙人舞Social Dance的魅力，幾乎每天到東京各地的Salsa Club上課、Social ！2012年加入了日本頂尖舞團Golden Eggs，進修表演技巧、強化Lead & Follow的基礎、並且增加音樂性和身體律動的理解。\n我曾經是個學不好、總是落後的學生。\nADHD讓我難以持續專注，從小又在台灣、日本、加拿大三地漂流成長，\n在找不到歸屬感的那些年，是「跳舞」給了我節奏、身體與自信。\n所以我教舞的方式，是溫柔但堅定的。\n我會陪學生反覆練基本步，因為我知道最重要的，往往藏在最基礎裡。",
     links: {
       facebook: "https://www.facebook.com/leokaku",
-
       instagram: "https://www.instagram.com/leokaku/",
       website:
         "https://linktr.ee/leokaku?fbclid=PAZXh0bgNhZW0CMTEAAafn7rJ0kmU9V9FazocRrSN3o33Xpi3j_Qmiduhn4IAfCMa4KbA8eU84f-w-tQ_aem_hQwJzd-YGa19x6Ybiw6ViQ",
       location: "",
     },
     party: "",
-    classes: ["salsa"],
-    member: [],
+    classes: [
+      {
+        weekday: "tuesday",
+        type: "salsa",
+        name: "Salsa Social Stylist",
+        level: "intermediate",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa LV1",
+        level: "beginner",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa LV2",
+        level: "beginner",
+        time: "20:30-21:30",
+      },
+    ],
   },
   {
     id: "latiifah",
@@ -781,15 +1037,20 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/noya.png",
     content:
       "Noya 自幼接受舞蹈科班訓練，並在拉丁音樂的環境中長大— 她的父親是知名鼓手小白老師，從小耳濡目染，對節奏與音樂有特別敏銳的感受力。自 2021 年起，Noya深入學習 Salsa 與其文化脈絡，發展出自然流暢、兼具邏輯與能量的教學風格。\n私課，團訓，小班制課程皆可預約，請直接私訊Noya IG預約時間，感謝！",
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/noyalee",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: ["salsa"],
-    member: [],
+    links: [
+      {
+        type: "instagram",
+      },
+    ],
+    classes: [
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa Shine",
+        level: "open-lv",
+        time: "19:30-20:30",
+      },
+    ],
   },
   {
     id: "patty-lin",
@@ -800,15 +1061,42 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/patty.png",
     content:
       "追尋力與美的旅程中，我持續鍛鍊、磨練成長，淬鍊自我，邁向更美好的自己，成就無限可能！",
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/patty_lin_tw",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: ["salsa", "bachata", "yogalates"],
-    member: [],
+    links: [
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/patty_lin_tw",
+      },
+    ],
+    classes: [
+      {
+        weekday: "tuesday",
+        type: "bachata",
+        name: "Bachata Styling",
+        level: "open-lv",
+        time: "21:00-22:15",
+      },
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa Shine",
+        level: "open-lv",
+        time: "19:00-20:30",
+      },
+      {
+        weekday: "thursday",
+        type: "bachata",
+        name: "Bachata Styling",
+        level: "beginner",
+        time: "21:00-22:15",
+      },
+      {
+        weekday: "friday",
+        type: "salsa",
+        name: "Salsa PartnerWork",
+        level: "intermediate",
+        time: "20:00-21:00",
+      },
+    ],
   },
   {
     id: "sherry",
@@ -819,15 +1107,83 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/sherry.png",
     content:
       "對於跳舞有高度需求的人，長期接觸芭蕾、爵士、雷鬼、現代等舞蹈訓練，因為喜歡所以一直跳。從音樂認識Salsa，從Salsa體會到雙人舞的魔力，覺得跳舞可以分享是一件很棒的事。2020年開始Salsa教學至今，2023與Dan共同成立帶領DS Salsa Fusion，發現編舞創作很有趣，和學生互相啟發很開心，希望繼續跟大家一起享受跳舞的快樂。",
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/sherry_is_dancing",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: ['Salsa雙人舞課程', '單人律動', '舞蹈體驗', '舞蹈編排'],
-    member: [],
+    links: [
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/sherry_is_dancing",
+      },
+    ],
+    classes: [
+      {
+        weekday: "tuesday",
+        type: "salsa",
+        name: "Salsa Newbie",
+        level: "beginner",
+        time: "20:00-21:30",
+      },
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa Training",
+        level: "intermediate",
+        time: "20:30-22:00",
+      },
+      {
+        weekday: "sunday",
+        type: "salsa",
+        name: "Sherry's Salsa Movement",
+        level: "open-lv",
+        time: "17:00-18:30",
+      },
+    ],
+    related: [
+      {
+        name: "DS Salsa Fusion",
+        thumbnail: "/organizers/ds.png",
+        content:
+          "由Dan和Sherry共同經營的舞蹈團隊，以厚實的Salsa為核心基礎，樂於嘗試不同的教學內容與編創表演，自由合作不設限，與團員一起成長探索更多可能性。",
+        links: [
+          {
+            type: "website",
+            url: "https://lin.ee/R1Bl9H6",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "tony",
+    name: "Tony",
+    hide: false,
+    solo: true,
+    city: "taipei",
+    thumbnail: "",
+    content: "",
+    links: {},
+    classes: [
+      {
+        weekday: "thursday",
+        type: "bachata",
+        name: "dominican footwork",
+        level: "open-lv",
+        time: "20:00-21:00",
+      },
+    ],
+    related: [
+      {
+        id: "el-colmado-social-taiwan",
+        name: "El Colmado Social Taiwan",
+        thumbnail: "/organizers/el-colmado.jpg",
+        content: "🇩🇴Traditional Bachata in Taiwan\n🇩🇴Back to the Roots",
+        links: [
+          {
+            type: "instagram",
+            url: "https://www.instagram.com/elcolmado.taiwan/",
+          },
+          ,
+        ],
+      },
+    ],
   },
   {
     id: "yi-chia",
@@ -836,22 +1192,57 @@ export const organizerTaipeiList = [
     solo: true,
     city: "taipei",
     thumbnail: "/organizers/yi-chia.png",
-    content: "台灣Salsa舞者與編舞老師，專精紐約On2風格與Mambo Shine。目前與Belle共同領導One+ Mambo Team，擔任團隊的主要編舞與教學指導。\n舞團風格講求節奏精準、動作流暢、編排華麗，長期活躍於亞洲各大Salsa舞台，並多次受邀前往日本、韓國、新加坡、越南等地參與國際舞蹈節及表演活動，致力於把台灣的Salsa能量推上國際舞台。\n除了舞台演出，我也熱衷推廣Salsa文化，從教學到社交舞Party，讓更多人認識Salsa的熱情、自由與樂趣。\n相信跳舞不只是運動，也是認識自己的方式。\n擺脫社交障礙，讓生活不只下班，還有舞池裡的全新世界！",
+    content:
+      "台灣Salsa舞者與編舞老師，專精紐約On2風格與Mambo Shine。目前與Belle共同領導One+ Mambo Team，擔任團隊的主要編舞與教學指導。\n舞團風格講求節奏精準、動作流暢、編排華麗，長期活躍於亞洲各大Salsa舞台，並多次受邀前往日本、韓國、新加坡、越南等地參與國際舞蹈節及表演活動，致力於把台灣的Salsa能量推上國際舞台。\n除了舞台演出，我也熱衷推廣Salsa文化，從教學到社交舞Party，讓更多人認識Salsa的熱情、自由與樂趣。\n相信跳舞不只是運動，也是認識自己的方式。\n擺脫社交障礙，讓生活不只下班，還有舞池裡的全新世界！",
     links: {
       facebook: "",
       instagram: "https://www.instagram.com/yichia0625/",
       website: "",
       location: "",
     },
-    classes: ["salsa"],
+    classes: [
+      {
+        weekday: "monday",
+        type: "salsa",
+        name: "Salsa Lv1",
+        level: "beginner",
+        time: "19:45-20:45",
+      },
+      {
+        weekday: "monday",
+        type: "salsa",
+        name: "Salsa Team Training",
+        level: "intermediate",
+        time: "20:50-22:30",
+      },
+      {
+        weekday: "thursday",
+        type: "salsa",
+        name: "Salsa Lv1",
+        level: "beginner",
+        time: "20:30-21:30",
+      },
+      {
+        weekday: "saturday",
+        type: "salsa",
+        name: "Salsa Team Training",
+        level: "intermediate",
+        time: "10:00-11:30",
+      },
+    ],
     party: "",
     member: [],
-    dance_group: {
-      name: "One+ Mambo",
-      thumbnail: "/organizers/one-plus-mambo.jpeg",
-      content:
-        "One+ Mambo Team 是一支來自台灣的 Salsa 表演與教學團隊。\n除了在舞台上帶來華麗的演出，我們平常也熱衷於教學和推廣Salsa文化，\n希望讓更多人透過跳舞和參與社交舞會，感受到 Salsa 的自由、連結與快樂！\n我們相信，跳舞不只是學動作，它能幫助你重新發現自己的身體潛力，也能透過Party交流、認識新朋友，打開生活中不一樣的視野與樂趣。",
-      links: "https://www.instagram.com/oneplus_mambo/",
-    },
+    related: [
+      {
+        name: "One+ Mambo",
+        thumbnail: "/organizers/one-plus-mambo.jpeg",
+        content:
+          "One+ Mambo Team 是一支來自台灣的 Salsa 表演與教學團隊。\n除了在舞台上帶來華麗的演出，我們平常也熱衷於教學和推廣Salsa文化，\n希望讓更多人透過跳舞和參與社交舞會，感受到 Salsa 的自由、連結與快樂！\n我們相信，跳舞不只是學動作，它能幫助你重新發現自己的身體潛力，也能透過Party交流、認識新朋友，打開生活中不一樣的視野與樂趣。",
+        links: {
+          type: "instagram",
+          url: '"https://www.instagram.com/oneplus_mambo/"',
+        },
+      },
+    ],
   },
 ];
