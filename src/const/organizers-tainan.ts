@@ -5,8 +5,8 @@ export const organizerTainanList = [
     hide: false,
     city: "tainan",
     thumbnail: "/organizers/tainanlatin.jpg",
-    intro: "",
-    link: {
+    content: "",
+    links: {
       facebook: "",
       instagram: "https://www.instagram.com/tainanlatin",
       website: "",
@@ -22,8 +22,8 @@ export const organizerTainanList = [
     hide: false,
     city: "tainan",
     thumbnail: "/organizers/bailamore.jpg",
-    intro: "主要在台南推廣 Bachata/Salsa\n目前設有每週日的常態課",
-    link: {
+    content: "主要在台南推廣 Bachata/Salsa\n目前設有每週日的常態課",
+    links: {
       facebook: "",
       instagram: "https://www.instagram.com/baila_moredancestudio",
       website: "https://www.bailamore-studio.com",
@@ -44,8 +44,8 @@ export const organizerTainanList = [
     hide: true,
     city: "tainan",
     thumbnail: "",
-    intro: "",
-    link: {
+    content: "",
+    links: {
       facebook: "",
       instagram: "",
       website: "",
