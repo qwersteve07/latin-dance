@@ -1,4 +1,4 @@
-import { Modal, Button } from "@mantine/core";
+import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import { useMedia } from "react-use";
