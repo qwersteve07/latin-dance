@@ -6,15 +6,12 @@ export const organizerTainanList = [
     city: "tainan",
     thumbnail: "/organizers/tainanlatin.jpg",
     content: "",
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/tainanlatin",
-      website: "",
-      location: "",
-    },
-    party: "不定期舉辦 Salsa / Bachata 舞會",
-    classes: [],
-    member: [],
+    links: [
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/tainanlatin",
+      },
+    ],
   },
   {
     id: "bailamore",
@@ -23,20 +20,46 @@ export const organizerTainanList = [
     city: "tainan",
     thumbnail: "/organizers/bailamore.jpg",
     content: "主要在台南推廣 Bachata/Salsa\n目前設有每週日的常態課",
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/baila_moredancestudio",
-      website: "https://www.bailamore-studio.com",
-      location: "",
-    },
-    party: "",
-    classes: ["salsa", "bachata"],
-    member: [
+    links: [
       {
-        name: "Sean",
-        image: "/organizers/sean.jpg",
+        type: "instagram",
+        url: "https://www.instagram.com/baila_moredancestudio",
+      },
+      {
+        type: "website",
+        url: "https://www.bailamore-studio.com",
       },
     ],
+    classes: [
+      {
+        weekday: "sunday",
+        type: "bachata",
+        name: "Bachata 進階",
+        time: "14:00-15:00",
+        level: "intermediate",
+      },
+      {
+        weekday: "sunday",
+        type: "bachata",
+        name: "Bachata Lv1",
+        time: "15:00-16:00",
+        level: "beginner",
+      },
+      {
+        weekday: "sunday",
+        type: "salsa",
+        name: "Salsa Lv1",
+        time: "16:00-17:00",
+        level: "beginner",
+      },
+      {
+        weekday: "sunday",
+        type: "bachata",
+        name: "Bachata Lv2",
+        time: "17:00-18:00",
+        level: "beginner",
+      },
+    ]
   },
   {
     id: "mex-cafe",
@@ -45,14 +68,6 @@ export const organizerTainanList = [
     city: "tainan",
     thumbnail: "",
     content: "",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
+    links: [],
   },
 ];

@@ -578,119 +578,36 @@ export const organizerTaipeiList = [
     name: "Barcade Taiwan",
     hide: true,
     city: "taipei",
-    thumbnail: "",
-    content: "",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
   },
   {
     id: "zac",
     name: "Zac",
     hide: true,
     city: "taipei",
-    thumbnail: "",
-    content: "",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
   },
   {
     id: "rams",
     name: "rams",
     hide: true,
-    city: "taipei",
-    thumbnail: "",
-    content: "",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
+    city: "taipei"
   },
   {
     id: "brass-monkey",
     name: "Brass Monkey",
     hide: true,
     city: "taipei",
-    thumbnail: "",
-    content: "",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
   },
   {
     id: "salud-salsa-party",
     name: "Salud Salsa Party",
     hide: true,
     city: "taipei",
-    thumbnail: "",
-    content: "",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
   },
   {
     id: "cigar-vie",
     name: "Cigar Vie",
     hide: true,
     city: "taipei",
-    thumbnail: "",
-    content: "",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
-  },
-  {
-    id: "",
-    name: "",
-    hide: false,
-    city: "taipei",
-    thumbnail: "",
-    content: "",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
   },
   {
     id: "aaa-jane",
@@ -701,15 +618,16 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/jane.png",
     content:
       "2024雙人社交舞J&J台灣賽事 第一名\n2017街舞中國賽事 第一名\nIPTFA 國際健身教練 證照\n上海戲劇學院-舞蹈表達演出者\n Hiphop/Jazz 街舞8年\nRumba/Bachata 雙人舞3年\n「在舞蹈的世界情感與感動大於一切。」\n我對舞蹈的愛十幾年來如初戀，從8年街舞爵士競賽、戲劇科系再到國標拉丁、現代舞系，現在來到拉丁社交舞，我覺得舞蹈的世界沒有分家，每一種其實都是情感的表達方式，在技術之上賦予舞蹈生命力的是情緒、是感動、是感受、是分享故事。\n所以Jane不只教學舞步，更想帶著大家一起察覺與體驗、感受音樂、探索身體的可能性、觸動內心、釋放自我表達、讓舞蹈成為靈魂的語言。只要用心扎實的累積基礎和理解肢體的情感表達，我會帶著你一起雕刻、創造出自由且飽含張力的舞蹈。雙人舞也不只是兩個人的舞步交織，更是用心的交流。透過彼此的引導與回應，感受當下的連結與流動，學習信任與傾聽，讓每一次相遇都成為一場細膩而深刻的對話。願你在舞池中找到屬於自己的光，讓我們一起，在音樂與舞動中，找到生活的出口、生命的熱愛💖",
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/aaaj.ane",
-      website: "https://bio.site/Dancingmuse",
-      location: "",
-    },
-    party: "Bachata DJ\nRose & Wine Bachata Party",
-    classes: ["雙人拉丁社交舞Bachata Fusion", "單人舞Jazz Fusion"],
-    member: [],
+    links: [
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/aaaj.ane",
+      },
+      {
+        type: "website",
+        url: "https://bio.site/Dancingmuse",
+      },
+    ],
   },
   {
     id: "camilaYe",
@@ -720,15 +638,12 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/camila.png",
     content:
       "為大家介紹一位優秀的舞蹈老師：Camila 卡卡。她熱愛舞蹈，並將她的熱情和專業帶到了舞台上、教室裡、甚至舞池中。卡卡老師的舞蹈之旅始於上個世紀的90年代，在開始接觸舞蹈不久之後成為了專業舞蹈表演者，為電視、廣告、電影、MV、現場演唱會、晚宴慶典... 等活動做現場演出；旋即開始成為舞蹈老師、編舞家\n為了學習到正宗的阿根廷探戈、ZOUK、Salsa、Bachata…等 舞蹈，老師不遠千里飛到地球的另一端，包括：阿根廷布宜諾斯艾利斯、巴西的里約熱內盧、巴西聖保羅...等城市定居學習，在南美洲生活學習的幾千個日子裡，日復一日年復一年，卡卡老師接受許多著名舞蹈大師的嚴格訓練，加上每天不懈的努力精進，卡卡老師逐步將自己磨煉成為一名專業的舞蹈家與舞蹈老師。\n除了在南美洲學習、教學、表演...之外，卡卡老師還馬不停蹄地參加許多國際 Workshop、Festival…的嚴格磨煉，在國際間教學、表演、推廣多種即興雙人舞蹈多年之後，終於在2013年回到台灣，把這些藝術層次與歡樂並行的即興雙人舞蹈帶給國人，並在當地成為一位知名且受人尊敬的老師。她獨特的教學風格和與學生的互動力使她成為了台灣最受歡迎的即興雙人舞蹈老師之一。\n在卡卡老師曾學習、教授和表演其他舞蹈，如：Ballet、Hip Hop、Jazz、Salsa、Bachata、Tango、國標...等等。各種舞蹈形式中豐富的經驗為她在教學中提供了獨特的視角，也為她的 ZOUK 舞蹈教學帶來了更多的元素，尤其是《流雲道分子舞術》與《能量連接》更使卡卡老師的舞風獨樹一格。\n卡卡老師為人友善，學生在她的課堂中能感受到愉悅和真摯，無論你是什麼水平，她都非常細緻且不厭其煩地耐心指導，以確保學生不僅學會了舞步，還能理解舞蹈的情感和音樂性。\n除了教學，卡卡老師也是一位才華橫溢的表演者，在台灣與世界各地的媒體節目、舞蹈節和活動中展示了她的扎實舞功。她的表演充滿熱情與活力，總能令觀眾驚嘆和難忘。",
-    links: {
-      facebook: "",
-      instagram: "",
-      website: "https://linktr.ee/CamilaYe ",
-      location: "",
-    },
-    party: "",
-    classes: [],
-    member: [],
+    links: [
+      {
+        type: "website",
+        url: "https://linktr.ee/CamilaYe",
+      },
+    ],
   },
   {
     id: "dan",
@@ -785,15 +700,16 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/cola.png",
     content:
       "Jorge Chocano（DJ Cola），ICRT 電台 Latino Taiwan主持人，亞洲知名拉丁DJ，也是各大夜店多次邀請舉辦拉丁派對，主要以拉丁音樂為主，融合放克、Afro。曾經參與馬來西亞、韓國、曼谷、上海、廣州等地的莎莎音樂節、長灘舞蹈節等等國際音樂節。\nDJ Cola在台多年致力推廣西班牙語及拉丁美洲文化，定期舉辦騷莎舞跟西班牙語的教學，希望透過這些活動，能讓台灣人輕易的接觸拉丁文化並且愛上拉丁文化。",
-    links: {
-      facebook: "https://www.facebook.com/jorgedjcola",
-      instagram: "https://www.instagram.com/djcola_icrt/",
-      website: "",
-      location: "",
-    },
-    party: "不定期在各大酒吧舉辦 social",
-    classes: [],
-    member: [],
+    links: [
+      {
+        type: "facebook",
+        url: "https://www.facebook.com/jorgedjcola",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/djcola_icrt/",
+      },
+    ],
   },
   {
     id: "eric-chen",
@@ -803,9 +719,9 @@ export const organizerTaipeiList = [
     city: "taipei",
     thumbnail: "/organizers/eric_chen.jpg",
     content: "",
-    links: "",
+    links: [],
     classes: [
-        {
+      {
         weekday: "thursday",
         type: "bachata",
         name: "Bachata 舞池招式實用班",
@@ -922,6 +838,7 @@ export const organizerTaipeiList = [
     city: "taipei",
     thumbnail: "",
     content: "",
+    links: [],
     classes: [
       {
         weekday: "wednesday",
@@ -977,14 +894,20 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/leo.png",
     content:
       "2008年於日本明治大學社團開始接觸Salsa，一開始就迷上了雙人舞Social Dance的魅力，幾乎每天到東京各地的Salsa Club上課、Social ！2012年加入了日本頂尖舞團Golden Eggs，進修表演技巧、強化Lead & Follow的基礎、並且增加音樂性和身體律動的理解。\n我曾經是個學不好、總是落後的學生。\nADHD讓我難以持續專注，從小又在台灣、日本、加拿大三地漂流成長，\n在找不到歸屬感的那些年，是「跳舞」給了我節奏、身體與自信。\n所以我教舞的方式，是溫柔但堅定的。\n我會陪學生反覆練基本步，因為我知道最重要的，往往藏在最基礎裡。",
-    links: {
-      facebook: "https://www.facebook.com/leokaku",
-      instagram: "https://www.instagram.com/leokaku/",
-      website:
-        "https://linktr.ee/leokaku?fbclid=PAZXh0bgNhZW0CMTEAAafn7rJ0kmU9V9FazocRrSN3o33Xpi3j_Qmiduhn4IAfCMa4KbA8eU84f-w-tQ_aem_hQwJzd-YGa19x6Ybiw6ViQ",
-      location: "",
-    },
-    party: "",
+    links: [
+      {
+        type: "facebook",
+        url: "https://www.facebook.com/leokaku",
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/leokaku/",
+      },
+      {
+        type: "website",
+        url: "https://linktr.ee/leokaku?fbclid=PAZXh0bgNhZW0CMTEAAafn7rJ0kmU9V9FazocRrSN3o33Xpi3j_Qmiduhn4IAfCMa4KbA8eU84f-w-tQ_aem_hQwJzd-YGa19x6Ybiw6ViQ",
+      },
+    ],
     classes: [
       {
         weekday: "tuesday",
@@ -1018,15 +941,43 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/latiifah.png",
     content:
       "自2011年起投入Salsa舞蹈學習，曾參與多個舞團的訓練，並受邀於國內外舞台演出。\n除了持續參加海外課程精進Salsa技巧外，我也不定期參加國際知名舞者的密集訓練營，拓展動作語彙與風格視野。\n特別喜歡Salsa的中那種高速卻流暢的即興互動，舞步之間的默契，讓雙人舞除了浪漫外有更多的可能性。\n在教學上，我重視讓學生「跳得有感、練得有效、進步可見」。擅長用生活化的比喻，引導學生理解身體該如何調整與運用，讓學習變得更有趣，也更有成效。",
-    links: {
-      facebook: "https://www.facebook.com/latiifah.tsai",
-      instagram: "https://www.instagram.com/latiitoo/",
-      website: "https://latiifahtsai.medium.com",
-      location: "",
-    },
-    party: "",
-    classes: ["salsa"],
-    member: [],
+    links: [
+      {
+        type: "facebook",
+        url: "https://www.facebook.com/latiifah.tsai"
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/latiitoo/"
+      },
+      {
+        type: "website",
+        url: "https://latiifahtsai.medium.com"
+      },
+    ],
+    classes: [
+      {
+        weekday: "tuesday",
+        type: "salsa",
+        name: "Salsa Social Stylist",
+        level: "intermediate",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa LV1",
+        level: "beginner",
+        time: "19:30-20:30",
+      },
+      {
+        weekday: "wednesday",
+        type: "salsa",
+        name: "Salsa LV2",
+        level: "beginner",
+        time: "20:30-21:30",
+      },
+    ],
   },
   {
     id: "noya",
@@ -1159,7 +1110,7 @@ export const organizerTaipeiList = [
     city: "taipei",
     thumbnail: "",
     content: "",
-    links: {},
+    links: [],
     classes: [
       {
         weekday: "thursday",
@@ -1194,12 +1145,12 @@ export const organizerTaipeiList = [
     thumbnail: "/organizers/yi-chia.png",
     content:
       "台灣Salsa舞者與編舞老師，專精紐約On2風格與Mambo Shine。目前與Belle共同領導One+ Mambo Team，擔任團隊的主要編舞與教學指導。\n舞團風格講求節奏精準、動作流暢、編排華麗，長期活躍於亞洲各大Salsa舞台，並多次受邀前往日本、韓國、新加坡、越南等地參與國際舞蹈節及表演活動，致力於把台灣的Salsa能量推上國際舞台。\n除了舞台演出，我也熱衷推廣Salsa文化，從教學到社交舞Party，讓更多人認識Salsa的熱情、自由與樂趣。\n相信跳舞不只是運動，也是認識自己的方式。\n擺脫社交障礙，讓生活不只下班，還有舞池裡的全新世界！",
-    links: {
-      facebook: "",
-      instagram: "https://www.instagram.com/yichia0625/",
-      website: "",
-      location: "",
-    },
+    links: [
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/yichia0625/",
+      },
+    ],
     classes: [
       {
         weekday: "monday",
@@ -1230,8 +1181,6 @@ export const organizerTaipeiList = [
         time: "10:00-11:30",
       },
     ],
-    party: "",
-    member: [],
     related: [
       {
         name: "One+ Mambo",
