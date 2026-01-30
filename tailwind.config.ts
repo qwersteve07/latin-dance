@@ -12,6 +12,7 @@ export default {
         'background-main': "var(--background-main)",
         'background-sub': "var(--background-sub)",
         'background-third': "var(--background-third)",
+        'background-fourth': "var(--background-fourth)",
         'text-main': "var(--text-main)",
         'text-sub': "var(--text-sub)",
         'border-main': "var(--border-main)",

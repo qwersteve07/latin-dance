@@ -6,6 +6,7 @@
   --background-main: #ffffff;
   --background-sub: theme("colors.stone.100");
   --background-third: theme("colors.gray.100");
+  --background-fourth: theme("colors.stone.50");
   --text-main: theme("colors.stone.900");
   --text-sub: theme("colors.stone.700");
   --border-main: theme("colors.gray.200");
@@ -17,9 +18,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-main: theme("colors.stone.900");
+    --background-main: theme("colors.stone.950");
     --background-sub: theme("colors.stone.700");
     --background-third: theme("colors.stone.800");
+    --background-fourth: theme("colors.stone.900");
     --text-main: theme(colors.gray.300);
     --text-sub: theme("colors.stone.200");
     --border-main: theme("colors.stone.600");
@@ -32,6 +34,11 @@
 
 body {
   font-family: "PingFang TC", Helvetica, sans-serif;
+}
+
+* {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
 }
 
 /* desktop view */
