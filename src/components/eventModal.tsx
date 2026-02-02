@@ -81,7 +81,14 @@ const EventModal = ({ opened, onClose, data, onOpenEditModal, onOpenDeleteModal 
                         <div className="border-t border-background-third" />
                         <div>
                             <h4 className="text-sm font-medium text-gray-300 mb-2">About this event</h4>
-                            <p className="text-sm text-gray-500 leading-relaxed">{data.content}</p>
+                            <p className="text-sm text-gray-500 leading-relaxed">{
+                                data.content.split("\n").map((x: string) => (
+                                    <div key={x} className="">
+                                        {x}
+                                        <br />
+                                    </div>
+                                ))
+                            }</p>
                             <p className="text-sm text-gray-500 leading-relaxed">{data.note}</p>
                         </div>
                     </>
