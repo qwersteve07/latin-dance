@@ -288,7 +288,7 @@ export const eventsTemplate = {
   },
   izouk: {
     title: "iZouk",
-    host: "FeM",
+    host: "finn",
     locate: "sunny-side",
     rate: "zouk / lambada",
     types: ["zouk", "lambada"],
