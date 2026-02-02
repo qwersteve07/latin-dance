@@ -2,7 +2,6 @@ export const organizerTaichungList = [
   {
     id: "dol",
     name: "DOL Dance Studio",
-    hide: false,
     city: "taichung",
     thumbnail: "/organizers/dol.jpg",
     content:
@@ -35,11 +34,13 @@ export const organizerTaichungList = [
         level: "open-lv",
       },
     ],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "la-bocca",
     name: "La BOCCA",
-    hide: false,
     city: "taichung",
     thumbnail: "/organizers/la-bocca.jpg",
     content:
@@ -49,12 +50,14 @@ export const organizerTaichungList = [
       { type: "instagram", url: "https://www.instagram.com/laboccastudio/" },
       { type: "website", url: "https://www.laboccastudio.com/" },
     ],
-
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "group-amores-danza",
     name: "Group Amores Danza",
-    hide: false,
     city: "taichung",
     thumbnail: "/organizers/amores-danza.jpg",
     content:
@@ -99,11 +102,13 @@ export const organizerTaichungList = [
         level: "beginner",
       },
     ],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "salsa-passion",
     name: "Salsa Passion",
-    hide: false,
     city: "taichung",
     thumbnail: "/organizers/salsa-passion.jpg",
     content:
@@ -155,12 +160,14 @@ export const organizerTaichungList = [
         time: "19:00-21:00",
         level: "beginner",
       },
-    ]
+    ],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "tta-art-space",
     name: "TTA ART SPACE",
-    hide: false,
     city: "taichung",
     thumbnail: "/organizers/tta-art-space.jpg",
     content:
@@ -172,11 +179,14 @@ export const organizerTaichungList = [
       },
       { type: "instagram", url: "https://www.instagram.com/tta_artspace/" },
     ],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "w-social",
     name: "W Social",
-    hide: false,
     city: "taichung",
     thumbnail: "/organizers/w-social.jpg",
     content: "台中有口皆碑的拉丁社交舞會\n不定期舉辦 workshop",
@@ -190,5 +200,9 @@ export const organizerTaichungList = [
         url: "https://www.instagram.com/wsocial.taichung",
       },
     ],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
 ];

@@ -151,6 +151,9 @@ export const organizerTaipeiList = [
         url: "https://copataiwan.com/",
       },
     ],
+    solo: false,
+    hide: false,
+    related: []
   },
   {
     id: "flow-taipei",
@@ -277,6 +280,9 @@ export const organizerTaipeiList = [
         time: "19:30-20:30",
       },
     ],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "latinesa-studio",
@@ -304,6 +310,9 @@ export const organizerTaipeiList = [
       },
     ],
     classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "la-salsa-taipei",
@@ -448,6 +457,9 @@ export const organizerTaipeiList = [
         time: "15:20-16:30",
       },
     ],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "lia-spice-ladies",
@@ -466,6 +478,9 @@ export const organizerTaipeiList = [
         url: "https://www.instagram.com/lia_spice_ladies",
       },
     ],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "meet-kiz-taiwan",
@@ -500,6 +515,9 @@ export const organizerTaipeiList = [
         time: "18:00-19:00",
       },
     ],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "salsa-me",
@@ -522,6 +540,10 @@ export const organizerTaipeiList = [
         url: "https://maps.app.goo.gl/Ydhup9Wj3YGgtMpT8",
       },
     ],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "sbk-taiwan",
@@ -539,6 +561,10 @@ export const organizerTaipeiList = [
         url: "https://www.instagram.com/sbk_taiwan/",
       },
     ],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
 
   {
@@ -558,6 +584,9 @@ export const organizerTaipeiList = [
         url: "https://www.instagram.com/taiwanlatinsmash",
       },
     ],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "dance-salsa-under-sky",
@@ -572,42 +601,82 @@ export const organizerTaipeiList = [
         url: "https://www.facebook.com/groups/1787977234751823",
       },
     ],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "barcade-taiwan",
     name: "Barcade Taiwan",
-    hide: true,
     city: "taipei",
+    content: '',
+    thumbnail: '',
+    links: [],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "zac",
     name: "Zac",
-    hide: true,
     city: "taipei",
+    content: '',
+    thumbnail: '',
+    links: [],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "rams",
     name: "rams",
-    hide: true,
-    city: "taipei"
+    city: "taipei",
+    content: '',
+    thumbnail: '',
+    links: [],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "brass-monkey",
     name: "Brass Monkey",
-    hide: true,
     city: "taipei",
+    content: '',
+    thumbnail: '',
+    links: [],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "salud-salsa-party",
     name: "Salud Salsa Party",
-    hide: true,
     city: "taipei",
+    content: '',
+    thumbnail: '',
+    links: [],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "cigar-vie",
     name: "Cigar Vie",
-    hide: true,
     city: "taipei",
+    content: '',
+    thumbnail: '',
+    links: [],
+    classes: [],
+    solo: false,
+    hide: false,
+    related: [],
   },
   {
     id: "aaa-jane",
@@ -628,6 +697,7 @@ export const organizerTaipeiList = [
         url: "https://bio.site/Dancingmuse",
       },
     ],
+    related: [],
   },
   {
     id: "camilaYe",
@@ -644,6 +714,8 @@ export const organizerTaipeiList = [
         url: "https://linktr.ee/CamilaYe",
       },
     ],
+    classes: [],
+    related: [],
   },
   {
     id: "dan",
@@ -710,6 +782,8 @@ export const organizerTaipeiList = [
         url: "https://www.instagram.com/djcola_icrt/",
       },
     ],
+    classes: [],
+    related: [],
   },
   {
     id: "eric-chen",
@@ -805,6 +879,7 @@ export const organizerTaipeiList = [
     city: "taipei",
     thumbnail: "/organizers/finn.jpg",
     content: "",
+    links: [],
     classes: [
       {
         weekday: "tuesday",
@@ -855,6 +930,7 @@ export const organizerTaipeiList = [
         time: "20:00-21:00",
       },
     ],
+    related: []
   },
   {
     id: "jenny",
@@ -884,6 +960,7 @@ export const organizerTaipeiList = [
         time: "20:00-21:00",
       },
     ],
+    related: []
   },
   {
     id: "leo",
@@ -931,6 +1008,7 @@ export const organizerTaipeiList = [
         time: "20:30-21:30",
       },
     ],
+    related: [],
   },
   {
     id: "latiifah",
@@ -978,6 +1056,7 @@ export const organizerTaipeiList = [
         time: "20:30-21:30",
       },
     ],
+    related: [],
   },
   {
     id: "noya",
@@ -1002,6 +1081,7 @@ export const organizerTaipeiList = [
         time: "19:30-20:30",
       },
     ],
+    related: []
   },
   {
     id: "patty-lin",
@@ -1048,6 +1128,7 @@ export const organizerTaipeiList = [
         time: "20:00-21:00",
       },
     ],
+    related: [],
   },
   {
     id: "sherry",
