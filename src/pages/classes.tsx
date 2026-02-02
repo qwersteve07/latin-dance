@@ -1,5 +1,5 @@
 import Title from "@/components/title";
-import { danceLevel, simpleDanceTypes } from "@/const/dance-types";
+import { danceLevel, simpleDanceTypes } from "@/const/dance";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";

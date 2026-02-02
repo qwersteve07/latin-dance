@@ -11,7 +11,7 @@ import { fetcher } from "@/utils/fetcher";
 import { Event, EventWithEventDate } from "@/types/event";
 import EventModal from "@/components/eventModal";
 import Title from "@/components/title";
-import { danceTypes } from "@/const/dance-types";
+import { danceTypes } from "@/const/dance";
 import { useAppStore } from "@/store/appStore";
 import { getEventsFilterByCity } from "@/utils/getEvents";
 import { useDay } from "@/use/use-day";

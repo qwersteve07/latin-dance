@@ -18,7 +18,7 @@ import { citiesList } from "@/const/cities";
 import { NextSeo } from "next-seo";
 import Announcement from "@/components/announce";
 import DanceTypeCube from "@/components/danceTypeCube";
-import { simpleDanceTypes } from "@/const/dance-types";
+import { simpleDanceTypes } from "@/const/dance";
 import dayjs from "dayjs";
 import DanceTypeBadge from "@/components/danceTypeBadge";
 

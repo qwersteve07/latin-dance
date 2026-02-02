@@ -5,7 +5,7 @@ import { useForm } from '@mantine/form';
 import { useEffect, useRef, useState, } from "react";
 import useSWR, { useSWRConfig } from "swr";
 import Image from "next/image";
-import { danceTypes } from "@/const/dance-types";
+import { danceTypes } from "@/const/dance";
 import { useDay } from "@/use/use-day";
 import { locateList, organizerList } from "@/store/appState";
 import { eventsTemplate } from "@/const/events-template";
