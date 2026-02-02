@@ -1,11 +1,12 @@
 "use client"
 
 import Image from "next/image"
-import { Instagram, Facebook, Youtube, Globe, MapPin, Footprints, Heart } from "lucide-react"
+import { Instagram, Facebook, Youtube, Globe, MapPin, Footprints, Heart, Pencil } from "lucide-react"
 import { DanceClass, Link, LinkType, Organizer, Related, Weekday } from "@/types/organizer"
 import { ClassLevelBadge } from "./classLevelBadge"
 import DanceTypeCube from "./danceTypeCube"
 import { DanceType } from "@/types/danceTypes"
+import { Button } from "@mantine/core"
 
 const weekdayDays: Weekday[] = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
@@ -30,22 +31,22 @@ interface OrganizerDetailProps {
     onEdit?: () => void
 }
 
-export function LinkIcon({ type }: { type: LinkType }) {
+export function LinkIcon({ type, className }: { type: LinkType, className?: string }) {
     switch (type) {
         case "instagram":
-            return <Instagram className='h-4 w-4' />
+            return <Instagram className={`h-4 w-4 ${className}`} />
         case "facebook":
-            return <Facebook className='h-4 w-4' />
+            return <Facebook className={`h-4 w-4 ${className}`} />
         case "youtube":
-            return <Youtube className='h-4 w-4' />
+            return <Youtube className={`h-4 w-4 ${className}`} />
         case "location":
-            return <MapPin className='h-4 w-4' />
+            return <MapPin className={`h-4 w-4 ${className}`} />
         default:
-            return <Globe className='h-4 w-4' />
+            return <Globe className={`h-4 w-4 ${className}`} />
     }
 }
 
-export function OrganizerDetail({ organizer }: OrganizerDetailProps) {
+export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
 
     if (!organizer || Object.entries(organizer).length === 0) return
 
@@ -90,10 +91,10 @@ export function OrganizerDetail({ organizer }: OrganizerDetailProps) {
                             )}
                         </div>
                     </div>
-                    {/* <Button variant="secondary" size="sm" onClick={onEdit} className="shrink-0">
+                    <Button variant="secondary" size="sm" onClick={onEdit} className="shrink-0">
                         <Pencil className="h-4 w-4 mr-1.5" />
                         Edit
-                    </Button> */}
+                    </Button>
                 </div>
                 {organizer.content && (
                     <div className="text-text-main leading-relaxed text-sm">

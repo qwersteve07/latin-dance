@@ -10,22 +10,23 @@ import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { southTaiwanCities } from "@/const/cities";
-import { useRouter } from "next/router";
 import { organizerList, useAppState } from "@/store/appState";
 import { OrganizerCard } from "@/components/organizerCard";
 import { OrganizerDetail } from "@/components/OrganizerDetail";
+import EditOrganizerInfoModal from '@/components/EditOrganizerInfoModal'
 
 export default function Organizers() {
   const appStore = useAppStore()
-  // const [activeTab, setActiveTab] = useState<string | null>('');
-  const [opened, { open, close }] = useDisclosure(false);
-  const [editingOrganizer, setEditingOrganizer] = useState<Organizer>({} as any);
+  const [organizerModalOpened, { open: openOrganizerModal, close: closeOrganizerModal }] = useDisclosure(false);
+  const [editInfoModalOpened, { open: openEditInfoModal, close: closeEditInfoModal }] = useDisclosure(false);
+  const [editClassesModalOpened, { open: openEditClassesModal, close: closeEditClassesModal }] = useDisclosure(false);
+  // const [editInfoModalOpened, { open: openEditInfoModal, close: closeEditInfoModal }] = useDisclosure(false);
+
   const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
   const [selectedOrganizer, setSelectedOrganizer] = useState<Organizer | null>(null);
+  const [editingOrganizer, setEditingOrganizer] = useState<Organizer>({} as any);
   const { t } = useTranslation('common')
-  const router = useRouter()
   const appState = useAppState()
-  console.log(editingOrganizer)
 
   const isMobile = useMedia("(max-width: 768px)");
 
@@ -45,13 +46,22 @@ export default function Organizers() {
     setActiveOrganizerList(filteredOrganizersList)
     setSelectedOrganizer(filteredOrganizersList[0])
 
-    if (router.query.id && typeof (router.query.id) === 'string') {
-      // setActiveTab(router.query.id)
-    } else {
-      // setActiveTab(filteredOrganizersList[0].id);
-    }
+    // if (router.query.id && typeof (router.query.id) === 'string') {
+    // setActiveTab(router.query.id)
+    // } else {
+    // setActiveTab(filteredOrganizersList[0].id);
+    // }
 
   }, [appStore.currentCity])
+
+  const handleEdit = (organizer: Organizer) => {
+    setEditingOrganizer(organizer)
+    openEditInfoModal()
+  }
+
+  const handleEditOrganizerSave = () => {
+    closeEditInfoModal()
+  }
 
   if (!appState.domLoaded) {
     return <></>;
@@ -71,25 +81,37 @@ export default function Organizers() {
       />
       <Title>{t('organizers.page_title')}</Title>
       <Modal
-        opened={opened}
-        onClose={close}
+        opened={organizerModalOpened}
+        onClose={closeOrganizerModal}
         centered
       >
         <OrganizerDetail
           organizer={selectedOrganizer}
-        // onEdit={() => handleEdit(selectedOrganizer)}
+          onEdit={() => selectedOrganizer ? handleEdit(selectedOrganizer) : ''}
         />
       </Modal>
+      <EditOrganizerInfoModal
+        organizer={editingOrganizer}
+        opened={editInfoModalOpened}
+        onClose={closeEditInfoModal}
+        onSave={handleEditOrganizerSave}
+      />
+      <EditOrganizerClassesModal
+        organizer={editingOrganizer}
+        opened={editOrganizerModalOpened}
+        onClose={closeEditOrganizerModal}
+        onSave={handleEditOrganizerSave}
+      />
       {isMobile && (
         <MobileStudios
           organizerList={activeOrganizerList}
           onClick={(organizer: Organizer) => {
             setSelectedOrganizer(organizer)
-            open()
+            openOrganizerModal()
           }} />
       )}
       {!isMobile && selectedOrganizer && (
-        <DesktopStudios organizerList={activeOrganizerList} selectedOrganizer={selectedOrganizer} setSelectedOrganizer={setSelectedOrganizer} setEditingOrganizer={setEditingOrganizer} />
+        <DesktopStudios organizerList={activeOrganizerList} selectedOrganizer={selectedOrganizer} setSelectedOrganizer={setSelectedOrganizer} handleEdit={handleEdit} />
       )}
     </>
   );
@@ -111,7 +133,6 @@ function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organi
               <OrganizerImage src={item.thumbnail} alt={item.name} />
               <div className="text-sm font-bold text-center">{item.name}</div>
             </div>
-
           );
         })}
       </div>
@@ -120,7 +141,10 @@ function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organi
 }
 
 
-function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer, setEditingOrganizer }: { organizerList: Array<Organizer>, selectedOrganizer: Organizer, setSelectedOrganizer: (value: Organizer) => void, setEditingOrganizer: (value: Organizer) => void }) {
+function DesktopStudios(
+  { organizerList, selectedOrganizer, setSelectedOrganizer, handleEdit }
+    :
+    { organizerList: Array<Organizer>, selectedOrganizer: Organizer, setSelectedOrganizer: (value: Organizer) => void, handleEdit: (value: Organizer) => void }) {
   // const handleAddNew = () => {
   // const newOrganizer: Organizer = {
   //   id: Date.now().toString(),
@@ -132,17 +156,7 @@ function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer
   //   city: '',
   //   related: null,
   // }
-  // setEditingOrganizer(newOrganizer)
-  // setIsDialogOpen(true)
-  // }
-
-  const handleSelect = (organizer: Organizer) => {
-    setSelectedOrganizer(organizer)
-  }
-
-  const handleEdit = (organizer: Organizer) => {
-    setEditingOrganizer(organizer)
-  }
+  // 
 
   return (
     <div className="flex h-[calc(100vh-285px)] gap-6">
@@ -160,7 +174,7 @@ function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer
               key={organizer.id}
               organizer={organizer}
               isSelected={selectedOrganizer?.id === organizer.id}
-              onClick={() => handleSelect(organizer)}
+              onClick={() => setSelectedOrganizer(organizer)}
             />
           ))
           }
