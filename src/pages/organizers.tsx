@@ -16,42 +16,57 @@ import { OrganizerCard } from "@/components/organizerCard";
 import { OrganizerDetail } from "@/components/OrganizerDetail";
 
 export default function Organizers() {
-  const appStore = useAppStore()
-  // const [activeTab, setActiveTab] = useState<string | null>('');
+  const appStore = useAppStore();
   const [opened, { open, close }] = useDisclosure(false);
-  const [editingOrganizer, setEditingOrganizer] = useState<Organizer>({} as any);
-  const [activeOrganizerList, setActiveOrganizerList] = useState(organizerList.filter(t => !t.hide))
-  const [selectedOrganizer, setSelectedOrganizer] = useState<Organizer | null>(null);
-  const { t } = useTranslation('common')
-  const router = useRouter()
-  const appState = useAppState()
-  console.log(editingOrganizer)
-
+  const [editingOrganizer, setEditingOrganizer] = useState<Organizer>(
+    {} as any
+  );
+  const [activeOrganizerList, setActiveOrganizerList] = useState(
+    organizerList.filter(t => !t.hide)
+  );
+  const [selectedOrganizer, setSelectedOrganizer] = useState<Organizer | null>(
+    null
+  );
+  const { t } = useTranslation("common");
+  const router = useRouter();
+  const appState = useAppState();
+  console.log(editingOrganizer);
   const isMobile = useMedia("(max-width: 768px)");
 
   useEffect(() => {
-    if (!appStore.currentCity) return
+    if (!appStore.currentCity) return;
 
     const filteredOrganizersList = organizerList
-      .filter(t => !t.hide).filter(o => {
-        if (appStore.currentCity === 'south-taiwan') {
-          return southTaiwanCities.includes(o.city)
+      .filter(t => !t.hide)
+      .filter(o => {
+        if (appStore.currentCity === "south-taiwan") {
+          return southTaiwanCities.includes(o.city);
         } else {
-          return o.city === appStore.currentCity
+          return o.city === appStore.currentCity;
         }
-      })
+      });
 
-    if (!Array.isArray(filteredOrganizersList)) return
-    setActiveOrganizerList(filteredOrganizersList)
-    setSelectedOrganizer(filteredOrganizersList[0])
+    if (!Array.isArray(filteredOrganizersList)) return;
+    setActiveOrganizerList(filteredOrganizersList);
 
-    if (router.query.id && typeof (router.query.id) === 'string') {
-      // setActiveTab(router.query.id)
+    if (router.query.id && typeof router.query.id === "string") {
+      const targetOrganizer = filteredOrganizersList.find(
+        x => x.id === router.query.id
+      );
+
+      if (targetOrganizer) {
+        setSelectedOrganizer(targetOrganizer);
+        if (isMobile) {
+          open();
+        }
+        router.replace("/organizers");
+      } else {
+        setSelectedOrganizer(filteredOrganizersList[0]);
+      }
     } else {
-      // setActiveTab(filteredOrganizersList[0].id);
+      setSelectedOrganizer(filteredOrganizersList[0]);
     }
-
-  }, [appStore.currentCity])
+  }, [appStore.currentCity]);
 
   if (!appState.domLoaded) {
     return <></>;
@@ -60,58 +75,77 @@ export default function Organizers() {
   return (
     <>
       <NextSeo
-        title={`${t('title')} | ${t('organizers.title')}`}
-        description={t('organizers.description')}
+        title={`${t("title")} | ${t("organizers.title")}`}
+        description={t("organizers.description")}
         openGraph={{
-          type: 'website',
-          url: 'http://social-dance.tw/organizers',
-          siteName: `${t('title')} | ${t('organizers.title')}`,
-          description: t('organizers.description'),
+          type: "website",
+          url: "http://social-dance.tw/organizers",
+          siteName: `${t("title")} | ${t("organizers.title")}`,
+          description: t("organizers.description"),
         }}
       />
-      <Title>{t('organizers.page_title')}</Title>
-      <Modal
-        opened={opened}
-        onClose={close}
-        centered
-      >
+      <Title>{t("organizers.page_title")}</Title>
+      <Modal opened={opened} onClose={close} centered>
         <OrganizerDetail
           organizer={selectedOrganizer}
-        // onEdit={() => handleEdit(selectedOrganizer)}
+          // onEdit={() => handleEdit(selectedOrganizer)}
         />
       </Modal>
       {isMobile && (
         <MobileStudios
           organizerList={activeOrganizerList}
           onClick={(organizer: Organizer) => {
-            setSelectedOrganizer(organizer)
-            open()
-          }} />
+            setSelectedOrganizer(organizer);
+            open();
+          }}
+        />
       )}
       {!isMobile && selectedOrganizer && (
-        <DesktopStudios organizerList={activeOrganizerList} selectedOrganizer={selectedOrganizer} setSelectedOrganizer={setSelectedOrganizer} setEditingOrganizer={setEditingOrganizer} />
+        <DesktopStudios
+          organizerList={activeOrganizerList}
+          selectedOrganizer={selectedOrganizer}
+          setSelectedOrganizer={setSelectedOrganizer}
+          setEditingOrganizer={setEditingOrganizer}
+        />
       )}
     </>
   );
 }
 
-function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organizer>, onClick: (organizer: Organizer) => void }) {
-  const { t } = useTranslation('common')
+function MobileStudios({
+  organizerList,
+  onClick,
+}: {
+  organizerList: Array<Organizer>;
+  onClick: (organizer: Organizer) => void;
+}) {
+  const { t } = useTranslation("common");
 
   return (
     <>
       <div className="flex justify-start flex-wrap gap-y-8 gap-x-2">
         {organizerList.map(item => {
-          if (item.id === '') return <h3 key={item.id} className="text-xl font-bold mt-10 flex-[100%] pointer-events-none">{t('organizers.individual')}</h3>
+          if (item.id === "")
+            return (
+              <h3
+                key={item.id}
+                className="text-xl font-bold mt-10 flex-[100%] pointer-events-none"
+              >
+                {t("organizers.individual")}
+              </h3>
+            );
 
           return (
-            <div key={item.id} className="flex flex-col items-center flex-[30%] gap-2" onClick={() => {
-              onClick(item)
-            }}>
+            <div
+              key={item.id}
+              className="flex flex-col items-center flex-[30%] gap-2"
+              onClick={() => {
+                onClick(item);
+              }}
+            >
               <OrganizerImage src={item.thumbnail} alt={item.name} />
               <div className="text-sm font-bold text-center">{item.name}</div>
             </div>
-
           );
         })}
       </div>
@@ -119,8 +153,17 @@ function MobileStudios({ organizerList, onClick }: { organizerList: Array<Organi
   );
 }
 
-
-function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer, setEditingOrganizer }: { organizerList: Array<Organizer>, selectedOrganizer: Organizer, setSelectedOrganizer: (value: Organizer) => void, setEditingOrganizer: (value: Organizer) => void }) {
+function DesktopStudios({
+  organizerList,
+  selectedOrganizer,
+  setSelectedOrganizer,
+  setEditingOrganizer,
+}: {
+  organizerList: Array<Organizer>;
+  selectedOrganizer: Organizer;
+  setSelectedOrganizer: (value: Organizer) => void;
+  setEditingOrganizer: (value: Organizer) => void;
+}) {
   // const handleAddNew = () => {
   // const newOrganizer: Organizer = {
   //   id: Date.now().toString(),
@@ -137,12 +180,12 @@ function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer
   // }
 
   const handleSelect = (organizer: Organizer) => {
-    setSelectedOrganizer(organizer)
-  }
+    setSelectedOrganizer(organizer);
+  };
 
   const handleEdit = (organizer: Organizer) => {
-    setEditingOrganizer(organizer)
-  }
+    setEditingOrganizer(organizer);
+  };
 
   return (
     <div className="flex h-[calc(100vh-285px)] gap-6">
@@ -155,27 +198,22 @@ function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer
           </Button>
         </div> */}
         <div className="flex-1 overflow-y-auto space-y-2 pr-2">
-          {organizerList.map((organizer) => (
+          {organizerList.map(organizer => (
             <OrganizerCard
               key={organizer.id}
               organizer={organizer}
               isSelected={selectedOrganizer?.id === organizer.id}
               onClick={() => handleSelect(organizer)}
             />
-          ))
-          }
+          ))}
         </div>
       </div>
       <div className="flex-1 overflow-y-auto">
-        {selectedOrganizer ? (
+        {selectedOrganizer && (
           <OrganizerDetail
             organizer={selectedOrganizer}
             onEdit={() => handleEdit(selectedOrganizer)}
           />
-        ) : (
-          <div className="flex h-full items-center justify-center text-muted-foreground">
-            Select an organizer to view details
-          </div>
         )}
       </div>
 
@@ -186,15 +224,13 @@ function DesktopStudios({ organizerList, selectedOrganizer, setSelectedOrganizer
         onSave={handleSave}
       /> */}
     </div>
-  )
+  );
 }
 
 export async function getServerSideProps({ locale }: { locale: any }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, [
-        'common',
-      ])),
+      ...(await serverSideTranslations(locale, ["common"])),
     },
-  }
+  };
 }
