@@ -40,7 +40,7 @@ export default function Calendar() {
   const dayjs = useDay()
   const { t } = useTranslation('common')
   const [eventId, setEventId] = useState('')
-  const [defaultDate, setDefaultDate] = useState('')
+  const [defaultData, setDefaultData] = useState<any>()
   const { isLogin } = useUser()
 
 
@@ -107,15 +107,17 @@ export default function Calendar() {
     );
   }
 
-  function onOpenAddEventModal(date: any) {
+  function onOpenAddEventModal(data: any) {
     if (!isLogin) return
-    setDefaultDate(date.dateStr)
+    setDefaultData(data)
     openEventEditModal()
   }
 
-  function handleOpenEventEditModal(id: string) {
+  function handleOpenEventEditModal(id: string,data: any) {
+    if(id) setEventId(id)
+    if(data) setDefaultData(data)
     openEventEditModal()
-    setEventId(id)
+    
   }
 
   function handleCloseEventEditModal() {
@@ -144,7 +146,7 @@ export default function Calendar() {
       <>
         <DeleteEventModal opened={deleteEventModalOpened} onClose={closeDeleteEventModal} onDelete={onDeleteEvent} />
         <EventModal opened={eventModalOpened} onClose={closeEventModal} data={selectEvent} onOpenEditModal={handleOpenEventEditModal} onOpenDeleteModal={openDeleteEventModal} />
-        <EventEditModal opened={eventEditModalOpened} onClose={handleCloseEventEditModal} id={eventId} defaultDate={defaultDate} />
+        <EventEditModal opened={eventEditModalOpened} onClose={handleCloseEventEditModal} id={eventId} defaultData={defaultData} />
         <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm">
           {danceTypes.map(t => {
             return (
@@ -188,9 +190,13 @@ export default function Calendar() {
       />
       <div className="flex justify-between items-center">
         <Title>{t('calendar.page_title')}</Title>
-        {isLogin && <Button className="!w-20 mb-8" onClick={() => {
-          onOpenAddEventModal({ dateStr: dayjs().format('YYYY-MM-DD') })
-        }}>新增</Button>}
+        {isLogin && 
+        <div className="flex flex-col items-end">
+          <Button className="!w-20 mb-2" onClick={() => {
+            onOpenAddEventModal({ date: dayjs().toDate() })
+          }}>新增</Button>
+          <p className="text-xs text-gray-500">可直接點擊日期新增</p>
+        </div>}
       </div>
       {appStore.currentCity === 'taichung' && (
         <Announcement>
