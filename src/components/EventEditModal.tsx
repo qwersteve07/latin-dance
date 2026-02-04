@@ -12,8 +12,9 @@ import { eventsTemplate } from "@/const/events-template";
 import { useAppStore } from "@/store/appStore";
 import { getLocateCity } from "@/utils/getLocate";
 import { useUser } from "@/use/use-user";
+import { Event } from "@/types/event";
 
-function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean, onClose: () => void, id: string, defaultDate: string }) {
+function EventEditModal({ opened, onClose, id, defaultData }: { opened: boolean, onClose: () => void, id: string, defaultData: any }) {
     const [loading, setLoading] = useState(false)
     const startAtRef = useRef<HTMLInputElement>(null);
     const endAtRef = useRef<HTMLInputElement>(null);
@@ -28,16 +29,17 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
         initialValues: {
             date: '',
             title: '',
-            host: {},
-            locate: {},
+            host: '',
+            locate: '',
             startAt: '',
             endAt: '',
             rate: '',
             types: [],
             fee: '',
-            canceled: '',
+            canceled: false,
             content: '',
-            note: ''
+            note: '',
+            eventUrl: '',
         },
         validate: {
             date: (value) => value ? null : 'needed',
@@ -56,14 +58,14 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
                 mutate(`/social-dance/events/${id}`)
             } else {
                 form.setValues({
-                    date: dayjs(defaultDate).toDate() as any,
-                    host: userRole
+                    ...defaultData,
+                    host: defaultData.host? defaultData.host : userRole,
                 })
             }
         } else {
             form.reset();
         }
-    }, [opened, id, defaultDate])
+    }, [opened, id, defaultData])
 
     useEffect(() => {
         if (!data) return
@@ -71,18 +73,8 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
         if (Object.keys(data).length === 0) return
 
         form.setValues({
+            ...data.result,
             date: dayjs(data.result.date).toDate() as any,
-            title: data.result.title,
-            host: data.result.host,
-            locate: data.result.locate,
-            startAt: data.result.startAt,
-            endAt: data.result.endAt,
-            rate: data.result.rate,
-            types: data.result.types,
-            fee: data.result.fee,
-            canceled: data.result.canceled,
-            content: data.result.content,
-            note: data.result.note
         });
 
     }, [data])
@@ -114,18 +106,32 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
 
     const handleSubmit = async (values: typeof form.values) => {
         setLoading(true)
-        values.date = dayjs(values.date).format('YYYY-MM-DDT00:00:00')
+        const confirmedValues: Event = {
+            date: dayjs(values.date).format('YYYY-MM-DDT00:00:00'),
+            title: values.title,
+            host: values.host,
+            locate: values.locate,
+            startAt: values.startAt,
+            endAt: values.endAt,
+            rate: values.rate,
+            types: values.types,
+            fee: values.fee,
+            canceled: values.canceled,
+            content: values.content,
+            note: values.note,
+            eventUrl: values.eventUrl,
+        }
 
         try {
             if (!id) {
                 await fetcher(`/social-dance/events/`, {
                     method: 'POST',
-                    body: JSON.stringify(values)
+                    body: JSON.stringify(confirmedValues)
                 })
             } else {
                 await fetcher(`/social-dance/events/${id}`, {
                     method: 'PUT',
-                    body: JSON.stringify(values)
+                    body: JSON.stringify(confirmedValues)
                 })
             }
             onClose()
@@ -242,6 +248,10 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
                 <Textarea label="備註"
                     key={form.key('note')}
                     {...form.getInputProps('note')}
+                />
+                <TextInput label="連結"
+                    key={form.key('eventUrl')}
+                    {...form.getInputProps('eventUrl')}
                 />
                 <Button type="submit" className="col-span-2" loading={loading}>儲存</Button>
             </form>
