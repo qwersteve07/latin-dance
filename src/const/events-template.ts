@@ -143,6 +143,17 @@ export const eventsTemplate = {
     endAt: "23:00",
     fee: "300 TWD",
   },
+   "hustle-friday-night": {
+    title: "Hustle Night",
+    host: "hustlehustletw",
+    locate: "skyco-nanjing-fuxing-6f",
+    rate: "hustle 100%",
+    types: ["hustle"],
+    startAt: "20:00",
+    endAt: "22:00",
+    fee: "200",
+    "note": "20:30-21:00 新手教學\n21:00-24:00 Party Time"
+  },
   "outdoor-salsa-concert": {
     title: "戶外 Salsa Concert",
     host: "dance-salsa-under-sky",
