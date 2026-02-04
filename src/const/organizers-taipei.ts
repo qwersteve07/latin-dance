@@ -467,6 +467,29 @@ export const organizerTaipeiList = [
       },
     ],
   },
+   {
+    id: "hustlehustletw",
+    name: "Hustle Hustle Tw",
+    city: "taipei",
+    thumbnail: "/organizers/hustlehustletw.jpg",
+    content:
+      "HUSTLE 哈梭舞\n來自紐約的復古新潮「雙人舞」💃🏻🕺🏻",
+    links: [
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/hustlehustletw",
+      },
+    ],
+      classes: [
+      {
+        weekday: "monday",
+        type: "hustle",
+        name: "hustle Lv.1",
+        level: "beginner",
+        time: "20:00-21:30",
+      },
+    ],
+  },
   {
     id: "meet-kiz-taiwan",
     name: "Meet Kiz Taiwan",

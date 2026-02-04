@@ -9,7 +9,8 @@ function DanceTypeBadge({ type, className, onClick }: { type: DanceType, classNa
         'bachata': 'text-yellow-400 border-yellow-400/30',
         'zouk': 'text-blue-400 border-blue-400/30',
         'lambada': 'text-green-300 border-green-300/30',
-        'kizomba': 'text-purple-400 border-purple-400/30'
+        'kizomba': 'text-purple-400 border-purple-400/30',
+        'hustle': 'text-cyan-400 border-cyan-400/30'
     }
 
     const labels: Record<DanceType, string> = {
@@ -19,7 +20,8 @@ function DanceTypeBadge({ type, className, onClick }: { type: DanceType, classNa
         'bachata': "Bachata",
         "kizomba": "Kizomba",
         "lambada": 'Lambada',
-        "zouk": "Zouk"
+        "zouk": "Zouk",
+        'hustle': 'Hustle'
 
     }
 
