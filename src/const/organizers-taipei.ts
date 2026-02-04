@@ -1210,10 +1210,10 @@ export const organizerTaipeiList = [
         thumbnail: "/organizers/one-plus-mambo.jpeg",
         content:
           "One+ Mambo Team 是一支來自台灣的 Salsa 表演與教學團隊。\n除了在舞台上帶來華麗的演出，我們平常也熱衷於教學和推廣Salsa文化，\n希望讓更多人透過跳舞和參與社交舞會，感受到 Salsa 的自由、連結與快樂！\n我們相信，跳舞不只是學動作，它能幫助你重新發現自己的身體潛力，也能透過Party交流、認識新朋友，打開生活中不一樣的視野與樂趣。",
-        links: {
+        links: [{
           type: "instagram",
           url: '"https://www.instagram.com/oneplus_mambo/"',
-        },
+        }],
       },
     ],
   },
