@@ -5,7 +5,7 @@ const levelColors: any = {
     beginner: "gray",
     intermediate: "yellow",
     advanced: "orange",
-    "open-lv": "cyan",
+    "open-lv": "lime",
 }
 
 const levelLabels: any = {
