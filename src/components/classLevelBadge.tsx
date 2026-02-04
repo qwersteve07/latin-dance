@@ -1,11 +1,10 @@
 import { DanceClassLevel } from "@/types/organizer"
-import { Badge } from "@mantine/core"
 
-const levelColors: any = {
-    beginner: "gray",
-    intermediate: "yellow",
-    advanced: "orange",
-    "open-lv": "lime",
+const colors: any = {
+    beginner: "text-neutral-400 border-neutral-400/50",
+    intermediate: "text-amber-400 border-amber-400/50",
+    advanced: "text-orange-400 border-orange-400/50",
+    "open-lv": "text-lime-400 border-lime-400/50",
 }
 
 const levelLabels: any = {
@@ -17,14 +16,8 @@ const levelLabels: any = {
 
 export function ClassLevelBadge({ level, className, onClick }: { level: DanceClassLevel, className?: string, onClick?: () => void }) {
     return (
-        <Badge
-            variant="outline"
-            size="sm"
-            color={levelColors[level]}
-            className={className}
-            onClick={onClick}
-        >
-            {levelLabels[level]}
-        </Badge>
+        <span className={`px-2 py-0.5 text-[10px] font-medium rounded-full border overflow-hidden text-ellipsis w-[fit-content] ${colors[level]} ${className}`} onClick={onClick}>
+            {levelLabels[level].toUpperCase()}
+        </span>
     )
 }

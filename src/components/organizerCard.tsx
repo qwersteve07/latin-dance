@@ -21,7 +21,7 @@ export function OrganizerCard({ organizer, isSelected, onClick }: { organizer: O
                             fill
                         />
                     ) : (
-                        <div className="flex h-full w-full items-center justify-center text-base font-semibold text-muted-foreground">
+                        <div className="flex h-full w-full items-center justify-center text-base font-semibold">
                             {organizer.name.charAt(0).toUpperCase() || "?"}
                         </div>
                     )}

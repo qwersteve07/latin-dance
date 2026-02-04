@@ -192,14 +192,14 @@ export function OrganizerDetail({ organizer }: OrganizerDetailProps) {
                                         )}
                                     </div>
                                     {related.content && (
-                                        <p className="text-muted-foreground leading-relaxed text-sm">
+                                        <div className="text-text-main leading-relaxed text-sm">
                                             {related.content.split("\n").map(x => (
                                                 <p key={x} className="mb-2">
                                                     {x}
                                                     <br />
                                                 </p>
                                             ))}
-                                        </p>
+                                        </div>
                                     )}
                                 </div>
                             </div>
