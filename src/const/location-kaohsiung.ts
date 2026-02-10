@@ -48,6 +48,18 @@ export const locationKaohsiung = [
     url: "https://maps.app.goo.gl/Am7LcQkGiFGwqpdj9",
   },
   {
+    id: "kw2",
+    name: "棧貳庫KW2",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/D9S8QZf7bRb3WFb37",
+  },
+     {
+    id: "dance-passion-l-studio",
+    name: "Dance Passion L. Studio ",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/Ct6SRABmmz43nuSf6",
+  },
+  {
     id: "leaploom",
     name: "艾萊家",
     city: "kaohsiung",
