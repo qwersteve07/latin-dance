@@ -44,7 +44,6 @@ function EventEditModal({ opened, onClose, id, defaultData }: { opened: boolean,
         validate: {
             date: (value) => value ? null : 'needed',
             title: (value) => value ? null : 'needed',
-            host: (value) => Object.entries(value).length !== 0 ? null : 'needed',
             locate: (value) => Object.entries(value).length !== 0 ? null : 'needed',
             startAt: (value) => value ? null : 'needed',
             endAt: (value) => value ? null : 'needed',
@@ -197,7 +196,6 @@ function EventEditModal({ opened, onClose, id, defaultData }: { opened: boolean,
                     {...form.getInputProps('title')}
                 />
                 <Select
-                    withAsterisk
                     label="主辦單位"
                     searchable
                     data={filteredOrganizer().map((item: any) => ({ ...item, value: item.id, label: item.name }))}
