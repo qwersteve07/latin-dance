@@ -10,8 +10,25 @@ import '@/polyfill/object-groupBy'
 import { DefaultSeo } from "next-seo";
 import { appWithTranslation } from 'next-i18next'
 import { CookiesProvider } from 'react-cookie';
+import { useRouter } from "next/router";
+import { useAppStore } from "@/store/appStore";
+import { useEffect } from "react";
 
 function App({ Component, pageProps }: AppProps) {
+
+	const router = useRouter()
+	const appStore = useAppStore()
+
+	useEffect(() => {
+		if (!router.isReady) return
+
+		const city = router.query.city
+
+		if (typeof city === 'string') {
+			appStore.setCurrentCity(city)
+		}
+	}, [router.isReady, router.query.city])
+
 
 	return (
 		<>
