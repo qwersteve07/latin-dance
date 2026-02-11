@@ -26,6 +26,7 @@ function App({ Component, pageProps }: AppProps) {
 
 		if (typeof city === 'string') {
 			appStore.setCurrentCity(city)
+			router.replace(router.pathname);
 		}
 	}, [router.isReady, router.query.city])
 
