@@ -40,7 +40,9 @@
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.1",
     "react-social-media-embed": "^2.5.17",
+    "react-sortablejs": "^6.1.4",
     "react-use": "^17.6.0",
+    "sortablejs": "^1.15.7",
     "swr": "^2.3.0",
     "zustand": "^5.0.3"
   },
@@ -53,6 +55,7 @@
     "@types/node": "^20.17.18",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19",
+    "@types/sortablejs": "^1.15.9",
     "commit-and-tag-version": "^12.5.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
