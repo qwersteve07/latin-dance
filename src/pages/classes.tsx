@@ -6,7 +6,7 @@ import { NextSeo } from "next-seo";
 import React, { useEffect, useState } from "react";
 import { useMedia } from "react-use";
 import { useRouter } from "next/router";
-import { organizerList, useAppState } from "@/store/appState";
+import { useAppState } from "@/store/appState";
 import { Select } from "@mantine/core";
 import { useAppStore } from "@/store/appStore";
 import { DanceType } from "@/types/danceTypes";
@@ -28,19 +28,20 @@ export default function Classes() {
 
     useEffect(() => {
         if (!appStore.currentCity) return
+        if (!appState.organizers) return
 
         const result = getFilteredClassesData(appStore.currentCity, selectType, selectLevel)
         setCurrentClassesData(result)
-    }, [appStore.currentCity, selectType, selectLevel])
+    }, [appStore.currentCity, selectType, selectLevel, appState.organizers])
 
     function getFilteredClassesData(city: string, selectType: string, selectLevel: string) {
-        const validClasses = organizerList.filter(data => {
-            return !data.hide && data.classes && data.classes.length !== 0
-        }).filter(data => {
+        const validClasses = appState.organizers.filter((organizer: any) => {
+            return !organizer.hide && organizer.classes && organizer.classes.length !== 0
+        }).filter((organizer: any) => {
             if (city === 'south-taiwan') {
-                return data.city === 'tainan' || data.city === 'kaohsiung'
+                return organizer.city === 'tainan' || organizer.city === 'kaohsiung'
             } else {
-                return data.city === city
+                return organizer.city === city
             }
         })
 
@@ -124,6 +125,7 @@ function MobileUI({ data }: { data: any }) {
     const [currentWeekDay, setCurrentWeekDay] = useState<string>(weekdayDays[0])
     const [currentData, setCurrentData] = useState<any>([])
     const router = useRouter()
+    const appState = useAppState();
     const { t } = useTranslation('common')
 
     useEffect(() => {
@@ -158,7 +160,7 @@ function MobileUI({ data }: { data: any }) {
 
                     const Organizer = () => {
                         if (!classData.organizer) return <></>
-                        const name = organizerList.find(o => o.id === classData.organizer)?.name
+                        const name = appState.organizers.find(o => o.id === classData.organizer)?.name
                         return <div className="font-bold italic text-gray-500">{name}</div>
                     }
                     return (
@@ -201,6 +203,7 @@ function MobileUI({ data }: { data: any }) {
 function DesktopUI({ data }: { data: any }) {
     const { t } = useTranslation('common')
     const router = useRouter()
+    const appState = useAppState()
 
     return (
         <>
@@ -213,7 +216,7 @@ function DesktopUI({ data }: { data: any }) {
                 {data.map((classData: any) => {
                     const Organizer = () => {
                         if (!classData.organizer) return <></>
-                        const name = organizerList.find(o => o.id === classData.organizer)?.name
+                        const name = appState.organizers.find(o => o.id === classData.organizer)?.name
                         return <div className="font-bold italic text-gray-500">{name}</div>
                     }
                     return (

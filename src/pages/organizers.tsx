@@ -10,7 +10,7 @@ import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { southTaiwanCities } from "@/const/cities";
-import { organizerList, useAppState } from "@/store/appState";
+import { useAppState } from "@/store/appState";
 import { OrganizerCard } from "@/components/organizerCard";
 import { OrganizerDetail } from "@/components/OrganizerDetail";
 import EditOrganizerInfoModal from '@/components/EditOrganizerInfoModal'
@@ -33,9 +33,10 @@ export default function Organizers() {
   const isMobile = useMedia("(max-width: 768px)");
 
   useEffect(() => {
-    if (!appStore.currentCity) return
+    if (!appState.organizers) return;
+    if (!appStore.currentCity) return;
 
-    const filteredOrganizersList = organizerList
+    const filteredOrganizersList = appState.organizers
       .filter(t => !t.hide).filter(o => {
         if (appStore.currentCity === 'south-taiwan') {
           return southTaiwanCities.includes(o.city)
@@ -48,7 +49,7 @@ export default function Organizers() {
     setActiveOrganizerList(filteredOrganizersList)
     setSelectedOrganizer(filteredOrganizersList[0])
 
-  }, [appStore.currentCity])
+  }, [appStore.currentCity, appState.organizers]);
 
   const handleEdit = (organizer: Organizer, editType: string, relatedId?: string) => {
     if (organizer) {

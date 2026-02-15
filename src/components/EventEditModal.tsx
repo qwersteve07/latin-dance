@@ -7,7 +7,7 @@ import useSWR, { useSWRConfig } from "swr";
 import Image from "next/image";
 import { danceTypes } from "@/const/dance";
 import { useDay } from "@/use/use-day";
-import { locateList, organizerList } from "@/store/appState";
+import { locateList, useAppState } from "@/store/appState";
 import { eventsTemplate } from "@/const/events-template";
 import { useAppStore } from "@/store/appStore";
 import { getLocateCity } from "@/utils/getLocate";
@@ -21,6 +21,7 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
     const { mutate } = useSWRConfig()
     const dayjs = useDay()
     const appStore = useAppStore()
+    const appState = useAppState()
     const { userRole, isSU } = useUser()
 
     const form = useForm({
@@ -105,9 +106,9 @@ function EventEditModal({ opened, onClose, id, defaultDate }: { opened: boolean,
     }
 
     const filteredOrganizer = () => {
-        if (isSU(userRole)) return organizerList
+        if (isSU(userRole)) return appState.organizers
 
-        return organizerList.filter((o: any) => {
+        return appState.organizers.filter((o: any) => {
             return o.id === userRole
         })
     }
