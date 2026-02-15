@@ -10,8 +10,23 @@ import '@/polyfill/object-groupBy'
 import { DefaultSeo } from "next-seo";
 import { appWithTranslation } from 'next-i18next'
 import { CookiesProvider } from 'react-cookie';
+import { fetcher } from "@/utils/fetcher";
+import useSWR from "swr";
+import { useAppState } from "@/store/appState";
+import { useEffect } from "react";
 
 function App({ Component, pageProps }: AppProps) {
+	const appState = useAppState()
+
+	const { data } = useSWR('/social-dance/organizers', fetcher, {
+		revalidateOnFocus: false,
+	})
+
+	useEffect(() => {
+		if (data) {
+			appState.setOrganizers(data.result)
+		}
+	}, [data])
 
 	return (
 		<>
