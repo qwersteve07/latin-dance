@@ -24,6 +24,7 @@ export interface DanceClass {
 export type DanceClassLevel = "beginner" | "intermediate" | "advanced" | "open-lv";
 
 export interface Related {
+  id: string,
   name: string;
   thumbnail: string;
   content: string;
