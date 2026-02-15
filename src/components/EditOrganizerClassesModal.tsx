@@ -43,7 +43,6 @@ export default function EditOrganizerClassesDialog({
 
     const handleSave = () => {
         const newFormData = { ...organizer, classes: classList.map(({ id, ...c }) => c) }
-        console.log(newFormData)
         onSave(newFormData);
     };
 

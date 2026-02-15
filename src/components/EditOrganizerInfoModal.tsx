@@ -62,7 +62,7 @@ export default function EditOrganizerInfoDialog({
                 ...formData,
                 links: [...formData.links, newLink],
             });
-            setNewLink({ type: "website", url: "" });
+            setNewLink({ type: "instagram", url: "" });
         }
     };
 
