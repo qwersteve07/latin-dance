@@ -21,6 +21,8 @@ export interface AppState {
   getFuegoBannerRef: any;
   organizers: Organizer[],
   setOrganizers: (organizer: Organizer[]) => void
+  organizerLoaded: boolean,
+  setOrganizerLoaded: () => void;
 }
 
 export const useAppState = create<AppState>(set => ({
@@ -29,5 +31,7 @@ export const useAppState = create<AppState>(set => ({
   installPromptBannerRef: createRef(),
   getFuegoBannerRef: createRef(),
   organizers: [],
-  setOrganizers: (organizers: Organizer[]) => set(() => ({ organizers }))
+  setOrganizers: (organizers: Organizer[]) => set(() => ({ organizers })),
+  organizerLoaded: false,
+  setOrganizerLoaded: () => set(() => ({ organizerLoaded: true })),
 }));

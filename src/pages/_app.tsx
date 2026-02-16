@@ -25,6 +25,7 @@ function App({ Component, pageProps }: AppProps) {
 	useEffect(() => {
 		if (data) {
 			appState.setOrganizers(data.result)
+			appState.setOrganizerLoaded()
 		}
 	}, [data])
 
