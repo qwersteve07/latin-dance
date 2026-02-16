@@ -6,9 +6,10 @@ import {
     DanceClass,
     Organizer,
 } from "@/types/organizer";
-import { Button, Input, Modal, Select, } from "@mantine/core";
+import { Button, Modal, Select, TextInput, } from "@mantine/core";
 import { danceLevel, simpleDanceTypes, weekdays } from "@/const/dance";
 import { ReactSortable } from "react-sortablejs";
+import { useForm } from "@mantine/form";
 
 interface EditOrganizerDialogProps {
     opened: boolean;
@@ -21,57 +22,73 @@ type ClassItem = DanceClass & {
     id: number
 }
 
+const emptyClass = {
+    weekday: "monday",
+    time: "",
+    name: "",
+    type: "salsa",
+    level: "beginner",
+}
+
 export default function EditOrganizerClassesDialog({
     organizer,
     opened,
     onClose,
     onSave,
 }: EditOrganizerDialogProps) {
-    const [classList, setClassList] = useState<ClassItem[]>([])
-    const [newClass, setNewClass] = useState<DanceClass>({
-        name: "",
-        level: "beginner",
-        type: "salsa",
-        weekday: "monday",
-        time: "",
+    const [buttonLoading, setButtonLoading] = useState<boolean>(false)
+
+    const form = useForm({
+        mode: 'uncontrolled',
+        initialValues: {
+            classes: [],
+            newClass: emptyClass
+        },
+        validate: {
+            classes: {
+                time: (value: any) => value ? null : 'needed',
+                name: (value: any) => value ? null : 'needed',
+            },
+            newClass: {
+                time: (value: any) => value ? null : 'needed',
+                name: (value: any) => value ? null : 'needed',
+            }
+        },
     });
 
     useEffect(() => {
-        if (!opened) return
-        setClassList(organizer.classes.map((x, index) => ({ ...x, id: index })))
+        if (opened) {
+            form.setValues({
+                classes: organizer.classes.map((x, index) => ({ ...x, id: index }))
+            })
+        } else {
+            form.reset()
+        }
     }, [opened, organizer]);
 
-    const handleSave = () => {
-        const newFormData = { ...organizer, classes: classList.map(({ id, ...c }) => c) }
-        onSave(newFormData);
-    };
+    const handleSave = async () => {
+        let classError;
+        form.values.classes.forEach((_, index) => {
+            const timeResult = form.validateField(`classes.${index}.time`)
+            const nameResult = form.validateField(`classes.${index}.name`)
 
-    const addClass = () => {
-        if (newClass.name && newClass.time) {
-            setClassList(prev => [...prev, { ...newClass, id: classList.length + 1 }])
-            setNewClass({
-                name: "",
-                level: "beginner",
-                weekday: "monday",
-                time: "",
-                type: "salsa",
-            });
-        }
-    };
-
-    const removeClass = (index: number) => {
-        setClassList(classList.filter((_, i) => i !== index))
-    };
-
-    const updateClass = (type: keyof ClassItem, value: string, index: number) => {
-        setClassList(prev => {
-            return prev.map((c, i) => {
-                if (i !== index) return c
-                c[type] = value
-                return c
-            })
+            if (timeResult.hasError || nameResult.hasError) {
+                classError = true
+            }
         })
-    }
+
+        if (classError) return
+
+        const newFormData = {
+            ...organizer,
+            classes: form.getValues().classes.map(({ id, ...rest }) => rest)
+        }
+
+        setButtonLoading(true)
+        await onSave(newFormData);
+        setButtonLoading(false)
+        onClose()
+    };
 
     return (
         <Modal
@@ -79,119 +96,111 @@ export default function EditOrganizerClassesDialog({
             opened={opened}
             onClose={onClose}
             centered
-            title={organizer?.name ? <>Edit <span className="font-bold">{organizer.name}</span></> : "New Organizer"}
+            title={<>編輯 <span className="font-bold">{organizer.name}</span> 課程</>}
         >
             <div >
-                <ReactSortable list={classList} setList={setClassList} handle='.handle'>
-                    {classList.map((danceClass, index) => (
+                <ReactSortable list={form.getValues().classes} setList={val => form.setFieldValue('classes', val)} handle='.handle'>
+                    {form.getValues().classes.map((danceClass: ClassItem, index) => (
                         <div key={danceClass.id} className="flex justify-between items-center gap-3 mb-2">
                             <div className="handle text-gray-300"><Menu /></div>
                             <Select
+                                allowDeselect={false}
                                 className="w-28"
                                 data={weekdays}
-                                value={danceClass.weekday}
-                                onChange={(value: any) => {
-                                    updateClass('weekday', value, index)
-                                }}
+                                {...form.getInputProps(`classes.${index}.weekday`)}
                             />
-                            <Input
-                                placeholder="e.g. 7:00 - 8:00 PM"
+                            <TextInput
+                                placeholder="7:00 - 8:00 PM"
                                 className="flex-1 w-full"
-                                value={danceClass.time}
-                                onChange={e =>
-                                    updateClass('time', e.target.value, index)
-                                }
+                                {...form.getInputProps(`classes.${index}.time`)}
                             />
-                            <Input
-                                placeholder="Class name"
+                            <TextInput
+                                placeholder="名稱"
                                 className="flex-1 w-full"
-                                value={danceClass.name}
-                                onChange={e => {
-                                    updateClass('name', e.target.value, index)
-                                }}
+                                {...form.getInputProps(`classes.${index}.name`)}
                             />
                             <Select
+                                allowDeselect={false}
                                 className="w-24"
                                 data={simpleDanceTypes}
-                                value={danceClass.type}
-                                onChange={(value: any) => {
-                                    updateClass('type', value, index)
-                                }}
+                                {...form.getInputProps(`classes.${index}.type`)}
                             />
                             <Select
+                                allowDeselect={false}
                                 className="w-28"
                                 data={danceLevel}
-                                value={danceClass.level}
-                                onChange={(value: any) => {
-                                    updateClass('level', value, index)
-                                }}
+                                {...form.getInputProps(`classes.${index}.level`)}
                             />
                             <Button
                                 variant="subtle"
                                 color="gray"
-                                onClick={() => removeClass(index)}
+                                onClick={() => form.removeListItem('classes', index)}
                             >
                                 <Trash className="h-4 w-4" />
                             </Button>
                         </div>
                     ))}
                 </ReactSortable>
-                <div className="text-sm font-bold mt-4 mb-2">Add Class</div>
+                <div className="text-sm font-bold mt-4 mb-2">新增課程</div>
                 <div className="flex justify-between items-center gap-3">
                     <Select
+                        allowDeselect={false}
                         className="w-28"
                         data={weekdays}
-                        value={newClass.weekday}
-                        onChange={(value: any) => {
-                            setNewClass({ ...newClass, weekday: value })
-                        }}
+                        key={form.key('newClass.weekday')}
+                        {...form.getInputProps('newClass.weekday')}
                     />
-                    <Input
-                        placeholder="e.g. 7:00 - 8:00 PM"
+                    <TextInput
+                        placeholder="7:00 - 8:00 PM"
                         className="flex-1 w-full"
-                        value={newClass.time}
-                        onChange={e =>
-                            setNewClass({ ...newClass, time: e.target.value })
-                        }
+                        key={form.key('newClass.time')}
+                        {...form.getInputProps('newClass.time')}
                     />
-                    <Input
-                        placeholder="Class name"
+                    <TextInput
+                        placeholder="名稱"
                         className="flex-1 w-full"
-                        value={newClass.name}
-                        onChange={e => {
-                            setNewClass({ ...newClass, name: e.target.value })
-                        }}
+                        key={form.key('newClass.name')}
+                        {...form.getInputProps('newClass.name')}
                     />
                     <Select
+                        allowDeselect={false}
                         className="w-24"
                         data={simpleDanceTypes}
-                        value={newClass.type}
-                        onChange={(value: any) => {
-                            setNewClass({ ...newClass, type: value })
-                        }}
+                        key={form.key('newClass.type')}
+                        {...form.getInputProps('newClass.type')}
                     />
                     <Select
+                        allowDeselect={false}
                         className="w-28"
                         data={danceLevel}
-                        value={newClass.level}
-                        onChange={(value: any) => {
-                            setNewClass({ ...newClass, level: value })
-                        }}
+                        key={form.key('newClass.level')}
+                        {...form.getInputProps('newClass.level')}
                     />
                     <Button
-                        variant="secondary"
-                        onClick={addClass}
-                        className="w-full"
+                        variant="light"
+                        onClick={() => {
+                            const newClassTimeResult = form.validateField('newClass.time')
+                            const newClassNameResult = form.validateField('newClass.name')
+                            if (newClassTimeResult.hasError || newClassNameResult.hasError) {
+                                return
+                            }
+                            form.insertListItem('classes', form.getValues().newClass)
+                            form.setFieldValue('newClass.weekday', 'monday')
+                            form.setFieldValue('newClass.time', '')
+                            form.setFieldValue('newClass.name', '')
+                            form.setFieldValue('newClass.type', 'salsa')
+                            form.setFieldValue('newClass.level', 'beginner')
+                        }}
                     >
                         <Plus className="h-4 w-4" />
                     </Button>
                 </div>
-                <div className="flex justify-end items-center mt-4">
+                <div className="flex justify-end items-center mt-3">
                     <div className="w-1/2 flex gap-3">
                         <Button fullWidth variant="outline" onClick={onClose}>
                             取消
                         </Button>
-                        <Button fullWidth onClick={handleSave}>儲存</Button>
+                        <Button fullWidth onClick={handleSave} loading={buttonLoading}>儲存</Button>
                     </div>
                 </div>
             </div>

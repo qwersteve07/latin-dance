@@ -1,17 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Plus, ImagePlus, Trash, Check } from "lucide-react";
+import { Plus, ImagePlus, Trash } from "lucide-react";
 import {
-    Link,
     LinkType,
     Organizer,
-    Related,
 } from "@/types/organizer";
-import { FileButton, Button, Group, Input, Modal, Select, Textarea } from "@mantine/core";
+import { FileButton, Button, Group, Input, Modal, Select, Textarea, TextInput } from "@mantine/core";
 import { LinkIcon } from "./OrganizerDetail";
 import NextImage from "next/image";
 import { v4 as uuidv4 } from 'uuid';
+import { useForm } from "@mantine/form";
+import { isValidUrl } from "@/utils/validate";
 
 interface EditOrganizerInfoModalProps {
     organizer: Organizer,
@@ -29,14 +29,6 @@ const linkList = [
     { value: 'location', label: 'location' },
 ]
 
-const emptyRelatedInfo = {
-    id: '',
-    name: "",
-    thumbnail: "",
-    content: "",
-    links: [],
-}
-
 export default function EditOrganizerInfoDialog({
     organizer,
     relatedId,
@@ -44,73 +36,106 @@ export default function EditOrganizerInfoDialog({
     onClose,
     onSave,
 }: EditOrganizerInfoModalProps) {
-    const [relatedInfo, setRelatedInfo] = useState<Related>(emptyRelatedInfo)
-    const [newLink, setNewLink] = useState<Link>({ type: "instagram", url: "" });
+    const [buttonLoading, setButtonLoading] = useState<boolean>(false)
+    const [showDeleteButton, setShowDeleteButton] = useState<boolean>(false)
+
+    const form = useForm({
+        mode: 'uncontrolled',
+        initialValues: {
+            id: uuidv4(),
+            name: '',
+            thumbnail: '',
+            content: '',
+            links: [],
+            newLinkType: 'instagram',
+            newLinkUrl: '',
+        },
+        validate: {
+            name: (value) => value ? null : 'needed',
+            content: (value) => value ? null : 'needed',
+            links: {
+                url: (value: any) => isValidUrl(value) ? null : 'Not a valid url',
+            },
+            newLinkType: (value) => value ? null : 'needed',
+            newLinkUrl: (value) => isValidUrl(value) ? null : 'Not a valid url',
+        },
+    });
 
     useEffect(() => {
-        if (!opened) return
-        const targetRelated = organizer.related.find(x => x.id === relatedId)
-        if (targetRelated) {
-            setRelatedInfo(targetRelated)
+        if (opened) {
+            const targetRelated = organizer.related.find(x => x.id === relatedId)
+            if (targetRelated) {
+                form.setValues({
+                    id: targetRelated.id,
+                    name: targetRelated.name,
+                    thumbnail: targetRelated.thumbnail,
+                    content: targetRelated.content,
+                    links: [...targetRelated.links],
+                })
+                setShowDeleteButton(true)
+            }
         } else {
-            setRelatedInfo({ ...emptyRelatedInfo, id: uuidv4() })
+            form.reset();
         }
-    }, [opened, organizer, relatedId]);
+    }, [opened, relatedId])
 
-    const handleSave = () => {
-        const targetRelated = organizer.related.find(x => x.id === relatedId)
+
+    const handleSubmit = async () => {
+        const { hasError: nameError } = form.validateField('name')
+        const { hasError: contentError } = form.validateField('content')
+        let linksError;
+        form.values.links.forEach((_, index) => {
+            const urlResult = form.validateField(`links.${index}.url`)
+
+            if (urlResult.hasError) {
+                linksError = true
+            }
+        })
+
+        if (nameError || contentError || linksError) return
+
         let newFormData;
-        if (targetRelated) {
+        const newRelated = {
+            id: form.getValues().id,
+            thumbnail: form.getValues().thumbnail,
+            name: form.getValues().name,
+            content: form.getValues().content,
+            links: form.getValues().links
+        }
+        if (relatedId) {
             newFormData = {
                 ...organizer, related: organizer.related.map(r => {
-                    if (r.id === relatedId) return relatedInfo
+                    if (r.id === relatedId) return newRelated
                     return r
                 })
             }
         } else {
             newFormData = {
-                ...organizer, related: organizer.related.concat(relatedInfo)
+                ...organizer, related: organizer.related.concat(newRelated)
             }
         }
 
-        onSave(newFormData);
+        setButtonLoading(true)
+        await onSave(newFormData);
+        setButtonLoading(false)
+        onClose()
     };
 
-    const addLink = () => {
-        if (newLink.url) {
-            setRelatedInfo({
-                ...relatedInfo,
-                links: [...relatedInfo.links, newLink],
-            });
-            setNewLink({ type: "instagram", url: "" });
+    const handleDelete = async () => {
+        const newFormData = {
+            ...organizer, related: organizer.related.filter(r => r.id !== relatedId)
         }
-    };
 
-    const updateLink = (value: string, index: number) => {
-        const tempLinks = relatedInfo.links
-        const targetLinks = tempLinks[index]
-        targetLinks.url = value
-        tempLinks.splice(index, 1, targetLinks)
-        setRelatedInfo((value: Related) => {
-            return {
-                ...value,
-                links: tempLinks
-            }
-        })
+        setButtonLoading(true)
+        await onSave(newFormData);
+        setButtonLoading(false)
+        onClose()
     }
 
-    const removeLink = (index: number) => {
-        setRelatedInfo({
-            ...relatedInfo,
-            links: relatedInfo.links.filter((_, i) => i !== index),
-        });
-    };
-
-    const renderSelectOption: any = ({ option, checked }: { option: { value: LinkType, label: string }, checked: boolean }) => (
+    const renderSelectOption: any = ({ option }: { option: { value: LinkType, label: string } }) => (
         <Group flex="1" gap="xs">
             <LinkIcon type={option.value} />
             {option.label}
-            {checked && <Check style={{ marginInlineStart: 'auto' }} />}
         </Group>
     );
 
@@ -146,9 +171,8 @@ export default function EditOrganizerInfoDialog({
             );
 
             const result = canvas.toDataURL("image/png");
-            setRelatedInfo({ ...relatedInfo, thumbnail: result })
+            form.setFieldValue('thumbnail', result)
         };
-
     }
 
     return (
@@ -157,58 +181,61 @@ export default function EditOrganizerInfoDialog({
             opened={opened}
             onClose={onClose}
             centered
-            title={relatedInfo?.name ? <>Edit <span className="font-bold">{relatedInfo.name}</span></> : "New Organizer"}
+            title={relatedId ? <>編輯 <span className="font-bold">{form.values.name}</span></> : "新增關聯"}
         >
-            <div className="space-y-3">
+            <form className="space-y-3">
                 <div className="flex justify-start items-center gap-3">
                     <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-secondary group border border-gray-200">
                         <FileButton accept="image/png,image/jpeg" onChange={uploadImage}>
                             {(props) => <div {...props} className="h-full w-full bg-slate-500/60 absolute z-10 flex justify-center items-center group-hover:opacity-100 opacity-0 cursor-pointer"><ImagePlus /></div>}
                         </FileButton>
+                        <TextInput
+                            className="hidden"
+                            key={form.key('thumbnail')}
+                            {...form.getInputProps('thumbnail')}
+                        />
                         <NextImage
-                            src={relatedInfo.thumbnail}
-                            alt={relatedInfo.name}
+                            src={form.getValues().thumbnail}
+                            alt={form.getValues().thumbnail}
                             fill
                             className="object-cover "
                         />
                     </div>
                     <div className="flex flex-col gap-1 flex-1">
-                        <Input.Label>Name</Input.Label>
-                        <Input
-                            id="name"
-                            value={relatedInfo.name}
-                            onChange={e => setRelatedInfo({ ...relatedInfo, name: e.target.value })}
-                            placeholder="Organizer name"
+                        <TextInput
+                            withAsterisk
+                            label="名稱"
+                            key={form.key('name')}
+                            {...form.getInputProps('name')}
                         />
                     </div>
                 </div>
                 <div className="flex flex-col gap-1">
-                    <Input.Label>Description</Input.Label>
                     <Textarea
-                        id="content"
-                        value={relatedInfo.content}
-                        onChange={e => setRelatedInfo({ ...relatedInfo, content: e.target.value })}
-                        placeholder="Brief description about the organizer"
+                        withAsterisk
+                        label="描述"
+                        placeholder="關於此關聯的描述"
                         rows={5}
+                        key={form.key('content')}
+                        {...form.getInputProps('content')}
                     />
                 </div>
                 <div className="flex flex-col gap-1">
-                    <Input.Label className="font-bold">Links</Input.Label>
-                    {relatedInfo.links?.map((link, index) => (
+                    <Input.Label className="font-bold">連結</Input.Label>
+                    {form.getValues().links.map((link, index) => (
                         <div key={index} className="flex items-center gap-2">
                             <div className="flex h-9 w-9 items-center justify-center rounded-md">
                                 <LinkIcon type={link.type} className="text-gray-500" />
                             </div>
-                            <Input
+                            <TextInput
                                 placeholder="URL"
-                                value={link.url}
-                                onChange={e => updateLink(e.target.value, index)}
                                 className="flex-1"
+                                {...form.getInputProps(`links.${index}.url`)}
                             />
                             <Button
                                 variant="subtle"
                                 color="gray"
-                                onClick={() => removeLink(index)}
+                                onClick={() => form.removeListItem('links', index)}
                             >
                                 <Trash className="h-4 w-4" />
                             </Button>
@@ -216,34 +243,53 @@ export default function EditOrganizerInfoDialog({
                     ))}
                     <div className="flex gap-2 mt-2">
                         <Select
-                            className="w-40"
+                            allowDeselect={false}
+                            className="w-32"
                             data={linkList}
-                            value={newLink.type}
                             renderOption={renderSelectOption}
-                            onChange={(value: any) => {
-                                setNewLink({ ...newLink, type: value })
-                            }}
+                            key={form.key('newLinkType')}
+                            {...form.getInputProps('newLinkType')}
                         />
-                        <Input
+                        <TextInput
                             placeholder="URL"
-                            value={newLink.url}
-                            onChange={e => setNewLink({ ...newLink, url: e.target.value })}
                             className="flex-1"
+                            key={form.key('newLinkUrl')}
+                            {...form.getInputProps('newLinkUrl')}
                         />
-                        <Button onClick={addLink}>
+                        <Button
+                            variant="light"
+                            onClick={() => {
+                                const newLinkTypeResult = form.validateField('newLinkType')
+                                const newLinkUrlResult = form.validateField('newLinkUrl')
+                                if (newLinkTypeResult.hasError || newLinkUrlResult.hasError) {
+                                    return
+                                }
+                                const type = form.getValues().newLinkType
+                                const url = form.getValues().newLinkUrl
+                                form.insertListItem('links', { type, url })
+                                form.setFieldValue('newLinkType', 'instagram')
+                                form.setFieldValue('newLinkUrl', '')
+                            }}
+                        >
                             <Plus className="h-4 w-4" />
                         </Button>
                     </div>
                 </div>
-                <div className="flex justify-end items-center mt-4">
+                <div className="flex justify-between items-center">
+                    {showDeleteButton ?
+                        <Button variant="subtle" onClick={handleDelete}>
+                            移除
+                        </Button> :
+                        <div></div>
+                    }
                     <div className="w-1/2 flex gap-3">
                         <Button fullWidth variant="outline" onClick={onClose}>
                             取消
                         </Button>
-                        <Button fullWidth onClick={handleSave}>儲存</Button>
+                        <Button fullWidth onClick={handleSubmit} loading={buttonLoading}>儲存</Button>
                     </div>
                 </div>
-            </div>
-        </Modal>
+            </form>
+        </Modal >
     );
 }

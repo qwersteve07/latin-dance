@@ -7,6 +7,7 @@ import { ClassLevelBadge } from "./classLevelBadge"
 import DanceTypeCube from "./danceTypeCube"
 import { DanceType } from "@/types/danceTypes"
 import { Button } from "@mantine/core"
+import { useUser } from "@/use/use-user"
 
 const weekdayDays: Weekday[] = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
@@ -47,6 +48,11 @@ export function LinkIcon({ type, className }: { type: LinkType, className?: stri
 }
 
 export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
+    const { isSU, userRole, isLogin } = useUser()
+    const isUserEvent = () => {
+        if (isSU(userRole)) return true
+        return userRole === organizer?.id
+    }
 
     if (!organizer || Object.entries(organizer).length === 0) return
 
@@ -91,10 +97,11 @@ export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
                             )}
                         </div>
                     </div>
-                    <Button size="xs" onClick={() => onEdit('info')} className="shrink-0">
-                        <Pencil className="h-4 w-4 mr-1.5" />
-                        Edit
-                    </Button>
+                    {isLogin && isUserEvent() &&
+                        (<Button size="xs" onClick={() => onEdit('info')} className="shrink-0">
+                            <Pencil className="h-4 w-4 mr-1.5" />
+                            編輯
+                        </Button>)}
                 </div>
                 {organizer.content && (
                     <div className="text-text-main leading-relaxed text-sm">
@@ -116,10 +123,11 @@ export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
                             <Footprints className="h-5 w-5" />
                             課程總覽
                         </div>
-                        <Button size="xs" onClick={() => onEdit('classes')} className="shrink-0">
-                            <Pencil className="h-4 w-4 mr-1.5" />
-                            Edit
-                        </Button>
+                        {isLogin && isUserEvent() &&
+                            (<Button size="xs" onClick={() => onEdit('classes')} className="shrink-0">
+                                <Pencil className="h-4 w-4 mr-1.5" />
+                                編輯
+                            </Button>)}
                     </h3>
                     <div className="space-y-2">
                         {sortClassesByWeekday(organizer.classes).map((danceClass: [Weekday, any]) => (
@@ -155,12 +163,13 @@ export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
                     </div>
                 </div >
             ) : (
-                <div className="flex justify-end">
+                isLogin && isUserEvent() &&
+                (<div className="flex justify-end">
                     <Button size="xs" onClick={() => onEdit('classes')} className="shrink-0">
                         <Pencil className="h-4 w-4 mr-1.5" />
-                        Add Classes
+                        新增課程
                     </Button>
-                </div>
+                </div>)
             )
             }
 
@@ -175,10 +184,11 @@ export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
                                         <Heart className="h-5 w-5" />
                                         {related.name}
                                     </div>
-                                    <Button size="xs" onClick={() => onEdit('related', related.id)} className="shrink-0">
-                                        <Pencil className="h-4 w-4 mr-1.5" />
-                                        Edit
-                                    </Button>
+                                    {isLogin && isUserEvent() && (
+                                        <Button size="xs" onClick={() => onEdit('related', related.id)} className="shrink-0">
+                                            <Pencil className="h-4 w-4 mr-1.5" />
+                                            編輯
+                                        </Button>)}
                                 </h3>
                                 <div className="md:flex items-start gap-4">
                                     <div className="relative h-20 w-20 overflow-hidden rounded-lg bg-secondary">
@@ -214,14 +224,14 @@ export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
                                             )}
                                         </div>
                                         {related.content && (
-                                            <p className="text-muted-foreground leading-relaxed text-sm">
+                                            <div className="leading-relaxed text-sm">
                                                 {related.content.split("\n").map(x => (
                                                     <p key={x} className="mb-2">
                                                         {x}
                                                         <br />
                                                     </p>
                                                 ))}
-                                            </p>
+                                            </div>
                                         )}
                                     </div>
                                 </div>
@@ -231,12 +241,14 @@ export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
 
                 )
             }
-            <div className="flex justify-end">
-                <Button size="xs" onClick={() => onEdit('related')} className="shrink-0">
-                    <Pencil className="h-4 w-4 mr-1.5" />
-                    Add Related
-                </Button>
-            </div>
+            {isLogin && isUserEvent() &&
+                (<div className="flex justify-end">
+                    <Button size="xs" onClick={() => onEdit('related')} className="shrink-0">
+                        <Pencil className="h-4 w-4 mr-1.5" />
+                        新增關聯
+                    </Button>
+                </div>)
+            }
         </div >
     )
 }
