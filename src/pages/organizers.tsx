@@ -15,7 +15,7 @@ import { OrganizerCard } from "@/components/organizerCard";
 import { OrganizerDetail } from "@/components/OrganizerDetail";
 import EditOrganizerInfoModal from '@/components/EditOrganizerInfoModal'
 // import EditOrganizerClassesModal from '@/components/EditOrganizerClassesModal'
-// import EditOrganizerRelatedModal from '@/components/EditOrganizerRelatedModal'
+import EditOrganizerRelatedModal from '@/components/EditOrganizerRelatedModal'
 import { fetcher } from "@/utils/fetcher";
 
 export default function Organizers() {
@@ -23,11 +23,11 @@ export default function Organizers() {
   const [organizerModalOpened, { open: openOrganizerModal, close: closeOrganizerModal }] = useDisclosure(false);
   const [editInfoModalOpened, { open: openEditInfoModal, close: closeEditInfoModal }] = useDisclosure(false);
   // const [editClassesModalOpened, { open: openEditClassesModal, close: closeEditClassesModal }] = useDisclosure(false);
-  // const [editRelatedModalOpened, { open: openEditRelatedModal, close: closeEditRelatedModal }] = useDisclosure(false);
+  const [editRelatedModalOpened, { open: openEditRelatedModal, close: closeEditRelatedModal }] = useDisclosure(false);
   const [currentOrganizerList, setCurrentOrganizerList] = useState<Organizer[]>([])
   const [selectedOrganizer, setSelectedOrganizer] = useState<Organizer | null>(null);
   const [editingOrganizer, setEditingOrganizer] = useState<Organizer>({} as any);
-  // const [editingRelatedId, setEditingRelatedId] = useState<string>()
+  const [editingRelatedId, setEditingRelatedId] = useState<string>()
   const { t } = useTranslation('common')
   const appState = useAppState()
 
@@ -76,9 +76,8 @@ export default function Organizers() {
       // case 'classes':
       //   return openEditClassesModal()
       case 'related':
-        console.log(relatedId)
-      //   setEditingRelatedId(relatedId)
-      //   return openEditRelatedModal()
+        setEditingRelatedId(relatedId)
+        return openEditRelatedModal()
     }
   }
 
@@ -128,14 +127,14 @@ export default function Organizers() {
         opened={editClassesModalOpened}
         onClose={closeEditClassesModal}
         onSave={handleEditModalSave}
-      />
+      />*/}
       <EditOrganizerRelatedModal
         organizer={editingOrganizer}
         relatedId={editingRelatedId}
         opened={editRelatedModalOpened}
         onClose={closeEditRelatedModal}
         onSave={handleEditModalSave}
-      /> */}
+      />
       {isMobile && (
         <MobileStudios
           organizerList={currentOrganizerList}
@@ -145,7 +144,7 @@ export default function Organizers() {
           }} />
       )}
       {!isMobile && selectedOrganizer && (
-        <DesktopStudios organizerList={currentOrganizerList} selectedOrganizer={selectedOrganizer} setSelectedOrganizer={setSelectedOrganizer} handleEdit={() => { }} />
+        <DesktopStudios organizerList={currentOrganizerList} selectedOrganizer={selectedOrganizer} setSelectedOrganizer={setSelectedOrganizer} handleEdit={handleEdit} />
       )}
     </>
   );
