@@ -72,9 +72,8 @@ export default function EditOrganizerInfoDialog({
         const { hasError: nameError } = form.validateField('name')
         const { hasError: contentError } = form.validateField('content')
         let linksError;
-        form.values.links.forEach((_, index) => {
+        form.getValues().links.forEach((_, index) => {
             const urlResult = form.validateField(`links.${index}.url`)
-
             if (urlResult.hasError) {
                 linksError = true
             }
@@ -159,12 +158,14 @@ export default function EditOrganizerInfoDialog({
                             key={form.key('thumbnail')}
                             {...form.getInputProps('thumbnail')}
                         />
-                        <NextImage
-                            src={form.getValues().thumbnail}
-                            alt={form.getValues().thumbnail}
-                            fill
-                            className="object-cover "
-                        />
+                        {form.getValues().thumbnail && (
+                            <NextImage
+                                src={form.getValues().thumbnail}
+                                alt={form.getValues().thumbnail}
+                                fill
+                                className="object-cover "
+                            />
+                        )}
                     </div>
                     <div className="flex flex-col gap-1 flex-1">
                         <TextInput

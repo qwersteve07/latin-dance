@@ -194,12 +194,14 @@ export default function EditOrganizerInfoDialog({
                             key={form.key('thumbnail')}
                             {...form.getInputProps('thumbnail')}
                         />
-                        <NextImage
-                            src={form.getValues().thumbnail}
-                            alt={form.getValues().thumbnail}
-                            fill
-                            className="object-cover "
-                        />
+                        {form.getValues().thumbnail && (
+                            <NextImage
+                                src={form.getValues().thumbnail}
+                                alt={form.getValues().thumbnail}
+                                fill
+                                className="object-cover "
+                            />
+                        )}
                     </div>
                     <div className="flex flex-col gap-1 flex-1">
                         <TextInput
