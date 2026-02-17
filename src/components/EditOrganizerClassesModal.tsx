@@ -8,7 +8,7 @@ import {
 } from "@/types/organizer";
 import { Button, Modal, Select, TextInput, } from "@mantine/core";
 import { danceLevel, simpleDanceTypes, weekdays } from "@/const/dance";
-// import { ReactSortable } from "react-sortablejs";
+import { ReactSortable } from "react-sortablejs";
 import { useForm } from "@mantine/form";
 
 interface EditOrganizerDialogProps {
@@ -102,48 +102,48 @@ export default function EditOrganizerClassesDialog({
             title={<>編輯 <span className="font-bold">{organizer.name}</span> 課程</>}
         >
             <div >
-                {/* <ReactSortable list={form.getValues().classes} setList={val => form.setFieldValue('classes', val)} handle='.handle'> */}
-                {form.getValues().classes.map((danceClass: ClassItem, index) => (
-                    <div key={danceClass.id} className="flex justify-between items-center gap-3 mb-2">
-                        <div className="handle text-gray-300"><Menu /></div>
-                        <Select
-                            allowDeselect={false}
-                            className="w-28"
-                            data={weekdays}
-                            {...form.getInputProps(`classes.${index}.weekday`)}
-                        />
-                        <TextInput
-                            placeholder="7:00 - 8:00 PM"
-                            className="flex-1 w-full"
-                            {...form.getInputProps(`classes.${index}.time`)}
-                        />
-                        <TextInput
-                            placeholder="名稱"
-                            className="flex-1 w-full"
-                            {...form.getInputProps(`classes.${index}.name`)}
-                        />
-                        <Select
-                            allowDeselect={false}
-                            className="w-24"
-                            data={simpleDanceTypes}
-                            {...form.getInputProps(`classes.${index}.type`)}
-                        />
-                        <Select
-                            allowDeselect={false}
-                            className="w-28"
-                            data={danceLevel}
-                            {...form.getInputProps(`classes.${index}.level`)}
-                        />
-                        <Button
-                            variant="subtle"
-                            color="gray"
-                            onClick={() => form.removeListItem('classes', index)}
-                        >
-                            <Trash className="h-4 w-4" />
-                        </Button>
-                    </div>
-                ))}
-                {/* </ReactSortable> */}
+                <ReactSortable list={form.getValues().classes} setList={val => form.setFieldValue('classes', val)} handle='.handle'>
+                    {form.getValues().classes.map((danceClass: ClassItem, index) => (
+                        <div key={danceClass.id} className="flex justify-between items-center gap-3 mb-2">
+                            <div className="handle text-gray-300"><Menu /></div>
+                            <Select
+                                allowDeselect={false}
+                                className="w-28"
+                                data={weekdays}
+                                {...form.getInputProps(`classes.${index}.weekday`)}
+                            />
+                            <TextInput
+                                placeholder="7:00 - 8:00 PM"
+                                className="flex-1 w-full"
+                                {...form.getInputProps(`classes.${index}.time`)}
+                            />
+                            <TextInput
+                                placeholder="名稱"
+                                className="flex-1 w-full"
+                                {...form.getInputProps(`classes.${index}.name`)}
+                            />
+                            <Select
+                                allowDeselect={false}
+                                className="w-24"
+                                data={simpleDanceTypes}
+                                {...form.getInputProps(`classes.${index}.type`)}
+                            />
+                            <Select
+                                allowDeselect={false}
+                                className="w-28"
+                                data={danceLevel}
+                                {...form.getInputProps(`classes.${index}.level`)}
+                            />
+                            <Button
+                                variant="subtle"
+                                color="gray"
+                                onClick={() => form.removeListItem('classes', index)}
+                            >
+                                <Trash className="h-4 w-4" />
+                            </Button>
+                        </div>
+                    ))}
+                </ReactSortable>
                 <div className="text-sm font-bold mt-4 mb-2">新增課程</div>
                 <div className="flex justify-between items-center gap-3">
                     <Select
