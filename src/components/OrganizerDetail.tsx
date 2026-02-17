@@ -1,11 +1,13 @@
 "use client"
 
 import Image from "next/image"
-import { Instagram, Facebook, Youtube, Globe, MapPin, Footprints, Heart } from "lucide-react"
+import { Instagram, Facebook, Youtube, Globe, MapPin, Footprints, Heart, Pencil } from "lucide-react"
 import { DanceClass, Link, LinkType, Organizer, Related, Weekday } from "@/types/organizer"
 import { ClassLevelBadge } from "./classLevelBadge"
 import DanceTypeCube from "./danceTypeCube"
 import { DanceType } from "@/types/danceTypes"
+import { Button } from "@mantine/core"
+import { useUser } from "@/use/use-user"
 
 const weekdayDays: Weekday[] = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
@@ -27,25 +29,30 @@ function sortClassesByWeekday(classes: DanceClass[]): any {
 
 interface OrganizerDetailProps {
     organizer: Organizer | null
-    onEdit?: () => void
+    onEdit: (editType: string, relatedId?: string) => void
 }
 
-export function LinkIcon({ type }: { type: LinkType }) {
+export function LinkIcon({ type, className }: { type: LinkType, className?: string }) {
     switch (type) {
         case "instagram":
-            return <Instagram className='h-4 w-4' />
+            return <Instagram className={`h-4 w-4 ${className}`} />
         case "facebook":
-            return <Facebook className='h-4 w-4' />
+            return <Facebook className={`h-4 w-4 ${className}`} />
         case "youtube":
-            return <Youtube className='h-4 w-4' />
+            return <Youtube className={`h-4 w-4 ${className}`} />
         case "location":
-            return <MapPin className='h-4 w-4' />
+            return <MapPin className={`h-4 w-4 ${className}`} />
         default:
-            return <Globe className='h-4 w-4' />
+            return <Globe className={`h-4 w-4 ${className}`} />
     }
 }
 
-export function OrganizerDetail({ organizer }: OrganizerDetailProps) {
+export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
+    const { isSU, userRole, isLogin } = useUser()
+    const isUserEvent = () => {
+        if (isSU(userRole)) return true
+        return userRole === organizer?.id
+    }
 
     if (!organizer || Object.entries(organizer).length === 0) return
 
@@ -90,10 +97,11 @@ export function OrganizerDetail({ organizer }: OrganizerDetailProps) {
                             )}
                         </div>
                     </div>
-                    {/* <Button variant="secondary" size="sm" onClick={onEdit} className="shrink-0">
-                        <Pencil className="h-4 w-4 mr-1.5" />
-                        Edit
-                    </Button> */}
+                    {isLogin && isUserEvent() &&
+                        (<Button size="xs" onClick={() => onEdit('info')} className="shrink-0">
+                            <Pencil className="h-4 w-4 mr-1.5" />
+                            編輯
+                        </Button>)}
                 </div>
                 {organizer.content && (
                     <div className="text-text-main leading-relaxed text-sm">
@@ -108,11 +116,18 @@ export function OrganizerDetail({ organizer }: OrganizerDetailProps) {
             </div>
 
             {/* Classes */}
-            {organizer.classes && organizer.classes?.length > 0 && (
+            {organizer.classes && organizer.classes?.length > 0 ? (
                 <div className="rounded-lg border border-border-third p-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                        <Footprints className="h-5 w-5" />
-                        課程總覽
+                    <h3 className="text-xl font-semibold  mb-4 flex justify-between items-center">
+                        <div className="flex items-center gap-2">
+                            <Footprints className="h-5 w-5" />
+                            課程總覽
+                        </div>
+                        {isLogin && isUserEvent() &&
+                            (<Button size="xs" onClick={() => onEdit('classes')} className="shrink-0">
+                                <Pencil className="h-4 w-4 mr-1.5" />
+                                編輯
+                            </Button>)}
                     </h3>
                     <div className="space-y-2">
                         {sortClassesByWeekday(organizer.classes).map((danceClass: [Weekday, any]) => (
@@ -146,68 +161,94 @@ export function OrganizerDetail({ organizer }: OrganizerDetailProps) {
                             </div>
                         ))}
                     </div>
-                </div>
-            )}
+                </div >
+            ) : (
+                isLogin && isUserEvent() &&
+                (<div className="flex justify-end">
+                    <Button size="xs" onClick={() => onEdit('classes')} className="shrink-0">
+                        <Pencil className="h-4 w-4 mr-1.5" />
+                        新增課程
+                    </Button>
+                </div>)
+            )
+            }
 
             {/* Dance Team */}
-            {organizer.related?.length !== 0 && (
-                organizer.related?.map((related: Related, index: number) => {
-                    return (
-                        <div className="rounded-lg border border-border-third p-6" key={index}>
-                            <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                                <Heart className="h-5 w-5" />
-                                {related.name}
-                            </h3>
-                            <div className="md:flex items-start gap-4">
-                                <div className="relative h-20 w-20 overflow-hidden rounded-lg bg-secondary">
-                                    {related.thumbnail ? (
-                                        <Image
-                                            src={related.thumbnail}
-                                            alt={related.name}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    ) : (
-                                        <div className="flex h-full w-full items-center justify-center text-2xl font-semibold text-text-main">
-                                            {related.name.charAt(0).toUpperCase()}
+            {
+                organizer.related?.length !== 0 && (
+                    organizer.related?.map((related: Related, index: number) => {
+                        return (
+                            <div className="rounded-lg border border-border-third p-6" key={index}>
+                                <h3 className="text-xl font-semibold  mb-4 flex justify-between items-center">
+                                    <div className="flex items-center gap-2">
+                                        <Heart className="h-5 w-5" />
+                                        {related.name}
+                                    </div>
+                                    {isLogin && isUserEvent() && (
+                                        <Button size="xs" onClick={() => onEdit('related', related.id)} className="shrink-0">
+                                            <Pencil className="h-4 w-4 mr-1.5" />
+                                            編輯
+                                        </Button>)}
+                                </h3>
+                                <div className="md:flex items-start gap-4">
+                                    <div className="relative h-20 w-20 overflow-hidden rounded-lg bg-secondary">
+                                        {related.thumbnail ? (
+                                            <Image
+                                                src={related.thumbnail}
+                                                alt={related.name}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        ) : (
+                                            <div className="flex h-full w-full items-center justify-center text-2xl font-semibold text-text-main">
+                                                {related.name.charAt(0).toUpperCase()}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex items-center justify-between gap-2">
+                                            {related.links?.length > 0 && (
+                                                <div className="flex flex-wrap gap-1.5 mb-2 max-md:mt-2">
+                                                    {related.links.map((link, index) => (
+                                                        <a
+                                                            key={index}
+                                                            href={link.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex justify-center items-center rounded-md bg-bg-sub h-8 w-8 text-xs text-gray-500 transition-colors hover:text-red-500 hover:bg-background-third"
+                                                        >
+                                                            <LinkIcon type={link.type} />
+                                                        </a>
+                                                    ))}
+                                                </div>
+                                            )}
                                         </div>
-                                    )}
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex items-center justify-between gap-2">
-                                        {related.links?.length > 0 && (
-                                            <div className="flex flex-wrap gap-1.5 mb-2 max-md:mt-2">
-                                                {related.links.map((link, index) => (
-                                                    <a
-                                                        key={index}
-                                                        href={link.url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="inline-flex justify-center items-center rounded-md bg-bg-sub h-8 w-8 text-xs text-gray-500 transition-colors hover:text-red-500 hover:bg-background-third"
-                                                    >
-                                                        <LinkIcon type={link.type} />
-                                                    </a>
+                                        {related.content && (
+                                            <div className="leading-relaxed text-sm">
+                                                {related.content.split("\n").map(x => (
+                                                    <p key={x} className="mb-2">
+                                                        {x}
+                                                        <br />
+                                                    </p>
                                                 ))}
                                             </div>
                                         )}
                                     </div>
-                                    {related.content && (
-                                        <div className="text-text-main leading-relaxed text-sm">
-                                            {related.content.split("\n").map(x => (
-                                                <p key={x} className="mb-2">
-                                                    {x}
-                                                    <br />
-                                                </p>
-                                            ))}
-                                        </div>
-                                    )}
                                 </div>
                             </div>
-                        </div>
-                    )
-                })
+                        )
+                    })
 
-            )}
-        </div>
+                )
+            }
+            {isLogin && isUserEvent() &&
+                (<div className="flex justify-end">
+                    <Button size="xs" onClick={() => onEdit('related')} className="shrink-0">
+                        <Pencil className="h-4 w-4 mr-1.5" />
+                        新增關聯
+                    </Button>
+                </div>)
+            }
+        </div >
     )
 }
