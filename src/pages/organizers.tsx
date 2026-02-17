@@ -10,63 +10,84 @@ import { NextSeo } from "next-seo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { southTaiwanCities } from "@/const/cities";
-import { useRouter } from "next/router";
-import { organizerList, useAppState } from "@/store/appState";
+import { useAppState } from "@/store/appState";
 import { OrganizerCard } from "@/components/organizerCard";
 import { OrganizerDetail } from "@/components/OrganizerDetail";
+import EditOrganizerInfoModal from '@/components/EditOrganizerInfoModal'
+import EditOrganizerClassesModal from '@/components/EditOrganizerClassesModal'
+import EditOrganizerRelatedModal from '@/components/EditOrganizerRelatedModal'
+import { fetcher } from "@/utils/fetcher";
 
 export default function Organizers() {
-  const appStore = useAppStore();
-  const [opened, { open, close }] = useDisclosure(false);
-  const [editingOrganizer, setEditingOrganizer] = useState<Organizer>(
-    {} as any
-  );
-  const [activeOrganizerList, setActiveOrganizerList] = useState(
-    organizerList.filter(t => !t.hide)
-  );
-  const [selectedOrganizer, setSelectedOrganizer] = useState<Organizer | null>(
-    null
-  );
-  const { t } = useTranslation("common");
-  const router = useRouter();
-  const appState = useAppState();
-  console.log(editingOrganizer);
+  const appStore = useAppStore()
+  const [organizerModalOpened, { open: openOrganizerModal, close: closeOrganizerModal }] = useDisclosure(false);
+  const [editInfoModalOpened, { open: openEditInfoModal, close: closeEditInfoModal }] = useDisclosure(false);
+  const [editClassesModalOpened, { open: openEditClassesModal, close: closeEditClassesModal }] = useDisclosure(false);
+  const [editRelatedModalOpened, { open: openEditRelatedModal, close: closeEditRelatedModal }] = useDisclosure(false);
+  const [currentOrganizerList, setCurrentOrganizerList] = useState<Organizer[]>([])
+  const [selectedOrganizer, setSelectedOrganizer] = useState<Organizer | null>(null);
+  const [editingOrganizer, setEditingOrganizer] = useState<Organizer>({} as any);
+  const [editingRelatedId, setEditingRelatedId] = useState<string>()
+  const { t } = useTranslation('common')
+  const appState = useAppState()
+
   const isMobile = useMedia("(max-width: 768px)");
 
   useEffect(() => {
     if (!appStore.currentCity) return;
+    if (!appState.organizerLoaded) return
 
-    const filteredOrganizersList = organizerList
-      .filter(t => !t.hide)
-      .filter(o => {
-        if (appStore.currentCity === "south-taiwan") {
-          return southTaiwanCities.includes(o.city);
+    const result = getFilteredOrganizersList()
+
+    setCurrentOrganizerList(result)
+    setSelectedOrganizer(result[0])
+
+  }, [appStore.currentCity, appState.organizerLoaded]);
+
+  useEffect(() => {
+    if (appState.organizers.length === 0) return
+    const result = getFilteredOrganizersList()
+    setCurrentOrganizerList(result)
+    if (selectedOrganizer) {
+      const targetOrganizer = result.find(c => c.id === selectedOrganizer.id)
+      if (targetOrganizer) setSelectedOrganizer(targetOrganizer)
+    }
+
+  }, [appState.organizers])
+
+  function getFilteredOrganizersList() {
+    return appState.organizers
+      .filter(t => !t.hide).filter(o => {
+        if (appStore.currentCity === 'south-taiwan') {
+          return southTaiwanCities.includes(o.city)
         } else {
           return o.city === appStore.currentCity;
         }
-      });
+      })
+  }
 
-    if (!Array.isArray(filteredOrganizersList)) return;
-    setActiveOrganizerList(filteredOrganizersList);
-
-    if (router.query.id && typeof router.query.id === "string") {
-      const targetOrganizer = filteredOrganizersList.find(
-        x => x.id === router.query.id
-      );
-
-      if (targetOrganizer) {
-        setSelectedOrganizer(targetOrganizer);
-        if (isMobile) {
-          open();
-        }
-        router.replace("/organizers");
-      } else {
-        setSelectedOrganizer(filteredOrganizersList[0]);
-      }
-    } else {
-      setSelectedOrganizer(filteredOrganizersList[0]);
+  const handleEdit = (organizer: Organizer | null, editType: string, relatedId?: string) => {
+    if (organizer) {
+      setEditingOrganizer(organizer)
     }
-  }, [appStore.currentCity]);
+    switch (editType) {
+      case 'info':
+        return openEditInfoModal()
+      case 'classes':
+        return openEditClassesModal()
+      case 'related':
+        setEditingRelatedId(relatedId)
+        return openEditRelatedModal()
+    }
+  }
+
+  const handleEditModalSave = async (formData: Organizer) => {
+    const result = await fetcher(`/social-dance/organizers/${formData.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(formData)
+    })
+    appState.setOrganizers(result.result)
+  }
 
   if (!appState.domLoaded) {
     return <></>;
@@ -84,29 +105,46 @@ export default function Organizers() {
           description: t("organizers.description"),
         }}
       />
-      <Title>{t("organizers.page_title")}</Title>
-      <Modal opened={opened} onClose={close} centered>
+      <Title>{t('organizers.page_title')}</Title>
+      <Modal
+        opened={organizerModalOpened}
+        onClose={closeOrganizerModal}
+        centered
+      >
         <OrganizerDetail
           organizer={selectedOrganizer}
-          // onEdit={() => handleEdit(selectedOrganizer)}
+          onEdit={(editType: string, relatedId?: string) => handleEdit(selectedOrganizer, editType, relatedId)}
         />
       </Modal>
+      <EditOrganizerInfoModal
+        organizer={editingOrganizer}
+        opened={editInfoModalOpened}
+        onClose={closeEditInfoModal}
+        onSave={handleEditModalSave}
+      />
+      <EditOrganizerClassesModal
+        organizer={editingOrganizer}
+        opened={editClassesModalOpened}
+        onClose={closeEditClassesModal}
+        onSave={handleEditModalSave}
+      />
+      <EditOrganizerRelatedModal
+        organizer={editingOrganizer}
+        relatedId={editingRelatedId}
+        opened={editRelatedModalOpened}
+        onClose={closeEditRelatedModal}
+        onSave={handleEditModalSave}
+      />
       {isMobile && (
         <MobileStudios
-          organizerList={activeOrganizerList}
+          organizerList={currentOrganizerList}
           onClick={(organizer: Organizer) => {
-            setSelectedOrganizer(organizer);
-            open();
-          }}
-        />
+            setSelectedOrganizer(organizer)
+            openOrganizerModal()
+          }} />
       )}
       {!isMobile && selectedOrganizer && (
-        <DesktopStudios
-          organizerList={activeOrganizerList}
-          selectedOrganizer={selectedOrganizer}
-          setSelectedOrganizer={setSelectedOrganizer}
-          setEditingOrganizer={setEditingOrganizer}
-        />
+        <DesktopStudios organizerList={currentOrganizerList} selectedOrganizer={selectedOrganizer} setSelectedOrganizer={setSelectedOrganizer} handleEdit={handleEdit} />
       )}
     </>
   );
@@ -153,57 +191,21 @@ function MobileStudios({
   );
 }
 
-function DesktopStudios({
-  organizerList,
-  selectedOrganizer,
-  setSelectedOrganizer,
-  setEditingOrganizer,
-}: {
-  organizerList: Array<Organizer>;
-  selectedOrganizer: Organizer;
-  setSelectedOrganizer: (value: Organizer) => void;
-  setEditingOrganizer: (value: Organizer) => void;
-}) {
-  // const handleAddNew = () => {
-  // const newOrganizer: Organizer = {
-  //   id: Date.now().toString(),
-  //   name: "",
-  //   thumbnail: "",
-  //   content: "",
-  //   links: [],
-  //   classes: [],
-  //   city: '',
-  //   related: null,
-  // }
-  // setEditingOrganizer(newOrganizer)
-  // setIsDialogOpen(true)
-  // }
-
-  const handleSelect = (organizer: Organizer) => {
-    setSelectedOrganizer(organizer);
-  };
-
-  const handleEdit = (organizer: Organizer) => {
-    setEditingOrganizer(organizer);
-  };
+function DesktopStudios(
+  { organizerList, selectedOrganizer, setSelectedOrganizer, handleEdit }
+    :
+    { organizerList: Array<Organizer>, selectedOrganizer: Organizer, setSelectedOrganizer: (value: Organizer) => void, handleEdit: (value: Organizer, editType: string, relatedId?: string) => void, }) {
 
   return (
     <div className="flex h-[calc(100vh-285px)] gap-6">
-      {/* Left Panel - Organizer List */}
       <div className="w-80 shrink-0 flex flex-col">
-        {/* <div className="space-y-4 pb-4">
-          <Button onClick={handleAddNew} fullWidth>
-            <Plus className="h-4 w-4 mr-2" />
-            Add Organizer
-          </Button>
-        </div> */}
         <div className="flex-1 overflow-y-auto space-y-2 pr-2">
-          {organizerList.map(organizer => (
+          {organizerList.filter(o => !o.hide).map((organizer) => (
             <OrganizerCard
               key={organizer.id}
               organizer={organizer}
               isSelected={selectedOrganizer?.id === organizer.id}
-              onClick={() => handleSelect(organizer)}
+              onClick={() => setSelectedOrganizer(organizer)}
             />
           ))}
         </div>
@@ -212,17 +214,10 @@ function DesktopStudios({
         {selectedOrganizer && (
           <OrganizerDetail
             organizer={selectedOrganizer}
-            onEdit={() => handleEdit(selectedOrganizer)}
+            onEdit={(editType: string, relatedId?: string) => handleEdit(selectedOrganizer, editType, relatedId)}
           />
         )}
       </div>
-
-      {/* <EditOrganizerDialog
-        organizer={editingOrganizer}
-        open={isDialogOpen}
-        onOpenChange={setIsDialogOpen}
-        onSave={handleSave}
-      /> */}
     </div>
   );
 }

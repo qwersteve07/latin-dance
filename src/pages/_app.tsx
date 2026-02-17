@@ -12,12 +12,26 @@ import { appWithTranslation } from 'next-i18next'
 import { CookiesProvider } from 'react-cookie';
 import { useRouter } from "next/router";
 import { useAppStore } from "@/store/appStore";
+import { fetcher } from "@/utils/fetcher";
+import useSWR from "swr";
+import { useAppState } from "@/store/appState";
 import { useEffect } from "react";
 
 function App({ Component, pageProps }: AppProps) {
-
+	const appState = useAppState()
 	const router = useRouter()
 	const appStore = useAppStore()
+
+	const { data } = useSWR('/social-dance/organizers', fetcher, {
+		revalidateOnFocus: false,
+	})
+
+	useEffect(() => {
+		if (data) {
+			appState.setOrganizers(data.result)
+			appState.setOrganizerLoaded()
+		}
+	}, [data])
 
 	useEffect(() => {
 		if (!router.isReady) return

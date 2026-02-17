@@ -1,22 +1,11 @@
 import { create } from "zustand";
-import { organizerTaipeiList } from "@/const/organizers-taipei";
-import { organizerTaichungList } from "@/const/organizers-taichung";
-import { organizerKaohsiungList } from "@/const/organizers-kaohsiung";
-// import { Organizer } from "@/types/organizer";
-import { organizerTainanList } from "@/const/organizers-tainan";
 import { createRef } from "react";
 import { locationTaipei } from "@/const/location-taipei";
 import { locationTaichung } from "@/const/location-taichung";
 import { locationTainan } from "@/const/location-tainan";
 import { locationKaohsiung } from "@/const/location-kaohsiung";
 import { Location } from "@/types/locate";
-
-export const organizerList: Array<any> = [
-  ...organizerTaipeiList,
-  ...organizerTaichungList,
-  ...organizerTainanList,
-  ...organizerKaohsiungList,
-];
+import { Organizer } from "@/types/organizer";
 
 export const locateList: Array<Location> = [
   ...locationTaipei,
@@ -30,6 +19,10 @@ export interface AppState {
   setDomLoaded: () => void;
   installPromptBannerRef: any;
   getFuegoBannerRef: any;
+  organizers: Organizer[],
+  setOrganizers: (organizer: Organizer[]) => void
+  organizerLoaded: boolean,
+  setOrganizerLoaded: () => void;
 }
 
 export const useAppState = create<AppState>(set => ({
@@ -37,4 +30,8 @@ export const useAppState = create<AppState>(set => ({
   setDomLoaded: () => set(() => ({ domLoaded: true })),
   installPromptBannerRef: createRef(),
   getFuegoBannerRef: createRef(),
+  organizers: [],
+  setOrganizers: (organizers: Organizer[]) => set(() => ({ organizers })),
+  organizerLoaded: false,
+  setOrganizerLoaded: () => set(() => ({ organizerLoaded: true })),
 }));
