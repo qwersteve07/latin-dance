@@ -18,9 +18,14 @@ import { citiesList } from "@/const/cities";
 import { NextSeo } from "next-seo";
 import Announcement from "@/components/announce";
 import DanceTypeCube from "@/components/danceTypeCube";
-import { simpleDanceTypes } from "@/const/dance-types";
+import { simpleDanceTypes } from "@/const/dance";
 import dayjs from "dayjs";
 import DanceTypeBadge from "@/components/danceTypeBadge";
+
+type VlogIGItem = {
+  name: string,
+  url: string
+}
 
 export default function Home() {
   const today = dayjs();
@@ -32,7 +37,7 @@ export default function Home() {
   const appStore = useAppStore()
   const { t } = useTranslation('common')
 
-  const vlogIGList = [
+  const vlogIGList: Array<VlogIGItem> = [
     {
       name: "Ninja Videozz Taiwan",
       url: "https://www.instagram.com/ninjavideozz.taiwan/",
@@ -42,20 +47,29 @@ export default function Home() {
       url: "https://www.instagram.com/socialdance_vibe/",
     },
     {
-      name: "Sloat Media",
-      url: "https://www.instagram.com/sloatmedia",
+      name: 'Salsa Momentum',
+      url: 'https://www.instagram.com/salsa.momentum'
+    },
+    {
+      name: 'Kiki',
+      url: 'https://www.instagram.com/ki.eep.light?igsh=MXJobXU1YWgybTl0OA=='
+    },
+    {
+      name: 'XiaoWolf Photography',
+      url: 'https://www.instagram.com/xiaowolfphotography?igsh=cXd0dG5yNW9nanpm'
     },
     {
       name: "Jim",
       url: "https://www.instagram.com/jimframe",
     },
     {
+      name: "Sloat Media",
+      url: "https://www.instagram.com/sloatmedia",
+    },
+    {
       name: 'Marshall',
       url: 'https://www.instagram.com/marshallstudiotw/'
-    }, {
-      name: 'Salsa Momentum',
-      url: 'https://www.instagram.com/salsa.momentum'
-    }
+    },
   ];
 
   useEffect(() => {
@@ -134,10 +148,10 @@ export default function Home() {
       <section>
         <h3 className="text-center text-2xl font-bold mb-8">{t('highlights')}</h3>
         <div className="flex justify-center items-center gap-4 flex-wrap max-xl:w-[90%] mx-auto max-md:w-full max-md:flex-col">
-          {vlogIGList.map(item => {
+          {vlogIGList.map((item: VlogIGItem) => {
             return (
               <div key={item.name}>
-                <InstagramEmbed url={item.url} width={328} />
+                <InstagramEmbed className="color-black" url={item.url} width={328} />
               </div>
             );
           })}

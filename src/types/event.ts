@@ -1,5 +1,5 @@
 export type Event = {
-    id: string,
+    id?: string,
     date: string,
     startAt: string
     endAt: string,
@@ -10,8 +10,9 @@ export type Event = {
     fee: string
     content: string,
     canceled: boolean,
-    note: string
+    note: string,
     types: string[],
+    eventUrl: string
 }
 
 export type EventWithEventDate = Event & {

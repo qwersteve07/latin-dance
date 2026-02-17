@@ -11,6 +11,7 @@ const DanceTypeCube = ({ type, className }: { type: DanceType, className?: strin
             case 'zouk': return 'bg-blue-400';
             case 'lambada': return 'bg-green-300';
             case 'kizomba': return 'bg-purple-400'
+            case 'hustle': return 'bg-cyan-400'
         }
     }
 

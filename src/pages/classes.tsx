@@ -1,23 +1,26 @@
 import Title from "@/components/title";
-import { simpleDanceTypes } from "@/const/dance-types";
+import { danceLevel, simpleDanceTypes } from "@/const/dance";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import React, { useEffect, useState } from "react";
 import { useMedia } from "react-use";
 import { useRouter } from "next/router";
-import { organizerList, classesList, useAppState } from "@/store/appState";
+import { useAppState } from "@/store/appState";
 import { Select } from "@mantine/core";
 import { useAppStore } from "@/store/appStore";
 import { DanceType } from "@/types/danceTypes";
 import DanceTypeCube from "@/components/danceTypeCube";
 import DanceTypeBadge from "@/components/danceTypeBadge";
+import { ClassLevelBadge } from "@/components/classLevelBadge";
+import { DanceClassLevel, Organizer, Weekday } from "@/types/organizer";
 
-const weekdays = ['Mon', 'Tue', "Wed", "Thu", 'Fri', 'Sat', 'Sun']
+const weekdayDays: Weekday[] = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
 export default function Classes() {
     const { t } = useTranslation('common')
     const [selectType, setSelectType] = useState<string>('');
+    const [selectLevel, setSelectLevel] = useState<DanceClassLevel | ''>('');
     const [currentClassesData, setCurrentClassesData] = useState<any>([]);
     const isMobile = useMedia("(max-width: 768px)");
     const appState = useAppState()
@@ -25,40 +28,45 @@ export default function Classes() {
 
     useEffect(() => {
         if (!appStore.currentCity) return
+        if (!appState.organizers) return
 
-        const result = getFilteredClassesData(appStore.currentCity, selectType)
+        const result = getFilteredClassesData(appStore.currentCity, selectType, selectLevel)
         setCurrentClassesData(result)
-    }, [appStore.currentCity, selectType])
+    }, [appStore.currentCity, selectType, selectLevel, appState.organizers])
 
-    function getFilteredClassesData(city: string, selectType: string) {
-        let result;
-        const filterByCityClasses = classesList.filter((data) => {
+    function getFilteredClassesData(city: string, selectType: string, selectLevel: string) {
+        const validClasses = appState.organizers.filter((organizer: any) => {
+            return !organizer.hide && organizer.classes && organizer.classes.length !== 0
+        }).filter((organizer: any) => {
             if (city === 'south-taiwan') {
-                return data.city === 'tainan' || data.city === 'kaohsiung'
+                return organizer.city === 'tainan' || organizer.city === 'kaohsiung'
             } else {
-                return data.city === city
+                return organizer.city === city
             }
         })
 
-        if (selectType === '') {
-            result = filterByCityClasses
-        } else {
-            result = filterByCityClasses.map((data) => {
-                const filteredLessons = data.lessons.filter((c) => {
+        return validClasses.map((data: Organizer) => {
+            if (!data.classes) return data
+            const filteredClasses = data.classes
+                .filter((c) => {
+                    // filter type
+                    if (selectType === '') return c
                     if (Array.isArray(c.type)) {
                         return c.type.includes(selectType)
                     } else {
                         return c.type === selectType
                     }
-                });
-                return {
-                    ...data,
-                    lessons: filteredLessons
-                }
-            }).filter((d: any) => d.lessons.length > 0)
-        }
-
-        return result;
+                }).filter((c) => {
+                    // filter level
+                    if (selectLevel === '') return data
+                    return c.level === selectLevel
+                })
+            return {
+                ...data,
+                classes: filteredClasses
+            }
+        })
+            .filter((d: any) => d.classes.length > 0)
     }
 
     if (!appState.domLoaded) {
@@ -79,16 +87,33 @@ export default function Classes() {
             />
             <Title>{t('classes.page_title')}</Title>
             <p>{t('classes.note')}</p>
-            <div className="flex flex-wrap gap-x-2 gap-y-2 mb-6 text-sm mt-10">
-                {simpleDanceTypes.map(t => {
-                    return <DanceTypeBadge key={t} type={t} className={`cursor-pointer border-dashed ${selectType === t ? 'bg-background-sub' : 'bg-transparent'}`} onClick={() => {
-                        if (selectType !== t) {
-                            setSelectType(t)
-                        } else {
-                            setSelectType('')
-                        }
-                    }} />
-                })}
+            <div className="flex justify-start items-center max-md:items-start gap-8 mt-10 mb-4">
+                <div className="font-bold">Type</div>
+                <div className="flex flex-wrap gap-x-2 gap-y-2 text-sm">
+                    {simpleDanceTypes.map(t => {
+                        return <DanceTypeBadge key={t} type={t} className={`cursor-pointer !border-dashed ${selectType === t && 'bg-background-third'}`} onClick={() => {
+                            if (selectType !== t) {
+                                setSelectType(t)
+                            } else {
+                                setSelectType('')
+                            }
+                        }} />
+                    })}
+                </div>
+            </div>
+            <div className="flex justify-start items-center max-md:items-start gap-8 mb-12">
+                <div className="font-bold">Level</div>
+                <div className="flex flex-wrap gap-x-2 gap-y-2 text-sm">
+                    {danceLevel.map(l => {
+                        return <ClassLevelBadge key={l} level={l} className={`!cursor-pointer !border-dashed !border ${selectLevel === l && '!bg-background-third'}`} onClick={() => {
+                            if (selectLevel !== l) {
+                                setSelectLevel(l)
+                            } else {
+                                setSelectLevel('')
+                            }
+                        }} />
+                    })}
+                </div>
             </div>
             {isMobile && <MobileUI data={currentClassesData} />}
             {!isMobile && <DesktopUI data={currentClassesData} />}
@@ -97,30 +122,31 @@ export default function Classes() {
 }
 
 function MobileUI({ data }: { data: any }) {
-    const [currentWeekDay, setCurrentWeekDay] = useState<string>(weekdays[0])
+    const [currentWeekDay, setCurrentWeekDay] = useState<string>(weekdayDays[0])
     const [currentData, setCurrentData] = useState<any>([])
     const router = useRouter()
+    const appState = useAppState();
     const { t } = useTranslation('common')
 
     useEffect(() => {
         const filteredData = data.map((d: any) => ({
             ...d,
-            lessons: d.lessons.filter((c: any) => c.weekday === currentWeekDay)
-        })).filter((d: any) => d.lessons.length > 0)
+            classes: d.classes.filter((c: any) => c.weekday === currentWeekDay)
+        })).filter((d: any) => d.classes.length > 0)
 
         setCurrentData(filteredData);
     }, [data, currentWeekDay])
 
     return (
         <div>
-            <div className={`grid grid-cols-2 gap-2 z-[101] py-4 mb-3 border-b border-border-main bg-background-main`}>
+            <div className={`grid grid-cols-2 gap-2 z-[101] py-4 mb-3 border-b border-border-third`}>
                 <div></div>
                 <Select
                     className="w-full"
-                    defaultValue={weekdays[0]}
+                    defaultValue={weekdayDays[0]}
                     value={currentWeekDay}
                     onChange={value => setCurrentWeekDay(value || '')}
-                    data={weekdays.map(item => ({
+                    data={weekdayDays.map(item => ({
                         value: item,
                         label: item
                     }))}
@@ -130,11 +156,11 @@ function MobileUI({ data }: { data: any }) {
             <div className="grid grid-cols-2 gap-2">
                 {currentData.length === 0 && <div className="col-span-2">{t('classes.no_classes_day')}</div>}
                 {currentData.map((classData: any) => {
-                    if (classData.lessons.length === 0) return <></>
+                    if (classData.classes.length === 0) return <></>
 
                     const Organizer = () => {
                         if (!classData.organizer) return <></>
-                        const name = organizerList.find(o => o.id === classData.organizer)?.name
+                        const name = appState.organizers.find(o => o.id === classData.organizer)?.name
                         return <div className="font-bold italic text-gray-500">{name}</div>
                     }
                     return (
@@ -146,7 +172,7 @@ function MobileUI({ data }: { data: any }) {
                                 <div className="font-bold text-lg group-hover:text-red-500 transition-[color]">{classData.name}</div>
                                 <Organizer />
                             </div>
-                            <div>{classData.lessons.map((c: any) => {
+                            <div>{classData.classes.map((c: any) => {
                                 const DanceType = () => {
                                     if (Array.isArray(c.type)) {
                                         return c.type.map((t: DanceType) => <DanceTypeCube type={t} key={t} />)
@@ -155,16 +181,17 @@ function MobileUI({ data }: { data: any }) {
                                     }
                                 }
                                 return (
-                                    <div key={c.name} className="flex justify-start items-start gap-2 border border-border-main rounded-2xl p-2 mb-1 hover:bg-background-third transition">
+                                    <div key={c.name} className="flex justify-start items-start gap-2 border border-border-third rounded-2xl p-2 mb-1 hover:bg-background-third transition">
                                         <div className="mt-1.5 flex flex-col gap-1"><DanceType /></div>
                                         <div>
                                             <div className="font-semibold">{c.name}</div>
-                                            <div >{c.time}</div>
+                                            <div>{c.time}</div>
+                                            <ClassLevelBadge level={c.level} />
                                         </div>
                                     </div>
                                 )
                             })}</div>
-                            <hr className="col-span-2 border-0 border-b border-border-main" />
+                            <hr className="col-span-2 border-0 border-b border-border-third" />
                         </>
                     )
                 })}
@@ -176,44 +203,22 @@ function MobileUI({ data }: { data: any }) {
 function DesktopUI({ data }: { data: any }) {
     const { t } = useTranslation('common')
     const router = useRouter()
-    // const appStore = useAppStore()
-    // const [offset, setOffset] = useState(0)
-    // const appState = useAppState()
-
-    // useEffect(() => {
-    //     if (!appState.domLoaded) return
-    //     if (!appState.installPromptBannerRef.current) return
-    //     console.log('classes')
-    //     console.log(appState.installPromptBannerRef.current)
-    // }, [appState.domLoaded, appState.installPromptBannerRef, appState.installPromptBannerRef.current])
-
-    // // useEffect(() => {
-    // //     if (!appState.domLoaded) return
-    // //     console.log(appState.domLoaded)
-    // //     const installPromptBannerShow = !appStore.installBannerHide
-    // //     const fuegoBannerShow = !appStore.getFuegoBannerHide
-    // //     const amount = 0
-    // //     if (installPromptBannerShow) {
-    // //         console.log(appState.installPromptBannerRef.current)
-    // //         console.log(appState.getFuegoBannerRef.current)
-    // //     }
-    // // }, [appState.domLoaded])
+    const appState = useAppState()
 
     return (
         <>
-            <div className={`grid grid-cols-8 gap-2 z-[101] py-4 mb-3 border-b border-border-main bg-background-main`}>
+            <div className={`grid grid-cols-8 gap-2 z-[101] py-4 mb-3 border-b border-border-third`}>
                 <div></div>
-                {weekdays.map(day => <div key={day} className="font-bold">{day}</div>)}
+                {weekdayDays.map(day => <div key={day} className="text-gray-500 font-bold text-sm text-center">{day.slice(0, 3).toUpperCase()}</div>)}
             </div>
             <div className="grid grid-cols-8 gap-2">
                 {data.length === 0 && <div className="col-span-8">{t('classes.no_classes_city')}</div>}
                 {data.map((classData: any) => {
                     const Organizer = () => {
                         if (!classData.organizer) return <></>
-                        const name = organizerList.find(o => o.id === classData.organizer)?.name
+                        const name = appState.organizers.find(o => o.id === classData.organizer)?.name
                         return <div className="font-bold italic text-gray-500">{name}</div>
                     }
-
                     return (
                         <>
                             <div onClick={() => {
@@ -223,13 +228,12 @@ function DesktopUI({ data }: { data: any }) {
                                 <div className="font-bold text-lg group-hover:text-red-500 transition-[color]">{classData.name}</div>
                                 <Organizer />
                             </div>
-                            {weekdays.map((weekday, i) => {
-                                const classesInWeekday = classData.lessons.filter((g: any) => g.weekday === weekday)
+                            {weekdayDays.map((weekday, i) => {
+                                const classesInWeekday = classData.classes.filter((g: any) => g.weekday === weekday)
                                 if (classesInWeekday.length === 0) return <div key={i}></div>
 
                                 return (
                                     <div key={i}>{classesInWeekday.map((c: any) => {
-
                                         const DanceType = () => {
                                             if (Array.isArray(c.type)) {
                                                 return c.type.map((t: DanceType) => <DanceTypeCube type={t} key={t} />)
@@ -238,18 +242,19 @@ function DesktopUI({ data }: { data: any }) {
                                             }
                                         }
                                         return (
-                                            <div key={c.name} className="flex justify-start items-start gap-2 border border-border-main rounded-2xl p-2 mb-1 hover:bg-background-third transition">
+                                            <div key={c.name} className="flex justify-start items-start gap-2 border border-border-third rounded-2xl p-2 mb-2 hover:bg-background-fourth transition">
                                                 <div className="mt-1.5 flex flex-col gap-1"><DanceType /></div>
                                                 <div>
                                                     <div className="font-semibold">{c.name}</div>
                                                     <div >{c.time}</div>
+                                                    <ClassLevelBadge level={c.level} />
                                                 </div>
                                             </div>
                                         )
                                     })}</div>
                                 )
                             })}
-                            <hr className="col-span-8 border-0 border-b border-border-main" />
+                            <hr className="col-span-8 border-0 border-b border-border-third" />
                         </>
                     )
                 })}

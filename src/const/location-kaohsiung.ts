@@ -41,6 +41,24 @@ export const locationKaohsiung = [
     city: "kaohsiung",
     url: "https://maps.app.goo.gl/Rqj5n2gtTXMjGWUw8",
   },
+   {
+    id: "the-pier-garden",
+    name: "渡船頭啤酒花園",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/Am7LcQkGiFGwqpdj9",
+  },
+  {
+    id: "kw2",
+    name: "棧貳庫KW2",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/D9S8QZf7bRb3WFb37",
+  },
+     {
+    id: "dance-passion-l-studio",
+    name: "Dance Passion L. Studio ",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/Ct6SRABmmz43nuSf6",
+  },
   {
     id: "leaploom",
     name: "艾萊家",
