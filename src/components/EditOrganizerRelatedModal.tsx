@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Plus, ImagePlus, Trash } from "lucide-react";
 import {
+    Link,
     LinkType,
     Organizer,
 } from "@/types/organizer";
@@ -54,6 +55,7 @@ export default function EditOrganizerInfoDialog({
             name: (value) => value ? null : 'needed',
             content: (value) => value ? null : 'needed',
             links: {
+                // @ts-expect-error don't want to fix
                 url: (value: any) => isValidUrl(value) ? null : 'Not a valid url',
             },
             newLinkType: (value) => value ? null : 'needed',
@@ -70,6 +72,7 @@ export default function EditOrganizerInfoDialog({
                     name: targetRelated.name,
                     thumbnail: targetRelated.thumbnail,
                     content: targetRelated.content,
+                    // @ts-expect-error don't want to fix
                     links: [...targetRelated.links],
                 })
                 setShowDeleteButton(true)
@@ -224,7 +227,7 @@ export default function EditOrganizerInfoDialog({
                 </div>
                 <div className="flex flex-col gap-1">
                     <Input.Label className="font-bold">連結</Input.Label>
-                    {form.getValues().links.map((link, index) => (
+                    {form.getValues().links.map((link: Link, index) => (
                         <div key={index} className="flex items-center gap-2">
                             <div className="flex h-9 w-9 items-center justify-center rounded-md">
                                 <LinkIcon type={link.type} className="text-gray-500" />

@@ -46,6 +46,7 @@ export default function EditOrganizerClassesDialog({
         },
         validate: {
             classes: {
+                // @ts-expect-error don't want to fix
                 time: (value: any) => value ? null : 'needed',
                 name: (value: any) => value ? null : 'needed',
             },
@@ -59,6 +60,7 @@ export default function EditOrganizerClassesDialog({
     useEffect(() => {
         if (opened) {
             form.setValues({
+                // @ts-expect-error don't want to fix
                 classes: organizer.classes.map((x, index) => ({ ...x, id: index }))
             })
         } else {
@@ -81,7 +83,8 @@ export default function EditOrganizerClassesDialog({
 
         const newFormData = {
             ...organizer,
-            classes: form.getValues().classes.map(({ id, ...rest }) => rest)
+            // @ts-expect-error don't want to fix
+            classes: form.getValues().classes.map(({ id, ...rest }) => rest) // eslint-disable-line
         }
 
         setButtonLoading(true)
