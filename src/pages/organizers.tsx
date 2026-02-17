@@ -48,6 +48,11 @@ export default function Organizers() {
     if (appState.organizers.length === 0) return
     const result = getFilteredOrganizersList()
     setCurrentOrganizerList(result)
+    if (selectedOrganizer) {
+      const targetOrganizer = result.find(c => c.id === selectedOrganizer.id)
+      if (targetOrganizer) setSelectedOrganizer(targetOrganizer)
+    }
+
   }, [appState.organizers])
 
   function getFilteredOrganizersList() {
