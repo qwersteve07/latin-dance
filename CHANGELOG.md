@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.1](https://github.com/qwersteve07/latin-dance/compare/v1.29.1...v2.0.1) (2026-02-17)
+
 ## [1.29.1](https://github.com/qwersteve07/latin-dance/compare/v1.29.0...v1.29.1) (2026-02-17)
 
 ## [1.29.0](https://github.com/qwersteve07/latin-dance/compare/v1.28.0...v1.29.0) (2026-02-17)
