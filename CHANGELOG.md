@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.29.0](https://github.com/qwersteve07/latin-dance/compare/v1.28.0...v1.29.0) (2026-02-17)
+
+
+### ✨ Features
+
+* add calendar package ([a068cac](https://github.com/qwersteve07/latin-dance/commit/a068cace7386a1dfe9f7777ff549e478d431e36a))
+* add classes to organizers ([50781e3](https://github.com/qwersteve07/latin-dance/commit/50781e338c244dc0772cef73b508564578c003e2))
+* add colors ([7ffe400](https://github.com/qwersteve07/latin-dance/commit/7ffe40091b5631857960edc387ef5ca039b6420b))
+* add edit button in organizer ([011cf6b](https://github.com/qwersteve07/latin-dance/commit/011cf6b770a69ddb67445cf3316ed52630b6f9de))
+* add heart vally ([ee2729e](https://github.com/qwersteve07/latin-dance/commit/ee2729ea0458037ef3f17fcc786a63eed6cd4ddd))
+* add new location ([aebbc8f](https://github.com/qwersteve07/latin-dance/commit/aebbc8f713a01712cc249b8e8b33e7a8a3b727aa))
+* add organizer related id ([6cc8be0](https://github.com/qwersteve07/latin-dance/commit/6cc8be012808bcbee14a7018b1f416df3bf94263))
+* add organizerClassModal ([c4c872c](https://github.com/qwersteve07/latin-dance/commit/c4c872c175a9e649c1fac19326e60afbfd60c8e1))
+* add organizerInfoModal ([1baa5ae](https://github.com/qwersteve07/latin-dance/commit/1baa5aec47a02cf79ee2535fb14863bb3413837e))
+* add organizerRelatedModal ([6e9b62b](https://github.com/qwersteve07/latin-dance/commit/6e9b62b0c2d385376496037738bc810c96311336))
+* adjust const naming ([5a2016c](https://github.com/qwersteve07/latin-dance/commit/5a2016c22214e3e72cda7807efda50c2e0c9999e))
+* adjust organizers-taipei data ([fc457cf](https://github.com/qwersteve07/latin-dance/commit/fc457cf0263bd38395b5de3ac5ef55a2a5c3a747))
+* change form to mantine ([9015948](https://github.com/qwersteve07/latin-dance/commit/9015948fbd41bc07b9d6fee297764c537e690eb4))
+* change keys ([b57b6ca](https://github.com/qwersteve07/latin-dance/commit/b57b6cab6b1500f96e9f0bc0d34e269bd3ea4798))
+* change the organizerList source ([f69f2e9](https://github.com/qwersteve07/latin-dance/commit/f69f2e9f4cf3dbd568a89a8c1f1501e3bfbb9c9e))
+* change useLogin to useUser ([68a7f6e](https://github.com/qwersteve07/latin-dance/commit/68a7f6ecf93296b4727a1fd7b79a89871b287fb1))
+* fetch organizers at _app.tsx ([d28fd14](https://github.com/qwersteve07/latin-dance/commit/d28fd146ee17f435db369df2b7cfb04ed62cecfc))
+* handle data fetching ([686e811](https://github.com/qwersteve07/latin-dance/commit/686e8114cac0ebbb2a7f8cb3663f6e1f10e53d31))
+* impl classes level ([55fe855](https://github.com/qwersteve07/latin-dance/commit/55fe855209f4c6e63f2ce211769601a942ec4085))
+* make host selector searchable ([2422680](https://github.com/qwersteve07/latin-dance/commit/242268074d09597739540c7b8d440715595faea6))
+* make locate selector searchable ([9307b7a](https://github.com/qwersteve07/latin-dance/commit/9307b7ad37ab0f42943729d2c925664f86824959))
+* remove images ([f33ed92](https://github.com/qwersteve07/latin-dance/commit/f33ed92a9455d5d9406bb634a29ea3db260ad1ab))
+* remove static organizers file ([9f3e822](https://github.com/qwersteve07/latin-dance/commit/9f3e822794a7cce2bcf2bfb9d74b285ede1aba25))
+* remove useless file ([79bcc00](https://github.com/qwersteve07/latin-dance/commit/79bcc008d2a6fc1a079d837e08332900ee532bc2))
+* remove useless pages ([324ea45](https://github.com/qwersteve07/latin-dance/commit/324ea453ecf34f627052bc6ba78e1843c3875c5a))
+* standardize types ([abde774](https://github.com/qwersteve07/latin-dance/commit/abde774ce326a523cfb1a558ecdcd024584ea2fb))
+* typo ([c5c7775](https://github.com/qwersteve07/latin-dance/commit/c5c7775676e15a455f3f0219e5820224b6a3ea35))
+* update calendar style ([86f91af](https://github.com/qwersteve07/latin-dance/commit/86f91af0d58a13623398201e96aad98abcdad173))
+* update calendar view ([fcf27cd](https://github.com/qwersteve07/latin-dance/commit/fcf27cdca8ddf144de1fe8f81e7cf68eaef4ae32))
+* update organiaer ([6570b1d](https://github.com/qwersteve07/latin-dance/commit/6570b1db0f1b157ad45f5ce51a7f63af4a462900))
+* update organizer details ([b990241](https://github.com/qwersteve07/latin-dance/commit/b9902413b248ef7de93854e87f7e2ebc33d48e66))
+* update Organizer types ([b233334](https://github.com/qwersteve07/latin-dance/commit/b2333344bea23353f3e8386836ef642ba3468b87))
+* update organizer ui ([7d26929](https://github.com/qwersteve07/latin-dance/commit/7d2692930762b301ad2249bdaf3be0e258e5bad2))
+* update organizers data ([f35940c](https://github.com/qwersteve07/latin-dance/commit/f35940cf36cb379ac019216246e7e812b11ebe6a))
+* update organizers detail ui ([11fcb1f](https://github.com/qwersteve07/latin-dance/commit/11fcb1fae4e25bb263e3c6f988c528bf2d549f36))
+* update package ([b3c583a](https://github.com/qwersteve07/latin-dance/commit/b3c583a64cd97dc448606ed458bb0a9fd96fe9fb))
+* update packages ([f2f7bb6](https://github.com/qwersteve07/latin-dance/commit/f2f7bb6f2205a2290db83ac08110745d3b7a83fe))
+* update select organizers ([c9e7131](https://github.com/qwersteve07/latin-dance/commit/c9e7131824e692f137792f415f4fde9a14fb6c3a))
+* wip ([02ea5be](https://github.com/qwersteve07/latin-dance/commit/02ea5bec55362814de394f5487bd0198fc7dc4a3))
+
+
+### 🐛 Bug Fixes
+
+* calendar styles ([a0d2ef7](https://github.com/qwersteve07/latin-dance/commit/a0d2ef733919bbb8c84ff362fe5c430bcd68b041))
+* eventModal ([746132d](https://github.com/qwersteve07/latin-dance/commit/746132d1297f70ada1574ac4011d63c0c42d24ac))
+* fix date field ([0d18ca4](https://github.com/qwersteve07/latin-dance/commit/0d18ca42d977f932223994d006ae098b7a44fcc8))
+* fix organizer type relate ([01ef600](https://github.com/qwersteve07/latin-dance/commit/01ef600d0e19d33ef45b2848a524066003d405fb))
+* organizer edit bugs ([0ade2f9](https://github.com/qwersteve07/latin-dance/commit/0ade2f903bd753ce42451d2351898e339c1ed575))
+
 ## [1.28.0](https://github.com/qwersteve07/latin-dance/compare/v1.22.0...v1.28.0) (2026-01-19)
 
 
