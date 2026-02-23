@@ -115,7 +115,7 @@ export default function EditOrganizerInfoDialog({
             const canvas = document.createElement("canvas");
             const ctx: any = canvas.getContext("2d");
 
-            const SIZE = 160;
+            const SIZE = 120;
             canvas.width = SIZE;
             canvas.height = SIZE;
 
