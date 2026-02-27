@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Plus, ImagePlus, Trash } from "lucide-react";
 import {
     Link,
@@ -9,10 +9,10 @@ import {
 } from "@/types/organizer";
 import { FileButton, Button, Group, Input, Modal, Select, Textarea, TextInput } from "@mantine/core";
 import { LinkIcon } from "./OrganizerDetail";
-import NextImage from "next/image";
 import { v4 as uuidv4 } from 'uuid';
 import { useForm } from "@mantine/form";
 import { isValidUrl } from "@/utils/validate";
+import ThumbNail from "./thumbnail";
 
 interface EditOrganizerInfoModalProps {
     organizer: Organizer,
@@ -39,6 +39,8 @@ export default function EditOrganizerInfoDialog({
 }: EditOrganizerInfoModalProps) {
     const [buttonLoading, setButtonLoading] = useState<boolean>(false)
     const [showDeleteButton, setShowDeleteButton] = useState<boolean>(false)
+    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+    const thumbnailData = useRef<any>(null);
 
     const form = useForm({
         mode: 'uncontrolled',
@@ -78,6 +80,8 @@ export default function EditOrganizerInfoDialog({
                 setShowDeleteButton(true)
             }
         } else {
+            setPreviewUrl('')
+            thumbnailData.current = null
             form.reset();
         }
     }, [opened, relatedId])
@@ -97,31 +101,39 @@ export default function EditOrganizerInfoDialog({
 
         if (nameError || contentError || linksError) return
 
-        let newFormData;
-        const newRelated = {
-            id: form.getValues().id,
-            thumbnail: form.getValues().thumbnail,
-            name: form.getValues().name,
-            content: form.getValues().content,
-            links: form.getValues().links
-        }
-        if (relatedId) {
-            newFormData = {
-                ...organizer, related: organizer.related.map(r => {
-                    if (r.id === relatedId) return newRelated
-                    return r
-                })
-            }
-        } else {
-            newFormData = {
-                ...organizer, related: organizer.related.concat(newRelated)
-            }
-        }
+        try {
+            setButtonLoading(true)
 
-        setButtonLoading(true)
-        await onSave(newFormData);
-        setButtonLoading(false)
-        onClose()
+            const thumbnailUrl = await uploadImage()
+
+            let newFormData;
+            const newRelated = {
+                id: form.getValues().id,
+                thumbnail: thumbnailUrl,
+                name: form.getValues().name,
+                content: form.getValues().content,
+                links: form.getValues().links
+            }
+            if (relatedId) {
+                newFormData = {
+                    ...organizer, related: organizer.related.map(r => {
+                        if (r.id === relatedId) return newRelated
+                        return r
+                    })
+                }
+            } else {
+                newFormData = {
+                    ...organizer, related: organizer.related.concat(newRelated)
+                }
+            }
+
+            await onSave(newFormData);
+            setButtonLoading(false)
+            onClose()
+        } catch (e) {
+            setButtonLoading(false)
+            console.log(e)
+        }
     };
 
     const handleDelete = async () => {
@@ -142,41 +154,38 @@ export default function EditOrganizerInfoDialog({
         </Group>
     );
 
-    function uploadImage(file: any) {
+    async function onSelectImage(file: any) {
         if (!file) return;
 
-        const img = new Image();
-        img.src = URL.createObjectURL(file);
+        const formData = new FormData();
+        formData.append("file", file); // File object from input
+        formData.append("fileName", file.name);
+        thumbnailData.current = formData
 
-        img.onload = () => {
-            const canvas = document.createElement("canvas");
-            const ctx: any = canvas.getContext("2d");
-
-            const SIZE = 80;
-            canvas.width = SIZE;
-            canvas.height = SIZE;
-
-            // ---- Center Crop Logic ----
-            const minSide = Math.min(img.width, img.height);
-            const sx = (img.width - minSide) / 2;
-            const sy = (img.height - minSide) / 2;
-
-            ctx.drawImage(
-                img,
-                sx,
-                sy,
-                minSide,
-                minSide,
-                0,
-                0,
-                SIZE,
-                SIZE
-            );
-
-            const result = canvas.toDataURL("image/png");
-            form.setFieldValue('thumbnail', result)
-        };
+        const url = URL.createObjectURL(file);
+        console.log(url)
+        setPreviewUrl(url);
     }
+
+    async function uploadImage(): Promise<string> {
+
+        const privateKey = "private_vxrsHaS+udt8+fpp8iAdnAPYATI=";
+        const auth = btoa(privateKey + ":");
+
+        try {
+            return await fetch('https://upload.imagekit.io/api/v1/files/upload', {
+                method: 'POST',
+                headers: {
+                    Authorization: `Basic ${auth}`,
+                },
+                body: thumbnailData.current,
+            }).then(res => res.json()).then(res => res.url)
+        } catch (e) {
+            console.log(e)
+            return ''
+        }
+    }
+
 
     return (
         <Modal
@@ -189,7 +198,7 @@ export default function EditOrganizerInfoDialog({
             <form className="space-y-3">
                 <div className="flex justify-start items-center gap-3">
                     <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-secondary group border border-gray-200">
-                        <FileButton accept="image/png,image/jpeg" onChange={uploadImage}>
+                        <FileButton accept="image/png,image/jpeg" onChange={onSelectImage}>
                             {(props) => <div {...props} className="h-full w-full bg-slate-500/60 absolute z-10 flex justify-center items-center group-hover:opacity-100 opacity-0 cursor-pointer"><ImagePlus /></div>}
                         </FileButton>
                         <TextInput
@@ -197,12 +206,10 @@ export default function EditOrganizerInfoDialog({
                             key={form.key('thumbnail')}
                             {...form.getInputProps('thumbnail')}
                         />
-                        {form.getValues().thumbnail && (
-                            <NextImage
-                                src={form.getValues().thumbnail}
-                                alt={form.getValues().thumbnail}
-                                fill
-                                className="object-cover "
+                        {(previewUrl || form.getValues().thumbnail) && (
+                            <ThumbNail
+                                url={previewUrl || form.getValues().thumbnail}
+                                name={form.getValues().thumbnail}
                             />
                         )}
                     </div>
