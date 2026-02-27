@@ -1,7 +1,7 @@
 import { Image as ImageKit } from '@imagekit/next';
 import Image from "next/image"
 
-const ThumbNail = ({ url, name }: { url: string, name: string }) => {
+const ThumbNail = ({ url, name, className }: { url: string, name: string, className: string }) => {
     if (!url) {
         return (
             <div className="flex h-full w-full items-center justify-center text-base font-semibold">
@@ -17,7 +17,7 @@ const ThumbNail = ({ url, name }: { url: string, name: string }) => {
                 src={url}
                 alt={name}
                 fill
-                className="object-cover"
+                className={`object-cover ${className}`}
             />
         )
     } else {
@@ -26,7 +26,7 @@ const ThumbNail = ({ url, name }: { url: string, name: string }) => {
                 src={url}
                 alt={name}
                 fill
-                className="object-cover"
+                className={`object-cover ${className}`}
             />
         )
     }
