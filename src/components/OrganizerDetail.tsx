@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+
 import { Instagram, Facebook, Youtube, Globe, MapPin, Footprints, Heart, Pencil } from "lucide-react"
 import { DanceClass, Link, LinkType, Organizer, Related, Weekday } from "@/types/organizer"
 import { ClassLevelBadge } from "./classLevelBadge"
@@ -8,6 +8,7 @@ import DanceTypeCube from "./danceTypeCube"
 import { DanceType } from "@/types/danceTypes"
 import { Button } from "@mantine/core"
 import { useUser } from "@/use/use-user"
+import ThumbNail from "./thumbnail"
 
 const weekdayDays: Weekday[] = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
@@ -63,18 +64,10 @@ export function OrganizerDetail({ organizer, onEdit }: OrganizerDetailProps) {
                 <div className="flex items-start justify-between gap-4 mb-4">
                     <div className="flex items-center gap-4">
                         <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-secondary">
-                            {organizer.thumbnail ? (
-                                <Image
-                                    src={organizer.thumbnail}
-                                    alt={organizer.name}
-                                    fill
-                                    className="object-cover"
-                                />
-                            ) : (
-                                <div className="flex h-full w-full items-center justify-center text-2xl font-semibold text-text-main">
-                                    {organizer.name.charAt(0).toUpperCase()}
-                                </div>
-                            )}
+                            <ThumbNail
+                                url={organizer.thumbnail}
+                                name={organizer.name}
+                            />
                         </div>
                         <div>
                             <h2 className="text-2xl font-bold text-text-main">

@@ -1,8 +1,9 @@
 import { Organizer } from "@/types/organizer";
 import { User } from "lucide-react";
-import Image from "next/image";
+import ThumbNail from "./thumbnail";
 
 export function OrganizerCard({ organizer, isSelected, onClick }: { organizer: Organizer, isSelected: boolean, onClick: () => void }) {
+
     return (
         <button
             type="button"
@@ -14,17 +15,10 @@ export function OrganizerCard({ organizer, isSelected, onClick }: { organizer: O
         >
             <div className="flex items-center gap-3">
                 <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md bg-secondary">
-                    {organizer.thumbnail ? (
-                        <Image
-                            src={organizer.thumbnail}
-                            alt={organizer.name}
-                            fill
-                        />
-                    ) : (
-                        <div className="flex h-full w-full items-center justify-center text-base font-semibold">
-                            {organizer.name.charAt(0).toUpperCase() || "?"}
-                        </div>
-                    )}
+                    <ThumbNail
+                        url={organizer.thumbnail}
+                        name={organizer.name}
+                    />
                 </div>
                 <span className="text-sm flex-1 inline-flex justify-between">
                     {organizer.name}{organizer.solo && <User className="text-gray-500" />}
