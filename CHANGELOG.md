@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.0](https://github.com/qwersteve07/latin-dance/compare/v2.0.1...v2.1.0) (2026-02-27)
+
+
+### ✨ Features
+
+* add city query ([4a5d53f](https://github.com/qwersteve07/latin-dance/commit/4a5d53f7e2704d38177e887213cf280e4da43879))
+* add hustle dance ([c8bc930](https://github.com/qwersteve07/latin-dance/commit/c8bc930d549bc0933980d8a3574c7a14293669a6))
+* add hustle info ([774a60a](https://github.com/qwersteve07/latin-dance/commit/774a60a90894eb880c1ebc8ed823018f1f896df1))
+* add imageKit ([6f6acfc](https://github.com/qwersteve07/latin-dance/commit/6f6acfc75159ba0a8f58cc083079a5e640687598))
+* add location ([b2d8c45](https://github.com/qwersteve07/latin-dance/commit/b2d8c45032620f5c6bc0e70fa7ed7bb0444d35a8))
+* add more photographers ([ab69760](https://github.com/qwersteve07/latin-dance/commit/ab69760449d95570c4df16daabf433ef6f9e0f53))
+* adjust class level color ([89faf99](https://github.com/qwersteve07/latin-dance/commit/89faf99facb0de1448c96403681e594aaa2c88fb))
+* adjust eventModal content ([4823e51](https://github.com/qwersteve07/latin-dance/commit/4823e518c42fb371b765f98fe3716c49d678551c))
+* adjust mobile image ([4e8d0cb](https://github.com/qwersteve07/latin-dance/commit/4e8d0cb8cffa83c0f49ae193ecc84eee612a4226))
+* adjust template ([3f63e59](https://github.com/qwersteve07/latin-dance/commit/3f63e59299a599b2d6eb2d4c83f61f157b486b6b))
+* decrease image size ([5c92c29](https://github.com/qwersteve07/latin-dance/commit/5c92c2992159cb5ad6a95b5ce53d0c48e89444b2))
+* decrease image size ([e63c676](https://github.com/qwersteve07/latin-dance/commit/e63c676a01c4bf6513b072469dd6242aa3dd8651))
+* decrease image size ([635662d](https://github.com/qwersteve07/latin-dance/commit/635662dcf9a444103e10da13bfc23b8761657481))
+* ignore some errors ([2e25759](https://github.com/qwersteve07/latin-dance/commit/2e2575938369d52e239b47fad5c769eade15e9a9))
+* impl upload image function ([5498d3b](https://github.com/qwersteve07/latin-dance/commit/5498d3bf00b71c62395292749d4edf62b26f8425))
+* impl url query fn ([6cd5f52](https://github.com/qwersteve07/latin-dance/commit/6cd5f5215259dd445dc98c7a04319b0c71f1a684))
+* increase images size ([088ffd1](https://github.com/qwersteve07/latin-dance/commit/088ffd1ae0b8d3a49dfdb97513789aabee75e833))
+* make host blankable ([86fe497](https://github.com/qwersteve07/latin-dance/commit/86fe4971732177f1c171d8f1ecb32f6070037f2d))
+* remove deprecate files ([09310bc](https://github.com/qwersteve07/latin-dance/commit/09310bc5129d7f4796a5e836a14e450d0a157941))
+* remove useless style ([a5f0db9](https://github.com/qwersteve07/latin-dance/commit/a5f0db96923fdfa0f914dcdd670568e677984c53))
+* reset ([3bb154c](https://github.com/qwersteve07/latin-dance/commit/3bb154c60831b40b013389a8a6936eae32d74891))
+* test remove sort fn ([ca27741](https://github.com/qwersteve07/latin-dance/commit/ca277418fdb1fd3301042f3c926c27a50cdb703a))
+* update classLevelBadge ([d477127](https://github.com/qwersteve07/latin-dance/commit/d4771274bbb5b2b9123261ab7a3a8d90c6e24c6b))
+* update events modal and add copy ([5455ff5](https://github.com/qwersteve07/latin-dance/commit/5455ff5879617471c11260bf1498429ba24ba74e))
+* update package-lock for ci ([e77f672](https://github.com/qwersteve07/latin-dance/commit/e77f672ca899a28f5a325fb54c6c81b6c0361f0a))
+* update relatedModal with imageKit ([0952a40](https://github.com/qwersteve07/latin-dance/commit/0952a4070eb3fcf11e16ef0d5c539b316f8fe6c0))
+
+
+### 🐛 Bug Fixes
+
+* organizer dat ([cfe3950](https://github.com/qwersteve07/latin-dance/commit/cfe395019ea7742a42da19aa5c06d43a1049e7f2))
+* remove query ([f4fc953](https://github.com/qwersteve07/latin-dance/commit/f4fc95335206042f9d6c6907f4257893928bf845))
+
+
+### 🔧 chore
+
+* **release:** 1.29.0 ([844f377](https://github.com/qwersteve07/latin-dance/commit/844f3776523a25d73533473a06067273b11ce7b0))
+
 ## [1.29.0](https://github.com/qwersteve07/latin-dance/compare/v1.27.0...v1.29.0) (2026-02-04)
 ## [2.0.1](https://github.com/qwersteve07/latin-dance/compare/v1.29.1...v2.0.1) (2026-02-17)
 

@@ -52,4 +52,4 @@ jobs:
         run: rsync -avhzr ./public/. ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:/root/social-dance/public
 
       - name: run service
-        run: ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} "pm2 restart 0"
+        run: ssh ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }} "cd social-dance && git pull && pm2 restart 0"
