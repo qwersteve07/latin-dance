@@ -1,5 +1,5 @@
 export const locationTaipei = [
-    {
+  {
     id: "flow-taipei",
     name: "Flow Taipei",
     city: "taipei",
@@ -186,6 +186,12 @@ export const locationTaipei = [
     url: "https://maps.app.goo.gl/aWUZEnpPU9Q6mSdA7",
   },
   {
+    id: "ofdance",
+    name: "宸羽專業舞蹈教室",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/duCXSDPGan5EoQao9"
+  },
+  {
     id: "studio-komi",
     name: "柯米空間 Studio KoMi",
     city: "taipei",
@@ -203,7 +209,7 @@ export const locationTaipei = [
     city: "taipei",
     url: "https://maps.app.goo.gl/umnE1uHgX3rzed8i8",
   },
-   {
+  {
     id: "paps_bar",
     name: "Pap's Ximen Bar & Cocktails",
     city: "taipei",
