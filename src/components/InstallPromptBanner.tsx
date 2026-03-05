@@ -24,7 +24,7 @@ const InstallPromptBanner = () => {
     if (!installBannerShow) return <></>;
 
     return (
-        <>
+        <div>
             <InstallModal
                 opened={opened}
                 onConfirm={installAppToHomeScreen}
@@ -36,29 +36,25 @@ const InstallPromptBanner = () => {
             />
             <div
                 ref={appState.installPromptBannerRef}
-                className="w-full bg-red-500 text-white font-bold text-center cursor-pointer"
+                className="w-full px-6 py-2 font-bold border-b border-b-border-main cursor-pointer flex justify-between items-center backdrop-blur-xl hover:bg-background-fourth transition"
                 onClick={open}
             >
-                <div className="container px-6 py-2 mx-auto max-w-6xl relative flex items-center justify-center max-md:justify-between max-md:py-0">
-                    {t("a2hs.announce")}
-                    <span
-                        className="absolute right-8 max-md:static top-0 w-10 h-10 flex justify-center items-center"
-                        onClick={e => {
-                            e.stopPropagation();
-                            hideInstallBanner();
-                        }}
-                    >
-                        <Image
-                            className="-mr-1.5"
-                            src="/icon-cross.svg"
-                            alt="cross"
-                            width="20"
-                            height="20"
-                        />
-                    </span>
-                </div>
+                {t("a2hs.announce")}
+                <span
+                    onClick={e => {
+                        e.stopPropagation();
+                        hideInstallBanner();
+                    }}
+                >
+                    <Image
+                        src="/icon-cross.svg"
+                        alt="cross"
+                        width="20"
+                        height="20"
+                    />
+                </span>
             </div>
-        </>
+        </div>
     );
 };
 
