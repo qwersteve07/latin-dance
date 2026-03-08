@@ -17,33 +17,29 @@ const GetFuegoBanner = () => {
     if (bannerHide) return <></>;
 
     return (
-        <>
+        <div className="w-full py-3 border-b border-b-border-main backdrop-blur-xl hover:bg-background-fourth transition">
             <div
                 ref={appState.getFuegoBannerRef}
-                className="w-full bg-yellow-500 text-white font-bold text-center cursor-pointer"
+                className="text-xs container mx-auto max-w-6xl px-6 font-bold cursor-pointer flex justify-between items-center backdrop-blur-xl"
                 onClick={() => window.open('https://bit.ly/45UHTlP')}
             >
-                <div className="container px-6 py-2 mx-auto max-w-6xl relative flex items-center justify-center max-md:justify-between max-md:text-left">
-                    {t("get_fuego")}
-                    <span
-                        className="absolute right-8 max-md:static top-0 w-10 h-10 flex justify-center items-center"
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            appStore.setGetFuegoBannerHide()
-                            setBannerHide(true)
-                        }}
-                    >
-                        <Image
-                            className="-mr-1.5"
-                            src="/icon-cross.svg"
-                            alt="cross"
-                            width="20"
-                            height="20"
-                        />
-                    </span>
-                </div>
+                {t("get_fuego")}
+                <span
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        appStore.setGetFuegoBannerHide()
+                        setBannerHide(true)
+                    }}
+                >
+                    <Image
+                        src="/icon-cross.svg"
+                        alt="cross"
+                        width="20"
+                        height="20"
+                    />
+                </span>
             </div>
-        </>
+        </div>
     );
 };
 
