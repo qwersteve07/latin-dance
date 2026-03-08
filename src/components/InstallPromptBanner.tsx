@@ -24,7 +24,7 @@ const InstallPromptBanner = () => {
     if (!installBannerShow) return <></>;
 
     return (
-        <div>
+        <div className="w-full py-3 text-sm border-b border-b-border-main hover:bg-background-fourth transition backdrop-blur-xl">
             <InstallModal
                 opened={opened}
                 onConfirm={installAppToHomeScreen}
@@ -36,7 +36,7 @@ const InstallPromptBanner = () => {
             />
             <div
                 ref={appState.installPromptBannerRef}
-                className="w-full px-6 py-2 font-bold border-b border-b-border-main cursor-pointer flex justify-between items-center backdrop-blur-xl hover:bg-background-fourth transition"
+                className="container mx-auto max-w-6xl px-6 font-bold cursor-pointer flex justify-between items-center backdrop-blur-xl "
                 onClick={open}
             >
                 {t("a2hs.announce")}

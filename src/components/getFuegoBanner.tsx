@@ -17,26 +17,28 @@ const GetFuegoBanner = () => {
     if (bannerHide) return <></>;
 
     return (
-        <div
-            ref={appState.getFuegoBannerRef}
-            className="w-ful px-6 py-2 font-bold cursor-pointer border-b border-b-border-main flex justify-between items-center backdrop-blur-xl hover:bg-background-fourth transition"
-            onClick={() => window.open('https://bit.ly/45UHTlP')}
-        >
-            {t("get_fuego")}
-            <span
-                onClick={(e) => {
-                    e.stopPropagation();
-                    appStore.setGetFuegoBannerHide()
-                    setBannerHide(true)
-                }}
+        <div className="w-full py-3 border-b border-b-border-main backdrop-blur-xl hover:bg-background-fourth transition">
+            <div
+                ref={appState.getFuegoBannerRef}
+                className="text-xs container mx-auto max-w-6xl px-6 font-bold cursor-pointer flex justify-between items-center backdrop-blur-xl"
+                onClick={() => window.open('https://bit.ly/45UHTlP')}
             >
-                <Image
-                    src="/icon-cross.svg"
-                    alt="cross"
-                    width="20"
-                    height="20"
-                />
-            </span>
+                {t("get_fuego")}
+                <span
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        appStore.setGetFuegoBannerHide()
+                        setBannerHide(true)
+                    }}
+                >
+                    <Image
+                        src="/icon-cross.svg"
+                        alt="cross"
+                        width="20"
+                        height="20"
+                    />
+                </span>
+            </div>
         </div>
     );
 };
