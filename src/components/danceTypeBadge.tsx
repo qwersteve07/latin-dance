@@ -22,11 +22,10 @@ function DanceTypeBadge({ type, className, onClick }: { type: DanceType, classNa
         "lambada": 'Lambada',
         "zouk": "Zouk",
         'hustle': 'Hustle'
-
     }
 
     return (
-        <span className={`px-2 py-1 text-xs font-medium rounded-full border flex items-center gap-2 ${colors[type]} ${className}`} onClick={onClick}>
+        <span className={`px-2 py-1 h-6 text-xs font-medium rounded-full border flex items-center gap-2 ${colors[type]} ${className}`} onClick={onClick}>
             <DanceTypeCube type={type} />
             {labels[type]}
         </span>
