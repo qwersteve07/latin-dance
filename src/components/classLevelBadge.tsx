@@ -16,7 +16,10 @@ const levelLabels: any = {
 
 export function ClassLevelBadge({ level, className, onClick }: { level: DanceClassLevel, className?: string, onClick?: () => void }) {
     return (
-        <span className={`px-2 py-0.5 text-[10px] font-medium rounded-full border overflow-hidden text-ellipsis w-[fit-content] ${colors[level]} ${className}`} onClick={onClick}>
+        <span className={
+            `px-2 py-1 h-6 text-[10px] font-medium rounded-full border flex items-center overflow-hidden text-ellipsis w-[fit-content] ${colors[level]} ${className}`
+        }
+            onClick={onClick}>
             {levelLabels[level].toUpperCase()}
         </span>
     )
