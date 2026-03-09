@@ -10,7 +10,7 @@ export const workshops: Workshop[] = [
         endAt: "",
         locate: "",
         level: "open-lv",
-        price: "NT$ 1,200",
+        price: "NT$ 1,600",
         details:
             "想挑戰自己，嘗試充滿 Musicality\n與身體控制的 Salsa Shine 嗎？\n這一系列課程就是為你設計的！\n不論你是新晉舞者還是舞圈老朋友，\n都能一起玩音樂、開發自己的身體潛力！\n\n「這支Shine，具備100 % 的Musicality，我有信心，絕對不讓你失望！」\n\n🎯目標：\n- 身體控制訓練：\n拆解身體做動作、用身體做節奏\n- Musicality：\n聽見音樂、感受身心音三合一的精髓\n- Shine成品拍攝(表定4 / 30) ：\n友善拍攝，可以分兩組速度拍攝（不用擔心😉）\n\n📅時間：4 / 9, 4 / 16, 4 / 23, 4 / 30   20:00 - 21:00（4堂課）\n📌地點：待人數確定後通知～（台北市）\n👟程度：- Open Level（但需能熟踩基本步伐及認知基本節奏） \n- Open Level(But should know basic steps and timing) \n\n💳付費方式：\n- 銀行轉帳: 中國信託(822) 9015 6566 1423\n- LINE PAY: 我的ID: jeremy100030（請加好友私訊轉帳呦\n\n* 預定課程後無法退款，非常感謝大家😭",
         url: 'https://forms.gle/HkwGKoyePYcsXHQY8'
