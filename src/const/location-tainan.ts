@@ -1,5 +1,5 @@
 export const locationTainan = [
-    {
+  {
     id: "b16-tainan",
     name: "臺南文化創意產業園區",
     city: "tainan",
@@ -23,4 +23,16 @@ export const locationTainan = [
     city: "tainan",
     url: "https://maps.app.goo.gl/NTToYB6vQCxCPkZb9",
   },
-]
+  {
+    id: "dei-yang-warship",
+    name: "德陽艦園區",
+    city: "tainan",
+    url: "https://maps.app.goo.gl/DjAPLPetKmBwAGVg7",
+  },
+  {
+    id: "jasmine-workshop",
+    name: "茉莉工坊",
+    city: "tainan",
+    url: "https://maps.app.goo.gl/nsBhUw1Cmtz6yrsx8",
+  },
+];
