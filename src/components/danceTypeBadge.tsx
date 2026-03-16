@@ -3,7 +3,8 @@ import DanceTypeCube from "./danceTypeCube"
 
 function DanceTypeBadge({ type, className, onClick }: { type: DanceType, className?: string, onClick?: () => void }) {
     const colors: Record<DanceType, string> = {
-        'salsa on 1': 'text-red-800 border-red-800/30',
+        'cuban salsa': 'text-red-800 border-red-800/30',
+        'salsa on 1': 'text-red-600 border-red-600/30',
         'salsa on 2': 'text-red-400 border-red-400/30',
         'salsa': 'text-red-400 border-red-400/30',
         'bachata': 'text-yellow-400 border-yellow-400/30',
@@ -14,6 +15,7 @@ function DanceTypeBadge({ type, className, onClick }: { type: DanceType, classNa
     }
 
     const labels: Record<DanceType, string> = {
+        'cuban salsa': "Cuban Salsa",
         'salsa on 1': "Salsa on 1",
         'salsa on 2': "Salsa on 2",
         'salsa': "Salsa",
