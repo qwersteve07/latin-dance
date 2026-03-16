@@ -22,7 +22,8 @@ const WorkshopModal = ({
 
   const danceTypeColor = (type: DanceType) => {
     switch (type) {
-      case 'salsa on 1': return 'from-red-800/15';
+      case 'cuban salsa': return 'from-red-800/15';
+      case 'salsa on 1': return 'from-red-600/15';
       case 'salsa on 2': return 'from-red-400/15';
       case 'salsa': return 'from-red-400/15';
       case 'bachata': return 'from-yellow-300/15';
