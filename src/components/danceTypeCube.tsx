@@ -4,7 +4,8 @@ const DanceTypeCube = ({ type, className }: { type: DanceType, className?: strin
 
     const danceTypeColor = (type: DanceType) => {
         switch (type) {
-            case 'salsa on 1': return 'bg-red-800';
+            case 'cuban salsa': return 'bg-red-800';
+            case 'salsa on 1': return 'bg-red-600';
             case 'salsa on 2': return 'bg-red-400';
             case 'salsa': return 'bg-red-400'
             case 'bachata': return 'bg-yellow-300';
