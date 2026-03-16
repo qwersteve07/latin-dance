@@ -24,6 +24,12 @@ export const locationTaipei = [
     url: "https://maps.app.goo.gl/CbhCWbEoXd2VUtZH8",
   },
   {
+    id: "tacos-n-taps",
+    name: "Tacos N Taps",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/vuEj7iVkLyA7gBqR7",
+  },
+  {
     id: "brass-monkey",
     name: "Brass Monkey",
     city: "taipei",
@@ -189,7 +195,7 @@ export const locationTaipei = [
     id: "ofdance",
     name: "宸羽專業舞蹈教室",
     city: "taipei",
-    url: "https://maps.app.goo.gl/duCXSDPGan5EoQao9"
+    url: "https://maps.app.goo.gl/duCXSDPGan5EoQao9",
   },
   {
     id: "studio-komi",
@@ -257,4 +263,4 @@ export const locationTaipei = [
     city: "taipei",
     url: "https://maps.app.goo.gl/R7S7MXzBtA7KGNyK7",
   },
-]
+];
