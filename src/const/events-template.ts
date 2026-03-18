@@ -143,7 +143,7 @@ export const eventsTemplate = {
     endAt: "23:00",
     fee: "300 TWD",
   },
-   "hustle-friday-night": {
+  "hustle-friday-night": {
     title: "Hustle Night",
     host: "hustlehustletw",
     locate: "skyco-nanjing-fuxing-6f",
@@ -152,7 +152,7 @@ export const eventsTemplate = {
     startAt: "20:00",
     endAt: "22:00",
     fee: "200",
-    "note": "20:30-21:00 新手教學\n21:00-24:00 Party Time"
+    note: "20:30-21:00 新手教學\n21:00-24:00 Party Time",
   },
   "outdoor-salsa-concert": {
     title: "戶外 Salsa Concert",
@@ -223,7 +223,7 @@ export const eventsTemplate = {
     types: ["bachata"],
     startAt: "21:00",
     endAt: "01:00",
-    fee: "250 TWD (含一杯飲料)",
+    fee: "300 TWD (含一杯飲料)",
   },
   "el-colmado-social": {
     title: "El Colmado Social",
@@ -285,7 +285,7 @@ export const eventsTemplate = {
     content: "",
     note: "",
   },
-  'la-calle': {
+  "la-calle": {
     title: "La Calle",
     host: "leo",
     locate: "the-venue",
@@ -295,7 +295,7 @@ export const eventsTemplate = {
     endAt: "00:30",
     fee: "250 TWD",
     content: "",
-    note: ""
+    note: "",
   },
   izouk: {
     title: "iZouk",
