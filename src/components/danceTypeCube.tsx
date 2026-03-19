@@ -1,7 +1,7 @@
 import { DanceType } from "@/types/danceTypes";
 import { ReactElement } from "react";
 
-const DanceTypeCube = ({ type, className ,children}: { type: DanceType, className?: string ,children: ReactElement}) => {
+const DanceTypeCube = ({ type, className ,children}: { type: DanceType, className?: string ,children?: ReactElement}) => {
 
     const danceTypeColor = (type: DanceType) => {
         switch (type) {
