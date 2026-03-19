@@ -1,6 +1,7 @@
 import { DanceType } from "@/types/danceTypes";
+import { ReactElement } from "react";
 
-const DanceTypeCube = ({ type, className }: { type: DanceType, className?: string }) => {
+const DanceTypeCube = ({ type, className ,children}: { type: DanceType, className?: string ,children?: ReactElement}) => {
 
     const danceTypeColor = (type: DanceType) => {
         switch (type) {
@@ -15,8 +16,12 @@ const DanceTypeCube = ({ type, className }: { type: DanceType, className?: strin
             case 'hustle': return 'bg-cyan-400'
         }
     }
+    
+    if(children){
+        return <div className={`${className} rounded-full ${danceTypeColor(type)}`}>{children}</div>
+    }
 
-    return <div className={`${className} rounded-full w-2 h-2 ${danceTypeColor(type)}`} />
+    return <div className={`${className} rounded-full w-2 h-2 ${danceTypeColor(type)}`}/>
 }
 
 export default DanceTypeCube

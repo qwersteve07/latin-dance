@@ -96,7 +96,7 @@ const WorkshopModal = ({
             </span>
           </div>}
         </div>
-        <div className="rounded-lg border border-border-main p-4">
+        {data.details && <div className="rounded-lg border border-border-main p-4">
           <p className="mb-1 text-xs font-medium text-gray-500">
             課程說明
           </p>
@@ -108,7 +108,7 @@ const WorkshopModal = ({
               </div>
             ))}
           </p>
-        </div>
+        </div>}
       </div>
       <div className="flex items-center  justify-between border-t border-border-main py-4 mx-4 ">
         <div>

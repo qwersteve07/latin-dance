@@ -44,7 +44,7 @@ export function WorkshopBanner() {
             >
                 <div className="mx-auto max-w-6xl px-6 w-full container flex justify-between items-center" onClick={() => setExpanded(!expanded)}>
                     <div className="flex">
-                        <div className="mx-auto flex max-w-6xl mr-10 max-md:mr-4">
+                        <div className="mx-auto flex max-w-6xl mr-10 max-md:mr-4 items-center">
                             <div className="text-xs font-semibold">
                                 👯 Upcoming Workshop
                             </div>
@@ -55,8 +55,8 @@ export function WorkshopBanner() {
                             {workshopCatagsArr.map(ws => {
                                 return (
                                     <div key={ws.name} className="flex items-center gap-1">
-                                        <DanceTypeCube type={ws.name} />
-                                        <div className="max-md:hidden">{ws.name} x {ws.counts}</div>
+                                        <div className="max-md:hidden">{ws.name}</div>
+                                        <DanceTypeCube type={ws.name} className="w-5 h-5 text-white font-bold flex justify-center items-center text-md"><>{ws.counts}</></DanceTypeCube>
                                     </div>
                                 )
                                 return
