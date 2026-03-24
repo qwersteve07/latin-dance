@@ -29,19 +29,7 @@ export const workshops: Workshop[] = [
       "Yichia和Ellen聯手精心打造的訓練及salsa課程，連假前一天來Level up一下吧！\n舞感技巧 x 單人Shine x 雙人combo\n2小時給你扎實訓練＋超值level up!",
     url: "https://reurl.cc/O6kXqA",
   },
-  {
-    id: "ws-3",
-    name: "Angelo & Romina 客座 Workshop",
-    type: "salsa",
-    date: "2026-03-24",
-    startAt: "20:45",
-    endAt: "22:15",
-    locate: "flow-taipei",
-    level: "open-lv",
-    price: "NT$ 1,000 / 2 flow points",
-    details: "",
-    url: "https://flowtaipei.com/events/?eventlogid=820_Angelo-&-Romina-Salsa-Shines",
-  },
+
   // {
   //     id: "ws-4",
   //     name: "Kizomba Fundamentals",
