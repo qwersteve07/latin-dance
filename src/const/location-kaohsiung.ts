@@ -1,5 +1,11 @@
 export const locationKaohsiung = [
-    {
+  {
+    id: "mld",
+    name: "MLD 台鋁小劇場",
+    city: "kaohsiung",
+    url: "https://maps.app.goo.gl/oitnDoTHdvN1hNaB6",
+  },
+  {
     id: "jayHsuAlinaTsai-latin-standard-dance-studio",
     name: "許哲睿蔡宛蓁國標舞蹈教室",
     city: "kaohsiung",
@@ -41,7 +47,7 @@ export const locationKaohsiung = [
     city: "kaohsiung",
     url: "https://maps.app.goo.gl/Rqj5n2gtTXMjGWUw8",
   },
-   {
+  {
     id: "the-pier-garden",
     name: "渡船頭啤酒花園",
     city: "kaohsiung",
@@ -53,7 +59,7 @@ export const locationKaohsiung = [
     city: "kaohsiung",
     url: "https://maps.app.goo.gl/D9S8QZf7bRb3WFb37",
   },
-     {
+  {
     id: "dance-passion-l-studio",
     name: "Dance Passion L. Studio ",
     city: "kaohsiung",
@@ -101,5 +107,4 @@ export const locationKaohsiung = [
     city: "pingtung",
     url: "https://maps.app.goo.gl/2uyCa68vHdGvjdWNA",
   },
-  
-]
+];
