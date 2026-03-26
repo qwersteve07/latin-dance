@@ -21,6 +21,7 @@ import DanceTypeCube from "@/components/danceTypeCube";
 import { simpleDanceTypes } from "@/const/dance";
 import dayjs from "dayjs";
 import DanceTypeBadge from "@/components/danceTypeBadge";
+import useGoogleCalendar from "@/use/use-google-calendar";
 
 type VlogIGItem = {
   name: string,
@@ -28,6 +29,16 @@ type VlogIGItem = {
 }
 
 export default function Home() {
+  
+  
+  const googleCalendar = useGoogleCalendar()
+  
+  useEffect(()=>{
+googleCalendar.insertEvent()
+  
+},[])
+
+
   const today = dayjs();
   const [opened, { open, close }] = useDisclosure(false);
   const [selectEvent, setSelectEvent] = useState<Partial<EventWithEventDate>>({});
