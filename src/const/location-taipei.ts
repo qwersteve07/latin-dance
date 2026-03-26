@@ -108,6 +108,12 @@ export const locationTaipei = [
     url: "https://maps.app.goo.gl/knFcbmp67U26BVW49",
   },
   {
+    id: "hakka-cultural-center",
+    name: "臺北市客家文化主題公園",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/T6DmZce4HS3NqQvz8",
+  },
+  {
     id: "here-taipei",
     name: "Here Taipei",
     city: "taipei",
