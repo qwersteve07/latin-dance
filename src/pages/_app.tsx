@@ -44,14 +44,12 @@ function App({ Component, pageProps }: AppProps) {
 		}
 	}, [router.isReady, router.query.city])
 
-
 	return (
 		<>
 			<Script
-				strategy="afterInteractive"
 				src={`https://www.googletagmanager.com/gtag/js?id=G-3WRCFDGBML`}
 			/>
-			<Script id="google-analytics" strategy="afterInteractive">
+			<Script id="google-analytics">
 				{`
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
