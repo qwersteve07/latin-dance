@@ -40,8 +40,6 @@ const EventModal = ({
     return userRole === data.host;
   };
 
-  console.log(data);
-
   return (
     <Modal
       opened={opened}
