@@ -10,9 +10,10 @@ import { useDay } from "@/use/use-day";
 import { locateList, useAppState } from "@/store/appState";
 import { eventsTemplate } from "@/const/events-template";
 import { useAppStore } from "@/store/appStore";
-import { getLocateCity } from "@/utils/getLocate";
+import { getLocate, getLocateCity } from "@/utils/getLocate";
 import { useUser } from "@/use/use-user";
 import { Event } from "@/types/event";
+import { getHost } from "@/utils/getHost";
 
 function EventEditModal({ opened, onClose, id, defaultData }: { opened: boolean, onClose: () => void, id: string, defaultData: any }) {
     const [loading, setLoading] = useState(false)
@@ -59,7 +60,7 @@ function EventEditModal({ opened, onClose, id, defaultData }: { opened: boolean,
             } else {
                 form.setValues({
                     ...defaultData,
-                    host: defaultData.host? defaultData.host : userRole,
+                    host: defaultData.host ? defaultData.host : userRole,
                 })
             }
         } else {
@@ -110,7 +111,10 @@ function EventEditModal({ opened, onClose, id, defaultData }: { opened: boolean,
             date: dayjs(values.date).format('YYYY-MM-DDT00:00:00'),
             title: values.title,
             host: values.host,
+            hostName: getHost(values.host),
             locate: values.locate,
+            locateName: getLocate(values.locate),
+            area: getLocateCity(values.locate),
             startAt: values.startAt,
             endAt: values.endAt,
             rate: values.rate,
