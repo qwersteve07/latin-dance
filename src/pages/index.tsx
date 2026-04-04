@@ -126,7 +126,7 @@ export default function Home() {
     <div>
       <EventModal opened={opened} onClose={close} data={selectEvent} />
       {appStore.currentCity === 'taichung' && (
-        <Announcement>
+        <Announcement single>
           {t('contact_w_social')}&nbsp;<a className="font-bold underline" target='_blank' href="https://ig.me/m/wsocial_taichung">W Social</a>！
         </Announcement>)
       }
