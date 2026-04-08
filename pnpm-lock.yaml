@@ -77,9 +77,6 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
-      react-google-calendar-api:
-        specifier: ^2.3.0
-        version: 2.3.0
       react-i18next:
         specifier: ^15.4.1
         version: 15.4.1(i18next@24.2.3(typescript@5.8.2))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -3632,9 +3629,6 @@ packages:
     resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
     peerDependencies:
       react: ^19.0.0
-
-  react-google-calendar-api@2.3.0:
-    resolution: {integrity: sha512-Hzlx2LOYcSLoKobelFOobkU0MqCj5AB2YlnTV5IxlZ4zTuQFsAecefia5wxA0hTQVypfw3+xbx90TFauIBirqg==}
 
   react-html-props@2.0.10:
     resolution: {integrity: sha512-nnDtzdYhsfjJbp2QRWIG23aB/kNHEJZI6hogY/aA2fAjhcvL9JYPwrd4SjkrB8bD070WJrhuk9Al8GA1iDbGzg==}
@@ -8562,8 +8556,6 @@ snapshots:
     dependencies:
       react: 19.0.0
       scheduler: 0.25.0
-
-  react-google-calendar-api@2.3.0: {}
 
   react-html-props@2.0.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
