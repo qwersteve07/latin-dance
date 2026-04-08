@@ -29,7 +29,6 @@
     "@mantine/form": "^7.17.0",
     "@mantine/hooks": "^7.16.1",
     "dayjs": "^1.11.13",
-    "gapi-script": "^1.2.0",
     "i18next": "^24.2.3",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.562.0",
