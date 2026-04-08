@@ -174,6 +174,12 @@ export const locationTaipei = [
     url: "https://maps.app.goo.gl/e62ztNWFJtU5fNHY6",
   },
   {
+    id: "hd-studio",
+    name: "HD Studio",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/v8MEGg1meQHyvT76A",
+  },
+  {
     id: "salud-salsa-party",
     name: "Salud Salsa Party",
     city: "taipei",

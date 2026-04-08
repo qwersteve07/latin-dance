@@ -5,7 +5,10 @@ export type Event = {
     endAt: string,
     title: string
     host: string
-    locate: string
+    hostName?: string
+    locate: string,
+    locateName: string,
+    area: string,
     rate: string
     fee: string
     content: string,

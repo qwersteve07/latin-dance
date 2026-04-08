@@ -25,6 +25,7 @@ import { useUser } from "@/use/use-user";
 import DanceTypeCube from "@/components/danceTypeCube";
 import DanceTypeBadge from "@/components/danceTypeBadge";
 import { DanceType } from "@/types/danceTypes";
+import AddCalendar from "@/components/AddCalendar";
 
 export default function Calendar() {
   const [currentYear, setCurrentYear] = useState('2026')
@@ -113,11 +114,10 @@ export default function Calendar() {
     openEventEditModal()
   }
 
-  function handleOpenEventEditModal(id: string,data: any) {
-    if(id) setEventId(id)
-    if(data) setDefaultData(data)
+  function handleOpenEventEditModal(id: string, data: any) {
+    if (id) setEventId(id)
+    if (data) setDefaultData(data)
     openEventEditModal()
-    
   }
 
   function handleCloseEventEditModal() {
@@ -190,27 +190,30 @@ export default function Calendar() {
       />
       <div className="flex justify-between items-center">
         <Title>{t('calendar.page_title')}</Title>
-        {isLogin && 
-        <div className="flex flex-col items-end">
-          <Button className="!w-20 mb-2" onClick={() => {
-            onOpenAddEventModal({ date: dayjs().toDate() })
-          }}>新增</Button>
-          <p className="text-xs text-gray-500">可直接點擊日期新增</p>
-        </div>}
+        {isLogin &&
+          <div className="flex flex-col items-end">
+            <Button className="!w-20 mb-2" onClick={() => {
+              onOpenAddEventModal({ date: dayjs().toDate() })
+            }}>新增</Button>
+            <p className="text-xs text-gray-500">可直接點擊日期新增</p>
+          </div>}
       </div>
-      {appStore.currentCity === 'taichung' && (
-        <Announcement>
-          {t("contact_w_social")}&nbsp;
-          <a
-            className="font-bold underline"
-            target="_blank"
-            href="https://ig.me/m/wsocial_taichung"
-          >
-            W Social
-          </a>
-          ！
-        </Announcement>
-      )}
+      <div className="fixed right-16 bottom-16 max-md:right-4 max-md:bottom-10 z-10 flex flex-col justify-center items-center gap-4">
+        <AddCalendar />
+        {appStore.currentCity === 'taichung' && (
+          <Announcement>
+            {t("contact_w_social")}&nbsp;
+            <a
+              className="font-bold underline"
+              target="_blank"
+              href="https://ig.me/m/wsocial_taichung"
+            >
+              W Social
+            </a>
+            ！
+          </Announcement>
+        )}
+      </div>
       {Content()}
     </>
   );
