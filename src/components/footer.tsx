@@ -1,6 +1,7 @@
 import packageJson from '../../package.json'
 import Link from "next/link";
 import ContactIcons from './contact';
+import dayjs from 'dayjs';
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
     bg-background-sub text-text-sub text-sm
     ">
       <span>V{packageJson.version}</span>
-      <span>© 2025 by Steve Lee.</span>
+      <span>© {dayjs().year()} by Steve Lee.</span>
       <ContactIcons />
       <Link href='/about' className='font-bold underline hover:text-red-500'>About</Link>
     </footer>

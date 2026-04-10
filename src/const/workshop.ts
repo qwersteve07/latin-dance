@@ -28,20 +28,19 @@ export const workshops: Workshop[] = [
     url: "https://forms.gle/gi9e3nNNYJDMn9gJ6",
   },
 
-  // {
-  //     id: "ws-4",
-  //     name: "Kizomba Fundamentals",
-  //     type: "kizomba",
-  //     date: "2026-03-22",
-  //     startAt: "14:00",
-  //     endAt: "16:00",
-  //     locate: "here-taipei",
-  //     level: "beginner",
-  //     price: "NT$ 600",
-  //     details:
-  //         "從零開始學習 Kizomba！課程將教授基本步伐、擁抱框架（embrace）以及如何跟隨音樂節奏。Kizomba 是一種來自安哥拉的優美舞蹈，以其親密和流暢著稱。",
-  //     url: 'https://www.google.com.tw'
-  // },
+  {
+    id: "ws-4",
+    name: "Taiwan Zouk Festival",
+    type: "zouk",
+    date: "2026-05-01",
+    startAt: "",
+    endAt: "",
+    locate: "",
+    level: "open-lv",
+    price: "Check the Link!",
+    details: "",
+    url: "https://taiwanzoukfestival.com/",
+  },
   // {
   //     id: "ws-5",
   //     name: "Hustle Night Intensive",
