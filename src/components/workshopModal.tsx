@@ -112,17 +112,21 @@ const WorkshopModal = ({
       </div>
       <div className="flex items-center  justify-between border-t border-border-main py-4 mx-4 ">
         <div>
-          <p className="text-xs text-gray-500">費用</p>
-          <p className="text-lg font-bold">
-            {data.price}
-          </p>
+          {data.price && (
+            <>
+            <p className="text-xs text-gray-500">費用</p>
+            <p className="text-lg font-bold">
+              {data.price}
+            </p>
+            </>
+          )}
         </div>
-        {data.url && (
-          <a href={data.url} target="_blank" rel="noopener noreferrer" className={`rounded-lg h-10 px-4 ${danceTypeColorBg(data.type)} flex justify-center items-center `}>
+        {data.url ? (
+          <a href={data.url} target="_blank" rel="noopener noreferrer" className={`rounded-lg h-10 px-4 ${danceTypeColorBg(data.type)} flex justify-center items-center`}>
             <Sparkles className="mr-1.5 size-4" />
             立即報名
           </a>
-        )}
+        ): <div className="rounded-lg h-10 px-4 border border-gray-500 text-gray-500 flex justify-center items-center">活動籌備中</div>}
       </div>
     </Modal >
   );
