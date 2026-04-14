@@ -16,16 +16,16 @@ export const workshops: Workshop[] = [
   },
   {
     id: "ws-2",
-    name: "Ariel & Leticia Weekender",
-    type: "lambada",
-    date: "2026-04-11",
+    name: "Beko & Mong Weekender",
+    type: "salsa",
+    date: "2026-05-22",
     startAt: "",
     endAt: "",
     locate: "",
     level: "open-lv",
-    price: "Check the Link!",
+    price: "",
     details: "",
-    url: "https://forms.gle/gi9e3nNNYJDMn9gJ6",
+    url: "",
   },
 
   {
