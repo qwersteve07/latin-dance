@@ -35,4 +35,10 @@ export const locationTainan = [
     city: "tainan",
     url: "https://maps.app.goo.gl/nsBhUw1Cmtz6yrsx8",
   },
+  {
+    id: "10.4tnn",
+    name: "時似",
+    city: "tainan",
+    url: "https://maps.app.goo.gl/uYo3sjp6WCBV4XDy7",
+  },
 ];
