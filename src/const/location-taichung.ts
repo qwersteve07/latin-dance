@@ -1,5 +1,5 @@
 export const locationTaichung = [
-     
+
   {
     id: "w-social",
     name: "利百代辦公大樓 8F",
@@ -101,5 +101,11 @@ export const locationTaichung = [
     name: '心之谷永續教育園區 HeartValley Gallery',
     city: 'taichung',
     url: 'https://maps.app.goo.gl/gzsZgg3Gr3PFoeGb8'
+  },
+  {
+    id: 'tai-yuan-hall',
+    name: '太原會館',
+    city: 'taichung',
+    url: 'https://maps.app.goo.gl/vCX2aU2YU2aiKCEj6'
   }
 ]
