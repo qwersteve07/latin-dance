@@ -23,9 +23,9 @@ export const workshops: Workshop[] = [
     endAt: "",
     locate: "",
     level: "open-lv",
-    price: "",
+    price: "Check the Link!",
     details: "",
-    url: "",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSetvQhQuVMUtvWwZClhVzldm-4U_Xvv8GGX0sKuX30ueap7MA/viewform",
   },
 
   {
@@ -41,18 +41,4 @@ export const workshops: Workshop[] = [
     details: "",
     url: "https://taiwanzoukfestival.com/",
   },
-  // {
-  //     id: "ws-5",
-  //     name: "Hustle Night Intensive",
-  //     type: "hustle",
-  //     date: "2026-03-28",
-  //     startAt: "19:00",
-  //     endAt: "21:30",
-  //     locate: "skyco-ch-8f",
-  //     level: "advanced",
-  //     price: "NT$ 1,500",
-  //     details:
-  //         "Hustle 進階密集班！涵蓋高難度的旋轉組合、dip、以及舞台表演技巧。課後將有 Open Social 時間讓大家練習。限有一年以上 Hustle 經驗的舞者報名。",
-  //     url: 'https://www.google.com.tw'
-  // },
 ];
