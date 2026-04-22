@@ -27,7 +27,6 @@ export const workshops: Workshop[] = [
     details: "",
     url: "https://docs.google.com/forms/d/e/1FAIpQLSetvQhQuVMUtvWwZClhVzldm-4U_Xvv8GGX0sKuX30ueap7MA/viewform",
   },
-
   {
     id: "ws-4",
     name: "Taiwan Zouk Festival",
@@ -40,5 +39,19 @@ export const workshops: Workshop[] = [
     price: "Check the Link!",
     details: "",
     url: "https://taiwanzoukfestival.com/",
+  },
+  {
+    id: "ws-5",
+    name: "Yichia & Ellen Salsa Workshop",
+    type: "salsa",
+    date: "2026-05-01",
+    startAt: "19:00",
+    endAt: "21:00",
+    locate: "hd-studio",
+    level: "open-lv",
+    price: "750",
+    details:
+      "Yichia和Ellen聯手精心打造的訓練及salsa課程，連假來Level up一下吧！\n- 舞感技巧 x 單人Shine x 雙人combo\n- 2小時給你扎實訓練＋超值level up!\n\n報名資格：已學習Salsa一年以上者\n費用：2小時workshop $750，男女成對報名可再享每人$50折扣；或是上一期workshop有報名者，此次續報可享$50折扣 (限擇一折扣)\n🎟 學生續攤Party價：250元 (原價350元)。  ",
+    url: "https://forms.gle/jdYDstkj7pZJPCAG7",
   },
 ];
