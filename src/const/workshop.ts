@@ -47,7 +47,7 @@ export const workshops: Workshop[] = [
     date: "2026-05-01",
     startAt: "19:00",
     endAt: "21:00",
-    locate: "hd-studio",
+    locate: "sunny-side",
     level: "open-lv",
     price: "750",
     details:
