@@ -56,19 +56,15 @@ export default function Home() {
     },
     {
       name: 'XiaoWolf Photography',
-      url: 'https://www.instagram.com/xiaowolfphotography?igsh=cXd0dG5yNW9nanpm'
+      url: 'https://www.instagram.com/xiaowolfphotography'
+    },
+    {
+      name: 'SBK Taiwan',
+      url: 'https://www.instagram.com/sbk_taiwan'
     },
     {
       name: "Jim",
       url: "https://www.instagram.com/jimframe",
-    },
-    {
-      name: "Sloat Media",
-      url: "https://www.instagram.com/sloatmedia",
-    },
-    {
-      name: 'Marshall',
-      url: 'https://www.instagram.com/marshallstudiotw/'
     },
   ];
 
