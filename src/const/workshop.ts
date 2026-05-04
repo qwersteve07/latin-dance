@@ -37,21 +37,8 @@ export const workshops: Workshop[] = [
     locate: "",
     level: "open-lv",
     price: "Check the Link!",
-    details: "在場上聽到ChaChaCha時, \n想跳但不知從何開始~?\n當然不只是學會而已!\n還充滿 Musicality\n與身體控制的舞碼!!!\n課中會有精細的調整及訓練~\n",
-    url: "https://docs.google.com/forms/d/e/1FAIpQLSeyny5AgAmUOr-c2rH4lYxlyylHCpKIosxhml_uaw6jzPsMOQ/viewform",
-  },
-  {
-    id: "ws-5",
-    name: "Yichia & Ellen Salsa Workshop",
-    type: "salsa",
-    date: "2026-05-01",
-    startAt: "19:00",
-    endAt: "21:00",
-    locate: "sunny-side",
-    level: "open-lv",
-    price: "750",
     details:
-      "Yichia和Ellen聯手精心打造的訓練及salsa課程，連假來Level up一下吧！\n- 舞感技巧 x 單人Shine x 雙人combo\n- 2小時給你扎實訓練＋超值level up!\n\n報名資格：已學習Salsa一年以上者\n費用：2小時workshop $750，男女成對報名可再享每人$50折扣；或是上一期workshop有報名者，此次續報可享$50折扣 (限擇一折扣)\n🎟 學生續攤Party價：250元 (原價350元)。  ",
-    url: "https://forms.gle/jdYDstkj7pZJPCAG7",
+      "在場上聽到ChaChaCha時, \n想跳但不知從何開始~?\n當然不只是學會而已!\n還充滿 Musicality\n與身體控制的舞碼!!!\n課中會有精細的調整及訓練~\n",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSeyny5AgAmUOr-c2rH4lYxlyylHCpKIosxhml_uaw6jzPsMOQ/viewform",
   },
 ];
