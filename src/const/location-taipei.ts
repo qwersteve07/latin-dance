@@ -156,6 +156,12 @@ export const locationTaipei = [
     url: "https://maps.app.goo.gl/1gDC8j5CHfdWun8U6",
   },
   {
+    id: "y-nest",
+    name: "YNest 排練室",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/Rqya4H5GeMi5E92t5",
+  },
+  {
     id: "nuzone",
     name: "NUZONE",
     city: "taipei",
