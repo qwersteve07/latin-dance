@@ -103,6 +103,16 @@ export const eventsTemplate = {
     endAt: "22:00",
     fee: "free",
   },
+  "bailalo-saturday-social": {
+    title: "Bailalo Saturday Social",
+    host: "bailalo-dance-studio",
+    locate: "bailalo-dance-studio",
+    rate: "Salsa:Bachata 4:2",
+    types: ["salsa on 2", "bachata"],
+    startAt: "18:30",
+    endAt: "21:00",
+    fee: "300 TWD",
+  },
   "bailalo-sunday-social": {
     title: "Bailalo Sunday Social",
     host: "bailalo-dance-studio",
