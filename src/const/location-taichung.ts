@@ -1,5 +1,4 @@
 export const locationTaichung = [
-
   {
     id: "w-social",
     name: "利百代辦公大樓 8F",
@@ -91,21 +90,27 @@ export const locationTaichung = [
     url: "https://maps.app.goo.gl/z9D8HCepXBDWnXWx9",
   },
   {
-    id: 'ibrew',
-    name: '愛釀餐酒館 iBREW-BEER BISTRO',
-    city: 'taichung',
-    url: 'https://maps.app.goo.gl/QxXrUa5ATZGG1jzt5'
+    id: "ibrew",
+    name: "愛釀餐酒館 iBREW-BEER BISTRO",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/QxXrUa5ATZGG1jzt5",
   },
   {
-    id: 'heart-valley',
-    name: '心之谷永續教育園區 HeartValley Gallery',
-    city: 'taichung',
-    url: 'https://maps.app.goo.gl/gzsZgg3Gr3PFoeGb8'
+    id: "heart-valley",
+    name: "心之谷永續教育園區 HeartValley Gallery",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/gzsZgg3Gr3PFoeGb8",
   },
   {
-    id: 'tai-yuan-hall',
-    name: '太原會館',
-    city: 'taichung',
-    url: 'https://maps.app.goo.gl/vCX2aU2YU2aiKCEj6'
-  }
-]
+    id: "tai-yuan-hall",
+    name: "太原會館",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/vCX2aU2YU2aiKCEj6",
+  },
+  {
+    id: "taichung-culture-center",
+    name: "台中文創園區 願景館 3 F",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/FhwrHzVtSDmvjn9z7",
+  },
+];
