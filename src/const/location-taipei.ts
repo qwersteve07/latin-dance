@@ -102,6 +102,18 @@ export const locationTaipei = [
     url: "https://maps.app.goo.gl/8PBdxD3BdtPPyFu3A",
   },
   {
+    id: "wagu-studio",
+    name: "WAGU Studio",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/7kqWfJgULjDfaArU9",
+  },
+  {
+    id: "y17",
+    name: "y17 台北市青少年育樂中心",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/gTYdM678p7sv8Guv7",
+  },
+  {
     id: "corner-max",
     name: "CORNER MAX",
     city: "taipei",
