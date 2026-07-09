@@ -1,7 +1,6 @@
 import { Workshop } from "@/types/workshop";
 
 export const workshops: Workshop[] = [
-
   {
     id: "ws-3",
     name: "Nikita y Natalia WS + mini BC",
@@ -15,24 +14,12 @@ export const workshops: Workshop[] = [
     details: "",
     url: "https://docs.google.com/forms/d/e/1FAIpQLScUwppFgEbo0O0KW5T4fJ8YaNrfwsYpBJMgXXiE0D5_l5GteA/viewform",
   },
-  {
-    id: "ws-9",
-    name: "Bachata Flow & Musicality",
-    type: "bachata",
-    date: "2026-07-08",
-    startAt: "20:30",
-    endAt: "21:30",
-    locate: "wagu-studio",
-    level: "open-lv",
-    price: "",
-    details: "",
-    url: "https://www.instagram.com/p/DaF5EkaSimR/?igsh=NzVuNmx1azVwYXVt",
-  },
+
   {
     id: "ws-2121",
     name: "Yichia & Ellen Salsa Workshop",
     type: "salsa",
-    date: "2026-07-10",
+    date: "2026-07-24",
     startAt: "20:00",
     endAt: "22:00",
     locate: "",
