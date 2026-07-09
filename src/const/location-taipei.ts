@@ -138,6 +138,12 @@ export const locationTaipei = [
     url: "https://maps.app.goo.gl/72Z2ovcG5cZNgfM59",
   },
   {
+    id: "central-taipei",
+    name: "Central Taipei",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/fUTnpmPZgbpU79E38",
+  },
+  {
     id: "chinatown-taipei",
     name: "Chinatown Taipei",
     city: "taipei",
