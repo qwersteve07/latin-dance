@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex justify-start items-center flex-col min-h-screen bg-background-main text-text-main">
-      <div className="w-full sticky top-0 z-10">
+      <div className="w-full sticky top-0 z-11">
         <WorkshopBanner />
         <InstallPromptBanner />
         <GetFuegoBanner />
