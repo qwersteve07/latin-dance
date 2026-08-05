@@ -1,21 +1,19 @@
 import { Workshop } from "@/types/workshop";
 
 export const workshops: Workshop[] = [
-
-
-  {
-    id: "ws-2121",
-    name: "Yichia & Ellen Salsa Workshop",
-    type: "salsa",
-    date: "2026-07-24",
-    startAt: "20:00",
-    endAt: "22:00",
-    locate: "",
-    level: "open-lv",
-    price: "",
-    details: "",
-    url: "https://docs.google.com/forms/d/1ZY43wv62s9I-DALi_eXgiN0d1FusviYQ_PXJtrjh3z0/viewform?edit_requested=true",
-  },
+  // {
+  //   id: "ws-2121",
+  //   name: "Yichia & Ellen Salsa Workshop",
+  //   type: "salsa",
+  //   date: "2026-07-24",
+  //   startAt: "20:00",
+  //   endAt: "22:00",
+  //   locate: "",
+  //   level: "open-lv",
+  //   price: "",
+  //   details: "",
+  //   url: "https://docs.google.com/forms/d/1ZY43wv62s9I-DALi_eXgiN0d1FusviYQ_PXJtrjh3z0/viewform?edit_requested=true",
+  // },
 
   {
     id: "ws-10",
@@ -29,6 +27,19 @@ export const workshops: Workshop[] = [
     price: "",
     details: "",
     url: "https://www.facebook.com/events/897269100053387/",
+  },
+  {
+    id: "ws-1022",
+    name: "G-ya WS + mini BC",
+    type: "salsa",
+    date: "2026-08-21",
+    startAt: "",
+    endAt: "",
+    locate: "",
+    level: "open-lv",
+    price: "",
+    details: "",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSdwRs0WJHMjk_aSrBslA-iN7DuyQb8TJac5qkrX-WciWTRt4Q/viewform",
   },
   {
     id: "ws-12121",
