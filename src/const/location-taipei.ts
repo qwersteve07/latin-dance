@@ -299,4 +299,10 @@ export const locationTaipei = [
     city: "taipei",
     url: "https://maps.app.goo.gl/R7S7MXzBtA7KGNyK7",
   },
+  {
+    id: "fullon-hotel",
+    name: "淡水福容大飯店",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/4okMQ2Q6JP8HdqPu8",
+  },
 ];
