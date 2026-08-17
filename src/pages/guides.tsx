@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import OuterLink from "@/components/outerLink";
 import Title from "@/components/title";
 import { NextSeo } from "next-seo";
 import { Button } from "@mantine/core";
