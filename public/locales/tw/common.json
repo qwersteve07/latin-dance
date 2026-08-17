@@ -15,6 +15,7 @@
   "check_events": "查看所有活動",
   "check_guides": "查看舞會指引",
   "check_organizers": "查看團隊列表",
+  "check_beginner": "查看新手導讀",
   "highlights": "Highlights",
   "events_this_week": "本週活動",
   "events_today": "本日活動",
@@ -43,6 +44,17 @@
     "item10_title": "🥳 專注於享受",
     "item10_content": "舞會是舞者放鬆與交流的地方，只要專注於享受舞蹈的樂趣即可。請勿在舞池中進行教學或評論對方舞蹈，保持輕鬆愉快的氛圍。",
     "read": "推薦閱讀"
+  },
+  "beginner": {
+    "title": "新手導讀",
+    "page_title": "新手導讀",
+    "description": "還在熟悉社交舞嗎？來看看前輩們的分享吧",
+    "coming_soon": "文章籌備中，敬請期待",
+    "category": {
+      "newcomer": "💬 新手入圈心得",
+      "etiquette": "🚧 雙人舞中的距離",
+      "social": "🪩 舞會的必要知識"
+    }
   },
   "organizers": {
     "title": "團隊列表",

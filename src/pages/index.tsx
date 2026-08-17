@@ -109,9 +109,11 @@ export default function Home() {
           <Button className="!w-[200px]" onClick={() => router.push("/calendar")}>
             {t('check_events')}
           </Button>
-          <div className="hidden max-md:block">or</div>
           <Button className="!w-[200px]" variant="outline" onClick={() => router.push("/guides")}>
             {t('check_guides')}
+          </Button>
+          <Button className="!w-[200px]" variant="outline" onClick={() => router.push("/beginner")}>
+            ✨{t('check_beginner')}
           </Button>
         </div>
       </>

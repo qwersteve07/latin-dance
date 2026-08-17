@@ -13,10 +13,11 @@ export default function Navigator() {
   const { t } = useTranslation('common')
 
   const routesList = [
+    { id: "/beginner", name: t("beginner.title") ,icon: '✨'},
+    { id: "/guides", name: t("guides.title") },
     { id: "/calendar", name: t("calendar.title") },
     { id: "/organizers", name: t("organizers.title") },
     { id: "/classes", name: t("classes.title") },
-    { id: "/guides", name: t("guides.title") },
     // { id: "/shop", name: t("shop.title") },
     // { id: "/food-map", name: t("food_map.title") },
     { id: "/others", name: t("others.title") },
@@ -38,7 +39,7 @@ export default function Navigator() {
       return router.pathname === r.id ?
         (
           <div key={r.id} className="h-7 font-bold text-red-500 pointer-events-none mx-2">
-            <div className="flex justify-start items-center h-7">{r.name}</div>
+            <div className="flex justify-start items-center h-7">{r?.icon}{r.name}</div>
           </div>
         ) :
         (
@@ -49,7 +50,7 @@ export default function Navigator() {
             className="h-7 cursor-pointer font-bold hover:text-red-500 transition mx-2"
           >
             <div key={r.id} >
-              <div className="flex justify-start items-center h-7">{r.name}</div>
+              <div className="flex justify-start items-center h-7">{r?.icon}{r.name}</div>
             </div>
           </Link>
         )
