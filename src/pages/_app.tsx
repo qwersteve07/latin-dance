@@ -17,6 +17,7 @@ import useSWR from "swr";
 import { useAppState } from "@/store/appState";
 import { useEffect } from "react";
 
+
 function App({ Component, pageProps }: AppProps) {
 	const appState = useAppState()
 	const router = useRouter()
