@@ -15,6 +15,7 @@
   "check_events": "Check More Events",
   "check_guides": "Check Social Guides",
   "check_organizers": "Check Organizers",
+  "check_beginner": "Check Beginner",
   "highlights": "Highlights",
   "events_this_week": "Events This Week",
   "events_today": "Today's Events",
@@ -43,6 +44,17 @@
     "item10_title": "🥳 Focus on Enjoyment",
     "item10_content": "Social dancing is a place for dancers to relax and socialize. Please focus on enjoying the dance.\nAvoid teaching or excessively commenting on your partner's dance in the dance floor, keep a light and happy atmosphere.",
     "read": "Recommend List"
+  },
+  "beginner": {
+    "title": "Beginner",
+    "page_title": "Beginner's Guide",
+    "description": "Where to start if you are new to the social dance scene",
+    "coming_soon": "Articles coming soon",
+    "category": {
+      "newcomer": "💬 Notes from Newcomers",
+      "etiquette": "🚧 Etiquette and Boundaries in Partner Dance",
+      "social": "🪩 What You Need to Know at a Social"
+    }
   },
   "organizers": {
     "title": "Organizers",
