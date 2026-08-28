@@ -305,4 +305,10 @@ export const locationTaipei = [
     city: "taipei",
     url: "https://maps.app.goo.gl/4okMQ2Q6JP8HdqPu8",
   },
+  {
+    id: "zhong-jiao-wan",
+    name: "中角灣",
+    city: "taipei",
+    url: "https://maps.app.goo.gl/3pL2Zbe1Jqc7zemM9",
+  },
 ];
