@@ -19,6 +19,11 @@ export const beginnerCategories: ArticleCategory[] = [
         link: "https://www.threads.com/share/BAS-agPffo/",
         platform: "threads",
       },
+      {
+        title: "大家都說你好跳，所以你真的跳得好嗎？",
+        link: "https://www.threads.com/share/BATJCtBleS/",
+        platform: "threads",
+      },
     ],
   },
   {

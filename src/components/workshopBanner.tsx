@@ -71,7 +71,7 @@ export function WorkshopBanner() {
                         expanded && (
                             <div className="
                             fixed top-[49px] left-0 w-full max-md:h-[calc(100dvh-49px)]
-                             overflow-scroll border-b border-b-border-main duration-200 bg-background-main z-10">
+                             overflow-scroll border-b border-b-border-main duration-200 bg-background-main z-11">
                                 <div className="mx-auto grid max-w-6xl container gap-2 px-4 py-3 sm:grid-cols-2 lg:grid-cols-3">
                                     {workshops.map((ws) => (
                                         <DropdownWorkshopCard
