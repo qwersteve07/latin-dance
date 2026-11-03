@@ -1,5 +1,6 @@
 import { Workshop } from "@/types/workshop";
 
+
 export const workshops: Workshop[] = [
   {
     id: "ws-kk21222",

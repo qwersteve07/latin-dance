@@ -16,12 +16,12 @@ import { fetcher } from "@/utils/fetcher";
 import useSWR from "swr";
 import { useAppState } from "@/store/appState";
 import { useEffect } from "react";
+import { cityPages, isCityId } from "@/const/cities";
 
 
 function App({ Component, pageProps }: AppProps) {
 	const appState = useAppState()
 	const router = useRouter()
-	const appStore = useAppStore()
 
 	const { data } = useSWR('/social-dance/organizers', fetcher, {
 		revalidateOnFocus: false,
@@ -34,16 +34,32 @@ function App({ Component, pageProps }: AppProps) {
 		}
 	}, [data])
 
+	// 城市與網址同步：網址的 ?city= 優先（別人分享的連結），否則用使用者上次選的城市，
+	// 並把目前城市寫回依城市顯示內容的頁面網址，方便直接複製分享
 	useEffect(() => {
 		if (!router.isReady) return
 
-		const city = router.query.city
+		const { city, ...restQuery } = router.query
+		const validCity = isCityId(city) ? city : null
+		// 用 getState() 讀即時值：hydration 期間 render 拿到的是初始值 taipei，不是 localStorage 裡存的城市
+		const { currentCity: savedCity, setCurrentCity } = useAppStore.getState()
 
-		if (typeof city === 'string') {
-			appStore.setCurrentCity(city)
-			router.replace(router.pathname);
+		if (validCity && validCity !== savedCity) {
+			setCurrentCity(validCity)
 		}
-	}, [router.isReady, router.query.city])
+
+		const wantedCity = cityPages.includes(router.pathname)
+			? validCity ?? (isCityId(savedCity) ? savedCity : 'taipei')
+			: undefined
+
+		if (city !== wantedCity) {
+			router.replace(
+				{ pathname: router.pathname, query: wantedCity ? { ...restQuery, city: wantedCity } : restQuery },
+				undefined,
+				{ shallow: true, scroll: false }
+			)
+		}
+	}, [router.isReady, router.pathname, router.query.city])
 
 	return (
 		<>
