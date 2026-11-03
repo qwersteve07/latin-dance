@@ -78,7 +78,7 @@ export default function Navigator() {
         href={r.id}
         key={r.id}
         aria-current={active ? 'page' : undefined}
-        className={`flex items-center border-b-2 px-3.5 text-[15px] font-medium text-text-sub transition ${active ? 'border-red-600 !text-red-700 dark:border-red-400 dark:!text-red-300' : 'border-transparent hover:text-red-500'}`}
+        className={`flex items-center whitespace-nowrap border-b-2 px-3 text-[15px] font-medium text-text-sub transition ${active ? 'border-red-600 !text-red-700 dark:border-red-400 dark:!text-red-300' : 'border-transparent hover:text-red-500'}`}
       >
         {r.name}
       </Link>
@@ -126,7 +126,7 @@ export default function Navigator() {
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
           </svg>
           <span lang={currentLocale === 'en' ? 'en' : 'zh-Hant-TW'}>{currentLocale === 'en' ? 'EN' : '中文'}</span>
-          <svg aria-hidden width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg aria-hidden className="max-[379px]:hidden" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="m6 9 6 6 6-6" />
           </svg>
         </button>
@@ -155,10 +155,11 @@ export default function Navigator() {
     </Menu>
   )
 
-  const brand = (showTitle: boolean) => (
+  // 網站名稱只在夠寬（xl）時顯示；較窄時只放 logo，避免頂欄擠到折行
+  const brand = (
     <Link href="/" className="flex items-center gap-2.5" aria-label={t('title')}>
       <span aria-hidden className="shrink-0 whitespace-nowrap text-2xl leading-none">💃🕺</span>
-      {showTitle && <span className="text-[17px] font-bold leading-tight tracking-wide">{t('title')}</span>}
+      <span className="hidden whitespace-nowrap text-[17px] font-bold leading-tight tracking-wide xl:inline">{t('title')}</span>
     </Link>
   )
 
@@ -212,19 +213,19 @@ export default function Navigator() {
       </Drawer>
 
       <nav aria-label={t('nav.main_menu')} className="border-b border-b-border-main w-full backdrop-blur-xl">
-        <div className="flex h-16 items-stretch justify-between container mx-auto px-6 max-w-6xl">
-          <div className="flex items-center">
-            <span className="max-md:hidden">{brand(true)}</span>
-            <span className="md:hidden">{brand(false)}</span>
+        <div className="flex h-16 items-stretch justify-between container mx-auto px-6 max-w-6xl max-[379px]:px-3">
+          {/* 頂欄連結全部展開需要約 1000px，所以 lg 以下用漢堡選單 */}
+          <div className="flex shrink-0 items-center">
+            {brand}
           </div>
 
-          <div className="hidden max-md:flex items-center gap-2">
+          <div className="hidden max-lg:flex items-center gap-2 max-[379px]:gap-1.5">
             {renderSelectCity(currentLocale === 'tw' ? 'w-[84px]' : 'w-[128px]', true)}
             {renderLocaleMenu()}
             <Burger opened={opened} onClick={open} aria-label={t('nav.open_menu')} />
           </div>
 
-          <div className="flex items-stretch gap-7 max-md:hidden">
+          <div className="flex items-stretch gap-5 max-lg:hidden">
             <div className="flex items-stretch">
               {routeGroups.map((group, index) => (
                 <div key={index} className="flex items-stretch">
@@ -234,7 +235,7 @@ export default function Navigator() {
               ))}
             </div>
             <div className="flex items-center gap-3">
-              {renderSelectCity('w-36 hover:border-red-500')}
+              {renderSelectCity('w-32 hover:border-red-500')}
               {renderLocaleMenu()}
             </div>
           </div>
