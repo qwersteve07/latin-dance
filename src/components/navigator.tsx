@@ -85,7 +85,8 @@ export default function Navigator() {
     )
   }
 
-  const renderSelectCity = (className: string, withLabel = false) => {
+  // compact：手機頂欄的窄版，下拉選單不跟著輸入框一樣窄，避免選項折行
+  const renderSelectCity = (className: string, compact = false) => {
     return (
       <Select
         className={className}
@@ -99,15 +100,13 @@ export default function Navigator() {
           }
         }}
         data={citiesList.map(item => ({
-          ...item, value: item.id, label: currentLocale === 'tw' ? item.name : item.id
+          ...item, value: item.id, label: currentLocale === 'tw' ? item.name : item.nameEn
         }))}
         allowDeselect={false}
         aria-label={t('nav.city')}
-        {...(withLabel ? {
-          leftSection: <span className="text-xs text-text-sub">{t('nav.city')}</span>,
-          leftSectionWidth: 52,
-          leftSectionPointerEvents: 'none' as const,
-        } : {})}
+        rightSectionWidth={28}
+        styles={{ input: { paddingLeft: 10, paddingRight: 28 }, option: { whiteSpace: 'nowrap' } }}
+        {...(compact ? { comboboxProps: { width: 'max-content', position: 'bottom-start' as const } } : {})}
       />
     )
   }
@@ -187,9 +186,6 @@ export default function Navigator() {
           body: { flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', padding: '0 20px 16px' },
         }}
       >
-        <div className="mb-3 flex">
-          {renderSelectCity('w-44', true)}
-        </div>
 
         {routeGroups.map((group, index) => (
           <div key={index}>
@@ -223,6 +219,7 @@ export default function Navigator() {
           </div>
 
           <div className="hidden max-md:flex items-center gap-2">
+            {renderSelectCity(currentLocale === 'tw' ? 'w-[84px]' : 'w-[128px]', true)}
             {renderLocaleMenu()}
             <Burger opened={opened} onClick={open} aria-label={t('nav.open_menu')} />
           </div>

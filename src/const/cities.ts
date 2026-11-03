@@ -2,14 +2,17 @@ export const citiesList = [
     {
         id: 'taipei',
         name: '台北',
+        nameEn: 'Taipei',
     },
     {
         id: 'taichung',
         name: '台中',
+        nameEn: 'Taichung',
     },
     {
         id: 'south-taiwan', // includes kaohsiung / tainan / pingtung
-        name: '南台灣'
+        name: '南台灣',
+        nameEn: 'South Taiwan',
     }
 ]
 
