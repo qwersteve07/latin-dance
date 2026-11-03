@@ -1,18 +1,21 @@
-import { Burger, Drawer, Select } from "@mantine/core";
+import { Burger, Drawer, Menu, Select } from "@mantine/core";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDisclosure } from '@mantine/hooks';
 import { citiesList } from "@/const/cities";
 import { useAppStore } from "@/store/appStore";
 import { useCookies } from "react-cookie";
-import { useState } from "react";
 import { useTranslation } from "next-i18next";
-import { useEffect } from "react";
 
 type Locale = 'tw' | 'en'
 type RouteItem = { id: string; name: string }
 
 const DONATE_URL = 'https://portaly.cc/qwersteve07/support'
+
+const LOCALE_OPTIONS: { value: Locale; label: string; lang: string }[] = [
+  { value: 'tw', label: '中文', lang: 'zh-Hant-TW' },
+  { value: 'en', label: 'English', lang: 'en' },
+]
 
 export default function Navigator() {
   const { t } = useTranslation('common')
@@ -39,15 +42,11 @@ export default function Navigator() {
   const { pathname, asPath, query } = router
   const [opened, { open, close }] = useDisclosure(false);
   const appStore = useAppStore()
-  const [cookies, setCookie] = useCookies(['NEXT_LOCALE']);
-  const [currentLocale, setCurrentLocale] = useState<Locale>('tw')
-
-  useEffect(() => {
-    setCurrentLocale(!cookies['NEXT_LOCALE'] || cookies.NEXT_LOCALE === 'tw' ? 'tw' : 'en')
-  }, [])
+  const [, setCookie] = useCookies(['NEXT_LOCALE']);
+  // 以網址上的語言為準：第一次來、還沒有 cookie 的人可能被自動導到英文版
+  const currentLocale: Locale = router.locale === 'en' ? 'en' : 'tw'
 
   const changeLocale = (locale: Locale) => {
-    setCurrentLocale(locale)
     setCookie('NEXT_LOCALE', locale, { path: '/' })
     router.push({ pathname, query }, asPath, { locale })
   }
@@ -72,15 +71,14 @@ export default function Navigator() {
     )
   }
 
-  const renderDesktopLink = (r: RouteItem, groupIndex: number) => {
+  const renderDesktopLink = (r: RouteItem) => {
     const active = isActive(r.id)
-    const weight = groupIndex === 0 ? 'text-base font-bold' : 'text-[15px] font-medium text-text-sub'
     return (
       <Link
         href={r.id}
         key={r.id}
         aria-current={active ? 'page' : undefined}
-        className={`flex items-center border-b-2 px-3.5 transition ${weight} ${active ? 'border-red-600 !text-red-700 dark:border-red-400 dark:!text-red-300' : 'border-transparent hover:text-red-500'}`}
+        className={`flex items-center border-b-2 px-3.5 text-[15px] font-medium text-text-sub transition ${active ? 'border-red-600 !text-red-700 dark:border-red-400 dark:!text-red-300' : 'border-transparent hover:text-red-500'}`}
       >
         {r.name}
       </Link>
@@ -107,6 +105,50 @@ export default function Navigator() {
       />
     )
   }
+
+  // 語言選單：地球圖示 + 目前語言，點開後列出各語言（以該語言本身書寫），讓看不懂目前語言的人也認得出來
+  const renderLocaleMenu = () => (
+    <Menu position="bottom-end" offset={6} width={150} radius="md" shadow="md">
+      <Menu.Target>
+        <button
+          type="button"
+          aria-label="Language / 語言"
+          className="flex h-9 shrink-0 items-center gap-1.5 rounded-md border border-border-main px-2.5 text-sm font-bold transition [@media(hover:hover)]:hover:border-red-500 [@media(hover:hover)]:hover:text-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
+        >
+          <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          <span lang={currentLocale === 'en' ? 'en' : 'zh-Hant-TW'}>{currentLocale === 'en' ? 'EN' : '中文'}</span>
+          <svg aria-hidden width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+      </Menu.Target>
+      <Menu.Dropdown>
+        {LOCALE_OPTIONS.map(option => {
+          const selected = currentLocale === option.value
+          return (
+            <Menu.Item
+              key={option.value}
+              lang={option.lang}
+              aria-current={selected ? 'true' : undefined}
+              onClick={() => { if (!selected) changeLocale(option.value) }}
+              rightSection={selected ? (
+                <svg aria-hidden width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              ) : null}
+              className={selected ? '!font-bold !text-red-700 dark:!text-red-300' : ''}
+            >
+              {option.label}
+            </Menu.Item>
+          )
+        })}
+      </Menu.Dropdown>
+    </Menu>
+  )
 
   const brand = (showTitle: boolean) => (
     <Link href="/" className="flex items-center gap-2.5" aria-label={t('title')}>
@@ -164,19 +206,6 @@ export default function Navigator() {
               {t('nav.donate')}
             </a>
           </div>
-          <div role="group" aria-label={t('nav.language')} className="flex h-11 overflow-hidden rounded-[10px] border border-border-main">
-            {(['tw', 'en'] as Locale[]).map(locale => (
-              <button
-                key={locale}
-                type="button"
-                aria-pressed={currentLocale === locale}
-                onClick={() => changeLocale(locale)}
-                className={`w-11 text-sm font-bold transition ${currentLocale === locale ? 'bg-text-main text-background-main' : 'text-text-sub hover:text-red-500'}`}
-              >
-                {locale.toUpperCase()}
-              </button>
-            ))}
-          </div>
         </div>
       </Drawer>
 
@@ -187,7 +216,8 @@ export default function Navigator() {
             <span className="md:hidden">{brand(false)}</span>
           </div>
 
-          <div className="hidden max-md:flex items-center">
+          <div className="hidden max-md:flex items-center gap-2">
+            {renderLocaleMenu()}
             <Burger opened={opened} onClick={open} aria-label={t('nav.open_menu')} />
           </div>
 
@@ -196,27 +226,13 @@ export default function Navigator() {
               {routeGroups.map((group, index) => (
                 <div key={index} className="flex items-stretch">
                   {index > 0 && <span aria-hidden className="mx-2.5 h-5 w-px self-center bg-border-main" />}
-                  {group.map(r => renderDesktopLink(r, index))}
+                  {group.map(renderDesktopLink)}
                 </div>
               ))}
             </div>
             <div className="flex items-center gap-3">
               {renderSelectCity('w-36 hover:border-red-500')}
-              <div
-                role="button"
-                tabIndex={0}
-                aria-label={t('nav.language')}
-                className="font-bold cursor-pointer border-border-main border flex justify-center items-center h-9 w-12 rounded-sm box-border  hover:text-red-500 hover:border-red-500 transition"
-                onClick={() => changeLocale(currentLocale === 'tw' ? 'en' : 'tw')}
-                onKeyDown={e => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    changeLocale(currentLocale === 'tw' ? 'en' : 'tw')
-                  }
-                }}
-              >
-                {currentLocale.toUpperCase()}
-              </div>
+              {renderLocaleMenu()}
             </div>
           </div>
         </div>
