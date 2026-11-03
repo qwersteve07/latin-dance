@@ -2,7 +2,7 @@ import { Burger, Drawer, Menu, Select } from "@mantine/core";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDisclosure } from '@mantine/hooks';
-import { citiesList } from "@/const/cities";
+import { citiesList, cityPages, isCityId } from "@/const/cities";
 import { useAppStore } from "@/store/appStore";
 import { useCookies } from "react-cookie";
 import { useTranslation } from "next-i18next";
@@ -91,7 +91,13 @@ export default function Navigator() {
         className={className}
         defaultValue="taipei"
         value={appStore.currentCity}
-        onChange={value => appStore.setCurrentCity(value || '')}
+        onChange={value => {
+          if (!isCityId(value)) return
+          appStore.setCurrentCity(value)
+          if (cityPages.includes(pathname)) {
+            router.replace({ pathname, query: { ...query, city: value } }, undefined, { shallow: true, scroll: false })
+          }
+        }}
         data={citiesList.map(item => ({
           ...item, value: item.id, label: currentLocale === 'tw' ? item.name : item.id
         }))}
