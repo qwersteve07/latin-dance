@@ -119,4 +119,16 @@ export const locationTaichung = [
     city: "taichung",
     url: "https://maps.app.goo.gl/qMRmQu5wgjQtXbXH7",
   },
+  {
+    id: "calligraphy-greenway-hotel",
+    name: "草悟道文旅 6F",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/RpZKFNNwN8XxqEYi9",
+  },
+  {
+    id: "pinkB",
+    name: "Pink.B Bistro & Bar",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/Hks4oiEWewQhJmhd9",
+  },
 ];
