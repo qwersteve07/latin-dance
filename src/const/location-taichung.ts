@@ -131,4 +131,10 @@ export const locationTaichung = [
     city: "taichung",
     url: "https://maps.app.goo.gl/Hks4oiEWewQhJmhd9",
   },
+  {
+    id: "IX_Bistro",
+    name: "IX Bistro",
+    city: "taichung",
+    url: "https://maps.app.goo.gl/Yk1ipVNkgXbGCKTr5",
+  },
 ];
