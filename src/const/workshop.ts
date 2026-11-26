@@ -42,15 +42,15 @@ export const workshops: Workshop[] = [
   // },
   {
     id: "ws-kkfefewfk",
-    name: "Taiwan Salsa Carnival 2026",
+    name: "Salsa Workshop with Ahtoy & Edwin",
     type: "salsa",
-    date: "2026-11-19",
+    date: "2026-12-12",
     startAt: "",
     endAt: "",
     locate: "",
     level: "open-lv",
     price: "",
     details: "",
-    url: "https://copataiwan.com/ticketOrder.jsp",
+    url: "https://www.facebook.com/events/2555852248254399?locale=zh_TW",
   },
 ];
