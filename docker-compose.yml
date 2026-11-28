@@ -1,0 +1,10 @@
+services:
+  web:
+    image: ${IMAGE:-ghcr.io/qwersteve07/latin-dance:latest}
+    container_name: latin-dance
+    restart: unless-stopped
+    ports:
+      # 與原本 pm2 (next start) 相同對外開 3000；若前面有 nginx 可改 "127.0.0.1:3000:3000"
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
